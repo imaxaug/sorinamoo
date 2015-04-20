@@ -1,0 +1,90 @@
+/* welcome */
+#welcome .container {
+    width: 800px;
+    padding: 30px 10px;
+    margin: 0 auto -50px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+#welcome .imageWrapper {
+    text-align: center;
+}
+#welcome p.bigText {
+    margin-top: 20px;
+    font-size: 25px;
+}
+#welcome p.bigText img {
+    vertical-align: middle;
+    width: 30px;
+    padding-right: 3px;
+}
+#welcome p {
+    font-size: 15px;
+}
+#welcome a.button {
+    position: relative;
+    display: inline-block;
+    margin: 50px 0;
+    width: 290px;
+    text-decoration: none;
+}
+#welcome a.button img {
+    vertical-align: -4px;
+    width: 20px;
+    padding-right: 5px;
+}
+#welcome a.button .bg {
+    left: 15px;
+    right: 15px;
+}
+#welcome a.button:last-child {
+    margin-left: 20px;
+}
+
+/* thanks */
+#thanks .container {
+    width: 800px;
+    padding: 30px 10px;
+    margin: 0 auto -50px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+#thanks .imageWrapper {
+    text-align: center;
+}
+#thanks p.bigText {
+    margin-top: 20px;
+    font-size: 25px;
+}
+#thanks p.bigText img {
+    vertical-align: middle;
+    width: 30px;
+    padding-right: 3px;
+}
+#thanks p {
+    font-size: 15px;
+}
+#thanks a.button {
+    position: relative;
+    display: inline-block;
+    margin: 50px 0;
+    width: 240px;
+    text-decoration: none;
+}
+#thanks a.button.black {
+    color: #fff;
+    font-family: Nanumgothicbold, "Nanumgothicwebbold", sans-serif;
+    font-size: 19px;
+}
+#thanks a.button img {
+    vertical-align: -4px;
+    width: 20px;
+    padding-right: 5px;
+}
+#thanks a.button .bg {
+    left: 15px;
+    right: 15px;
+}
+#thanks a.button:last-child {
+    margin-left: 30px;
+}

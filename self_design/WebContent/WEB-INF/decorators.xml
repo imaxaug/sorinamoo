@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/pages/decorators">
+    <excludes>
+        <pattern>/css/*</pattern>
+        <pattern>/scripts/*</pattern>
+        <pattern>/js/*</pattern>
+        <pattern>/images/*</pattern>
+        <pattern>/WEB-INF/template/*</pattern>
+        <pattern>/brandShop/mac/menu</pattern>
+    </excludes>
+    
+    <decorator name="shop" page="shop.jsp">
+        <pattern>/shop1/*</pattern>
+    </decorator>
+    <decorator name="category" page="category.jsp">
+        <pattern>/shop/display/*</pattern>
+        <pattern>/shop/specialsell/*</pattern>
+    </decorator>
+    <decorator name="customer" page="customer.jsp">
+        <pattern>/shop/customer/*</pattern>
+    </decorator>
+    <decorator name="mypage" page="mypage.jsp">
+        <pattern>/shop/mypage/*</pattern>
+    </decorator>
+    <decorator name="store" page="store.jsp">
+        <pattern>/shop/store/*</pattern>
+    </decorator>
+    <decorator name="popup" page="popup.jsp"/>
+    <decorator name="emptyPopup" page="emptyPopup.jsp"/>
+    <decorator name="main" page="main.jsp"/>
+    
+    <decorator name="mac" page="bs_mac.jsp">
+        <pattern>/brandShop/mac/*</pattern>
+    </decorator>
+    <decorator name="nomenu" page="bs_mac_nomenu.jsp"/>
+    <decorator name="dior" page="bs_dior.jsp">
+        <pattern>/brandShop/dior/*</pattern>
+    </decorator>
+    
+</decorators>

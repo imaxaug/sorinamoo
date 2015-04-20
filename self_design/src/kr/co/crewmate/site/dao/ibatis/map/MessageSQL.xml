@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="MessageSQL">
+    <typeAlias alias="message" type="kr.co.crewmate.site.model.common.Message" />
+
+    <delete id="deleteMessage">
+        delete MESSAGE
+    </delete>
+
+    <insert id="saveMessage" parameterClass="message">
+        insert into MESSAGE (
+            mesg_key,
+            lang_code,
+            mesg_cont
+        ) values (
+            #mesgKey#,
+            #langCode#,
+            #mesgCont#
+        )
+    </insert>
+
+    <select id="getListMessage" parameterClass="string" resultClass="message">
+        select mesg_key mesgKey,
+               lang_code langCode,
+               mesg_cont mesgCont
+          from MESSAGE
+        <isNotEmpty>
+         where lang_code = #langCode#
+        </isNotEmpty>
+        ORDER BY mesg_key, lang_code
+    </select>
+</sqlMap>

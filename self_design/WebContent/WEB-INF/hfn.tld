@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd">
+  <tlib-version>1.0</tlib-version>
+  <short-name>hfn</short-name>
+  <uri>http://www.ssgdfs.com/taglib/hfn</uri>
+  <function>
+    <description>
+      lineToBr
+    </description>
+    <name>lineToBrEscapeXml</name>
+    <function-class>kr.co.crewmate.site.web.taglib.UiFunctions</function-class>
+    <function-signature>String lineToBrEscapeXml(java.lang.String, java.lang.Boolean)</function-signature>
+    <example>
+        &lt;c:if test="${hfn:lineToBrEscapeXml(string, boolean)}">
+    </example>
+  </function>
+  <function>
+    <description>
+        cutoff
+    </description>
+    <name>cutoff</name>
+    <function-class>kr.co.crewmate.site.web.taglib.UiFunctions</function-class>
+    <function-signature>String cutoff(java.lang.String, java.lang.Integer)</function-signature>
+    <example>
+        &lt;c:if test="${hfn:cutoff("hello", 3)}"&gt;
+    </example>
+  </function>
+  <function>
+    <description>
+        progress
+    </description>
+    <name>progress</name>
+    <function-class>kr.co.crewmate.site.web.taglib.UiFunctions</function-class>
+    <function-signature>String progress(java.lang.Object, java.lang.Object)</function-signature>
+    <example>
+        &lt;c:if test="${hfn:progress("20120125", "20120125")}"&gt;
+    </example>
+  </function>
+  <function>
+    <description>
+        rate
+    </description>
+    <name>rate</name>
+    <function-class>kr.co.crewmate.site.web.taglib.UiFunctions</function-class>
+    <function-signature>String rate(java.lang.Integer, java.lang.Integer)</function-signature>
+    <example>
+        &lt;c:if test="${hfn:rate(1000, 2)}"&gt;
+    </example>
+  </function>
+  <function>
+    <description>
+        masking
+    </description>
+    <name>masking</name>
+    <function-class>kr.co.crewmate.site.web.taglib.UiFunctions</function-class>
+    <function-signature>String masking(java.lang.String, java.lang.String)</function-signature>
+    <example>
+        &lt;c:if test="${hfn:cutoff("hello", 3)}"&gt;
+    </example>
+  </function>
+  <function>
+    <description>
+        randomNum
+    </description>
+    <name>randomNum</name>
+    <function-class>kr.co.crewmate.site.web.taglib.UiFunctions</function-class>
+    <function-signature>String randomNum(java.lang.Integer, java.lang.Integer)</function-signature>
+    <example>
+        &lt;c:if test="${getRandomNum(1, 6)}"&gt;
+    </example>
+  </function>   
+  
+  
+  <function>
+    <description>
+        randomTuning
+    </description>
+    <name>randomTuning</name>
+    <function-class>kr.co.crewmate.site.web.taglib.UiFunctions</function-class>
+    <function-signature>String randomTuning(java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.String, java.lang.Integer )</function-signature>
+    <example>
+        &lt;c:if test="${getRandomTuning(1, 6, "eventId", "userId", diceResult)}"&gt;
+    </example>
+  </function>   
+  
+  <function>
+    <description>
+        probability
+    </description>
+    <name>probability</name>
+    <function-class>kr.co.crewmate.site.web.taglib.UiFunctions</function-class>
+    <function-signature>String probability(java.lang.Integer, java.lang.Integer)</function-signature>
+    <example>
+        &lt;c:if test="${getProbability(1, 6)}"&gt;
+    </example>
+  </function>  
+  <function>
+    <description>
+        diffOfDate
+    </description>
+    <name>diffOfDate</name>
+    <function-class>kr.co.crewmate.site.web.taglib.UiFunctions</function-class>
+    <function-signature>boolean diffOfDate(java.lang.String)</function-signature>
+    <example>
+        &lt;c:if test="${hfn:diffOfDate("date")}"&gt;
+    </example>
+  </function>  
+  
+</taglib>

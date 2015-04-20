@@ -1,0 +1,830 @@
+﻿@charset "utf-8";
+
+/*
+ * artShopBen
+ */
+
+/* button */
+button.btnShort {
+	width: 46px;
+}
+button.btnShort.choice {
+	color: #fff;
+}
+button.btnShort .bg {
+	left: 15px;
+	right: 15px;
+}
+button.btnShort.btnCancel {
+	color: #7c7c7c;
+}
+button.btnMiddle100 {
+	width: 100px;
+}
+button.btnMiddle100 .bg {
+	left: 15px;
+	right: 15px;
+}
+button.btnBig201 {
+	width: 201px;
+	text-align: center;
+}
+button.btnBig201 .bg {
+	left: 15px;
+	right: 15px;
+}
+button.btnBigSubmit201 {
+	width: 201px;
+	text-align: center;
+}
+button.btnBigSubmit201 .bg {
+	left: 15px;
+	right: 15px;
+}
+button.btnShort111 {
+	width: 110px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 13px;
+	color: #000;
+}
+button.btnShortBlack111 {
+	width: 110px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 13px;
+	color: #fff;
+}
+
+.paymentArea input.typeText {
+	margin: 0;
+	padding-left: 4px;
+	padding-right: 4px;
+	width: 110px;
+	height: 22px;
+	color: #444;
+	font-size: 13px;
+	line-height: 22px;
+	border: 1px solid #999;
+	background-color: #fbfbfb;
+}
+.paymentArea input.typeText.textOff,
+.paymentArea input.typeText.dateTextOff {
+	color: #999;
+}
+.paymentArea textarea {
+	padding: 4px;
+	border: 1px solid #999;
+	background-color: #fbfbfb;
+}
+
+/* table1 - 주문결제 */
+.table1 {
+	width: 100%;
+	border-bottom: 1px solid #bbbdbf;
+}
+.table1 table {
+	width: 100%;
+	table-layout: fixed;
+}
+.table1 table thead th {
+	padding: 6px 0;
+	color: #262626;
+	font-weight: normal;
+	background-color: #f7f7f7;
+	border-top: 2px solid #3b4d72;
+}
+.table1 table tbody td {
+	padding: 17px 0;
+	text-align: center;
+	color: #000;
+	font-size: 13px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	vertical-align: middle;
+}
+.table1 table tbody tr:first-child td {
+	border-top: 1px solid #bbbdbf;
+}
+.table1 table tbody td img {
+	vertical-align: middle;
+	margin-bottom: 1px;
+}
+.table1 table tbody td .num {
+	font-family: tahoma, sans-serif;
+}
+.table1 table tbody td.pdtName {
+	text-align: left;
+	padding-left: 20px;
+}
+.table1 table tbody td.pdtName .pdtNameWrap {
+	display: table;
+}
+.table1 table tbody td.pdtName .pic {
+	float: left;
+	margin-right: 5px;
+	width: 130px;
+}
+.table1 table tbody td.pdtName .pic img {
+	width: 58px;
+	height: 58px;
+	vertical-align: middle;
+	border: 1px solid #bbbdbf;
+}
+.table1 table tbody td.pdtName .txt {
+	display: table-cell;
+	vertical-align: middle;
+}
+.table1 table tbody td.pdtName .txt a {
+	color: #000;
+}
+.table1 table tbody td.pdtName .txt .category {
+	font-size: 11px;
+}
+.table1 table tbody td.price {
+	line-height: 16px;
+}
+.table1 table tbody td.price .pdtCost {
+	text-decoration: line-through;
+}
+.table1 table tbody td.price .percent,
+.table1 table tbody td.price .lastPrice {
+	color: #f22c48;
+}
+.table1 table tbody td.price .lastPrice img {
+	position: absolute;
+	margin-top: 3px;
+	margin-left: 3px;
+}
+.table1 table tbody td.total .num {
+	font-weight: bold;
+}
+
+/* table2 주문 고객 정보 */
+.table2 {
+	border-bottom: 1px solid #bbbdbf;
+}
+.table2 table {
+	width: 100%;
+	table-layout: fixed;
+}
+.table2 th,
+.table2 td {
+	padding: 14px 0;
+	background-color: #f7f7f7;
+}
+.table2 th {
+	padding-left: 29px;
+	color: #4d4d4d;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	text-align: left;
+	border-left: 1px solid #bbbdbf;
+}
+.table2 th:first-child {
+	border-left: 0 none;
+}
+.table2 td {
+	color: #999;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+}
+.table2 td .typeText {
+	margin-right: 5px;
+}
+
+/* table3 - 배송지 정보 */
+.table3 {
+	padding-bottom: 25px;
+	border-bottom: 1px solid #bbbdbf;
+}
+.table3 table {
+	width: 100%;
+	table-layout: fixed;
+}
+.table3 table th,
+.table3 table td {
+	padding: 20px 0 0;
+}
+.table3 table th {
+	padding-left: 28px;
+	width: 122px;
+	color: #4d4d4d;
+	font-size: 15px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	text-align: left;
+	vertical-align: top;
+}
+.table3 table td {
+	color: #999;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+}
+.table3 table td label {
+	color: #000;
+	font-size: 13px;
+}
+.table3 table td .deliveryPoint {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.table3 table td .deliveryPoint li {
+	display: inline-block;
+	margin-right: 38px;
+	font-size: 13px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	color: #000;
+}
+.table3 table td .deliveryPoint li input {
+	margin-bottom: 2px;
+}
+
+/* table4 */
+.table4 {}
+.table4 table {
+	width: 100%;
+	table-layout: fixed;
+}
+.table4 th,
+.table4 td {
+	padding: 14px 0;
+	border-bottom: 1px solid #bbbdbf;
+}
+.table4 th {
+	padding-left: 39px;
+	color: #4d4d4d;
+	text-align: left;
+	font-size: 13px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+}
+.table4 td {
+	padding-left: 39px;
+	color: #4d4d4d;
+	font-size: 13px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	background-color: #f7f7f7;
+}
+
+/* paymentArea */
+.paymentArea {}
+.paymentArea .head {
+	position: relative;
+	margin-bottom: 50px;
+}
+.paymentArea .head h1 {
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font-size: 19px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+}
+.paymentArea .head ol.process {
+	margin: 0;
+	padding: 2px 0 0 20px;
+	list-style: none;
+	height: 30px;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.paymentArea .head .process li {
+	float: left;
+	margin-left: -6px;
+	width: 130px;
+	height: 30px;
+	color: #fff;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	line-height: 30px;
+	text-align: center;
+	background: url("../img/artshop/process_bg1.png") no-repeat;
+}
+.paymentArea .head .process li a {
+	color: #fff;
+	text-decoration: none;
+}
+.paymentArea .head .process li.current {
+	background-image: url("../img/artshop/process_bg2.png");
+}
+.paymentArea .body {}
+.paymentArea .delivery {
+	margin-top: 30px;
+}
+.paymentArea .delivery table {
+	width: 100%;
+	table-layout: fixed;
+}
+.paymentArea .delivery table th {
+	padding: 10px 0 0 59px;
+	color: #000;
+	vertical-align: top;
+	text-align: left;
+	font-size: 14px;
+	font-weight: normal;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+}
+.paymentArea .delivery table td {
+	padding: 10px 0 0;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	vertical-align: top;
+}
+.paymentArea .delivery table tr:first-child th,
+.paymentArea .delivery table tr:first-child td {
+	padding-top: 0;
+}
+.paymentArea .delivery table td ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.paymentArea .delivery table td ul li {
+	margin-bottom: 12px;
+}
+.paymentArea .delivery table td ul li input {
+	vertical-align: middle;
+	margin-bottom: 3px;
+}
+.paymentArea .delivery table td img {
+	vertical-align: middle;
+	margin-bottom: 2px;
+}
+.paymentArea .delivery table td label {
+	display: inline-block;
+	position: relative;
+}
+.paymentArea .delivery table td input.typeText {
+	width: 110px;
+}
+.paymentArea .delivery table td .map {
+	position: relative;
+}
+.paymentArea .delivery table td .map .mapImg {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.paymentArea .delivery table td .map .address {
+	padding-left: 289px;
+	font-size: 13px;
+	color: #999;
+}
+.paymentArea .delivery table td .map .address .shop {
+	margin-bottom: 9px;
+	color: #262626;
+}
+.paymentArea .delivery table td .map .address .info {
+	margin-bottom: 8px;
+}
+.paymentArea .orderInfo {
+	position: relative;
+	margin-top: 30px;
+	padding: 24px 10px 20px 40px;
+	background-color: #f7f7f7;
+	border-top: 1px solid #bbbdbf;
+	border-bottom: 1px solid #bbbdbf;
+}
+.paymentArea .orderInfo table {
+	width: 545px;
+	table-layout: fixed;
+}
+.paymentArea .orderInfo table th {
+	padding: 0;
+	color: #4d4d4d;
+	font-size: 15px;
+	text-align: left;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+}
+.paymentArea .orderInfo table td {
+	padding: 0;
+	font-size: 16px;
+	color: #262626;
+}
+.paymentArea .orderInfo table td .number {
+	font-family: tahoma, sans-serif;
+	font-weight: bold;
+	font-size: 24px;
+}
+.paymentArea .orderInfo table td.number {
+	font-family: tahoma, sans-serif;
+	font-weight: bold;
+	font-size: 24px;
+}
+.paymentArea .orderInfo .totalPrice {
+	position: absolute;
+	top: 50%;
+	right: 25px;
+	margin-top: -25px;
+}
+.paymentArea .orderInfo .totalPrice .headText {
+	display: inline-block;
+	margin-right: 25px;
+	color: #4d4d4d;
+	font-size: 26px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+}
+.paymentArea .orderInfo .totalPrice .cont {
+	display: inline-block;
+	font-size: 18px;
+	color: #262626;
+}
+.paymentArea .orderInfo .totalPrice .cont .number {
+	font-size: 28px;
+	font-weight: bold;
+	font-family: tahoma, sans-serif;
+}
+.paymentArea h2.paymentTitle {
+	margin: 65px 0 0;
+	padding: 0 0 10px;
+	font-size: 19px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	border-bottom: 2px solid #3b4d72;
+}
+.paymentArea .discountPayment {
+	position: relative;
+	border-bottom: 1px solid #bbbdbf;
+}
+.paymentArea .discountPayment table.payInfo {
+	width: 579px;
+	table-layout: fixed;
+}
+.paymentArea .discountPayment .payInfo th,
+.paymentArea .discountPayment .payInfo td {
+	border-top: 1px solid #bbbdbf;
+}
+.paymentArea .discountPayment .payInfo tr:first-child th,
+.paymentArea .discountPayment .payInfo tr:first-child td {
+	border-top: 0 none;
+}
+.paymentArea .discountPayment .payInfo th {
+	padding: 5px 0 5px 28px;
+	width: 100px;
+	font-size: 15px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	color: #4d4d4d;
+	text-align: left;
+}
+.paymentArea .discountPayment .payInfo td {
+	padding: 16px 0;
+	color: #4d4d4d;
+	font-size: 13px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	border-right: 1px solid #bbbbdf;
+}
+.paymentArea .discountPayment .payInfo td .point {
+	font-size: 15px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+}
+.paymentArea .discountPayment .payInfo td .num {
+	font-family: tahoma, sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+}
+.paymentArea .discountPayment .payInfo td .typeText {
+	padding-left: 5px;
+	padding-right: 5px;
+	vertical-align: middle;
+	border: 1px solid #999;
+}
+.paymentArea .discountPayment .payInfo td .btnShort {
+	margin: 0 10px;
+}
+.paymentArea .discountPayment .payInfo td.helpText {
+	padding: 11px 19px;
+	font-size: 12px;
+	line-height: 19px;
+	color: #999;
+}
+.paymentArea .discountPayment .totalPay {
+	position: absolute;
+	top: 0;
+	left: 580px;
+	width: 410px;
+	height: 197px;
+}
+.paymentArea .discountPayment .totalPay table {
+	width: 295px;
+	margin: 0 auto;
+	table-layout: fixed;
+}
+.paymentArea .discountPayment .totalPay table th,
+.paymentArea .discountPayment .totalPay table td {
+	font-size: 13px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	padding: 12px 0 0;
+}
+.paymentArea .discountPayment .totalPay table th {
+	font-size: 13px;
+	text-align: left;
+	color: #4d4d4d;
+}
+.paymentArea .discountPayment .totalPay table td {
+	text-align: right;
+	color: #000;
+}
+.paymentArea .discountPayment .totalPay table tr:first-child th,
+.paymentArea .discountPayment .totalPay table tr:first-child td {
+	padding-top: 27px;
+}
+.paymentArea .discountPayment .totalPay table td .num {
+	font-family: tahoma, sans-serif;
+	font-weight: bold;
+}
+.paymentArea .discountPayment .totalPay table .payPrice th,
+.paymentArea .discountPayment .totalPay table .payPrice td {
+	padding-top: 30px;
+}
+.paymentArea .discountPayment .totalPay table .payPrice th {
+	font-size: 20px;
+}
+.paymentArea .discountPayment .totalPay table .payPrice td {
+	font-size: 18px;
+}
+.paymentArea .discountPayment .totalPay table .payPrice td .num {
+	font-size: 28px;
+}
+.paymentArea .payInputInfo {}
+.paymentArea .payInputInfo h3 {
+	margin: 18px 0 0 29px;
+	padding: 0;
+	color: #4d4d4d;
+	font-size: 15px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+}
+.paymentArea .payInputInfo .agreement {
+	margin: 7px 23px 0;
+	padding: 12px;
+	height: 154px;
+	overflow: auto;
+	border: 1px solid #999;
+}
+.paymentArea .payInputInfo .agreementControl {
+	margin: 14px 23px 0;
+	color: #262626;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	text-align: right;
+}
+.paymentArea .payInputInfo .agreementControl label {
+	font-size: 13px;
+	margin-left: 15px;
+}
+.paymentArea .payInputInfo .agreementControl label input {
+	vertical-align: middle;
+	margin-bottom: 2px;
+}
+.paymentArea .tax_invoice > table {
+	height: 100%;
+}
+.paymentArea .tax_invoice > table td {
+	background-color: #f7f7f7;
+}
+.paymentArea .tax_invoice > table table.requestTax tr:last-child td {
+	padding-bottom: 25px;
+}
+.paymentArea .paySelect {
+	margin-top: 35px;
+}
+.paymentArea .paySelect > table {
+	width: 100%;
+	table-layout: fixed;
+}
+.paymentArea .paySelect > table th,
+.paymentArea .paySelect > table td {
+	padding: 18px 0 15px;
+	border-top: 1px solid #bbbdbf;
+	border-bottom: 1px solid #bbbdbf;
+}
+.paymentArea .paySelect > table th {
+	width: 150px;
+	color: #4d4d4d;
+	font-size: 15px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+}
+.paymentArea .paySelect > table td {
+	padding-left: 38px;
+	font-size: 13px;
+	background-color: #f7f7f7;
+}
+.paymentArea .paySelect > table td .tabHeading {
+	margin-right: 38px;
+}
+.paymentArea .paySelect > table td input {
+	vertical-align: middle;
+	margin-bottom: 2px;
+}
+.paymentArea .paySelect .container {
+	border-bottom: 1px solid #bbbdbf;
+}
+.paymentArea .paySelect .bankbook {
+	padding: 6px 20px 20px 190px;
+}
+.paymentArea .paySelect .bankbook table {
+	width: 100%;
+	table-layout: fixed;
+}
+.paymentArea .paySelect .bankbook table th,
+.paymentArea .paySelect .bankbook table td {
+	padding: 17px 0 0;
+}
+.paymentArea .paySelect .bankbook table th {
+	width: 80px;
+	text-align: left;
+	color: #4d4d4d;
+	font-size: 14px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+}
+.paymentArea .paySelect .bankbook table td {
+	color: #999;
+	font-size: 12px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+}
+.paymentArea .paySelect .bankbook table td input {
+	margin-right: 10px;
+}
+.paymentArea .paySelect .offline_cash {
+	padding: 6px 20px 20px 190px;
+}
+.paymentArea .paySelect .offline_cash table {
+	width: 100%;
+	table-layout: fixed;
+}
+.paymentArea .paySelect .offline_cash table th,
+.paymentArea .paySelect .offline_cash table td {
+	padding: 17px 0 0;
+}
+.paymentArea .paySelect .offline_cash table th {
+	width: 80px;
+	text-align: left;
+	color: #4d4d4d;
+	font-size: 14px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+}
+.paymentArea .paySelect .offline_cash table td {
+	color: #999;
+	font-size: 12px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+}
+.paymentArea .paySelect .offline_cash table td input {
+	margin-right: 10px;
+}
+.paymentArea .paySelect .card img.inicis {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+}
+.paymentArea .paySelect .card {
+    position: relative;
+	padding: 25px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	color: #262626;
+	line-height: 23px;
+}
+.paymentArea .paySelect .card a {
+	color: #618de1;
+}
+.paymentArea .paySelect .realTime {
+	padding: 25px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	color: #262626;
+	line-height: 23px;
+}
+.paymentArea .paySelect .point {
+	padding: 20px 0 20px 190px;
+}
+.paymentArea .paySelect .point p {
+	color: #999;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+}
+.paymentArea .paySelect .point p span {
+	color: #4d4d4d;
+	font-size: 14px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	margin-right: 10px;
+}
+.paymentArea .paySelect .point div {
+	font-size: 14px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+}
+.paymentArea .paySelect .point div img {
+	vertical-align: middle;
+	margin-bottom: 2px;
+}
+.paymentArea .paySelect .point div input {
+	margin-left: 20px;
+}
+.paymentArea .paySelect .point div span {
+	font-family: Nanumgothic, Nanumgothicweb, sans-serif;
+	font-size: 12px;
+	color: #999;
+	margin-left: 10px;
+}
+.paymentArea .buttonArea {
+	margin-top: 70px;
+	text-align: center;
+}
+.paymentArea .buttonArea a.button {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 200px;
+    margin: 0 22px;
+    color: #fff;
+}
+.paymentArea .buttonArea a.button.btnBig201 {
+    font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+    color: #262626;
+}
+.paymentArea .buttonArea a.button .bg {
+    left: 15px;
+    right: 15px;
+}
+.paymentArea .buttonArea a.button:hover {
+    text-decoration: none;
+}
+.paymentArea .finish {
+	border-bottom: 1px solid #bbbdbf;
+}
+.paymentArea .finish p {
+	margin: 0;
+	padding: 0;
+	height: 96px;
+	color: #3f4452;
+	text-align: center;
+	font-size: 24px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	line-height: 96px;
+	border-top: 2px solid #3b4d72;
+	border-bottom: 2px solid #3b4d72;
+}
+.paymentArea .finish table {
+	width: 100%;
+	table-layout: fixed;
+}
+.paymentArea .finish table th,
+.paymentArea .finish table td {
+	padding: 20px 0;
+}
+.paymentArea .finish table th {
+	width: 150px;
+	color: #4d4d4d;
+	font-size: 15px;
+	vertical-align: top;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+}
+.paymentArea .finish table td {
+	padding-left: 40px;
+	color: #4d4d4d;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	background-color: #f7f7f7;
+}
+.paymentArea .finish table td ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.paymentArea .finish table td ul li {
+	margin-top: 24px;
+	font-size: 13px;
+}
+.paymentArea .finish table td ul li:first-child {
+	margin-top: 0;
+}
+.paymentArea .finish table td ul li .liHead {
+	display: inline-block;
+	width: 130px;
+	font-size: 14px;
+	font-family: Nanumgothic, Nanumgothicweb, sans-serif;
+}
+.paymentArea .finish table td ul li .num {
+	font-family: tahoma, sans-serif;
+	font-weight: bold;
+}
+.paymentArea .deliverySelect {}
+.paymentArea .deliverySelect h3 {
+	margin: 0;
+	padding: 0 0 0 42px;
+	height: 58px;
+	color: #4d4d4d;
+	font-size: 13px;
+	line-height: 58px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	background-color: #f7f7f7;
+}
+.paymentArea .deliverySelect .cont {
+	margin-top: 30px;
+	padding-left: 44px;
+}
+.paymentArea .deliverySelect .cont:after {
+	display: block;
+	content: '';
+	clear: both;
+}
+.paymentArea .deliverySelect .cont .text {
+	float: left;
+	width: 302px;
+	color: #4d4d50;
+	font-size: 13px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	line-height: 16px;
+}
+.paymentArea .deliverySelect .cont .map {
+	float: left;
+}
+
+
+
+

@@ -1,0 +1,635 @@
+﻿@charset "utf-8";
+
+/*
+ * layout
+ */
+
+/* #marketpress */
+#marketpress {}
+
+ul, li {
+    list-style: none !important;
+    list-style-image: url(data:0) !important;
+}
+/* #header */
+#header {
+    position: relative;
+    height: 100px;
+    z-index: 10;
+    min-width: 990px;
+}
+#header .section {
+    position: relative;
+    width: 990px;
+    margin: 0 auto;
+}
+#header .headerBg,
+#header .headerBg > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+#header .headerBg {
+    z-index: -1;
+}
+#header .headerBg .top {
+    bottom: auto;
+    height: 30px;
+    background-color: #000;
+}
+#header .headerBg .bottom {
+    top: 30px;
+    bottom: auto;
+    height: 70px;
+    background-color: #262626;
+}
+
+#logo {
+    position: absolute;
+    top: 46px;
+    left: 0;
+    width: 190px;
+    height: 36px;
+    margin: 0;
+    padding: 0;
+}
+#logo a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-indent: -9999px;
+    /* background: url("../img/share/logo.gif") no-repeat; */
+}
+
+#headMenu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#headMenu li {
+    float: left;
+    padding-left: 15px;
+    line-height: 30px;
+    font-family: NanumGothicWebBold, sans-serif;
+}
+#headMenu li a {
+    color: #999;
+    text-decoration: none;
+}
+#headMenu li.designer a {
+    color: #d2263e;
+}
+#menu {
+    position: absolute;
+    top: 30px;
+    right: 0;
+}
+#menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#menu > ul:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+#menu > ul > li {
+    position: relative;
+    float: left;
+    height: 70px;
+}
+#menu > ul > li > a {
+    display: block;
+    padding: 0 10px;
+    height: 70px;
+    line-height: 70px;
+    color: #fff;
+    font-size: 20px;
+    font-family: NanumGothicWebBold, sans-serif;
+    text-align: center;
+    text-decoration: none;
+}
+#menu > ul > li > a:hover,
+#menu > ul > li > a:active {
+    background-color: #f22c48;
+}
+#menu > ul > li.myPdtMake {
+    width: 170px;
+}
+#menu > ul > li.artshop,
+#menu > ul > li.photoGallery {
+    width: 140px;
+}
+#menu > ul > li.theme {
+    width: 130px;
+}
+#menu > ul > li.cam {
+    display: none;
+}
+/* remove me */
+#menu > ul > li.artshop,
+#menu > ul > li:nth-child(5) {
+    display: none;
+}
+#menu > ul > li.over > a,
+#menu > ul > li.selected > a {
+    background-color: #f22c48;
+}
+#menu .menuList {
+    display: none;
+}
+#menu .menuList li {
+    font-size: 12px;
+    font-family: appleGothic, '돋움', Dotum, sans-serif;
+}
+#menu .menuList .list .big {
+    font-size: 15px;
+    /*font-family: NanumGothicWebBold, sans-serif;*/
+    font-family: Nanumgothic, Nanumgothicweb, sans-serif;
+    font-weight: bold;
+}
+#menu .menuList .list .big a {
+    color: #262626;
+    text-decoration: none;
+}
+#menu .menuList .list ul li {
+    margin-top: 5px;
+}
+#menu .menuList .list ul li:first-child {
+    margin-top: 0;
+}
+#menu .menuList .list ul li a {
+    display: block;
+    padding: 2px 5px 0 16px;
+    color: #262626;
+    text-decoration: none;
+}
+#menu .menuList .list ul li.selected a,
+#menu .menuList .list ul li a:hover,
+#menu .menuList .list ul li a:active {
+    color: #fff;
+    background: #262626 url("../img/share/menu_list_icon1.gif") no-repeat 7px 55%;
+}
+#menu .myPdtMake .menuList {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    /*width: 419px;*/
+    width: 168px;
+    padding: 14px 0;
+    border: 1px solid #b3b3b3;
+    border-top: 0 none;
+    background-color: #fff;
+    z-index: 1;
+}
+#menu .myPdtMake .menuList .menuStyle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+#menu .myPdtMake .menuList .menuStyle .arrow {
+    position: absolute;
+    top: -8px;
+    left: 78px;
+    width: 15px;
+    height: 8px;
+    background: url("../img/share/menu_list_arrow.gif") no-repeat;
+}
+#menu .myPdtMake .menuList .list {
+    float: left;
+    /*width: 139px;*/
+    /*min-height: 300px;*/
+    width: 100%;
+    border-left: 1px solid #b3b3b3;
+}
+#menu .myPdtMake .menuList .list:first-child {
+    border-left: 0 none;
+}
+#menu .myPdtMake .menuList .list ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+#menu .artshop .menuList {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 280px;
+    padding: 14px 0;
+    border: 1px solid #b3b3b3;
+    border-top: 0 none;
+    background-color: #fff;
+    z-index: 1;
+}
+#menu .artshop .menuList .menuStyle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+#menu .artshop .menuList .menuStyle .arrow {
+    position: absolute;
+    top: -8px;
+    left: 60px;
+    width: 15px;
+    height: 8px;
+    background: url("../img/share/menu_list_arrow.gif") no-repeat;
+}
+#menu .artshop .menuList .list {
+    float: left;
+    width: 139px;
+    min-height: 300px;
+    border-left: 1px solid #b3b3b3;
+}
+#menu .artshop .menuList .list:first-child {
+    border-left: 0 none;
+}
+#menu .artshop .menuList .list ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#menu .artshop .menuList .list ul li {
+    letter-spacing: -1px;
+}
+#menu .artshop .menuList .list ul.culture li a {
+    font-size: 15px;
+    font-family: Nanumgothic, Nanumgothicweb, sans-serif;
+    font-weight: bold;
+}
+#menu .artshop .menuList .list ul.culture li.sale a {
+    color: red;
+}
+
+#menu .photoGallery .menuList {
+    position: absolute;
+    top: 70px;
+    left: -1px;
+    width: 140px;
+    padding: 14px 0;
+    border: 1px solid #b3b3b3;
+    border-top: 0 none;
+    background-color: #fff;
+    z-index: 1;
+}
+#menu .photoGallery .menuList .menuStyle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+#menu .photoGallery .menuList .menuStyle .arrow {
+    position: absolute;
+    top: -8px;
+    left: 60px;
+    width: 15px;
+    height: 8px;
+    background: url("../img/share/menu_list_arrow.gif") no-repeat;
+}
+#menu .photoGallery .menuList .list {
+    float: left;
+    width: 139px;
+    border-left: 1px solid #b3b3b3;
+}
+#menu .photoGallery .menuList .list:first-child {
+    border-left: 0 none;
+}
+#menu .photoGallery .menuList .list ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#menu .photoGallery .menuList .list ul li {
+    letter-spacing: -1px;
+}
+#menu .photoGallery .menuList .list ul.galleryList li a {
+    font-size: 15px;
+    font-family: Nanumgothic, Nanumgothicweb, sans-serif;
+    font-weight: bold;
+}
+
+
+#notify {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 30px;
+    overflow: hidden;
+}
+#notify li {
+    line-height: 30px;
+}
+#notify li a {
+    color: #fff;
+}
+
+
+/* #body */
+#body {
+    position: relative;
+    margin: 40px 0 90px;
+    min-height: 650px;
+}
+#body .section {
+    width: 990px;
+    margin: 0 auto;
+    min-height: 300px;
+}
+#body .section:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+#body .section #leftCol {
+    float: left;
+    width: 160px;
+}
+#body .section #contentCol {
+    margin: 0;
+    float: right;
+}
+#body .section #content {
+    margin: 0;
+    float: right;
+}
+#body.withoutNav {
+    margin: 0;
+}
+#content {
+    width: 800px;
+    margin: 0 auto;
+}
+
+/* #subArea */
+#subArea {}
+#subArea ul.link {
+    margin: 0;
+    padding: 3px 10px;
+    list-style: none;
+}
+#subArea ul.link li {
+    padding: 3px 0;
+    font-family: NanumGothicWebBold, sans-serif;
+    font-size: 13px;
+}
+#subArea ul.link li.sale a {
+    color: red;
+}
+#subArea ul.link li a {
+    color: #363636;
+    text-decoration: none;
+}
+#subArea ul.link2 {
+    margin: 0 0 7px;
+    padding: 7px;
+    list-style: none;
+}
+#subArea ul.link2 li {
+    padding: 2px 0;
+    font-size: 13px;
+    font-family: NanumGothicWebBold, sans-serif;
+}
+#subArea ul.link2 li a {
+    color: #fff;
+    text-decoration: none;
+}
+#subArea ul.submenu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#subArea .submenu .depth1 {
+    font-size: 13px;
+    margin-top: 7px;
+}
+#subArea .specialMark {
+    margin-left: 7px;
+    vertical-align: -3px;
+    /*vertical-align: middle;*/
+    width: 15px;
+}
+#subArea .submenu .depth1:first-child {
+    margin-top: 0;
+}
+#subArea .submenu .depth1 a {
+    text-decoration: none;
+}
+#subArea .submenu .depth1 .title.design a {
+    background: none;
+}
+#subArea .submenu .depth1 .title a {
+    display: block;
+    padding: 9px 5px 8px 8px;
+    font-family: NanumGothicWebBold, sans-serif;
+    font-size: 13px;
+    color: #363636;
+    cursor: pointer;
+    background: url("../img/share/redArrow_closed.png") no-repeat 94% 50%;
+    border-bottom: 1px solid #dedede;
+}
+#subArea .submenu .depth1.open .title a {
+    background: url("../img/share/redArrow_opened.png") no-repeat 94% 50%;
+}
+#subArea .submenu .depth1.nomark .title a {
+    background: none;
+}
+#subArea .submenu .depth1.open > ul {
+    display: block !important;
+}
+#subArea .submenu .depth1.noDepth .title a {
+    background-image: none;
+}
+#subArea .submenu .depth1.sale .title a {
+    color: #f22c48;
+}
+#subArea .submenu .depth1 ul {
+    margin: 15px 0;
+    padding: 0;
+    list-style: none;
+}
+#subArea .submenu .depth1 li {
+    padding-left: 8px;
+    margin: 5px 0;
+}
+#subArea .submenu .depth1.salesDesign .title a {
+    background: none;
+    border-bottom: none !important;
+}
+#subArea .submenu .depth1 li:first-child {
+    margin-top: 7px;
+}
+#subArea .submenu .depth1 li a {
+    font-size: 12px;
+    color: #7c7c7c;
+}
+#subArea .submenu .depth1 li.current a {
+    font-weight: bold;
+    color: #363636;
+}
+#subArea .submenu .depth1 li .count {
+    color: #618de1;
+}
+#subArea .submenu .depth1 ul.colorList {
+    overflow: hidden;
+    padding-left: 11px;
+}
+#subArea .submenu .depth1 ul.colorList li {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+#subArea .submenu .depth1 ul.colorList li .color {
+    margin-right: 9px;
+    margin-bottom: 4px;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+#subArea .submenu .depth1 ul.colorList li .color span {
+    display: block;
+    width: 21px;
+    height: 14px;
+    border: 2px solid #fff;
+}
+#subArea .submenu .depth1 ul.colorList .color.white span {
+    width: 23px;
+    height: 16px;
+    border: 1px solid #ddd;
+}
+#subArea .submenu .depth1 ul.colorList li:hover .color,
+#subArea .submenu .depth1 ul.colorList li.current .color {
+    border: 1px solid #adaeb0;
+}
+
+/* #footer */
+#footer {
+    position: relative;
+    margin-top: 90px;
+    min-width: 990px;
+    min-height: 20px;
+}
+#footer .section {
+    width: 990px;
+    margin: 0 auto;
+}
+#footerList {
+    min-height: 219px;
+    border-top: 1px solid #929292;
+    border-bottom: 1px solid #232323;
+    background-color: #262626;
+}
+#footerList:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+#footerList .footListSection {
+    float: left;
+    width: 200px;
+    padding-top: 18px;
+}
+#footerList .footListSection.designSell {
+    width: 184px;
+}
+#footerList .title {
+    color: #fcee21;
+    margin-bottom: 16px;
+    margin-left: 2px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+#footerList .title.design {
+    margin-left: 1px;
+}
+/*#footerList .title a {*/
+/*color: #fcee21;*/
+/*text-decoration: none;*/
+/*}*/
+#footerList ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#footerList ul li {
+    margin-bottom: 7px;
+    padding-left: 2px;
+    color: #f2f2f2;
+    text-align: center;
+}
+#footerList ul li a {
+    color: #f2f2f2;
+}
+#footerList ul li.btnSns {
+    margin-top: 10px;
+    padding: 0;
+    word-spacing: 2px;
+}
+#footerList ul li.tel {
+    color: #fcee21;
+    font-size: 13px;
+    font-weight: bold;
+}
+#footerList ul li.helpEmail a {
+    color: #54bff2;
+}
+#footerList ul.offlineShop .shop {
+    margin-bottom: 5px;
+    display: block;
+    color: #54bff2;
+    font-size: 13px;
+    font-weight: bold;
+}
+#footerList ul .head {
+    margin-bottom: 5px;
+    display: block;
+    color: #999;
+    font-size: 13px;
+    font-weight: bold;
+}
+#footerList ul .head a {
+    color: #999;
+}
+#footerInfo {
+    min-height: 79px;
+    color: #999;
+    background-color: #1a1a1a;
+}
+#footerInfo .section {
+    position: relative;
+}
+#footerInfo .inicis {
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+#footerInfo .footerInfo1 {
+    padding-top: 22px;
+}
+#footerInfo .footLogo {
+    color: #ccc;
+}
+#footerInfo a {
+    color: #999;
+}
+#footerInfo address {
+    display: inline-block;
+    font-style: normal;
+}

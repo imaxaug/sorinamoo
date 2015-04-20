@@ -1,0 +1,69 @@
+#if ($kind == "01")
+    #if ($normalYn)
+        #if ($fixYn)
+            <div class="coupon_box">
+                <p class="price_coupon_b">
+                    #foreach ($s in $amtArray)
+                        <img src="$imageServer/nexti/images/abcmart/event/coupon_b${s}.gif" alt="${s}" />
+                    #end
+                </p>
+                <img src="$imageServer/nexti/images/abcmart/event/img_couponbg_b.gif" alt="할인쿠폰" />
+            </div>
+        #else
+            <div class="coupon_box">
+                <p class="price_coupon">
+                    <img src="$imageServer/nexti/images/abcmart/event/coupon_w.gif" alt="\" />
+                    #foreach ($s in $amtArray)
+                        #if ($s == ",")
+                            <img src="$imageServer/nexti/images/abcmart/event/coupon_d.gif" alt="," />
+                        #else
+                            <img src="$imageServer/nexti/images/abcmart/event/coupon_${s}.gif" alt="${s}" />
+                        #end
+                    #end
+                </p>
+                <img src="$imageServer/nexti/images/abcmart/event/img_couponbg.gif" alt="할인쿠폰" />
+            </div>
+        #end
+    #else
+        #if ($fixYn)
+            <div class="coupon_box">
+                <p class="price_couponplus_p">
+                    #foreach ($s in $amtArray)
+                        <img src="$imageServer/nexti/images/abcmart/event/couponplus_${s}.gif" alt="${s}" />
+                    #end
+                </p>
+                <img src="$imageServer/nexti/images/abcmart/event/img_couponplusbg_p.gif" alt="plus 할인쿠폰" />
+            </div>
+        #else
+            <div class="coupon_box">
+                <p class="price_couponplus">
+                    <img src="$imageServer/nexti/images/abcmart/event/couponplus_w.gif" alt="\" />
+                    #foreach ($s in $amtArray)
+                        #if ($s == ",")
+                            <img src="$imageServer/nexti/images/abcmart/event/couponplus_d.gif" alt="," />
+                        #else
+                            <img src="$imageServer/nexti/images/abcmart/event/couponplus_${s}.gif" alt="${s}" />
+                        #end
+                    #end
+                </p>
+                <img src="$imageServer/nexti/images/abcmart/event/img_couponplusbg.gif" alt="plus 할인쿠폰" />
+           </div>
+        #end
+    #end
+#elseif ($kind == "02")
+    <div class="coupon_box"> 
+        <img src="$imageServer/nexti/images/abcmart/event/img_coupon_03.gif" alt="더블포인트" />
+    </div>
+#elseif ($kind == "03")
+    <div class="coupon_box"> 
+        <img src="$imageServer/nexti/images/abcmart/event/img_coupon_04.gif" alt="무료반품" />
+    </div>
+#elseif ($kind == "04")
+    <div class="coupon_box"> 
+        <img src="$imageServer/nexti/images/abcmart/event/img_coupon_02.gif" alt="무료배송" />
+    </div>
+#elseif ($kind == "05")
+    <div class="coupon_box"> 
+        <img src="$imageServer/nexti/images/abcmart/event/img_coupon_05.gif" alt="무료교환" />
+    </div>
+#end

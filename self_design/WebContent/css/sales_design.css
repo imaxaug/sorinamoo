@@ -1,0 +1,2591 @@
+﻿@charset "utf-8";
+
+/*
+ * sales_design.css
+ */
+
+/* 6-1 메인페이지 */
+#mainImage {
+	margin-top: -40px;
+	width: 100%;
+	background-color: #000;
+}
+.mainImageInner {
+	position: relative;
+	width: 990px;
+	height: 495px;
+	margin: 0 auto;
+	color: white;
+	background: url('../img/share/6-1_image2.png') no-repeat;
+}
+.mainImageInner > * {
+	position: absolute;
+	left: 600px;
+}
+.mainImageInner h2 {
+	top: 80px;
+	margin: 0;
+	font-family: NanumGothicBold, "NanumGothicWebBold", sans-serif;
+	font-weight: normal;
+	font-size: 36px;
+	line-height: 44px;
+}
+.mainImageInner p {
+	top: 210px;
+	font-size: 16px;
+}
+.mainImageInner a.button {
+	bottom: 63px;
+	width: 360px;
+	height: 62px;
+	font-family: NanumGothic, "Nanumgothicweb", sans-serif;
+	font-weight: bold;
+	font-size: 28px;
+	text-align: center;
+	line-height: 62px;
+	color: #262626;
+	z-index: 1;
+}
+.mainImageInner a.button:hover {
+	text-decoration: none;
+}
+.mainImageInner a.button .bg {
+	left: 15px;
+	right: 15px;
+	background: url("../img/share/62px_btn_center.png") repeat-x;
+}
+.mainImageInner a.button .bg .left {
+	background: url("../img/share/62px_btn_left.png") no-repeat;
+}
+.mainImageInner a.button .bg .right {
+	background: url("../img/share/62px_btn_right.png") no-repeat 100% 0;
+}
+
+#contentCol {
+	width: 990px;
+	margin: 0 auto;
+}
+
+#mainpage .process {
+	width: 100%;
+	margin: 0;
+	padding: 50px 0;
+	list-style-type: none;
+}
+#mainpage .process li {
+	display: inline-block;
+	width: 300px;
+	margin-left: 40px;
+	font-size: 14px;
+	color: #3b4d72;
+	text-align: center;
+}
+#mainpage .process li img {
+	margin-bottom: 40px;
+}
+#mainpage .process li p {
+	margin: 0;
+	font-size: 14px;
+	line-height: 19px;
+}
+#mainpage .process li p.title {
+	line-height: 1;
+	margin-bottom: 20px;
+}
+#mainpage .process li strong {
+	font-family: NanumGothicBold, "NanumGothicWebBold", sans-serif;
+	font-weight: normal;
+	font-size: 22px;
+}
+#mainpage .process li.noMargin {
+	margin: 0;
+}
+
+#mainpage #inquire {
+	position: relative;
+	width: 990px;
+	height: 150px;
+	margin: 10px 0;
+	font-size: 16px;
+	background: #f2f2f2 url('../img/share/6-1_bestbadge.png') no-repeat 40px 50%;
+	vertical-align: middle;
+}
+#mainpage #inquire p {
+	color: #262626;
+	margin: 0;
+	padding: 40px 0 0 193px;
+}
+#mainpage #inquire a.button {
+	position: absolute;
+	top: 41px;
+	right: 48px;
+	width: 158px;
+	line-height: 74px;
+	font-family: NanumGothic, "Nanumgothicweb", sans-serif;
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+	color: #fff;
+	z-index: 1;
+}
+#mainpage #inquire a.button:hover {
+	text-decoration: none;
+}
+#mainpage #inquire a.button .bg {
+	left: 15px;
+	right: 15px;
+	background: url("../img/share/74px_btn(b)_center.png") repeat-x;
+	z-index: -1;
+}
+#mainpage #inquire a.button .bg .left {
+	left: -15px;
+	background: url("../img/share/74px_btn(b)_left.png") no-repeat 0 0;
+}
+#mainpage #inquire a.button .bg .right {
+	right: -15px;
+	background: url("../img/share/74px_btn(b)_right.png") no-repeat 100% 0;
+}
+
+#mainpage .faq {
+	margin-top: 30px;
+	color: black;
+	text-align: justify;
+	margin-bottom: 50px;
+}
+#mainpage .faq .title {
+	text-align: center;
+	color: white;
+	font-size: 14px;
+	line-height: 40px;
+	background: #262626 url('../img/share/6-1_list_header_left.png') no-repeat;
+}
+#mainpage .faq .title span {
+	width: 15px;
+	height: 40px;
+	float: right;
+	background: url('../img/share/6-1_list_header_right.png') no-repeat;
+}
+#mainpage .faq ul {
+	margin: 0;
+	padding: 0;
+}
+#mainpage .faq li {
+	padding: 0;
+	margin: 0;
+	position: relative;
+	list-style: none;
+	font-family: 'appleGothic', 'dotum', sans-serif;
+	font-size: 13px;
+}
+#mainpage .faq li .question {
+	padding: 8px 0;
+	border-bottom: 1px solid #b3b3b3;
+	background: url('../img/share/faq_q.png') no-repeat 10px 10px;
+}
+#mainpage .faq li .question p {
+	padding: 0 45px;
+	margin: 0;
+	background: url('../img/share/li_open.png') no-repeat 98% 50%;
+}
+#mainpage .faq li .question p a {
+	color: #1a1a1a;
+	text-decoration: none;
+}
+#mainpage .faq li.opened .question p {
+	background: url('../img/share/li_close.png') no-repeat 98% 50%;
+}
+#mainpage .faq li .answer {
+	color: #1a1a1a;
+	padding: 10px 45px 10px 70px;
+	background: #f2f2f2 url('../img/share/faq_a.png') no-repeat 40px 10px;
+	border-bottom: 1px solid #b3b3b3;
+}
+#mainpage .faq li .answer p {
+	margin: 10px 0 0;
+	padding: 0;
+	font-size: 13px;
+}
+#mainpage .faq li .answer p:first-child {
+	margin-top: 0;
+}
+#mainpage .faq li .noArticle p {
+	text-align: center;
+	margin: 0;
+	padding: 10px 0;
+	border-bottom: 1px solid #b3b3b3;
+}
+
+/*     기본     */
+
+.dialog {
+	position: relative;
+	margin: 15px;
+	border: 10px solid #262626;
+	background: white;
+}
+.closeZipcode,
+.close {
+	position: absolute;
+	top: -24px;
+	right: -24px;
+	cursor: pointer;
+}
+.successJoinUs *,
+.zipcode * {
+	margin: 0;
+	padding: 0;
+}
+.valignWarp {
+	display: table-cell;
+	vertical-align: middle;
+}
+.valign {
+	display: inline-block;
+}
+.noti {
+	height: 86px;
+	font-size: 13px;
+	color: #7a7a7a;
+}
+.noti strong {
+	font-size: 14px;
+	color: black;
+}
+.searchContainer {
+	padding: 0 46px 0 0;
+}
+.hide {
+	display: none;
+}
+
+/*    6-2_1 접수완료     */
+.successJoinUs {
+	width: 480px;
+	height: 130px;
+	text-align: center;
+	background: #262626;
+}
+
+.successJoinUs .title {
+	font-family: Nanumgothicbold, "Nanumgothicwebbold", sans-serif;
+	height: 50px;
+	font-size: 19px;
+	font-weight: bold;
+	color: #ffffff;
+	line-height: 40px;
+}
+
+.successJoinUs .content p {
+	padding: 18px 0;
+	font-size: 15px;
+	background: #f2f2f2;
+}
+
+
+/*     6-3_1 검색 기본     */
+.searchBox {
+    width: 420px;
+	background: #e6e6e6;
+	font-size: 14px;
+    margin-bottom: 20px;
+}
+.searchBox .inputtext {
+	background: #fafafa;
+	border: 1px solid #999;
+}
+.searchBox .btn {
+	width: 111px;
+	font-family: Nanumgothic, 'Nanumgothicweb', sans-serif;
+	font-size: 13px;
+	line-height: 25px;
+}
+
+.searchResultBox {
+    margin-top: 40px;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+.searchResultBox h3 {
+	margin: 0;
+}
+.searchResultBox table {
+	background: #fff;
+	height: 200px;
+    width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.searchResultBox table td.nothing {
+    text-align: center;
+}
+.searchResultBox table td {
+	padding: 3px 10px;
+	border-bottom: 1px solid #eee;
+}
+.searchResultBox table td.zipcode {
+    width: 70px;
+    text-align: center;
+    border-right: 1px solid #eee;
+}
+.searchResultBox table tr:hover td {
+	background: #f8f8f8;
+    cursor: pointer;
+}
+
+/*     읍/면/동 이용한 검색 상자     */
+.searchContainer p strong {
+	font-size: 14px;
+	font-weight: normal;
+	color: #000;
+}
+.searchContainer p {
+	font-size: 13px;
+	color: #666;
+}
+
+#searchByZipcode .searchBox {
+	padding: 35px 20px 20px;
+}
+
+#searchByZipcode .searchBox .inputtext {
+	width: 200px;
+    margin-left: 5px;
+}
+
+#searchByZipcode .searchBox .searchBtn {
+	float: right;
+}
+
+/*     도로명 검색상자     */
+#searchByRoadname .searchBox {
+    width: 420px;
+	padding: 20px 20px;
+	/*text-align: justify;*/
+}
+#searchByRoadname .searchBox table {
+    vertical-align: middle;
+}
+#searchByRoadname .searchBox td {
+    padding-bottom: 15px;
+}
+#searchByRoadname .searchBox th {
+    font-size: 12px;
+    font-weight: normal;
+    padding-bottom: 15px;
+}
+
+#searchByRoadname .searchBox .selectbox {
+	width: 125px;
+}
+#searchByRoadname .searchBox .inputtext {
+	width: 125px;
+}
+#searchByRoadname .searchBox .searchBtn {
+	vertical-align: middle;
+	margin-left: 15px;
+}
+#searchByRoadname .searchBox ul {
+    margin: 0;
+}
+#searchByRoadname .searchBox .searchKeyword input {
+	width: 88px;
+}
+
+/*     주소 선택     */
+#selAddress .noti {
+	height: 65px;
+}
+
+#selAddress .searchBox {
+	background: none;
+	text-align: center;
+}
+
+#selAddress .searchBox .selectbox {
+	width: 370px;
+	margin-bottom: 70px;
+}
+
+#selAddress .searchBox .submit {
+	color: white;
+	margin-left: 50px;
+	background: url("../img/share/search_btn_black_bg.png") no-repeat;
+}
+
+
+
+
+/* -------------------------
+         6-2 , 6-3
+--------------------------*/
+
+/* 기본 */
+.form * {
+	margin: 0;
+	padding: 0;
+	color: black;
+	font-size: 14px;
+	line-height: 1em;
+}
+
+/*title*/
+.form #title {
+	margin: 30px 0 60px;
+}
+
+.form h2 {
+	font-size: 19px;
+	font-weight: bold;
+	margin-bottom: 13px;
+}
+
+.form #title p {
+	font-family: 'appleGothic', 'dotum', sans-serif;
+}
+
+.form #title p,
+.form .licensee span {
+	font-weight: normal;
+	font-size: 12px;
+	color: #262626;
+}
+
+.form .licensee span {
+	margin: 0 0 14px 20px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+}
+
+/* table 공통 */
+.form .inputtext {
+	padding: 5px 5px 3px;
+	border: 1px solid #999999;
+	background: #fafafa;
+}
+.form div.inputtext {
+    display: inline-block;
+    width: 240px;
+    padding: 5px 10px 3px;
+    height: 18px;
+}
+
+.form th {
+	font-weight: normal;
+	text-align: right;
+	vertical-align: top;
+}
+
+.form .vCenter {
+	padding-top: 6px;
+}
+
+.form td {
+	font-size: 15px;
+	padding: 0 0 20px 18px;
+}
+
+.form td .vSpace {
+	margin-top: 7px;
+}
+
+.form .btn {
+	margin-left: 10px;
+}
+.form .btn .bg {
+	left: 15px;
+	right: 15px;
+}
+
+.btn.zipcode {
+	width: 110px;
+}
+
+.btn.add, .btn.delete {
+	width: 45px;
+}
+
+.btn.portfolio, .btn.permit {
+	width: 140px;
+	letter-spacing: -1px;
+}
+
+.inputShort {
+	width: 50px;
+}
+
+.inputDShort {
+	width: 100px;
+}
+
+.inputMedium {
+	width: 150px;
+}
+
+.inputLong {
+	width: 270px;
+}
+
+.inputLonglong {
+	width: 320px;
+}
+
+/* 기본입력정보 id=basicinfo */
+#basicInfo {
+	margin-bottom: 45px;
+	table-layout: fixed;
+}
+#basicInfo th span {
+	color: red;
+}
+#basicInfo td.button,
+div.addInfo table td button {
+    vertical-align: top;
+    margin-left: 10px;
+}
+#basicInfo td {
+	font-size: 15px;
+	color: #262626;
+}
+#basicInfo td.idEmail {
+    vertical-align: middle;
+    padding: 4px 0 20px 18px;
+}
+#basicInfo td.portfolio button {
+    width: 50px;
+    vertical-align: 2px;
+}
+#basicInfo td button {
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 11px;
+	color: #262626;
+	margin-left: 10px;
+}
+#basicInfo td .comment {
+	display: inline-block;
+	height: 20px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #999;
+}
+#basicInfo td ul {
+	margin-top: 10px;
+	list-style-type: none;
+}
+
+#basicInfo td li {
+	font-size: 12px;
+	color: #a0a0a0;
+	padding: 5px 0 5px 15px;
+	background: url("../img/share/right_tri.png") no-repeat 0 10px;
+}
+
+#basicInfo td #mobile1,
+#basicInfo td #mobile2,
+#basicInfo td #mobile3,
+#basicInfo td #zipcode1,
+#basicInfo td #zipcode2 {
+	text-align: center;
+}
+
+/* 사업자추가정보입력 id=add_info */
+.form .addInfo {
+	position: relative;
+	display: block;
+	padding: 25px 0 5px 0;
+	margin: 27px 0 50px;
+	background-color: #f2f2f2;
+}
+.form .addInfo table {
+	width: 100%;
+	table-layout: fixed;
+}
+.form .addInfo div.bg {
+	position: absolute;
+	display: block;
+	top: -10px;
+	left: 43px;
+	width: 22px;
+	height: 10px;
+	background: url("../img/share/table_bg_tri.png") no-repeat;
+}
+.form .addInfo table #attached_fileview {
+    display: inline-block;
+    font-size: 11px;
+    margin-left: 5px;
+    max-width: 150px;
+}
+.form .addInfo table td.regDoc button {
+    width: 50px;
+    margin-left: 5px;
+}
+.form .addInfo .inputtext {
+	background: #fff;
+}
+.form .agree {
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	line-height: 1;
+	color: #262626;
+	text-align: center;
+}
+.form .agree p {
+	margin-bottom: 50px;
+
+}
+.form .agree input {
+	margin-right: 5px;
+}
+.form .agree button.cancel {
+    width: 201px;
+}
+.form .agree a,
+.form span a {
+	font-size: 12px;
+	margin-left: 10px;
+	color: #618DE1;
+	text-decoration: underline;
+}
+.form .btn.btnCancel {
+    font-size: 16px;
+}
+.form .btn.edit,
+.form .btn.btnCancel,
+.form .btn.submit {
+	width: 201px;
+}
+.form .btn.cancel .bg,
+.form .btn.submit .bg {
+	left: 15px;
+	right: 15px;
+}
+.form .btn.submit {
+	margin-left: 44px;
+	color: white;
+}
+#basicInfo .selectbox {
+	width: 110px;
+	margin-right: 10px;
+	border: 1px solid #999;
+}
+#basicInfo .textarea {
+	width: 490px;
+	height: 60px;
+	padding: 5px;
+	overflow: auto;
+	border: 1px solid #999999;
+	background: #fafafa;
+    line-height: 1.5;
+	resize: none;
+}
+#basicInfo .comment.vTop {
+	vertical-align: top;
+	padding-top: 3px;
+}
+#basicInfo .grade {
+	display: inline-block;
+	height: 27px;
+	margin: 15px 5px 0 0;
+}
+#basicInfo .grade a {
+	color: #618DE1;
+}
+#basicInfo th.vGrade {
+	padding-top: 20px;
+}
+#basicInfo tr td span.vGrade.comment {
+	position: relative;
+	top: -7px;
+}
+#basicInfo .grade.gold {
+    width: 90px;
+	background: url("../img/share/designer_level_gold.png") no-repeat;
+}
+#basicInfo .grade.silver {
+    width: 102px;
+    background: url("../img/share/designer_level_silver.png") no-repeat;
+}
+#basicInfo .grade.bronze {
+    width: 113px;
+    background: url("../img/share/designer_level_bronze.png") no-repeat;
+}
+#basicInfo .grade.premiumRed {
+     width: 162px;
+     background: url("../img/share/designer_level_premiumRed.png") no-repeat;
+}
+
+#basicInfo .licensee span {
+	font-size: 12px;
+	color: #262626;
+}
+
+/* 6-3상단 사용자 정보 상자 */
+#user.infoBox {
+	position: relative;
+	height: 145px;
+	margin-bottom: 45px;
+	background: #ebebeb url("../img/share/top_box_bg.png") repeat-x 0 100%;
+}
+
+#user.infoBox > * {
+	position: absolute;
+}
+#user.infoBox .profileImageWrapper {
+	top: 15px;
+	left: 15px;
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+	border: 1px solid #262626;
+}
+#user.infoBox .profileImageWrapper .innerContainer {
+    position: absolute;
+    left: 50%;
+    width: 1000px;
+    height: 100%;
+    margin-left: -500px;
+    text-align: center;
+}
+#user.infoBox .profileImageWrapper img {
+    height: 100%;
+}
+#user.infoBox .grade {
+	top: 14px;
+	left: 132px;
+	width: 23px;
+	height: 17px;
+}
+#user.infoBox .grade.gold {
+	background: url("../img/share/designer_level_gold_s.png") no-repeat;
+}
+#user.infoBox .grade.silver {
+	background: url("../img/share/designer_level_silver_s.png") no-repeat;
+}
+#user.infoBox .grade.bronze {
+	background: url("../img/share/designer_level_bronze_s.png") no-repeat;
+}
+#user.infoBox .grade.premiumRed {
+	background: url("../img/share/designer_level_premiumRed_s.png") no-repeat;
+}
+
+#user.infoBox h2 {
+	font-size: 17px;
+	font-family: Nanumgothicbold, 'Nanumgothicwebbold', sans-serif;
+	top: 40px;
+	left: 132px;
+	color: #262626;
+}
+
+#user.infoBox .edit {
+	left: 132px;
+	bottom: 30px;
+	font-size: 10px;
+	text-indent: 15px;
+	font-family: 'Nanumgothicbold', 'Nanumgothicwebbold', sans-serif;
+	background: url("../img/share/designer_edit.png") no-repeat 0 1px;
+}
+
+#user.infoBox .edit a {
+	font-size: 10px;
+	line-height: 18px;
+	color: #999;
+}
+
+#user.infoBox table {
+	right: 10px;
+	bottom: 6px;
+}
+
+#user.infoBox table th {
+	font-family: Nanumgothicbold, 'Nanumgothicwebbold', sans-serif;
+	font-size: 13px;
+	text-align: left;
+	text-indent: 15px;
+	padding: 13px 0;
+	color: #4d4d4d;
+}
+#user.infoBox table td a {
+    color: inherit;
+    text-decoration: none;
+}
+#user.infoBox table td img {
+	vertical-align: bottom;
+}
+#user.infoBox span.count {
+	font-family: Nanumgothicbold, 'Nanumgothicwebbold', sans-serif;
+	font-size: 24px;
+	margin-left: 5px;
+}
+#user.infoBox span.gae {
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 12px;
+	margin-left: 3px;
+	color: #262626;
+}
+
+#user.infoBox table .col1 {
+	padding-right: 30px;
+}
+
+#user.infoBox table .col2 {
+	padding-right: 30px;
+}
+#user.infoBox table .col3 {
+	padding-right: 30px;
+}
+#user.infoBox table td.col3 span {
+	display: inline-block;
+	padding-bottom: 3px;
+}
+
+/* ---------------------------
+              6-4
+---------------------------- */
+
+/* 디자인 등록 및 관리 상자 */
+.describe {
+	position: relative;
+	font-size: 13px;
+	margin-top: 45px;
+	margin-bottom: 20px;
+}
+
+.describe h3 {
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 19px;
+	color: #000000;
+	margin-bottom: 0;
+}
+
+/*텍스트상자*/
+.textBox > div.bg {
+	background: url('../img/share/textbox_bg_middle.png') repeat-y;
+}
+.textBox.box2 div.bg .top {
+    top: 0;
+    left: 0;
+    background: url('../img/share/textbox_bg_top_2.png') no-repeat 0 0;
+}
+.textBox div.bg .top {
+	top: 0;
+	left: 0;
+	background: url('../img/share/textbox_bg_top.png') no-repeat 0 0;
+}
+.textBox div.bg .bottom {
+	bottom: 0;
+	left: 0;
+	background: url('../img/share/textbox_bg_bottom.png') no-repeat 0 100%;
+}
+
+.describe .textBox {
+	position: relative;
+	padding: 35px 40px 10px;
+	z-index: 1;
+}
+.describe .textBox .cont {
+}
+
+.describe .textBox p {
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 13px;
+	color: #333;
+	line-height: 22px;
+	margin: 0 0 15px;
+}
+.describe .textBox p strong {
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 16px;
+	color: #000;
+}
+.describe .textBox p a {
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 12px;
+	color: #618DE1;
+	margin-left: 10px;
+	font-weight: normal;
+	text-decoration: underline;
+}
+.describe .textBox form {
+    margin-bottom: 20px;
+}
+.describe .textBox form > * {
+	display: inline-block;
+	vertical-align: middle;
+}
+.describe .textBox input {
+	margin-right: 10px;
+	background: #f9f9f9;
+	border: 1px solid #878787;
+}
+.describe .textBox button {
+	width: 111px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 11px;
+	color: #262626;
+}
+
+/* 파란색 주석상자 */
+.describe .comment {
+	position: absolute;
+	top: 200px;
+	left: 480px;
+	width: 286px;
+	z-index: 1;
+
+}
+.describe .comment p{
+	padding: 2px 25px;
+	font-size: 12px;
+}
+.describe .comment .close {
+	position: absolute;
+	top: 10px;
+	right: 12px;
+}
+.describe .comment .bg,
+.describe .comment .bg > div{
+	position: absolute;
+	top: 7px;
+	bottom: 7px;
+	left: 0;
+	right: 0;
+}
+.describe .comment .bg {
+	background: url('../img/share/comment_bg_middle.png') repeat-y;
+	z-index: -1;
+}
+.describe .comment .bg .top {
+	top: -7px;
+	background: url('../img/share/comment_bg_top.png') no-repeat 0 0;
+}
+.describe .comment .bg .bottom {
+	bottom: -7px;
+	background: url('../img/share/comment_bg_bottom.png') no-repeat 0 100%;
+}
+
+/* 디자인 리스트 타이틀 */
+.designList .pages a {
+    cursor: pointer;
+}
+.designList .title {
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	position: relative;
+	height: 40px;
+	color: #979797;
+	font-size: 13px;
+	z-index: 1;
+}
+
+/*.designList .title .bg {*/
+	/*left: 9px;*/
+	/*right: 9px;*/
+	/*background: #1d1d1d;*/
+/*}*/
+/*.designList .title .bg .left {*/
+	/*left: -9px;*/
+	/*background: url("../img/share/title_bar_black_left.png") no-repeat;*/
+/*}*/
+/*.designList .title .bg .right {*/
+	/*right: -9px;*/
+	/*background: url("../img/share/title_bar_black_right.png") no-repeat 100% 0;*/
+/*}*/
+
+.designList .title:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.designList .title ul {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    margin-left: 20px;
+}
+.designList .title ul.menu {
+    float: left;
+}
+.designList .title ul.menu2 {
+    float: right;
+    margin-right: 30px;
+}
+.designList .title li {
+	display: inline-block;
+	line-height: 40px;
+}
+.designList .title ul li a {
+    color: #bbbdbf;
+    text-decoration: none;
+    cursor: pointer;
+}
+.designList .title ul li.current a {
+    color: #fff;
+}
+.designList .title li:before {
+    content: '|';
+    color: #bbbdbf;
+    margin: 0 8px 0 5px;
+}
+.designList .title ul li:first-child:before {
+    content: '';
+    margin: 0;
+}
+.designList .title .search {
+    float: right;
+    position: relative;
+    margin: 9px 20px 0 0;
+}
+.designList .title .search button {
+    position: absolute;
+    top: 6px;
+    right: 7px;
+	padding: 0;
+	margin: 0;
+}
+.designList .title .search input {
+	width: 180px;
+	padding: 3px 20px 2px 5px;
+	margin: 0;
+	border: none;
+	background: #fff;
+}
+
+/* 디자인 리스트 (입력)*/
+.designList ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.designList .nothingList {
+    text-align: center;
+    font-size: 13px;
+    padding: 10px 0;
+    border-bottom: 1px solid #bbbdbf;
+}
+.designList .designListForm {
+	position: relative;
+	border-bottom: 1px solid #a4a4a4;
+}
+.designList .designListForm:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+.designList .designListForm .imageArea {
+	float: left;
+    padding: 25px;
+}
+.designList .designListForm .imageArea .imageWrapper {
+    width: 148px;
+    height: 148px;
+    border: 1px solid #bbbdbf;
+    overflow: hidden;
+}
+.designList .designListForm .imageArea img {
+    display: none;
+}
+.designList .designListForm .imageArea p {
+    font-size: 14px;
+    color: #777;
+}
+.designList .designListForm .infos {
+    /*float: left;*/
+	position: relative;
+	margin: 25px 0 0 10px;
+	min-width: 500px;
+}
+.designList .designListForm .infos .subtitle {
+	font-size: 14px;
+	margin: 0;
+	line-height: 1em;
+}
+.designList .designListForm .infos p {
+    margin-bottom: 10px !important;
+}
+.designList .designListForm .infos p span {
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #999;
+}
+.designList .designListForm .infos div {
+	margin-bottom: 20px;
+}
+.designList .designListForm .infos .designFile .typeText {
+    width: 590px;
+    margin-right: 10px;
+}
+.designList .designListForm .infos .designFile .findDesign {
+    width: 110px;
+}
+.designList .designListForm .infos .typeText,
+.designList .designListForm .infos textarea {
+    width: 590px;
+    padding: 2px 5px 0;
+	border: 1px solid #878787;
+	background: #f9f9f9;
+	resize: none;
+}
+.designList .designListForm .infos textarea {
+    width: 590px;
+    height: 65px;
+    padding: 5px;
+	overflow: auto;
+}
+.designList .designListForm .infos select {
+    width: 250px;
+    height: 25px;
+    padding: 5px 20px;
+	border: 1px solid #999;
+    background: none;
+}
+.designList .designListForm .infos .agree input {
+	margin: 2px 3px 0 0;
+	vertical-align: top;
+	background: none;
+	border: none;
+}
+.designList .designListForm .infos .agree p {
+	display: inline-block;
+	text-align: justify;
+	/*width: 370px;*/
+	margin: 0;
+}
+
+.designList .designListForm button > p {
+	margin: 0;
+}
+
+.designList .designListForm button.regDesign {
+	/*position: absolute;*/
+	/*right: 23px;*/
+	/*bottom: 100px;*/
+	width: 111px;
+	font-family: Nanumgothicbold, 'Nanumgothicwebbold', sans-serif;
+	font-size: 14px;
+	color: white;
+}
+
+.designList .designListForm button.delDesign {
+	/*position: absolute;*/
+	/*right: 23px;*/
+	/*bottom: 30px;*/
+	width: 111px;
+	font-size: 12px;
+	color: #262626;
+}
+
+/* 디자인 리스트 (수정)*/
+.designList .designListForm .imageArea .productCount {
+	margin: 25px 0;
+	padding: 0;
+	font-size: 14px;
+}
+.designList .designListForm .imageArea .productCount input {
+    width: 50px;
+    padding: 5px 5px 4px;
+    text-align: right;
+}
+
+.designList .designListForm .imageArea .salesCount {
+    margin-top: 20px;
+	font-size: 14px;
+}
+.designList .designListForm .imageArea .productCount p {
+	margin: 0;
+}
+.designList .designListForm .imageArea .productCount input {
+	margin-right: 3px;
+	border: 1px solid #878787;
+	background: #f9f9f9;
+}
+.designList .designListForm .infos {
+	padding: 10px 0 10px 85px;
+    width: auto;
+    min-width: 0;
+}
+#permitedDesign .designListForm .infos {
+    padding: 10px 0 10px;
+}
+#permitedDesign .designListForm table td {
+    position: relative;
+    vertical-align: top;
+}
+.designList .designListForm .infos .subtitle {
+	color: #808080;
+	font-size: 14px;
+}
+.designList .designListForm .infos .content {
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	color: #285D96;
+	padding-left: 20px;
+}
+.designList .designListForm .infos p span {
+	font-size: 12px;
+	color: #ccc;
+}
+.designList .designListForm .infos .designPrice label {
+	vertical-align: middle;
+	margin-right: 10px;
+}
+.designList .designListForm .infos .designPrice input {
+	position: relative;
+	top: -2px;
+}
+.designList .designListForm .buttons {
+   	padding: 0 0 30px;
+	text-align: center;
+}
+.designList .designListForm .buttons button {
+    width: 111px;
+    color: #fff;
+    font-size: 13px;
+    /*margin-top: 20px;*/
+}
+.designList .designListForm .buttons button.changeState,
+.designList .designListForm .buttons button.noSale,
+.designList .designListForm .buttons button.delete {
+	font-size: 12px;
+	color: #262626;
+}
+#permitedDesign .designListForm .buttons {
+    /*position: absolute;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    /*width: 120px;*/
+    /*padding: 0 0 30px;*/
+    text-align: center;
+}
+#permitedDesign .designListForm .buttons button {
+    margin-top: 15px;
+}
+.designList .pages {
+    margin-top: 30px;
+    text-align: center;
+}
+.designList .pages a {
+    margin: 0 1px;
+}
+
+/* Layer */
+.designList .designListForm .popWrap {
+ 	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.designList .designListForm .popup .white {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.designList .designListForm .popup {
+	display: table;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+.designList .designListForm .popup .table {
+	width: 100%;
+	height: 100%;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+.designList .designListForm .popup .table button {
+	z-index: 1;
+}
+
+.designList .designListForm .popup .white {
+	background: white;
+	opacity:0.7;
+	filter:Alpha(opacity=70); /* IE8 and earlier */
+	z-index: -1;
+}
+.designList .designListForm .popup .dialog {
+	display: inline-block;
+	width: 460px;
+	border: 10px solid #b5b5b5;
+}
+.designList .designListForm .popup .dialog div {
+	padding: 65px 0;
+}
+.designList .designListForm .popup .dialog.caution div,
+.designList .designListForm .popup .dialog.writeAll div {
+	padding: 35px 0;
+}
+.designList .designListForm .popup .dialog p {
+	padding: 0;
+	margin: 0;
+	font-family: Nanumgothicbold, 'Nanumgothicwebbold', sans-serif;
+	font-size: 14px;
+}
+.designList .designListForm .popup .dialog button {
+	position: relative;
+	margin-top: 30px;
+	width: 110px;
+}
+.designList .designListForm .popup .dialog button.delete {
+	margin-left: 55px;
+}
+
+/* ---------------------------
+			  6-5
+---------------------------- */
+/* 판매중인 디자인 상품 */
+.inSaleInfobox {
+	position: relative;
+	font-size: 13px;
+	color: black;
+	margin-top: 45px;
+}
+
+.inSaleInfobox h3 {
+	font-family: Nanumgothicbold, 'Nanumgothicwebbold', sans-serif;
+	font-size: 19px;
+	color: #000;
+	margin-bottom: 0;
+}
+.inSaleInfobox h3 span {
+	font-family: 'appleGothic', 'dotum', sans-serif;
+	font-weight: normal;
+	font-size: 14px;
+	color: #4d4d4d;
+	margin-left: 15px;
+}
+
+/*텍스트상자*/
+.inSaleInfobox .textBox {
+	position: relative;
+	padding: 0 45px;
+	z-index: 1;
+}
+.inSaleInfobox .textBox .makeProduct {
+	position: absolute;
+	top: 46px;
+	left: 45px;
+}
+.inSaleInfobox .textBox .artShop {
+	position: absolute;
+	top: 46px;
+	right: 45px;
+}
+.inSaleInfobox .textBox > img {
+	position: absolute;
+	top: 80px;
+	left: 385px;
+}
+.inSaleInfobox .textBox .title {
+	width: 282px;
+	padding: 9px 0;
+	margin: 0;
+	color: #fff;
+	font-family: 'appleGothic', 'dotum', sans-serif;
+	font-size: 17px;
+	font-weight: bold;
+	text-align: center;
+	background: #404551;
+}
+.inSaleInfobox .textBox .title img {
+	margin-left: 5px;
+	vertical-align: middle;
+}
+.inSaleInfobox .textBox .content {
+	width: 240px;
+	margin: 0;
+	padding: 10px 20px;
+	font-family: 'appleGothic', 'dotum', sans-serif;
+	background: #fafafa;
+	border: 1px solid #999999;
+}
+.inSaleInfobox .textBox .comment {
+	padding: 170px 0 20px;
+	text-align: right;
+}
+.inSaleInfobox .textBox .comment p {
+	text-align: justify;
+	font-size: 13px;
+	margin: 0;
+	font-family: 'appleGothic', 'dotum', sans-serif;
+	padding-bottom: 10px;
+}
+.inSaleInfobox .textBox .comment a {
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 12px;
+	color: #618DE1;
+	/*font-weight: normal;*/
+	text-decoration: underline;
+}
+
+/* 디자인 리스트 타이틀 */
+.productList {
+	width: 800px;
+}
+.productList .title {
+	position: relative;
+	margin-top: 20px;
+	height: 40px;
+    width: 800px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 13px;
+	color: #979797;
+	z-index: 1;
+}
+.productList .title ul.menu {
+    position: absolute;
+	top: 9px;
+	margin: 0;
+	padding: 0;
+}
+.productList .title li {
+	display: inline-block;
+	list-style: none;
+	line-height: 1.3;
+}
+.productList .title .menu li {
+	padding: 0 5px;
+	vertical-align: middle;
+	/*border-left: 1px solid #626262;*/
+}
+.productList .title .menu li.recent:after {
+    content : '|';
+    margin: 0 5px;
+    color: grey;
+}
+.productList .title .menu li.current {
+    color: #fff;
+	font-weight: bold;
+	/*color: #000;*/
+}
+.productList .title .menu a {
+    color: inherit;
+}
+.productList .title .menu #catalog {
+    width: 150px;
+    background: #fff;
+    border: 1px solid #999;
+    padding: 0;
+    margin: 0 0 0 10px;
+}
+.productList .title .menu .noMargin {
+	padding-left: 0;
+	border: none;
+}
+.productList .title .filter {
+    position: absolute;
+	top: 10px;
+	right: 20px;
+    width: 200px;
+    height: 20px;
+    background: #fff;
+}
+.productList .title .filter button {
+	padding: 0;
+	margin: 0;
+}
+.productList .title .filter button img {
+	vertical-align: middle;
+}
+.productList .title .filter input {
+	width: 170px;
+	padding: 3px 5px;
+	margin: 0;
+	border: none;
+	background: none;
+}
+
+/* 리스트 테이블  */
+.productList table {
+	width: 100%;
+	text-align: center;
+}
+.productList table th {
+	height: 29px;
+	font-size: 12px;
+	font-weight: normal;
+	background: #f2f2f2;
+	border-bottom: 1px solid #ccc;
+}
+.productList table td {
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 14px;
+	padding: 15px 0;
+	border-bottom: 1px solid #ccc;
+}
+.productList table td.thumbnail img {
+	max-width: 100px;
+	max-height: 100px;
+}
+.productList table .total {
+	color: #285D96;
+}
+.productList table .product div {
+	position: relative;
+}
+.productList table .product .imageWrapper {
+    width: 118px;
+    height: 118px;
+    margin-left: 30px;
+    border: 1px solid #eee;
+    overflow: hidden;
+}
+.productList table .product .imageWrapper img {
+    display: none;
+}
+.productList table .product .kind {
+	position: absolute;
+	top: 10px;
+	left: 40px;
+	width: 20px;
+	height: 20px;
+}
+.productList table .product .kind.artShop {
+	background: url("../img/share/6-5_artshop.png") no-repeat;
+}
+.productList table .product .kind.diy {
+	background: url("../img/share/6-5_diy.png") no-repeat;
+}
+.productList table .product img {
+	border: 1px solid #999;
+	outline: 1px solid #ccc9c4;
+}
+.productList table .design {
+	text-align: left;
+    vertical-align: top;
+	padding: 20px 10px;
+}
+.productList table .design p {
+	margin: 0;
+}
+.productList table .design p.code {
+	font-size: 12px;
+	margin-bottom: 20px;
+}
+.productList table .design p.name {
+	color: #4D4D4D;
+    font-family: NanumGothic, NanumGothicWeb, sans-serif;
+	font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.productList table .design p.type {
+    color: #989898;
+    font-size: 12px;
+}
+
+.productList .pages {
+    margin-top: 20px;
+    text-align: center;
+}
+.productList .pages a {
+    margin: 0 3px;
+}
+.productList table .nothingProduct {
+    text-align: center;
+}
+
+/* ---------------------------
+			 6-6
+---------------------------- */
+/* 판매중인 디자인 상품 */
+.requestWithdraw {
+	font-size: 13px;
+	color: black;
+	margin-top: 20px;
+	z-index: -10;
+}
+.requestWithdraw h3 {
+	margin-top: 45px;
+	font-family: Nanumgothicbold, 'Nanumgothicwebbold', sans-serif;
+	font-size: 19px;
+	margin-bottom: 0;
+}
+
+/*텍스트상자*/
+.requestWithdraw .textBox {
+	margin-bottom: 15px;
+	position: relative;
+	padding: 20px 35px 30px;
+	z-index: 1;
+}
+
+.requestWithdraw .textBox .notice {
+	padding: 15px 0;
+}
+.requestWithdraw .textBox .notice p {
+	position: relative;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 13px;
+	line-height: 24px;
+	margin: 0;
+}
+.requestWithdraw .textBox .notice p span {
+	color: #F22C48;
+}
+.requestWithdraw .textBox .notice a {
+	position: absolute;
+	right: 0;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	color: #618DE1;
+	text-decoration: underline;
+}
+.requestWithdraw .textBox .infoBox {
+	padding: 30px 0 30px;
+	line-height: 1;
+	text-align: center;
+	border: 1px solid #999;
+	background: #fafafa;
+}
+.requestWithdraw .textBox .infoBox span {
+	font-weight: bold;
+}
+.requestWithdraw .textBox .infoBox .currentProceed {
+	/*font-family: appleGothic, '돋움', Dotum, sans-serif;*/
+	font-weight: bold;
+	font-size: 20px;
+	color: #334D5C;
+}
+.requestWithdraw .textBox .infoBox button.requestWithdraw {
+	font-family: Nanumgothicbold, 'Nanumgothicwebbold', sans-serif;
+	font-size: 19px;
+	color: #fff;
+	margin-top: 30px;
+}
+.requestWithdraw .textBox .infoBox .warn {
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	margin-top: 34px;
+	font-size: 19px;
+	font-weight: bold;
+}
+.requestWithdraw .textBox .infoBox button {
+	width: 200px;
+	height: 42px;
+	font-size: 18px;
+	color: white;
+	border: none;
+	background: url("../img/share/btn_bg.png") no-repeat 100% 0;
+}
+.requestWithdraw .textBox .withdrawBox {
+	padding: 38px 100px;
+	border: 1px solid #999;
+	background: #fafafa;
+}
+.requestWithdraw .textBox .withdrawBox > table {
+    table-layout: fixed;
+    /*width: 600px;*/
+}
+.requestWithdraw .textBox .withdrawBox .calcMoneyWrap {
+	text-align: center;
+}
+.requestWithdraw .textBox .withdrawBox .calcMoney input {
+    text-align: right;
+    border: 1px solid #e1e1e1;
+    width: 163px;
+    height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.requestWithdraw .textBox .withdrawBox .calcMoney {
+	display: inline-block;
+	line-height: 1;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 14px;
+	padding: 0 20px;
+	margin-bottom: 35px;
+	/*text-align: right;*/
+}
+.requestWithdraw .textBox .withdrawBox .calcMoney table {
+    border-collapse: collapse;
+}
+.requestWithdraw .textBox .withdrawBox .calcMoney .currentProceed {
+	font-family:  NanumGothic, NanumGothicWeb, sans-serif;
+	font-weight: bold;
+	font-size: 20px;
+	color: #285d96;
+}
+.requestWithdraw .textBox .withdrawBox .calcMoney .tax {
+	display: inline-block;
+	/*width: 100px;*/
+    padding-right: 5px;
+}
+.requestWithdraw .textBox .withdrawBox .calcMoney div {
+	margin-bottom: 15px;
+}
+.requestWithdraw .textBox .withdrawBox .calcMoney input {
+	border: 1px solid #999;
+	padding: 0;
+	margin-right: 5px;
+}
+.requestWithdraw .textBox .withdrawBox .calcMoney .total {
+	font-family: NanumGothic, NanumGothicWeb, sans-serif;
+	font-weight: bold;
+	font-size: 20px;
+	color: #334D5C;
+	padding-top: 20px;
+	border-top: 1px solid #999;
+}
+
+.requestWithdraw .textBox .withdrawBox table {
+	font-size: 14px;
+	margin: 0 auto;
+}
+.requestWithdraw .textBox .withdrawBox table td {
+	padding-bottom: 10px;
+}
+.requestWithdraw .textBox .withdrawBox table .col1 {
+	/*width: 130px;*/
+	vertical-align: top;
+}
+.requestWithdraw .textBox .withdrawBox table .col2 {
+	width: 70px;
+	/*text-align: right;*/
+	/*padding-right: 10px;*/
+}
+.requestWithdraw .textBox .withdrawBox table .col3 select {
+	border: 1px solid #999;
+}
+.requestWithdraw .textBox .withdrawBox table .col3 .identification {
+	width: 110px;
+	font-size: 12px;
+}
+.requestWithdraw .textBox .withdrawBox table .col4 .edit {
+	width: 46px;
+	height: 26px;
+	border: none;
+	background: url('../img/share/btn_bg.png') no-repeat -112px 100%;
+}
+.requestWithdraw .textBox .withdrawBox table td.changePoint {
+	padding-top: 15px;
+}
+.requestWithdraw .textBox .withdrawBox table p.comment {
+	font-size: 12px;
+	margin: 0;
+	/*padding-left: 25px;*/
+	/*text-align: justify;*/
+}
+
+/*하단 버튼*/
+.requestWithdraw .textBox .btn {
+	text-align: center;
+	z-index: 10;
+}
+.requestWithdraw .textBox .btn button {
+	font-family: Nanumgothicbold, 'Nanumgothicwebbold', sans-serif;
+	font-size: 19px;
+	width: 200px;
+    z-index: 100;
+}
+.requestWithdraw .textBox form .btn button span.bg {
+	left: 15px;
+	right: 15px;
+}
+.requestWithdraw .textBox form .btn button span.bg {
+	background: url("../img/btn/btn_bg_Black_40_set.png") repeat-x 0 100%;
+}
+.requestWithdraw .textBox form .btn button span.bg span.left {
+	background: url("../img/btn/btn_bg_Black_40_set.png") no-repeat 0 0;
+}
+.requestWithdraw .textBox form .btn button span.bg span.right {
+	background: url("../img/btn/btn_bg_Black_40_set.png") no-repeat 100% 0;
+}
+
+.requestWithdraw .textBox form .btn button.cancel {
+	margin: 20px 44px 0 0;
+}
+.requestWithdraw .textBox form .btn button.requestWithdraw {
+	margin-top: 20px;
+	color: white;
+}
+
+/*출금기록*/
+/*출금기록 타이틀*/
+.payList {
+	margin-top: 30px;
+}
+.payList .title {
+	position: relative;
+	height: 40px;
+	color: white;
+	font-size: 13px;
+	z-index: 1;
+    line-height: 40px;
+    text-align: center;
+    font-size: 15px;
+}
+.payList .title ul {
+	position: absolute;
+}
+.payList .title ul.term {
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	top: 10px;
+	margin: 0 0 0 35px;
+	padding: 0;
+}
+.payList .title li {
+	display: inline-block;
+	list-style: none;
+}
+.payList .title .term li {
+	padding: 0 5px;
+}
+.payList .title .term .noMargin {
+	padding-left: 0;
+}
+.payList .title .selectDate {
+	top: -5px;
+	right: 13px;
+}
+.payList .title .selectDate label {
+	display: inline-block;
+	position: relative;
+	width: 121px;
+}
+.payList .title .selectDate label img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+}
+.payList .title .selectDate input {
+	width: 91px;
+	height: 20px;
+	line-height: 20px;
+	padding: 0 5px;
+	border: 0 none;
+	background: #fff;
+}
+.payList .title .selectDate button {
+	width: 100px;
+	height: 23px;
+	font-size: 12px;
+	margin-left: 7px;
+	border: none;
+	background: url('../img/share/btn_bg.png') no-repeat -242px -44px;
+}
+.payList table {
+	width: 100%;
+	text-align: center;
+}
+.payList table th {
+	font-size: 12px;
+	line-height: 1;
+	height: 29px;
+	border-bottom: 1px solid #ccc;
+	background: #f1f1f1;
+}
+.payList table th p {
+	border-left: 1px solid #ccc;
+}
+.payList table td {
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 13px;
+	vertical-align: middle;
+	padding: 10px;
+	border-bottom: 1px solid #b5b5b5;
+}
+.payList table td.pay {
+	color: #285D96;
+}
+.payList table td.delay span {
+	padding-left: 19px;
+	background: url('../img/share/6-6_delay.png') no-repeat 0 0;
+}
+.payList table td.point span {
+	padding-left: 19px;
+	background: url('../img/share/6-6_point.png') no-repeat 0 0;
+}
+.payList table td.cash span {
+	padding-left: 19px;
+	background: url('../img/share/6-6_cash.png') no-repeat 0 0;
+}
+.payList .total {
+	/*font-family: appleGothic, '돋움', Dotum, sans-serif;*/
+	font-weight: bold;
+	text-align: right;
+	font-size: 20px;
+	padding: 15px 15px 15px 0;
+	border-top: 1px solid #b5b5b5;
+	border-bottom: 2px solid #b5b5b5;
+}
+.payList .total span {
+	font-weight: bold;
+	color: #285D96;
+}
+
+/* ---------------------------
+			6-6_1
+---------------------------- */
+/* 판매중인 디자인 상품 */
+.confirmSales {
+	position: relative;
+	font-size: 13px;
+	color: black;
+	margin-top: 45px;
+}
+
+.confirmSales h3 {
+	font-size: 19px;
+	margin-bottom: 0;
+	font-weight: normal;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+}
+
+/*텍스트상자*/
+.confirmSales .textBox {
+	position: relative;
+	padding: 40px 45px 20px;
+	z-index: 1;
+}
+.confirmSales .textBox .infoBox {
+	position: absolute;
+	top: 40px;
+	left: 44px;
+	right: 44px;
+}
+.confirmSales .textBox .infoBox ul {
+	margin: 0;
+	list-style: none;
+	border: 1px solid #999;
+	text-align: center;
+	background: #fafafa;
+}
+.confirmSales .textBox .infoBox li {
+	display: inline-block;
+	font-size: 19px;
+	line-height: 1;
+	margin: 16px 0;
+	padding: 0 18px;
+}
+.confirmSales .textBox .infoBox li.border {
+	border-left : 2px solid #000;
+	border-right : 2px solid #000;
+}
+.confirmSales .textBox .infoBox li span {
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	letter-spacing: -1px;
+}
+.confirmSales .textBox .salesDesign {
+	float: left;
+	width: 282px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+}
+.confirmSales .textBox .confirmBuying {
+	float: right;
+	width: 282px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+}
+.confirmSales .textBox .arrowImage {
+	position: absolute;
+	top: 50%;
+	left: 385px;
+	margin-top: -16px;
+}
+.confirmSales .textBox .title {
+	width: 282px;
+	padding: 7px 0;
+	margin: 0;
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	background: #404551;
+}
+.confirmSales .textBox .title img {
+	margin-left: 5px;
+	vertical-align: middle;
+}
+.confirmSales .textBox .content {
+	width: 260px;
+	margin: 0;
+	padding: 10px 10px;
+}
+/* 디자인 리스트 타이틀 */
+.salesList {
+	width: 800px;
+}
+.salesList .title {
+	position: relative;
+	margin-top: 40px;
+	height: 40px;
+	color: #979797;
+	font-size: 13px;
+	z-index: 1;
+}
+.salesList .title ul {
+	position: absolute;
+}
+.salesList .title ul.menu {
+	top: 9px;
+	margin: 0 0 0 20px;
+	padding: 0;
+}
+.salesList .title li {
+	display: inline-block;
+	list-style: none;
+	line-height: 1;
+}
+.salesList .title .menu li {
+	padding: 0 3px 0 6px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	vertical-align: middle;
+	border-left: 1px solid #626262;
+}
+.salesList .title .menu li a {
+	color: #bdbdbd;
+	text-decoration: none;
+}
+.salesList .title select {
+	width: 100px;
+	margin-right: 10px;
+	border: 2px solid #fff;
+}
+.salesList .title .menu .noMargin {
+	padding-left: 0;
+	border: none;
+}
+.salesList .title .filter {
+	top: -4px;
+	right: 13px;
+}
+.salesList .title .filter .search {
+	width: 200px;
+	height: 20px;
+	background: #fff;
+}
+.salesList .title .filter .search button img {
+	vertical-align: middle;
+}
+.salesList .title .filter .search input {
+	width: 170px;
+	padding: 3px 5px;
+	margin: 0;
+	border: none;
+	background: none;
+}
+.payList .title .bg,
+.designList .title .bg,
+.productList .title .bg,
+.salesList .title .bg {
+    background: url('../img/share/title_bar_black_bg.png') 0 100%;
+}
+.payList .title .bg .left,
+.designList .title .bg .left,
+.productList .title .bg .left,
+.salesList .title .bg .left {
+    left: 0;
+    width: 10px;
+    background: url('../img/share/title_bar_black_bg.png') 0 0;
+}
+.payList .title .bg .right,
+.designList .title .bg .right,
+.productList .title .bg .right,
+.salesList .title .bg .right {
+    right: 0;
+    width: 10px;
+    background: url('../img/share/title_bar_black_bg.png') 100% 0;
+}
+
+
+/* 리스트 테이블  */
+.salesList table {
+	width: 100%;
+	text-align: center;
+}
+.salesList table th {
+	height: 29px;
+	font-size: 12px;
+	font-weight: normal;
+	background: #f2f2f2;
+	border-bottom: 1px solid #ccc;
+}
+.salesList table td {
+	font-size: 13px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	padding: 15px 0;
+	border-bottom: 1px solid #ccc;
+}
+.salesList table .product img {
+	max-width: 70px;
+	max-height: 70px;
+	border: 1px solid #999;
+	outline: 1px solid #ccc9c4;
+}
+.salesList table .design {
+	padding: 0 10px;
+}
+.salesList table .design p {
+	margin: 0;
+}
+.salesList table .design p.code {
+	margin-bottom: 10px;
+}
+.salesList table .design p.name {
+	font-size: 13px;
+}
+.salesList table .state > div{
+	padding: 3px 0;
+}
+.salesList table .state .state1{
+	font-weight: bold;
+}
+.salesList table .state .state2{
+	color: #707070;
+}
+.salesList table .margin {
+	color: #285d96;
+	font-weight: bold;
+}
+.salesList table .margin .beforeSale del {
+	color: #5c5c5c;
+}
+.salesList table .margin span {
+	display: block;
+	padding: 3px 0;
+}
+.salesList table .margin .beforeSale {
+	font-weight: normal;
+	color: red;
+}
+
+/* ---------------------------
+			  6-7
+---------------------------- */
+/* 이미지 작업 가이드 */
+.imageProcessGuide {
+	font-size: 13px;
+	color: black;
+	z-index: -10;
+}
+.imageProcessGuide h3 {
+	font-size: 19px;
+	margin: 0;
+	font-weight: normal;
+	font-family: 'Nanumgothicbold', 'Nanumgothicwebbold', sans-serif;
+}
+
+/*텍스트상자*/
+.imageProcessGuide {
+    overflow: hidden;
+}
+.imageProcessGuide .textBox {
+	position: relative;
+	padding: 0 30px;
+	z-index: 1;
+}
+.imageProcessGuide .textBox > div {
+	padding: 40px 0 30px;
+}
+.imageProcessGuide .textBox p {
+	padding-right: 130px;
+	font-size: 14px;
+	margin: 0;
+}
+.imageProcessGuide .textBox a.button {
+	position: absolute;
+	top: 42px;
+	right: 45px;
+	width: 130px;
+    text-align: center;
+    font-family: 'Nanumgothicbold', 'Nanumgothicwebbold', sans-serif;
+    font-size: 18px;
+    color: #fff;
+}
+.imageProcessGuide .textBox a.button:hover {
+    text-decoration: none;
+}
+.imageProcessGuide .textBox a.button .bg {
+    left: 15px;
+    right: 15px;
+}
+
+/*가이드 리스트*/
+.imageProcessGuide .guide_list {
+	width: 840px;
+	margin-top: 45px;
+    padding: 0;
+    list-style: none;
+}
+.imageProcessGuide .guide_list:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+.imageProcessGuide .guide_list li {
+    float: left;
+    width: 238px;
+    height: 200px;
+    border: 1px solid #ccc;
+    margin: 0 40px 30px 0;
+    overflow: hidden;
+}
+.imageProcessGuide .guide_list li > div {
+	display: inline-block;
+}
+.imageProcessGuide .guide_list li.saveImage {
+	text-align: left;
+    cursor: pointer;
+}
+.imageProcessGuide .guide_list li.saveImage .imageWrapper {
+    width: 238px;
+    /*height: 100px;*/
+    overflow: hidden;
+}
+.imageProcessGuide .guide_list li.saveImage .imageWrapper img {
+    width: 238px;
+}
+.imageProcessGuide .guide_list li.useTool {
+	text-align: center;
+}
+.imageProcessGuide .guide_list li.useText {
+	text-align: right;
+}
+.imageProcessGuide .guide_list li .title {
+	text-align: left;
+	font-size: 16px;
+	padding: 8px 0 8px 65px;
+    width: 170px;
+	background: url('../img/share/tip.png') no-repeat 15px 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.imageGuidePopup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url('../img/share/black_op50.png');
+    z-index: 900;
+    text-align: center;
+    overflow: auto;
+}
+.imageGuidePopup .imageGuideContainer {
+    position: relative;
+    margin-top: 100px;
+    display: inline-block;
+    max-width: 900px;
+    padding: 20px;
+    background: #fff;
+}
+.imageGuidePopup .imageGuideContainer img {
+    max-width: 100%;
+}
+.imageGuidePopup .texts {
+    text-align: left;
+}
+.imageGuidePopup .texts #ImageGuideTitle {
+    font-size: 25px;
+    font-weight: bold;
+}
+.imageGuidePopup .texts #ImageGuideDescription {
+    font-size: 17px;
+}
+.imageGuidePopup .imageGuideClose {
+    position: absolute;
+    top: 0;
+    right: -70px;
+}
+
+/*이미지관련 FAQ*/
+.aboutImageFaq {
+	margin-top: 85px;
+	color: #000;
+	text-align: justify;
+}
+.aboutImageFaq .title {
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+	line-height: 40px;
+	background: #262626 url('../img/share/6-1_list_header_left.png') no-repeat;
+}
+.aboutImageFaq .title span {
+	width: 15px;
+	height: 40px;
+	float: right;
+	background: url('../img/share/6-1_list_header_right.png') no-repeat;
+}
+.aboutImageFaq ul {
+	margin: 0;
+	padding: 0;
+}
+.aboutImageFaq li {
+	padding: 0;
+	margin: 0;
+	position: relative;
+	list-style: none;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 13px;
+}
+.aboutImageFaq li .question {
+	padding: 8px 0;
+	border-bottom: 1px solid #b3b3b3;
+	background: url('../img/share/faq_q.png') no-repeat 10px 10px;
+}
+.aboutImageFaq li .question p {
+	padding: 0 45px;
+	margin: 0;
+	background: url('../img/share/li_open.png') no-repeat 98% 50%;
+}
+.aboutImageFaq li .question p a {
+	color: #1a1a1a;
+	text-decoration: none;
+}
+.aboutImageFaq li.opened .question p {
+	background: url('../img/share/li_close.png') no-repeat 98% 50%;
+}
+.aboutImageFaq li .answer {
+	color: #1a1a1a;
+	padding: 10px 45px 10px 70px;
+	background: #f2f2f2 url('../img/share/faq_a.png') no-repeat 40px 10px;
+	border-bottom: 1px solid #b3b3b3;
+}
+.aboutImageFaq li .answer p {
+	margin: 0;
+	padding: 0;
+}
+.aboutImageFaq li .answer p:first-child {
+	margin-top: 0;
+}
+.aboutImageFaq li.noArticles {
+	text-align: center;
+	padding: 10px 0;
+	border-bottom: 1px solid #b3b3b3;
+}
+
+
+
+/* mainGallery */
+.mainGallery {
+	width: 990px;
+	margin: 0 auto;
+}
+
+#imageSlider {
+	position: relative;
+	height: 460px;
+	margin-bottom: 39px;
+	overflow: hidden;
+}
+#imageSlider .banners {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0;
+    margin: 0;
+	width: 1000%;
+	list-style: none;
+}
+#imageSlider .banners li {
+	position: absolute;
+    top: 0;
+    list-style-image: none !important;
+    list-style-position: inside !important;
+    list-style-type: none !important;
+	/*float: left;*/
+}
+#imageSlider.makeGoodsBanner .banners li .imageWrapper {
+    width: 800px;
+    height: 240px;
+}
+#imageSlider .banners li .imageWrapper {
+    width: 990px;
+    height: 460px;
+}
+#imageSlider .banners li img {
+    display: block;
+}
+#imageSlider div.dots button {
+	padding: 0 20px;
+}
+
+.mainGallery .freeDesign {
+	position: relative;
+	margin-bottom: 40px;
+}
+.mainGallery .freeDesign p {
+	margin: 0;
+	padding: 0 0 0 49px;
+	font-size: 26px;
+	line-height: 39px;
+	background: url("../img/share/icon_magnifying_glass.gif") no-repeat 3px 50%;
+}
+.mainGallery .freeDesign .btn {
+	position: absolute;
+	top: 0;
+	right: 13px;
+}
+.mainGallery .freeDesign .btn a {
+	display: block;
+	font-family: Nanumgothic, Nanumgothicweb, sans-serif;
+	width: 230px;
+	color: #fff;
+	font-size: 17px;
+	text-align: center;
+	text-decoration: none;
+}
+.mainGallery .freeDesign .btn a img {
+	vertical-align: middle;
+	margin: -3px 0 0 20px;
+}
+.mainGallery .freeDesign .btn a .bg {
+	left: 15px;
+	right: 15px;
+}
+
+.mainGallery .order {
+	height: 80px;
+	padding-left: 144px;
+	color: #262626;
+	line-height: 80px;
+	background: #f2f2f2 url("../img/share/order_icon1.gif") no-repeat 26px 50%;
+}
+.mainGallery .order .title {
+	margin-right: 80px;
+	font-size: 30px;
+}
+.mainGallery .order .txt1 {
+	margin-right: 10px;
+	font-size: 16px;
+}
+.mainGallery .order .tel {
+	font-size: 32px;
+	font-family: 'Nanumgothicbold', 'Nanumgothicwebbold', sans-serif;
+}
+
+.mainGallery .service {
+	margin-top: 40px; // default 90px
+}
+.mainGallery .service h2 {
+	margin: 0 0 -60px;
+	padding: 0;
+	font-size: 27px;
+	font-family: 'Nanumgothicbold', 'Nanumgothicwebbold', sans-serif;
+}
+
+/* .galleryList2 */
+.galleryList2 {
+	overflow: hidden;
+}
+.mainGallery .galleryList2 {
+	margin-top: 20px;
+}
+.galleryList2 ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 105%;
+}
+.galleryList2 ul:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+.galleryList2 li {
+	float: left;
+	position: relative;
+	width: 240px;
+	height: 300px;
+	overflow: hidden;
+	margin: 60px 10px 0 0;
+}
+.galleryList2 li  .imageWrapper {
+	width: 240px;
+	height: 300px;
+	overflow: hidden;
+}
+.galleryList2 li  .imageWrapper img {
+	display: none;
+}
+.galleryList2 .info {
+	position: absolute;
+	left: 10px;
+    width: 200px;
+    max-height: 260px;
+	bottom: 10px;
+	z-index: 1;
+	color: #646460;
+	padding: 10px 10px;
+}
+.galleryList2 .info:hover {
+    top: 10px;
+}
+.galleryList2 .info .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: url('../img/share/list_transparent_bg1_80.png');
+}
+.galleryList2 .info a {
+	color: inherit;
+	text-decoration: none;
+}
+.galleryList2 .info .category {
+    font-size: 12px;
+}
+.galleryList2 .info .title {
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    color: #4b4b4b;
+    margin-bottom: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.galleryList2 .info .price {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+	font-size: 16px;
+	text-align: right;
+	font-family: verdana, sans-serif;
+}
+.galleryList2 .info .detailInfo {
+    font-size: 12px;
+	display: none;
+}
+.galleryList2 .info:hover .detailInfo {
+    display: block;
+    width: 190px;
+}
+
+.galleryList2 .title2 {
+	position: absolute;
+	left: 12px;
+	right: 12px;
+	bottom: 12px;
+	z-index: 1;
+	color: #646460;
+	padding: 15px 15px 12px;
+}
+.galleryList2 .title2 .bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #fff;
+	opacity: 0.8;
+	filter:alpha(opacity=80);
+	z-index: -1;
+}
+.galleryList2 .title2 .txt {
+	text-align: center;
+	font-size: 19px;
+	font-family: 'Nanumgothicbold', 'Nanumgothicwebbold', sans-serif;
+}
+.galleryList2 .title2 .txt a {
+	color: #646460;
+	text-decoration: none;
+}

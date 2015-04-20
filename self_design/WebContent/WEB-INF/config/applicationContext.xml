@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jee="http://www.springframework.org/schema/jee"
+    xmlns:lang="http://www.springframework.org/schema/lang"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:task="http://www.springframework.org/schema/task"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+        http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task.xsd" default-autowire="byType">
+
+    <context:spring-configured />
+
+    <!-- context:load-time-weaver / -->
+
+    <context:annotation-config />
+
+    <context:component-scan base-package="kr.co.crewmate.site"/>
+    
+    <tx:annotation-driven transaction-manager="transactionManagerForWebDb" />
+
+    <aop:aspectj-autoproxy/>
+
+
+    <aop:config>
+        <aop:pointcut id="servicePointcut" expression="execution(* *..service.*Service.*(..))" />
+        <aop:pointcut id="daoPointcut" expression="execution(* *..dao.*Dao.*(..))" />
+        <aop:advisor id="managerTx" advice-ref="txAdviceForWebDb" pointcut-ref="servicePointcut" />
+        <aop:aspect id="logging" ref="loggingAspect">
+            <aop:around pointcut-ref="servicePointcut" method="serviceChecker" />
+            <aop:around pointcut-ref="daoPointcut" method="serviceChecker" />
+        </aop:aspect>
+    </aop:config>
+    
+    <bean id="loggingAspect" class="kr.co.crewmate.site.aop.LoggingAspect" />
+
+    <tx:advice id="txAdviceForWebDb" transaction-manager="transactionManagerForWebDb">
+        <tx:attributes>
+            <tx:method name="getEventMainData" propagation="NEVER"/>
+            <tx:method name="getCodeListByCodeClass" propagation="NEVER"/>       
+            <tx:method name="get*" read-only="true" propagation="REQUIRED"/>
+            <tx:method name="select*" read-only="true" propagation="REQUIRED"/>
+            <tx:method name="*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="/WEB-INF/config/database.properties"/>
+    </bean>
+
+    <bean id="dataSourceForWebDb" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" primary="true">
+        <property name="driverClassName">
+            <value>${driverClassName}</value>
+        </property>
+        <property name="url">
+            <value>${connectionString}</value>
+        </property>
+        <property name="username">
+            <value>${databaseUser}</value>
+        </property>
+        <property name="password">
+            <value>${databasePassword}</value>
+        </property>
+        <property name="validationQuery">
+            <value>${validationQuery}</value>
+        </property>
+        <property name="maxActive">
+            <value>300</value>
+        </property>
+        <property name="maxWait">
+            <value>10000</value>
+        </property>
+        <property name="testWhileIdle">
+            <value>${testWhileIdle}</value>
+        </property>
+        <property name="timeBetweenEvictionRunsMillis">
+            <value>${timeBetweenEvictionRunsMillis}</value>
+        </property>
+        <property name="connectionInitSqls">
+            <value>${connectionInitSqls}</value>
+        </property>
+    </bean>
+
+    <bean id="dataSourceForSsgGift" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName">
+            <value>${ssgGift.driverClassName}</value>
+        </property>
+        <property name="url">
+            <value>${ssgGift.connectionString}</value>
+        </property>
+        <property name="username">
+            <value>${ssgGift.databaseUser}</value>
+        </property>
+        <property name="password">
+            <value>${ssgGift.databasePassword}</value>
+        </property>
+        <property name="maxActive">
+            <value>10</value>
+        </property>
+    </bean>
+
+    <!-- 
+    <bean id="sqlMapClientForSsgGiftDb" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+        <property name="dataSource" ref="dataSourceForSsgGift"/>
+        <property name="configLocation" value="classpath:/kr/co/crewmate/site/dao/ibatis/map/sqlmap-config-webdb.xml"/>
+        <property name="mappingLocations" value="classpath:/kr/co/crewmate/site/dao/ibatis/map/*SQL.xml"/>
+        <property name="lobHandler" ref="defaultLobHandler"/>
+        <property name="useTransactionAwareDataSource" value="false"/>
+    </bean>
+    
+    <bean id="sqlMapSsgGiftDao" class="kr.co.crewmate.site.dao.ibatis.SqlMapSsgGiftDao" autowire="no">
+        <property name="SqlMapClient" ref="sqlMapClientForSsgGiftDb"/>
+    </bean>
+     -->
+     
+    <bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor"/>
+
+    <bean id="defaultLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true"/>    
+
+    <bean id="sqlMapClientForWebDb" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean" primary="true">
+        <property name="dataSource" ref="dataSourceForWebDb"/>
+        <property name="configLocation" value="classpath:/kr/co/crewmate/site/dao/ibatis/map/sqlmap-config-webdb.xml"/>
+        <property name="mappingLocations" value="classpath:/kr/co/crewmate/site/dao/ibatis/map/*SQL.xml"/>
+        <property name="lobHandler">
+            <ref bean="defaultLobHandler"/>
+        </property>
+    </bean>
+    
+    <bean id="transactionManagerForWebDb" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSourceForWebDb"/>
+        <qualifier value="webdb" />
+    </bean>
+    
+    
+    <!-- 
+    <tx:advice id="txAdvice_MS" transaction-manager="txManager_MS">
+        <tx:attributes>
+            <tx:method name="insert*" rollback-for="Exception" /> 
+            <tx:method name="update*" rollback-for="Exception" /> 
+            <tx:method name="delete*" rollback-for="Exception" /> 
+            <tx:method name="*" read-only="true" /> 
+        </tx:attributes>
+    </tx:advice>
+
+    <bean id="dataSourceForChosun" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName">
+            <value>${chosun.driverClassName}</value>
+        </property>
+        <property name="url">
+            <value>${chosun.connectionString}</value>
+        </property>
+        <property name="username">
+            <value>${chosun.databaseUser}</value>
+        </property>
+        <property name="password">
+            <value>${chosun.databasePassword}</value>
+        </property>
+        <property name="maxActive">
+            <value>10</value>
+        </property>
+    </bean>
+    
+    <bean id="sqlMapClientForChosunDb" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+        <property name="dataSource" ref="dataSourceForChosun"/>
+        <property name="configLocation" value="classpath:/kr/co/crewmate/site/dao/ibatis/map/sqlmap-config-webdb.xml"/>
+        <property name="mappingLocations" value="classpath:/kr/co/crewmate/site/dao/ibatis/map/*SQL.xml"/>
+        <property name="lobHandler" ref="defaultLobHandler"/>
+        <property name="useTransactionAwareDataSource" value="false"/>
+    </bean>
+
+    <bean id="sqlMapChosunDao" class="kr.co.crewmate.site.dao.ibatis.SqlMapChosunDao" autowire="no">
+        <property name="SqlMapClient" ref="sqlMapClientForChosunDb"/>
+    </bean>
+
+    <bean id="txManager_MS" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSourceForChosun" /> 
+    </bean>
+     -->
+    
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>/WEB-INF/messages/store</value>
+            </list>
+        </property>
+        <property name="cacheSeconds">
+            <value>-1</value>
+        </property>
+        <property name="defaultEncoding">
+            <value>UTF-8</value>
+        </property>
+    </bean>
+
+    <!-- 
+    <bean id="messageSourceAccessor" class="org.springframework.context.support.MessageSourceAccessor">
+        <constructor-arg>
+            <ref local="messageSource"/>
+        </constructor-arg>
+    </bean>
+     -->
+
+    <bean id="config" class="kr.co.crewmate.site.config.Config">
+        <constructor-arg index="0" value="/WEB-INF/config/ssgdfs.xml"/>
+    </bean>
+    
+    <task:annotation-driven scheduler="myScheduler" executor="myExecutor"/>
+    <task:scheduler id="myScheduler" pool-size="10"/>
+    <task:scheduler id="myExecutor" pool-size="10"/>
+    
+    <!--  for store info -->
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />    
+    
+</beans>

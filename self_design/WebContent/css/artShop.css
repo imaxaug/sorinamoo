@@ -1,0 +1,2953 @@
+﻿/*--------  2-1  ----------*/
+#allGoodsCatalog #imageSlider {
+    width: 800px;
+}
+#allGoodsCatalog .makeGoodsBanner {
+	position: relative;
+	height: 240px;
+	background: #ebebeb;
+	margin-bottom: 20px;
+}
+#allGoodsCatalog .makeGoodsBanner .mainImage {
+	position: relative;
+	width: 800px;
+	height: 240px;
+	overflow: hidden;
+	display: block;
+	content: "";
+	clear: both;
+}
+#allGoodsCatalog .makeGoodsBanner .mainImage ul {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0;
+	margin: 0;
+	width: 5000px;
+	list-style: none;
+}
+#allGoodsCatalog .makeGoodsBanner .mainImage ul li {
+	width: 800px;
+	float: left;
+}
+#allGoodsCatalog .makeGoodsBanner .mainImage ul li img {
+    width: 800px;
+}
+#imageSlider .arrow button {
+	position: absolute;
+	top: 50%;
+	margin: -15px 0 0 0;
+}
+#imageSlider .arrow button.prev {
+	left: 0;
+}
+#imageSlider .arrow button.next {
+	right: 0;
+}
+#imageSlider .dots {
+	position: absolute;
+	bottom: 33px;
+	width: 100%;
+	text-align: center;
+}
+#imageSlider .dots button {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	padding: 0 15px;
+	background: url("../img/share/bannerPager_off.gif") no-repeat 50% 50%;
+}
+#imageSlider .dots button.on {
+	background: url("../img/share/bannerPager_on.gif") no-repeat 50% 50%;
+}
+
+#allGoodsCatalog .goodsList {
+	width: 800px;
+	margin-top: -90px;
+	overflow: hidden;
+}
+#allGoodsCatalog .goodsList ul {
+	width: 840px;
+	padding: 0;
+	list-style: none;
+}
+#allGoodsCatalog .goodsList li {
+	position: relative;
+	float: left;
+	height: 300px;
+	margin: 90px 40px 0 0;
+}
+#allGoodsCatalog .goodsList img {
+	width: 240px;
+	height: 300px;
+}
+#allGoodsCatalog .goodsList li .infobox {
+	position: absolute;
+	bottom: 0;
+	width: 240px;
+	padding: 15px 0;
+	min-height: 30px;
+	text-align: center;
+	z-index: 1;
+}
+#allGoodsCatalog .goodsList li .infobox .bgBox {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background: #231f20;
+	opacity: 0.6;
+	filter:alpha(opacity=60);
+	z-index: -1;
+}
+#allGoodsCatalog .goodsList li .infobox h3 {
+	margin: 0;
+	font-family: Nanumgothic, Nanumgothicweb, sans-serif;
+	font-size: 18px;
+	color: #fff;
+	z-index: 1;
+}
+
+/*--------  2-2  ----------*/
+#catalogByCategory {
+	/*margin-top: 20px;*/
+}
+#catalogByCategory .title {
+    position: relative;
+    line-height: 1;
+    margin: 0 0 20px;
+}
+#catalogByCategory .title .tracking {
+    margin-bottom: 10px;
+}
+#catalogByCategory .title .tracking ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+#catalogByCategory .title .tracking ul li {
+    display: inline-block;
+    font-family: appleGothic, Dotum, '돋움', sans-serif;
+    font-size: 11px;
+    color: #618de1;
+}
+#catalogByCategory .title .tracking ul li:after {
+    content: '>';
+    margin: 0 5px;
+}
+#catalogByCategory .title .tracking ul li:last-child:after {
+    content: '';
+}
+#catalogByCategory .title h2 {
+    font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+    font-size: 19px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+#catalogByCategory > ul {
+	padding: 0;
+    margin: -60px 0 0;
+	list-style: none;
+}
+#catalogByCategory > ul > li {
+	position: relative;
+	margin-top: 80px;
+    list-style: none !important;
+    list-style-image: none !important;
+}
+#catalogByCategory .baseProductList .groupDiscountLayer {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    border: 3px solid #ccc;
+}
+#catalogByCategory .baseProductList.show .groupDiscountLayer {
+    display: block;
+}
+#catalogByCategory ul li .images {
+	float: left;
+	position: relative;
+	width: 490px;
+	height: 300px;
+	overflow: hidden;
+}
+#catalogByCategory ul li .imageSlider {
+	width: 10000px;
+}
+#catalogByCategory ul li .imageContainer {
+    position: relative;
+	float: left;
+	width : 238px;
+	height: 298px;
+	border: 1px solid #bbbdbf;
+	margin-right: 10px;
+	overflow: hidden;
+    vertical-align: middle;
+}
+#catalogByCategory ul li .imageContainer img {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 300px;
+    vertical-align: middle;
+}
+#catalogByCategory > ul > li:after,
+#catalogByCategory ul li .imageSlider:after {
+	display: block;
+	content: '';
+	clear: both;
+}
+#catalogByCategory ul li .images button {
+	position: absolute;
+	top: 50%;
+	margin: -15px 0 0 0;
+	padding: 0;
+}
+#catalogByCategory ul li .images button.left {
+	left: 0;
+}
+#catalogByCategory ul li .images button.right {
+	right: 0;
+}
+
+#catalogByCategory ul li .info {
+	float: right;
+	position: relative;
+	width: 300px;
+	height: 300px;
+}
+#catalogByCategory ul li .info div.detail {
+	position: absolute;
+	bottom: 40px;
+}
+#catalogByCategory ul li .info div.detail > div {
+	margin-bottom: 8px;
+}
+#catalogByCategory ul li .info > *  {
+	float: left;
+}
+#catalogByCategory ul li .info .name {
+	margin: 0 0 10px  0;
+	font-size: 19px;
+}
+#catalogByCategory ul li .info .describe {
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 12px;
+	color: #4e4e4e;
+	margin: 0;
+}
+#catalogByCategory ul li .info .price {
+    top: 160px;
+}
+#catalogByCategory ul li .info .price a {
+    font-family: appleGothic, '돋움', Dotum, sans-serif;
+    float: right;
+}
+#catalogByCategory ul li .info .size,
+#catalogByCategory ul li .info .price,
+#catalogByCategory ul li .info .colors {
+	font-weight: bold;
+	font-size: 13px;
+}
+#catalogByCategory ul li .info .colors {
+    overflow: hidden;
+}
+#catalogByCategory ul li .info .colors:after  {
+    /*content: '';*/
+    /*clear : both;*/
+    /*display: block;*/
+    /*overflow: hidden;*/
+}
+#catalogByCategory ul li .info .colors .head {
+	float: left;
+    padding-top: 1px;
+	margin-right: 10px;
+	display: inline-block;
+}
+#catalogByCategory ul li .info .colors .colorList  {
+    float: right;
+    /*display: inline-block;*/
+    width: 264px;
+    padding: 1px 0 0 1px;
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
+}
+#catalogByCategory ul li .info .colors .colorList > li  {
+	/*float : left;*/
+    margin-bottom: -2px;
+    display: inline;
+    line-height: 10px;
+}
+
+/*#catalogByCategory ul li .info .colors .colorList:after  {*/
+	/*content: '';*/
+	/*clear: both;*/
+	/*display: block;*/
+/*}*/
+#catalogByCategory ul li .info .colors .color  {
+	display: inline-block;
+	cursor: pointer;
+	width: 15px;
+	height: 15px;
+	border: 2px solid #fff;
+	outline: 1px solid #fff;
+	/*margin-right: 0px;*/
+	/*margin-bottom: 2px;*/
+    margin: 0 !important;
+}
+#catalogByCategory ul li .info .colorList .color:hover,
+#catalogByCategory ul li .info .colors .color.selected {
+	outline: 1px solid #bbbdbf;
+}
+#catalogByCategory ul li .info a.button {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 300px;
+	height: 40px;
+    text-align: center;
+}
+#catalogByCategory ul li .info a.button:hover {
+    text-decoration: none;
+}
+#catalogByCategory ul li .info a.button .bg {
+	left: 15px;
+	right: 15px;
+}
+#catalogByCategory ul li .info a.button img {
+    vertical-align: -3px;
+}
+
+/*--------  2-3  ----------*/
+.makingWindow {
+	width: 100%;
+	min-width: 990px;
+	margin-bottom: 120px;
+}
+.makingWindow .group1 {
+	display: inline-block;
+	width: 510px;
+	margin-right: 16px;
+}
+.makingWindow .group2 {
+	display: inline-block;
+	margin: 0;
+	width: 460px;
+}
+
+.makingWindow .top {
+	position: relative;
+}
+.makingWindow .top .title {
+	position: relative;
+	height: 70px;
+}
+.makingWindow .top .title p {
+	font-size: 23px;
+	font-weight: bold;
+	color: #4f4f4f;
+	margin: 0;
+}
+.makingWindow .top .title .viewPoint {
+	position: absolute;
+	top: 30px;
+	right: 0;
+	font-size: 14px;
+	color: #262626;
+	line-height: 1;
+}
+.makingWindow .top .title .viewPoint input {
+	margin-top: -2px;
+	margin-left: 10px;
+}
+.makingWindow .top .buttons {
+	position: absolute;
+	top: 0;
+	right: 0;
+	text-align: right;
+	height: 70px;
+}
+.makingWindow .top .buttons button {
+	padding: 4px;
+	border: none;
+	background: #bbbdbf;
+	margin: 0;
+}
+.makingWindow .top .buttons .selected span {
+	background: #ec2f49;
+}
+.makingWindow .top .buttons button span {
+	display: block;
+	width: 117px;
+	font-family: Nanumgothic, Nanumgothicweb, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	line-height: 22px;
+}
+
+.makingWindow .body {
+	position: relative;
+}
+.makingWindow .body .pdtWindow {
+	height: 535px;
+	background: #ebebeb;
+}
+.makingWindow .body .selectBox {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 423px;
+	height: 495px;
+	padding: 20px;
+	overflow: hidden;
+}
+.makingWindow .body .selectBox .bg {
+	position: absolute;
+	top: 14px;
+	right: 0;
+	bottom: 14px;
+	left: 0;
+	background: url("../img/share/marketPress_2-3_rightBoxBG_middle.png") repeat-y;
+	z-index: -1;
+}
+.makingWindow .body .selectBox .bg > div {
+	position: absolute;
+	right: 0;
+	left: 0;
+}
+.makingWindow .body .selectBox .bg div.top {
+	top: -14px;
+	height: 15px;
+	background: url("../img/share/marketPress_2-3_rightBoxBG_topBottom.png") no-repeat 0 0;
+}
+.makingWindow .body .selectBox .bg div.bottom {
+	bottom: -14px;
+	height: 15px;
+	background: url("../img/share/marketPress_2-3_rightBoxBG_topBottom.png") no-repeat 0 100%;
+}
+
+.makingWindow .body .selectBox > div select {
+	margin: 0;
+	padding: 0;
+	width: 170px;
+	height: 20px;
+	border: 1px solid #babcbe;
+	background: white;
+}
+.makingWindow .body .selectBox > div.option span {
+	position: relative;
+	display: inline-block;
+	width: 247px;
+	text-align: right;
+}
+.makingWindow .body .selectBox > div.option span input {
+	width: 150px;
+	height: 20px;
+	padding-right: 10px;
+	margin: 0;
+	border: none;
+	border-bottom: 1px solid #989998;
+}
+.makingWindow .body .selectBox > div.option span button {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	margin-top: -5px;
+}
+.makingWindow .body .selectBox ul {
+	width: 428px;
+	padding: 0;
+	content: "";
+	clear: both;
+	display: block;
+}
+.makingWindow .body .selectBox > ul > li {
+	position: relative;
+	list-style: none;
+	display: inline-block;
+	margin: 2px 4px 0 0;
+	width: 136px;
+	height: 136px;
+	background: #babbbd;
+	overflow: visible;
+}
+.makingWindow .body .selectBox > ul > li .detail {
+	position: absolute;
+	display: none;
+	top: 0;
+	left: 0;
+	width: 110px;
+	padding: 13px;
+	z-index: 1;
+	background: #e1e1e1;
+}
+.makingWindow .body .selectBox > ul > li:hover .detail {
+	display: block;
+}
+.makingWindow .body .selectBox > ul > li .detail p {
+	font-size: 14px;
+	font-weight: bold;
+	color: #231f20;
+	margin: 0;
+}
+.makingWindow .body .selectBox > ul > li .detail ul {
+	position: relative;
+	width: 119px;
+	margin: 10px 0;
+}
+.makingWindow .body .selectBox > ul > li .detail li {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	list-style: none;
+	margin: 0 7px 7px 0;
+	background: #464646;
+}
+.makingWindow .body .selectBox > ul > li .detail p.price {
+	margin-top: 10px;
+	font-size: 17px;
+	font-weight: bold;
+	float: right;
+	color: #231f20;
+}
+.makingWindow .body .pages {
+	width: 100%;
+	margin-top: 15px;
+	text-align: right;
+}
+.makingWindow .body .pages span {
+	display: inline-block;
+	padding: 0 1px;
+}
+.makingWindow .body .pages span a {
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 11px;
+	color: #262626;
+}
+
+.makingWindow .bottom {
+	position: relative;
+	width: 100%;
+}
+.makingWindow .bottom .group1 {
+	width: 510px;
+	height: 10px;
+	margin-right: 16px;
+}
+.makingWindow .bottom .group2 {
+	position: relative;
+	display: inline-block;
+	width: 460px;
+}
+.makingWindow .bottom .group2 .total {
+	position: relative;
+	width: 100%;
+	margin: 25px 0 30px;
+	text-align: right;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 19px;
+	color: #262626;
+}
+.makingWindow .bottom .group2 .total span {
+	margin-right: 130px;
+}
+.makingWindow .bottom .group2 .total > div {
+	position: absolute;
+	bottom: -2px;
+	right: 0;
+	width: 98px;
+	display: inline-block;
+	font-family: Nanumgothic, Nanumgothicweb, sans-serif;
+	font-size: 11px;
+	color: #333;
+	text-align: center;
+	margin-left: 20px;
+	padding: 5px 6px;
+	vertical-align: top;
+	background: url("../img/share/marketPress_sales.png") no-repeat;
+}
+.makingWindow .bottom .group2 .total > div .saleRate {
+	display: none;
+	margin-bottom: 10px;
+	padding-left: 3px;
+}
+.makingWindow .bottom .group2 .total > div .saleRate p {
+	margin: 5px 0;
+}
+.makingWindow .bottom .group2 .total > div:hover .saleRate {
+	text-align: left;
+	display: block;
+}
+.makingWindow .bottom .group2 .total > div:hover {
+	background: url("../img/share/marketPress_sales_big.png") no-repeat 0 100%;
+}
+.makingWindow .bottom .group2 .total button img {
+	/*margin-left: 7px;*/
+	margin-top: -3px;
+	vertical-align: middle;
+}
+.makingWindow .bottom .group2 .social {
+	position: relative;
+	float: left;
+	width: 160px;
+}
+.makingWindow .bottom .group2 .social a img{
+	vertical-align: middle;
+	padding: 1px;
+}
+.makingWindow .bottom .group2 .social span.count {
+	display: inline-block;
+	width: 27px;
+	height: 16px;
+	font-size: 8px;
+	text-align: center;
+	color: #7c7c7c;
+	text-indent: 1px;
+	line-height: 17px;
+	margin-left: 3px;
+	background: url("../img/share/marketPress_bg_shareCount.png") no-repeat;
+}
+.makingWindow .bottom .group2 .submit {
+	text-align: right;
+}
+.makingWindow .bottom .group2 .submit button {
+	width: 111px;
+	height: 50px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 14px;
+}
+.makingWindow .bottom .group2 .submit button.cart {
+	color: #fff;
+	background: url("../img/share/marketPress_cart.png") no-repeat;
+}
+.makingWindow .bottom .group2 .submit button.favorite {
+	margin-left: 10px;
+	color: #999;
+	background: url("../img/share/marketPress_btn_favorite.png") no-repeat;
+}
+
+.section .detailPdt .body h3 {
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 16px;
+	color: #4e4e4e;
+	margin: 25px 0 15px;
+}
+.section .detailPdt .body p {
+	margin: 0;
+	height: 110px;
+	font-size: 14px;
+	color: #4e4e4e;
+	overflow: auto;
+}
+.section .detailPdt .body table {
+	width: 100%;
+	font-family: appleGothic, Dotum, "돋움", sans-serif;
+	font-size: 13px;
+	color: #262626;
+	text-align: center;
+}
+.section .detailPdt .body table.sizes th {
+	height: 27px;
+	background: #ebebeb;
+}
+.section .detailPdt .body table.sizes td {
+	height: 29px;
+	border-bottom: 1px solid #c2c2c2;
+}
+.section .detailPdt .body table.colors {
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 16px;
+	color: #4e4e4e;
+	margin-top: 35px;
+	text-align: left;
+}
+.section .detailPdt .body table.colors td {
+	vertical-align: top;
+}
+.section .detailPdt .body table.colors td .color {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border: 2px solid white;
+	margin: 0 4px 2px 0;
+	background: #e99d87;
+}
+.section .detailPdt .body table.colors td .color:hover {
+	outline: 1px solid #929497;
+}
+
+.section .addImage .body .group2.topContent {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 463px;
+}
+.section .addImage .body .group2 div.title {
+	position: relative;
+	width: 423px;
+	padding: 20px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 16px;
+	color: #262626;
+	text-align: right;
+	background: #f1f1f2;
+}
+.section .addImage .body .group2 div.title button {
+	width: 110px;
+	height: 50px;
+	margin-left: 25px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 14px;
+	color: #fff;
+	background: url("../img/share/btn_bg.png") no-repeat -1px 100%;
+}
+
+.section .addImage .body .group2 div.submenu {
+	margin: 20px 0 10px;
+	font-family: appleGothic, Dotum, "돋움", sans-serif;
+	font-size: 13px;
+}
+.section .addImage .body .group2 div.submenu > div{
+	float: right;
+}
+.section .addImage .body .group2 div.submenu a {
+	text-decoration: underline;
+}
+.section .addImage .body .group2 div.submenu span.freeDesign a {
+	margin-right: 5px;
+}
+.section .addImage .body .group2 div.submenu span.freeDesign:after {
+	padding-right: 3px;
+	content: "|";
+}
+
+.section .addImage .body .selectBox {
+	margin-top: 142px;
+	height: 354px;
+}
+.section .addImage .body .selectBox ul {
+	margin: 20px 0 0;
+}
+.section .addImage .body .selectBox .pages {
+	margin-top: 12px;
+}
+
+.section .addImage.step2 .body .searchFile ul {
+	margin: 0;
+	list-style: none;
+}
+.section .addImage.step2 .body .searchFile > ul > li {
+	padding: 9px 0;
+	background: url("../img/share/market_2-3_underLine.png") no-repeat 0 100%;
+}
+.section .addImage.step2 .body .searchFile > ul > li span {
+	display: inline-block;
+	width: 370px;
+	background: url("../img/share/market_2-3_li_close.png") no-repeat 100% 50%;
+}
+.section .addImage.step2 .body .searchFile > ul > li.open span{
+	background: url("../img/share/market_2-3_li_open.png") no-repeat 100% 50%;
+}
+.section .addImage.step2 .body .searchFile li img {
+	margin-right: 10px;
+	vertical-align: middle;
+}
+.section .addImage.step2 .body .searchFile li a {
+	font-family: appleGothic, Dotum, "돋움", sans-serif;
+	font-size: 13px;
+	color: #262626;
+}
+.section .addImage.step2 .body .searchFile li.head {
+	text-align: right;
+	margin-right: 3px;
+}
+.section .addImage.step2 .body .searchFile li.head button {
+	margin-left: 10px;
+}
+.section .addImage.step2 .body .searchFile li .inFolder {
+	position: relative;
+	width: 423px;
+	margin-top: 2px;
+	text-align: center;
+	padding-bottom: 20px;
+}
+.section .addImage.step2 .body .searchFile li .inFolder ul {
+	margin-top: 7px;
+	background: url("../img/share/market_2-3_underLine.png") no-repeat 0 0;
+}
+.section .addImage.step2 .body .searchFile li .inFolder li {
+	display: inline-block;
+	width: 81px;
+	height: 61px;
+	margin: 10px 13px 0 0;
+	background: #aaa url("../img/share/market_2-3_squareLine.png") no-repeat 50% 50%;
+}
+.section .addImage.step2 .body .searchFile li .inFolder button.left {
+	position: absolute;
+	bottom: 0;
+	left: 23px;
+}
+.section .addImage.step2 .body .searchFile li .inFolder button.right {
+	position: absolute;
+	bottom: 0;
+	right: 18px;
+}
+.section .addImage.step2 .body .pages {
+	margin-top: 7px;
+}
+
+.section .makingWindow .bottom .group1 table {
+	position: absolute;
+	top: 23px;
+	left: 0;
+	width: 510px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 13px;
+	color: #262626;
+}
+.section .makingWindow .bottom .group1 th {
+	text-align: left;
+	padding-bottom: 3px;
+}
+.section .makingWindow .bottom .group1 td {
+	vertical-align: bottom;
+	padding-bottom: 10px;
+}
+.section .makingWindow .bottom .group1 td span {
+	padding-left: 3px;
+}
+.section .makingWindow .bottom .group1 td input {
+	vertical-align: bottom;
+}
+.section .makingWindow .bottom .group1 table td .image {
+	width: 60px;
+	height: 45px;
+	margin-right: 20px;
+	background: #acacac;
+}
+.section .makingWindow .bottom .group1 td.center {
+	text-align: center;
+}
+
+
+/* 팝업 레이어 */
+.makingWindow .body .popup {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+.makingWindow .body .popup .bg {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: #fff;
+	opacity: 0.8;
+	filter:alpha(opacity=80);
+	z-index: -1;
+}
+/*.makingWindow .body .popup p {*/
+	/*margin: 0;*/
+/*}*/
+.makingWindow .body .popup .content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -125px 0 0 -198px;
+	width: 340px;
+	height: 214px;
+	padding: 18px;
+	border: 10px solid #262626;
+	background: #fff;
+}
+.makingWindow .body .popup .content p {
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 13px;
+	color: #262626;
+	line-height: 23px;
+	/*text-align: justify;*/
+	margin: 15px 0 10px;
+}
+.makingWindow .body .popup .content p.title {
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 19px;
+	margin: 10px 0;
+}
+.makingWindow .body .popup .content div {
+	text-align: right;
+}
+
+
+
+/*--------  2-3_1  ----------*/
+.addText .body .selectBox {
+	height: 394px;
+}
+
+/* table1 - 주문결제 */
+.table1 {
+	width: 100%;
+	border-bottom: 1px solid #bbbdbf;
+}
+.table1 table {
+	width: 100%;
+	table-layout: fixed;
+}
+.table1 table thead th {
+	padding: 6px 0;
+	color: #262626;
+	font-weight: normal;
+	background-color: #f7f7f7;
+	border-top: 2px solid #3b4d72;
+}
+.table1 table tbody td {
+	padding: 17px 0;
+	text-align: center;
+	color: #000;
+	font-size: 13px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	vertical-align: middle;
+}
+.table1 table tbody tr:first-child td {
+	border-top: 1px solid #bbbdbf;
+}
+.table1 table tbody td img {
+	vertical-align: middle;
+	margin-bottom: 1px;
+}
+.table1 table tbody td .num {
+	font-family: tahoma, sans-serif;
+}
+.table1 table tbody td.pdtName {
+	text-align: left;
+	padding-left: 20px;
+}
+.table1 table tbody td.pdtName .pdtNameWrap {
+	display: table;
+}
+.table1 table tbody td.pdtName .pic {
+	float: left;
+	margin-right: 5px;
+	width: 130px;
+}
+.table1 table tbody td.pdtName .pic img {
+	width: 58px;
+	height: 58px;
+	vertical-align: middle;
+	border: 1px solid #bbbdbf;
+}
+.table1 table tbody td.pdtName .txt {
+	display: table-cell;
+	vertical-align: middle;
+}
+.table1 table tbody td.pdtName .txt a {
+	color: #000;
+}
+.table1 table tbody td.pdtName .txt .category {
+	font-size: 11px;
+}
+.table1 table tbody td.price {
+	line-height: 16px;
+}
+.table1 table tbody td.price .percent,
+.table1 table tbody td.price .lastPrice {
+	color: #f22c48;
+}
+.table1 table tbody td.price .lastPrice img {
+	position: absolute;
+	margin-top: 3px;
+	margin-left: 3px;
+}
+.table1 table tbody td.total .num {
+	font-weight: bold;
+}
+.paymentArea .table1 .count input.spinner {
+	font-size: 13px;
+	width: 40px;
+	padding: 0;
+}
+.paymentArea .table1 .count button {
+	width: 45px;
+	margin-top: 5px;
+}
+
+.paymentArea .request .pdtName{
+	font-size: 11px;
+	padding-top: 5px;
+	margin-bottom: 9px;
+}
+.paymentArea .request input.typeText {
+	font-family: appleGothic, Dotum, "돋움", sans-serif;
+	font-size: 13px;
+	padding: 0 5px;
+	background-color: #fff;
+}
+.paymentArea .request td ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.paymentArea .request td li {
+	margin-top: 15px;
+}
+.paymentArea .request td li:first-child {
+	margin-top: 0;
+}
+
+.paymentArea .request {
+	margin-top: 15px;
+	margin-bottom: 35px;
+}
+.paymentArea .request table {
+	width: 100%;
+	table-layout: fixed;
+}
+.paymentArea .request table th {
+	padding: 10px 0 0 59px;
+	color: #000;
+	vertical-align: top;
+	text-align: left;
+	font-size: 14px;
+	font-weight: normal;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+}
+.paymentArea .request table td {
+	padding: 10px 0 0;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+}
+.paymentArea .request table th button {
+	width: 106px;
+	margin-top: 10px;
+}
+.paymentArea .buttons {
+	margin-top: 40px;
+	text-align: center;
+}
+.paymentArea .buttons a.button,
+.paymentArea .buttons button {
+	margin: 0 22px;
+}
+.paymentArea .buttons a.button:hover {
+    text-decoration: none;
+}
+.paymentArea .buttons a.button.goShopping {
+    position: relative;
+    font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+    color: #5e5e5e;
+    display: inline-block;
+    vertical-align: top;
+	width: 201px;
+	margin-left: 10px;
+}
+.paymentArea .buttons a.button.goShopping .bg {
+	left: 15px;
+	right: 15px;
+}
+.paymentArea .recommends {
+	margin-top: 90px;
+	overflow: hidden;
+}
+.paymentArea .recommends > p {
+	font-size: 17px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	color: #7c7c7c;
+	margin: 0 0 25px 0;
+}
+.paymentArea .recommends ul {
+	width: 1010px;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	overflow: hidden;
+}
+.paymentArea .recommends li {
+	position: relative;
+	float: left;
+	width: 240px;
+	height: 300px;
+	margin-right: 10px;
+}
+.paymentArea .recommends li > a {
+	display: block;
+}
+.paymentArea .recommends li .info {
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 194px;
+	color: #5e5e5e;
+	padding: 0 23px;
+	z-index: 1;
+}
+.paymentArea .recommends li .info p.kind {
+	font-family: appleGothic, Dotum, "돋움", sans-serif;
+	font-size: 11px;
+	margin: 10px 0 0;
+}
+.paymentArea .recommends li .info h3 {
+	font-size: 15px;
+	font-family: Nanumgothic, Nanumgothicweb, sans-serif;
+	margin: 0;
+}
+.paymentArea .recommends li .info p.price {
+	margin: 5px 0 15px;
+	font-size: 16px;
+	font-family: tahoma, sans-serif;
+	text-align: right;
+}
+.paymentArea .recommends li .info .bg {
+	position: absolute;
+	top: 0;
+	right: 12px;
+	bottom: 13px;
+	left: 12px;
+	background: url("../img/artshop/marketPress_3-3_whitebg.png");
+	z-index: -1;
+}
+
+
+/*--------  2-4  ----------*/
+#freeDesign .title {
+	position: relative;
+	line-height: 1;
+	margin: 0 0 20px;
+}
+#freeDesign .title .tracking {
+    margin-bottom: 10px;
+}
+#freeDesign .title .tracking ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+#freeDesign .title .tracking ul li {
+    display: inline-block;
+    font-family: appleGothic, '돋움', Dotum, sans-serif;
+    font-size: 11px;
+    color: #618de1;
+}
+#freeDesign .title .tracking ul li:after {
+    content: '>';
+    margin: 0 5px;
+}
+#freeDesign .title .tracking ul li:last-child:after {
+    content: '';
+}
+#freeDesign .title h2 {
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 19px;
+	color: #000;
+	margin: 0;
+	padding: 0;
+}
+#freeDesign .title .nav {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+}
+#freeDesign .title .nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: inline-block;
+}
+#freeDesign .title .nav li {
+	list-style: none;
+	display: inline-block;
+}
+#freeDesign .title .nav .viewCount {
+	padding: 0 10px;
+}
+#freeDesign .title .nav .sort li,
+#freeDesign .title .nav .viewCount li {
+	padding: 0 6px;
+	border-left: 1px solid #999;
+}
+#freeDesign .title .nav .viewCount li {
+	font-size: 11px;
+	font-weight: bold;
+}
+#freeDesign .title .nav li.noMargin {
+	padding-left: 0;
+	border: none;
+}
+#freeDesign .title .nav .sort li.current a,
+#freeDesign .title .nav .viewCount li.current a {
+	font-weight: 900;
+	font-size: 105%;
+	color: #262626;
+}
+#freeDesign .title .nav .sort li a,
+#freeDesign .title .nav .viewCount li a {
+	margin: 0;
+	padding: 0;
+	color: #999;
+}
+#freeDesign .title .nav .viewCount img {
+	vertical-align: middle;
+	margin-bottom: 2px;
+}
+#freeDesign .pages li {
+	display: inline-block;
+	list-style: none;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 11px;
+	padding: 0 1px;
+}
+#freeDesign .pages li a {
+	color: #262626;
+	text-decoration: none;
+}
+#freeDesign .pages li.current a,
+#freeDesign .pages li a:hover,
+#freeDesign .pages li a:active {
+	color: #618de1;
+}
+
+/*리스트*/
+#freeDesign .list {
+	width: 800px;
+	overflow: visible;
+}
+#freeDesign .list ul:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+#freeDesign .list ul {
+	width: 840px;
+	margin-top: -60px;
+	padding: 0;
+}
+#freeDesign .list ul li.nothing {
+    list-style: none;
+    margin-top: 160px;
+    text-align: center;
+}
+#freeDesign .list ul li.container {
+	position: relative;
+	float: left;
+    width: 238px;
+	margin-right: 40px;
+	margin-top: 60px;
+	list-style: none;
+}
+#freeDesign .list ul li .image {
+    position: relative;
+    width: 238px;
+    height: 298px;
+    overflow: hidden;
+    background: #f1f1f2;
+    border: 1px solid #babcbe;
+}
+#freeDesign .list ul li .image:hover {
+	-moz-box-shadow: 0 0 5px #999;
+	box-shadow: 0 0 5px #999;
+}
+#freeDesign .list ul li img {
+    width: 220px;
+}
+#freeDesign .list ul li.wideImage img {
+	width: 518px;
+}
+#freeDesign .list ul li div.infobox {
+	line-height: 1.1;
+	padding: 0 5px;
+}
+#freeDesign .list ul li div.infobox h3 {
+	font-size: 20px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-weight: normal;
+	color: #5e5e5e;
+	margin: 15px 0 10px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+#freeDesign .list ul li div.infobox span.designer {
+	color: #5e5e5e;
+	font-size: 13px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-weight: bold;
+}
+#freeDesign .list ul li div.infobox span.designer a {
+	color: #618de1;
+}
+#freeDesign .list ul li div.infobox span.id {
+	font-size: 12px;
+	color: #999;
+	float: right;
+}
+#freeDesign .list ul li div.evaluation {
+	display: none;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+}
+#freeDesign .list ul li:hover div.evaluation {
+	display: block;
+}
+#freeDesign .list ul li div.evaluation .whiteBoard {
+	margin: 0;
+	height: 100px;
+	background: white;
+	opacity: 0.9;
+	filter:alpha(opacity=90);
+}
+#freeDesign .list ul li div.evaluation .grade {
+	position: absolute;
+	top: 15px;
+	left: 50%;
+	margin-left: -67px;
+}
+#freeDesign .list ul li div.evaluation .grade div {
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	margin-left: 2px;
+}
+#freeDesign .list ul li div.evaluation .grade div.star {
+	background: url("../img/share/marketPress_2-4_fullStar.png") no-repeat 50% 50%;
+}
+#freeDesign .list ul li div.evaluation .grade div.emptystar {
+	background: url("../img/share/marketPress_2-4_emptyStar.png") no-repeat 50% 50%;
+}
+#freeDesign .list ul li div.evaluation a.button {
+	position: absolute;
+	bottom: 17px;
+	left: 50%;
+	margin-left: -80px;
+    display: block;
+	width: 160px;
+	height: 34px;
+	font-size: 14px;
+    background: url("../img/btn/btn_bg_Black_34_set.png") repeat-x 0 100%;
+}
+#freeDesign .list ul li div.evaluation a.button:hover {
+    text-decoration: none;
+}
+#freeDesign .list ul li div.evaluation a.button .bg {
+	left: 0;
+	right: 0;
+}
+#freeDesign .bottom .pages {
+	float: right;
+	margin-top: 60px;
+	color: #4e4e4e;
+}
+#freeDesign .bottom .pages > * {
+	margin: 0 2px;
+}
+
+/*--------  3-1  ----------*/
+#topCol {
+	margin-top: 40px;
+	display: block;
+	content: "";
+	clear: both;
+}
+#topCol > div {
+	position: relative;
+	float: left;
+}
+#subArea {
+	width: 160px;
+	margin-right: 30px;
+}
+#subArea .search {
+	position: relative;
+}
+#subArea .search input {
+	width: 128px;
+	height: 20px;
+	border: none;
+	border-bottom: 1px solid #000;
+	background: none;
+	padding-left: 10px;
+	padding-right: 20px;
+	margin-bottom: 15px;
+}
+#subArea .search button {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+#topCol .submenu .depth1 ul {
+	margin: 15px 0;
+}
+#topCol .imageWrapper {
+    width: 380px;
+    height: 340px;
+    overflow: hidden;
+}
+#topCol .content1 img,
+#topCol .content2 img {
+    display: none;
+}
+#topCol .content2 {
+	margin-left: 40px;
+}
+#topCol .content1 .info,
+#topCol .content2 .info {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: 20px 0;
+	text-align: center;
+	z-index: 1;
+}
+#topCol .content1 .info .blackBoard,
+#topCol .content2 .info .blackBoard {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	background: #000;
+	opacity: 0.6;
+	filter:alpha(opacity=60);
+	z-index: -1;
+}
+#topCol .content1 .info p,
+#topCol .content2 .info p {
+	margin: 0;
+	font-size: 18px;
+	font-family: Nanumgothic, Nanumgothicwe, sans-serif;
+	font-weight: bold;
+	line-height: 1;
+	color: #fff;
+}
+
+#content.artShopMain {
+	width: 100%;
+	overflow: hidden;
+}
+.artShopMain .goodsList ul,
+.artShopMain .designerPage ul {
+	list-style: none;
+	max-width: 1010px;
+	min-width: 1010px;
+	padding: 0;
+	margin: 0;
+}
+.artShopMain .goodsList {}
+.artShopMain .goodsList ul:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+.artShopMain .goodsList li {
+	position: relative;
+	float: left;
+	width: 240px;
+	height: 300px;
+	margin: 50px 10px 0 0;
+}
+.artShopMain .goodsList li .imageWrapper {
+	width: 240px;
+	height: 300px;
+	overflow: hidden;
+}
+.artShopMain .goodsList li .imageWrapper a {
+	text-decoration: none;
+}
+.artShopMain .goodsList li .imageWrapper a img {
+	display: none;
+}
+
+.artShopMain .goodsList li .info {
+    position: absolute;
+    left: 10px;
+    width: 200px;
+    max-height: 260px;
+    bottom: 10px;
+    z-index: 1;
+    color: #646460;
+    padding: 10px 10px;
+}
+.artShopMain .goodsList li .info:hover {
+    top: 10px;
+}
+.artShopMain .goodsList li .info .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: url('../img/share/list_transparent_bg1_80.png');
+}
+.artShopMain .goodsList li .info a {
+    color: inherit;
+    text-decoration: none;
+}
+.artShopMain .goodsList li .info .category {
+    font-size: 12px;
+}
+.artShopMain .goodsList li .info .title {
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    color: #4b4b4b;
+    margin-bottom:  30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.artShopMain .goodsList li .info .price {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 16px;
+    text-align: right;
+    font-family: verdana, sans-serif;
+}
+.artShopMain .goodsList li .info .detailInfo {
+    font-size: 12px;
+    display: none;
+}
+.artShopMain .goodsList li .info:hover .detailInfo {
+    display: block;
+    width: 190px;
+}
+.artShopMain .designerPage {
+	list-style: none;
+	max-width: 1000px;
+	min-width: 1000px;
+	padding: 0;
+	margin: 45px 0 0 0;
+}
+.artShopMain .designerPage li {
+	position: relative;
+	display: inline-block;
+	width: 240px;
+	height: 240px;
+	margin-right: 7px;
+	overflow: hidden;
+}
+.artShopMain .designerPage li .imageWrapper {
+	width: 240px;
+	height: 240px;
+	overflow: hidden;
+}
+.artShopMain .designerPage li img {
+    display: none;
+}
+.artShopMain .designerPage .info {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1;
+}
+.artShopMain .designerPage .designerName {
+	padding: 30px 25px;
+	bottom: 0;
+}
+.artShopMain .designerPage .designerName span {
+	font-size: 15px;
+	color: #5e5e5e;
+}
+.artShopMain .designerPage .designerName span a {
+	font-weight: bold;
+}
+.artShopMain .designerPage .info .whiteBox {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0.85;
+	filter:alpha(opacity=85);
+	background: #fff;
+	z-index: -1;
+}
+.artShopMain .artShopMainBanners {
+	margin-top: 50px;
+	overflow: hidden;
+}
+.artShopMain .artShopMainBanners:after {
+	content: '';
+	clear: both;
+	display: block;
+}
+.artShopMain .artShopMainBanners .imageWrapper {
+	width: 488px;
+	height: 178px;
+	overflow: hidden;
+}
+.artShopMain .artShopMainBanners .imageWrapper img {
+    display: none;
+}
+.artShopMain .artShopMainBanners .makePdt,
+.artShopMain .artShopMainBanners .sale {
+	float: left;
+	width: 490px;
+}
+.artShopMain .artShopMainBanners .makePdt {
+	margin-right: 10px;
+}
+
+/*--------  3-2  ----------*/
+#artShopCategory > .nav .depth {
+    margin-top: 0;
+    padding: 0;
+    list-style: none;
+}
+#artShopCategory > .nav .depth li {
+    display: inline-block;
+    font-family: Dotum, appleGothic, '돋움', sans-serif;
+    font-size: 11px;
+}
+#artShopCategory > .nav .depth li:before {
+    content: ">";
+    color: #618de1;
+    margin: 0 7px;
+}
+#artShopCategory > .nav .depth li:first-child:before {
+    content: "";
+    margin: 0;
+}
+
+#artShopCategory .title {
+    position: relative;
+    line-height: 1;
+    margin: 0 0 15px;
+}
+#artShopCategory:after,
+#artShopCategory .title:after,
+#artShopCategory .title .sectionName:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+#artShopCategory .title .sectionName {
+    font-family: appleGothic, '돋움', Dotum, sans-serif;
+    font-size: 11px;
+    color: #3f3f3f;
+}
+#artShopCategory .title .sectionName .type {
+    float: left;
+    padding: 0;
+    margin: 6px 0 0 10px;
+    list-style: none;
+}
+#artShopCategory .title .sectionName .type li {
+    display: inline-block;
+    padding-left: 15px;
+    margin-left: 20px;
+    background: url('../img/share/point.png') no-repeat 5px 10%;
+}
+#artShopCategory .title .sectionName .type li a {
+    color: inherit;
+}
+#artShopCategory .title .sectionName h2 {
+    font-family: Nanumgothicbold, NanumGothicWebBold, sans-serif;
+    font-size: 19px;
+    color: #000;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+#artShopCategory .title .nav {
+    float: right;
+    margin-top: 20px;
+    font-family: appleGothic, '돋움', Dotum, sans-serif;
+}
+#artShopCategory .title .nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+}
+#artShopCategory .title .nav li {
+    list-style: none;
+    display: inline-block;
+}
+#artShopCategory .title .nav .viewCount {
+    padding: 0 0 0 20px;
+}
+#artShopCategory .title .nav .sort li:after,
+#artShopCategory .title .nav .viewCount li:after {
+    content: '|';
+    margin: 0 5px;
+}
+#artShopCategory .title .nav .sort li:last-child:after,
+#artShopCategory .title .nav .viewCount li:last-child:after,
+#artShopCategory .title .nav .viewCount li.text:after {
+    content: '';
+    margin: 0;
+}
+#artShopCategory .title .nav .viewCount li {
+    font-size: 11px;
+    font-weight: bold;
+}
+#artShopCategory .title .nav li.noMargin {
+    padding-left: 0;
+    border: none;
+}
+
+
+#artShopCategory .title .nav .sort li.current a,
+#artShopCategory .title .nav .viewCount li.current a {
+    font-weight: bold;
+	/*font-weight: 800;*/
+	/*font-size: 105%;*/
+	color: #262626;
+}
+#artShopCategory .title .nav .sort li a,
+#artShopCategory .title .nav .viewCount li a {
+	margin: 0;
+	padding: 0;
+	color: #999;
+}
+#artShopCategory .title .nav .viewCount img {
+	vertical-align: middle;
+	margin-bottom: 2px;
+}
+#artShopCategory .pages li {
+	display: inline-block;
+	list-style: none;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 11px;
+	padding: 0 1px;
+}
+#artShopCategory .pages li a {
+	color: #262626;
+	text-decoration: none;
+}
+#artShopCategory .pages li.current a,
+#artShopCategory .pages li a:hover,
+#artShopCategory .pages li a:active {
+	color: #618de1;
+}
+
+/*리스트*/
+#artShopCategory .list {
+	width: 800px;
+    min-height: 600px;
+	overflow: visible;
+}
+#artShopCategory .list > ul {
+    width: 840px;
+    margin-bottom: -90px;
+    padding: 0;
+}
+#artShopCategory .list ul:before,
+#artShopCategory .list ul:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+#artShopCategory .list ul li {
+    position: relative;
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 90px;
+    list-style: none;
+}
+#artShopCategory .list ul li:hover {
+	-moz-box-shadow: 0 0 5px #999;
+	box-shadow: 0 0 5px #999;
+}
+#artShopCategory .list ul li .imageWrapper {
+	width: 240px;
+	height: 300px;
+	text-align: center;
+	overflow: hidden;
+}
+#artShopCategory .list ul li .imageWrapper img {
+	display: none;
+}
+#artShopCategory .list ul li.nothing {
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 60px;
+}
+#artShopCategory .list ul li div.infobox {
+	width: 210px;
+	padding: 15px 15px 10px;
+	background: #f1f1f2;
+}
+#artShopCategory .list ul li div.infobox > a {
+	text-decoration: none;
+}
+#artShopCategory .list ul li div.infobox p {
+	font-size: 11px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	color: #5e5e5e;
+	line-height: 1.3;
+	margin: 0;
+	padding: 0;
+}
+#artShopCategory .list ul li div.infobox h3 {
+	font-size: 15px;
+	margin: 0 0 10px;
+	padding: 0;
+	color: #5e5e5e;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+#artShopCategory .list ul li div.infobox span.designer {
+	font-size: 13px;
+	color: #5e5e5e;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+}
+#artShopCategory .list ul li div.infobox span.designer a {
+	color: #618de1;
+}
+#artShopCategory .list ul li div.infobox span.price {
+	font-family: Tahoma, sans-serif;
+	font-size: 16px;
+	color: #5e5e5e;
+	margin-top: -5px;
+	float: right;
+}
+#artShopCategory div .bottom {
+	margin-top: 35px;
+	font-weight: normal;
+	text-align: center;
+}
+#artShopCategory div .bottom a {
+	cursor: pointer;
+	margin: 0 2px;
+}
+
+/*--------  3-4  ----------*/
+
+/* 3-4상단 디자이너 소개 상자 */
+#nav.nav {
+	margin-bottom: 10px;
+}
+#nav.nav a:before {
+	content: '>';
+	margin: 0 10px;
+}
+#nav.nav a:first-child:before {
+	content: '';
+	margin: 0;
+}
+#user.introBox {
+	position: relative;
+	padding: 15px 15px 25px;
+	background: #ebebeb url("../img/share/top_box_bg.png") repeat-x 0 100%;
+}
+#user.introBox:after {
+	content: '';
+	clear: both;
+	display: block;
+}
+#user.introBox .profileImageWrapper {
+	float: left;
+	width: 99px;
+	height: 99px;
+	margin-right: 15px;
+	overflow: hidden;
+	border: 1px solid #262626;
+}
+#user.introBox .profileImage {
+	width: 100px;
+}
+#user.introBox .designerName {
+	/*float: left;*/
+    display: inline-block;
+	margin-right: 5px;
+	margin-bottom: 20px;
+	font-size: 17px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	color: #262626;
+}
+#user.introBox .grade {
+	/*float: left;*/
+    display: inline-block;
+	width: 23px;
+	height: 17px;
+}
+.grade.golds {
+	background: url("../img/share/designer_level_gold_s.png") no-repeat;
+}
+.grade.silvers {
+	background: url("../img/share/designer_level_silver_s.png") no-repeat;
+}
+.grade.bronzes {
+	background: url("../img/share/designer_level_bronze_s.png") no-repeat;
+}
+.grade.premiumReds {
+	background: url("../img/share/designer_level_premiumRed_s.png") no-repeat;
+}
+#user.introBox .ment {
+    float: left;
+    font-family: appleGothic, Dotum, sans-serif;
+    font-size: 13px;
+    display: block;
+	width: 700px;
+    line-height: 1.5;
+}
+#user.introBox .count img {
+	margin: 0 0 2px 0;
+	vertical-align: middle;
+}
+#user.introBox .count {
+	position: absolute;
+	right: 25px;
+	bottom: 25px;
+	font-size: 13px;
+}
+#user.introBox .count span {
+	margin-left: 15px;
+	font-size: 13px;
+}
+#inSalePdt.pdtList .list .container {
+    position: relative;
+    width: 990px;
+    height: 392px;
+    overflow: hidden;
+}
+#inSalePdt.pdtList .list ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#inSalePdt.pdtList .list ul li {
+    width: 238px;
+    border: 1px solid #eee;
+	margin-right: 10px;
+}
+#inSalePdt.pdtList .list ul li:hover {
+    border: 1px solid #999;
+}
+#inSalePdt.pdtList .list ul li div.infobox {
+	padding: 15px 15px 10px;
+	background: #f1f1f2;
+}
+#inSalePdt.pdtList .list ul li div.infobox .basePdtName,
+#inSalePdt.pdtList .list ul li div.infobox .pdtName {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+#inSalePdt.pdtList .list ul li div.infobox .basePdtName a {
+	color: inherit;
+}
+
+/*타이틀*/
+.pdtList {
+	position: relative;
+}
+.pdtList .title {
+	position: relative;
+	line-height: 1;
+	margin-top: 90px;
+}
+.pdtList .title h2 {
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 22px;
+	color: #000;
+}
+.pdtList .controller button {
+	position: absolute;
+	top: 210px;
+}
+.pdtList .controller button.left {
+    top: 50%;
+    margin-top: -15px;
+	left: 0;
+}
+.pdtList .controller button.right {
+    top: 50%;
+    margin-top: -15px;
+	right: 0;
+}
+.allDesign .title {
+    margin: 0;
+}
+.allDesign .title:after {
+	content: '';
+	clear: both;
+	display: block;
+}
+.allDesign .title h2 {
+	float: left;
+	margin-top: 0;
+}
+.allDesign .title .nav .viewCount,
+.allDesign .title .nav .sort {
+	float: right;
+}
+.allDesign .title .nav ul {
+	margin: 10px 0 0;
+	padding: 0;
+	list-style: none;
+}
+.allDesign .title .nav li {
+	display: inline-block;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	list-style: none;
+}
+.allDesign .title .nav li:after {
+	content : '|';
+	margin: 0 5px;
+}
+.allDesign .title .nav .sort li:last-child:after,
+.allDesign .title .nav .viewCount li:first-child:after,
+.allDesign .title .nav .viewCount li:last-child:after {
+	content: '';
+	margin-right: 0;
+}
+.allDesign .title .nav .viewCount {
+	padding: 0 0 0 10px;
+}
+.allDesign .title .nav li.noMargin {
+	padding-left: 0;
+	border: none;
+}
+.allDesign .title .nav .sort li.current a,
+.allDesign .title .nav .viewCount li.current a {
+	color: #262626;
+	font-weight: 800;
+	font-size: 105%;
+}
+.allDesign .title .nav li a {
+	margin: 0;
+	padding: 0;
+	color: #999;
+}
+.allDesign .title .nav .viewCount img {
+	vertical-align: middle;
+	margin-bottom: 2px;
+}
+.allDesign .pages li {
+	display: inline-block;
+	list-style: none;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 11px;
+	padding: 0 1px;
+}
+.allDesign .pages li a {
+	color: #262626;
+}
+
+/*판매중인 상품*/
+.pdtList .list {
+	width: 990px;
+}
+.pdtList .list ul {
+    width: 100%;
+	margin-top: -90px;
+	padding: 0;
+}
+.pdtList .list ul:after {
+	display: block;
+	content: '';
+	clear: both;
+}
+.pdtList .list ul .product {
+    position: relative;
+    list-style: none;
+    float: left;
+    width: 240px;
+    margin: 90px 40px 0 0;
+}
+.pdtList .list ul .nothing {
+    position: relative;
+    clear: both;
+    text-align: center;
+    margin: 90px 0 0;
+    list-style: none;
+    width: 800px;
+}
+.pdtList .list ul .product .imageWrapper {
+    width: 238px;
+    height: 300px;
+    overflow: hidden;
+}
+.pdtList .list ul .product .imageWrapper img {
+    display: none;
+}
+.pdtList .list ul .product div.infobox p {
+	font-size: 11px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	color: #5e5e5e;
+	line-height: 1.3;
+	margin: 0;
+	padding: 0;
+}
+.pdtList .list ul .product div.infobox h3 {
+	font-family: Nanumgothic, Nanumgothicweb, sans-serif;
+	/*font-weight: normal;*/
+	font-size: 15px;
+	margin: 0 0 10px;
+	padding: 0;
+}
+.pdtList .list ul .product div.infobox h3 a {
+	color: #5e5e5e;
+	text-decoration: none;
+}
+.pdtList .list ul .product div.infobox span.designer {
+	font-size: 13px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	color: #5e5e5e;
+}
+.pdtList .list ul .product div.infobox span.designer a {
+	color: #618de1;
+}
+.pdtList .list ul .product div.infobox span.price {
+	font-family: Tahoma, sans-serif;
+	font-size: 16px;
+	color: #5e5e5e;
+	margin-top: -5px;
+	float: right;
+}
+.pdtList .bottom .pages {
+	margin: 15px 0 0 0;
+	float: right;
+	font-family: appleGothic, Dotum, "돋움", sans-serif;
+	font-size: 11px;
+}
+.pdtList .pages li.current a,
+.pdtList .pages li a:hover,
+.pdtList .pages li a:active {
+	color: #618de1;
+}
+
+/*전체디자인*/
+.allDesign.pdtList {
+	margin-top: 90px;
+}
+.allDesign .list {
+	width: 990px;
+}
+.allDesign .list ul {
+	width: 1035px;
+    margin: 0 0 0 0;
+	/*margin-bottom: -70px;*/
+	padding: 0;
+	display: block;
+	content: "";
+	clear: both;
+	overflow: visible;
+}
+.allDesign .list ul:after {
+	content: '';
+	clear: both;
+	display: block;
+}
+.allDesign .list ul li {
+	float: left;
+	width: 300px;
+	margin-right: 45px;
+    margin-bottom: 50px;
+	list-style: none;
+}
+.allDesign .list ul li.nothing {
+    width: 990px;
+    margin: 0;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 0;
+}
+.allDesign .list ul li .designImages {
+	position: relative;
+}
+.allDesign .list ul li .designImages .imgWrapper {
+	width: 298px;
+	height: 368px;
+    padding: 0;
+    border: 1px solid #eee;
+	overflow: hidden;
+}
+.allDesign .list ul li .designImages .imgWrapper img {
+    display: none;
+    margin: 0;
+}
+.allDesign .list ul li .designImages:hover {
+	-moz-box-shadow: 0 0 5px #999;
+	box-shadow: 0 0 5px #999;
+}
+.allDesign .list ul li div.evaluation {
+	display: none;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+    right: 0;
+	padding: 10px 10px;
+	text-align: center;
+	background: url('../img/share/op85_white.png');
+}
+.allDesign .list ul li:hover div.evaluation {
+	display: block;
+}
+.allDesign .list ul li div.evaluation .rating {
+	display: inline-block;
+	width: 119px;
+	height: 21px;
+	margin: 10px 0;
+    background: url('../img/share/stars119x126.png') no-repeat 0 0;
+}
+.allDesign .list ul li div.evaluation .rating.one { background: url('../img/share/stars119x126.png') no-repeat 0 -21px; }
+.allDesign .list ul li div.evaluation .rating.two { background: url('../img/share/stars119x126.png') no-repeat 0 -42px; }
+.allDesign .list ul li div.evaluation .rating.three { background: url('../img/share/stars119x126.png') no-repeat 0 -63px; }
+.allDesign .list ul li div.evaluation .rating.four { background: url('../img/share/stars119x126.png') no-repeat 0 -84px; }
+.allDesign .list ul li div.evaluation .rating.five { background: url('../img/share/stars119x126.png') no-repeat 0 -105px; }
+
+.allDesign .list ul li div.evaluation a.button {
+    font-family: Nanumgothicbold, "NanumGothicWebBold", sans-serif;
+    position: relative;
+    display: inline-block;
+    width: 160px;
+    color: inherit;
+    text-decoration: none;
+    z-index: 1;
+    margin-bottom: 10px;
+}
+
+.allDesign .list ul li div.infobox {
+	line-height: 1.1;
+	padding: 0 5px;
+}
+.allDesign .list ul li div.infobox h3 {
+	font-size: 20px;
+	color: #5e5e5e;
+	margin: 15px 0 10px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.allDesign .list ul li div.infobox span.designer {
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+}
+.allDesign .list ul li div.infobox span.designer a {
+	color: #618de1;
+}
+.allDesign .list ul li div.infobox span.id {
+	font-size: 12px;
+	color: #999;
+	float: right;
+}
+.allDesign .bottom .pages {
+	margin-top: 10px;
+	float: right;
+}
+
+/*        3-3        */
+
+#detailPage {
+	overflow: hidden;
+}
+#detailPage .category {
+	font-family: appleGothic, Dotum, "돋움", sans-serif;
+	color: #618de1;
+	margin-bottom: 15px;
+}
+#detailPage .category a {
+	color: #618de1;
+}
+#detailPage .category span:first-child:before {
+	content: "";
+	margin-right: 0;
+}
+#detailPage .category span:before {
+	content: ">";
+	margin-right: 5px;
+}
+#detailPage .pdtDetail {
+	position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 100px;
+    border-bottom: 1px solid #eee;
+}
+#detailPage .pdtDetail .pdtImage {
+	width: 410px;
+	height: 380px;
+	overflow: hidden;
+}
+#detailPage .pdtDetail .pdtImage img {
+	display: none;
+}
+#detailPage .pdtDetail .info {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 360px;
+	height: 380px;
+}
+#detailPage .pdtDetail .info .type .kind {
+	position: absolute;
+	top: 0;
+	padding: 1px 10px 0;
+	font-family: appleGothic, Dotum, "돋움", sans-serif;
+	font-size: 11px;
+	line-height: 16px;
+	color: #fff;
+	background: #4e4e4e;
+}
+#detailPage .pdtDetail .info .type .id {
+	position: absolute;
+	right: 0;
+	font-size: 12px;
+	color: #999
+}
+#detailPage .pdtDetail .info h3 {
+	margin: 30px 0 5px 0;
+	font-size: 23px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-weight: bold;
+}
+#detailPage .pdtDetail .info p {
+	margin: 3px 0;
+	padding: 0;
+}
+#detailPage .pdtDetail .info > span {
+	font-family: appleGothic, Dotum, "돋움", sans-serif;
+	font-size: 13px;
+}
+#detailPage .pdtDetail .info p.id {
+	font-size: 12px;
+	color: #999;
+	line-height: 1;
+	margin-bottom: 0;
+}
+#detailPage .pdtDetail .info .textWrapper {
+	width: 360px;
+	height: 110px;
+	padding-top: 15px;
+	font-size: 12px;
+	color: #4e4e4e;
+	overflow: auto;
+}
+#detailPage .pdtDetail table {
+	width: 100%;
+	line-height: 1;
+}
+#detailPage .pdtDetail table .col1 {
+	width: 55px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+}
+#detailPage .pdtDetail table td {
+	padding: 0 0 12px 0;
+	font-size: 14px;
+	color: #4e4e4e;
+	vertical-align: top;
+}
+#detailPage .pdtDetail table td select {
+	border: 1px solid #babcbe;
+	width: 106px;
+	background: #fff;
+	margin: -2px 0 0 0;
+	padding: 0;
+}
+#detailPage .pdtDetail table td.price {
+	font-family: tahoma, sans-serif;
+	font-weight: normal;
+	color: #4e4e4e;
+}
+#detailPage .pdtDetail table td.price span.beforeSale {
+	text-decoration: line-through;
+	color: #999;
+}
+#detailPage .pdtDetail table td.price .afterSalePrice:before {
+	content: '-> ';
+	color: #999;
+	margin: 0 5px;
+}
+#detailPage .pdtDetail table td.price .won {
+	font-family: Nanumgothic, Nanumgothicweb, sans-serif;
+}
+#detailPage .pdtDetail table td.price span.saleText {
+	font-family: Nanumgothic, Nanumgothicweb, sans-serif;
+	margin-left: 5px;
+	color: #f22c48;
+}
+#detailPage .pdtDetail table td.size span {
+	float: right;
+}
+#detailPage .pdtDetail table td.colors {
+	width: 305px;
+	padding-bottom: 7px;
+}
+#detailPage .pdtDetail table td.colors .color {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+    margin: 0 0 5px !important;
+    padding: 0 !important;
+	border: 2px solid #fff;
+    outline: 1px solid #fff;
+}
+#detailPage .pdtDetail table td.colors .color.selected,
+#detailPage .pdtDetail table td.colors .color:hover {
+	outline: 1px solid #999;
+}
+#detailPage .pdtDetail table td {
+    vertical-align: middle;
+}
+#detailPage .pdtDetail table td.counts input {
+	display: inline-block;
+	width: 50px;
+	line-height: 1;
+	text-align: right;
+	color: #4c4c4c;
+}
+
+#detailPage .pdtDetail table td.counts input#spinner {
+	width: 75px;
+	font-size: 12px;
+}
+#detailPage .pdtDetail .info .total {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+#detailPage .pdtDetail .info #totalPrice {
+	font-family: tahoma, sans-serif;
+	font-size: 26px;
+	font-weight: bold;
+}
+#detailPage .pdtDetail .info .total span {
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	margin-left: 5px;
+	font-size: 16px;
+}
+#detailPage .pdtDetail .info .total span.point {
+	font-family: tahoma, sans-serif;
+	font-size: 13px;
+	margin-left: 10px;
+}
+#detailPage .pdtDetail .info .total span.point img {
+	margin-bottom: -1px;
+}
+#detailPage .pdtDetail table td .sizeChart a {
+	text-decoration: underline;
+}
+#detailPage .pdtDetail .control {
+	margin-top: 40px;
+	overflow: hidden;
+}
+#detailPage .pdtDetail .social {
+	position: relative;
+	float: left;
+	width: 410px;
+}
+#detailPage .pdtDetail .social a img{
+	vertical-align: middle;
+	padding: 1px;
+}
+#detailPage .pdtDetail .social span.count {
+	display: inline-block;
+	width: 27px;
+	height: 16px;
+	font-size: 8px;
+	text-align: center;
+	color: #7c7c7c;
+	text-indent: 1px;
+	line-height: 17px;
+	margin-left: 3px;
+	background: url("../img/share/marketPress_bg_shareCount.png") no-repeat;
+}
+#detailPage .pdtDetail .social div.ratingBig {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+#detailPage .pdtDetail .buttons {
+	float: right;
+}
+#detailPage .pdtDetail .buttons a:hover {
+    text-decoration: none;
+}
+#detailPage .pdtDetail .buttons a.button {
+	position: relative;
+	font-family: nanumgothic, nanumgothicweb, sans-serif;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: bold;
+	width: 110px;
+    color: #fff;
+	vertical-align: top;
+	text-align: center;
+	margin-left: 12px;
+}
+#detailPage .pdtDetail .buttons a.button:hover {
+	text-decoration: none;
+}
+#detailPage .pdtDetail .buttons a.button .bg {
+	left: 0;
+	right: 0;
+}
+#detailPage .pdtDetail .buttons a.button.favoPdt {
+    color: #999;
+	border-left: 1px solid #bbbdbf;
+	border-right: 1px solid #bbbdbf;
+}
+
+#detailPage div.designer {
+	position: relative;
+    margin-bottom: 50px;
+	width: 770px;
+	height: 100px;
+	padding: 15px;
+	background: #f7f7f7;
+}
+#detailPage div.designer:after {
+	content: '';
+	clear: both;
+	display: block;
+}
+#detailPage div.designer .profile {
+	float: left;
+}
+#detailPage div.designer .profile .imageWrapper {
+	float: left;
+	width: 98px;
+	height: 98px;
+	border: 1px solid #000;
+	margin-right: 15px;
+	overflow: hidden;
+}
+#detailPage .designer .profile .profileImage {
+	width: 98px;
+	vertical-align: top;
+}
+#detailPage .designer .profile .nameBox {
+	float: left;
+}
+#detailPage .designer .profile .grade {
+	display: inline-block;
+	width: 23px;
+	height: 17px;
+}
+#detailPage .designer .profile h2 {
+	width: 150px;
+	font-size: 15px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	color: #262626;
+	margin: 3px 0 0 0;
+}
+#detailPage .designer .profile div.count {
+	position: absolute;
+	bottom: 15px;
+	left: 130px;
+}
+#detailPage .designer .profile div.count > span {
+	padding-left: 20px;
+	font-size: 13px;
+	color: #4e4e4e;
+	margin-right: 10px;
+}
+#detailPage .designer .profile div.count .designCnt {
+	background: url("../img/share/marketPress_3-3_designIcon.png") no-repeat 0 50%;
+}
+#detailPage .designer .profile div.count .pdtCnt {
+	background: url("../img/share/marketPress_3-3_pdtIcon.png") no-repeat 0 50%;
+}
+#detailPage .designer .preview {
+	position: absolute;
+	top: 17px;
+	right: 15px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+}
+#detailPage .designer .preview ul:after {
+	content: '';
+	clear: both;
+	display: block;
+}
+#detailPage .designer .preview li {
+	float: right;
+	margin-left: 5px;
+}
+#detailPage .designer .preview li .imageWrapper {
+	width: 94px;
+	height: 98px;
+	border: 1px solid #babcbe;
+	overflow: hidden;
+}
+#detailPage .designer .preview li img {
+    display: none;
+}
+
+#detailPage .pdtDetails {
+	padding: 50px 0;
+	text-align: center;
+}
+#detailPage .pdtDetails img {
+    width: 800px;
+	margin-bottom: 50px;
+}
+#detailPage .review {
+	margin-bottom: 10px;
+}
+#detailPage .review p.title {
+	font-size: 19px;
+	font-weight: bold;
+	margin: 0 0 20px;
+}
+#detailPage .review ul {
+	border-top: 1px solid #bbbdbf;
+	margin: 0;
+	padding: 0;
+}
+#detailPage .review li {
+	position: relative;
+	list-style: none;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 13px;
+	color: #4e4e4e;
+	padding: 15px;
+	line-height: 1.5;
+	border-bottom: 1px solid #bbbdbf;
+}
+#detailPage .review li .userInfo {
+	margin-bottom: 10px;
+}
+#detailPage .review li .userInfo .date {
+	display: inline-block;
+	margin: 0 10px;
+}
+#detailPage .review li .userInfo .designer:before {
+	margin-right: 14px;
+	content: "|";
+}
+#detailPage .write:after,
+#detailPage .review li .commentBox:after {
+	content: '';
+	clear: both;
+	display: block;
+}
+#detailPage .review li .commentBox .profileImageWrapper {
+	float: left;
+	width: 43px;
+	height: 43px;
+	border: 1px solid #bbbdbf;
+	margin-right: 15px;
+	overflow: hidden;
+}
+#detailPage .review li .commentBox .profileImageWrapper img {
+	width: 45px;
+}
+#detailPage .review li .commentBox p {
+	margin: 0;
+}
+#detailPage .review li.noComment {
+	text-align: center;
+}
+
+#detailPage .write {
+	position: relative;
+	padding: 20px 15px;
+	margin-bottom: 80px;
+}
+#detailPage .write .profileImageWrapper {
+	float: left;
+	margin-right: 15px;
+	width: 43px;
+	height: 43px;
+	border: 1px solid #363636;
+	overflow: hidden;
+}
+#detailPage .write .profileImageWrapper img {
+	width: 45px;
+}
+#detailPage .write #review {
+	width: 680px;
+	height: 40px;
+	padding: 10px;
+	overflow: auto;
+	border: 1px solid #999;
+	background: #f9f9f9;
+}
+#detailPage .write button {
+	margin: 10px 5px 0 0;
+	float: right;
+	width: 110px;
+	color: #fff;
+	font-size: 13px;
+}
+#detailPage .write button.bg {
+	left: 15px;
+	right: 15px;
+}
+
+#detailPage .faqMenu {
+	width: 815px;
+	margin-top: 30px;
+	margin-bottom: 100px;
+}
+#detailPage .faqMenu > a {
+    display: inline-block;
+    width: 190px;
+	height: 45px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 14px;
+	color: #fff;
+    text-align: center;
+    line-height: 45px;
+	margin-right: 10px;
+	background: #b9bbbd;
+}
+#detailPage .faqMenu > a:hover {
+    text-decoration: none;
+}
+
+#detailPage .recommends > p {
+	font-size: 17px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	color: #7c7c7c;
+	margin: 0 0 25px 0;
+}
+#detailPage .recommends ul {
+	width: 840px;
+	padding: 0;
+	margin: 0;
+}
+#detailPage .recommends li {
+	position: relative;
+	list-style: none;
+	display: inline-block;
+	width: 240px;
+	height: 300px;
+	margin-right: 37px;
+}
+#detailPage .recommends li .info {
+	position: absolute;
+	bottom: 0;
+	width: 194px;
+	color: #5e5e5e;
+	padding: 0 23px;
+	z-index: 1;
+}
+#detailPage .recommends li .info p.kind {
+	font-family: appleGothic, Dotum, "돋움", sans-serif;
+	font-size: 11px;
+	margin: 10px 0 0;
+}
+#detailPage .recommends li .info h3 {
+	font-size: 15px;
+	margin: 0;
+}
+#detailPage .recommends li .info p.price {
+	margin: 5px 0 15px;
+	font-size: 16px;
+	font-family: tahoma, sans-serif;
+	text-align: right;
+}
+#detailPage .recommends li .info .bg {
+	position: absolute;
+	top: 0;
+	right: 13px;
+	bottom: 13px;
+	left: 13px;
+	background: url("../img/artshop/marketPress_3-3_whitebg.png");
+	z-index: -1;
+}
+
+#detailPage .rating {
+	display: inline-block;
+	width: 82px;
+	height: 15px;
+	text-indent: -9999px;
+	background: url("../img/share/marketPress_rating.png") no-repeat;
+}
+#detailPage .rating.rating1 {
+	background-position: 0 0px;
+}
+#detailPage .rating.rating1 {
+	background-position: 0 -15px;
+}
+#detailPage .rating.rating2 {
+	background-position: 0 -30px;
+}
+#detailPage .rating.rating3 {
+	background-position: 0 -45px;
+}
+#detailPage .rating.rating4 {
+	background-position: 0 -60px;
+}
+#detailPage .rating.rating5 {
+	background-position: 0 -75px;
+}
+
+#detailPage .ratingBig {
+	display: inline-block;
+	width: 119px;
+	height: 21px;
+	text-indent: -9999px;
+	background: url("../img/share/marketPress_rating_big.png") no-repeat;
+}
+#detailPage .ratingBig.rating1 {
+	background-position: 0 -21px;
+}
+#detailPage .ratingBig.rating2 {
+	background-position: 0 -42px;
+}
+#detailPage .ratingBig.rating3 {
+	background-position: 0 -63px;
+}
+#detailPage .ratingBig.rating4 {
+	background-position: 0 -84px;
+}
+#detailPage .ratingBig.rating5 {
+	background-position: 0 -105px;
+}
+
+
+/*        3-5         */
+.paymentArea .table1 .count select {
+	width: 70px;
+	height: 20px;
+	border: 1px solid #babcbe;
+	margin-bottom: 7px;
+}
+.paymentArea .table1 .count button {
+	width: 45px;
+}
+
+.paymentArea .request .pdtName{
+	font-size: 11px;
+	padding-top: 5px;
+	margin-bottom: 9px;
+}
+.paymentArea .request input.typeText {
+	font-family: appleGothic, Dotum, "돋움", sans-serif;
+	font-size: 13px;
+	padding: 0 5px;
+	background-color: #fff;
+}
+.paymentArea .request td ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.paymentArea .request td li {
+	margin-top: 15px;
+}
+.paymentArea .request td li:first-child {
+	margin-top: 0;
+}
+
+.paymentArea .request {
+	margin-top: 15px;
+	margin-bottom: 35px;
+}
+.paymentArea .request table {
+	width: 100%;
+	table-layout: fixed;
+}
+.paymentArea .request table th {
+	padding: 10px 0 0 59px;
+	color: #000;
+	vertical-align: top;
+	text-align: left;
+	font-size: 14px;
+	font-weight: normal;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+}
+.paymentArea .request table td {
+	padding: 10px 0 0;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+}
+.paymentArea .request table th button {
+	width: 106px;
+	margin-top: 10px;
+}
+.paymentArea .buttons {
+	margin-top: 40px;
+	text-align: center;
+}
+.paymentArea .buttons button {
+	margin: 0 22px;
+}
+.paymentArea .buttons button.goShopping {
+	width: 201px;
+	margin-left: 10px;
+}
+.paymentArea .buttons button.goShopping .bg {
+    left: 15px;
+    right: 15px;
+}
+.paymentArea .recommends {
+	margin-top: 90px;
+	overflow: hidden;
+}
+.paymentArea .recommends > p {
+	font-size: 17px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	color: #7c7c7c;
+	margin: 0 0 25px 0;
+}
+.paymentArea .recommends ul {
+	width: 1010px;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	overflow: hidden;
+}
+.paymentArea .recommends li {
+	position: relative;
+	float: left;
+	width: 240px;
+	height: 300px;
+	margin-right: 10px;
+}
+.paymentArea .recommends li > a {
+	display: block;
+}
+.paymentArea .recommends li .info {
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 194px;
+	color: #5e5e5e;
+	padding: 0 23px;
+	z-index: 1;
+}
+.paymentArea .recommends li .info p.kind {
+	font-family: appleGothic, Dotum, "돋움", sans-serif;
+	font-size: 11px;
+	margin: 10px 0 0;
+}
+.paymentArea .recommends li .info h3 {
+	font-size: 15px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-weight: normal;
+	margin: 0;
+}
+.paymentArea .recommends li .info p.price {
+	margin: 5px 0 15px;
+	font-size: 16px;
+	font-family: tahoma, sans-serif;
+	text-align: right;
+}
+.paymentArea .recommends li .info .bg {
+	position: absolute;
+	top: 0;
+	right: 12px;
+	bottom: 13px;
+	left: 12px;
+	background: url("../img/artshop/marketPress_3-3_whitebg.png");
+	z-index: -1;
+}

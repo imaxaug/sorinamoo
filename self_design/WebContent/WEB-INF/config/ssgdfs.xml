@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>ssgdfs 설정</comment>
+    <entry key="hello">world</entry>
+    <entry key="service.key">D</entry>
+    <!--
+     도메인이 나오면 다시 설정
+    <entry key="cookie.domain">.ssgdfs.com</entry>
+     -->
+
+    <entry key="server.ip">202.3.30.164</entry>
+    <entry key="server.charset">MS949</entry>
+    <entry key="server.host">local.front.ssgdfs.com</entry>
+    <entry key="server.port">8080</entry>
+    <entry key="server.front.host">dev-front.ssgdfs.com</entry>
+    <entry key="server.front.port">80</entry>
+    <entry key="m.server.host">dev-m.ssgdfs.com</entry>
+    <entry key="m.server.port">80</entry>
+    <entry key="www.server.host">dev-front.ssgdfs.com</entry>
+    <entry key="www.server.port">80</entry>
+    <entry key="no.image">/images/noimage.jpg</entry>
+    <entry key="system.charset">UTF-8</entry>
+    <entry key="is.developer">Y</entry>
+    <entry key="sender.name">신세계인터넷면세점</entry>
+    <entry key="sender.mail.address">ssgdfs@chosunhotel.co.kr</entry>
+    <entry key="upload.server.ip">202.3.30.159</entry>
+    <entry key="upload.server.id">dev</entry>
+    <entry key="upload.server.password">roqkfwk</entry>
+    <entry key="upload.server.base.path">/images/shop/upload</entry>
+    <entry key="upload.server.system.path"></entry>
+    <entry key="upload.server.product.path">/images/product</entry>
+    <entry key="image.server.host">image.ssgdfs.com</entry>
+    <entry key="image.server.port">80</entry>
+    <entry key="ftp.is.passive">true</entry>
+    <entry key="product.code.key">9</entry>
+    <entry key="default.grade">05</entry>
+    <entry key="system.admin">system</entry>
+    <entry key="order.pos.no">S001</entry>
+	<entry key="no.brandImage">/images/noBrandImage.jpg</entry>
+
+    <!-- lgUplus 인증정보 -->
+    <entry key="lg.cstPlatform">test</entry>
+<!--     <entry key="lg.cstPlatform">service</entry> -->
+    <entry key="lg.cstMid">ssgdfs</entry>
+    <entry key="lg.mertKey">e4eb1f60ad743b4a857e9bd5d75bbdd8</entry>
+    <entry key="lg.cstPlatform.china">service</entry>
+    <entry key="lg.cstMid.china">ssgdfs1</entry>
+    <entry key="lg.mertKey.china">5a8b2c063540def3ce36a3c4268ff7fc</entry>
+
+    <entry key="lg.server">http://xpay.uplus.co.kr</entry>
+    <entry key="lg.serverPort">7080</entry>
+    <entry key="lg.serverPage">/xpay/Request.do</entry>
+
+    <entry key="lg.noteDomain">http://dev-front.ssgdfs.com</entry>
+    <entry key="lg.noteurl">/shop/order/upopResponse</entry>
+    <entry key="lg.returnurl">/shop/order/upopComplete</entry>
+
+    <!-- kmc 인증정보 -->
+    <entry key="kmc.auth.id">SGDM1001</entry>
+    <entry key="kmc.auth.password">sg132710</entry>
+    <entry key="kmc.auth.urlCode">002003</entry>
+
+    <!-- ipin 인증정보 -->
+    <entry key="ipin.auth.id">AFL001</entry>
+    <entry key="ipin.auth.password">AA1240</entry>
+    <entry key="ipin.auth.serviceNo">001003</entry>
+
+    <entry key="site.natn.code">KR</entry>
+
+    <!-- 검색서버 아이피/port -->
+    <entry key="diver.ip">202.3.30.155</entry>
+    <entry key="diver.port">5555</entry>
+
+    <!-- SSL여부 -->
+    <entry key="ssl.yn">N</entry>
+
+    <!-- 신세계포인트 host/ip -->
+    <entry key="ssgpoint.host.ip">174.100.67.129</entry>
+    <entry key="ssgpoint.host.port">64000</entry>
+    <entry key="ssgpoint.stcd">99</entry>
+    <entry key="ssgpoint.brch">B200002928</entry>
+
+    <!-- 브랜드샵 사용여부 -->
+    <entry key="brandshop.yn">Y</entry>
+
+    <!-- 신세계모바일 상품권 정보 -->
+    <entry key="ssggiftcrad.access.url">https://www.shinsegaegift.com/serviceweb/api/mall/dev/wGiftCard</entry>
+    <entry key="ssggiftcrad.mch.no">FM00010132</entry>
+    <entry key="ssggiftcrad.encrypt.key">12abcdefghijk12312312312</entry>
+    <entry key="ssggiftcrad.encKey">*b6b@0D9@ad2*611</entry>	<!-- 암호화키 -->
+</properties>

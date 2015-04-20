@@ -1,0 +1,521 @@
+﻿/*팝업 기본설정*/
+/*.popup .dark {*/
+	/*position: fixed;*/
+	/*top: 0;*/
+	/*left: 0;*/
+	/*width: 100%;*/
+	/*height: 100%;*/
+	/*z-index: 900;*/
+/*}*/
+/*.popup .dark {*/
+	/*background: #000;*/
+	/*opacity: 0.5;*/
+	/*filter:alpha(opacity=50);*/
+/*}*/
+.popup .dialbox {
+	position: relative;
+	width: 800px;
+	height: 410px;
+	margin: 100px auto;
+	/*z-index: 999;*/
+    border: 1px solid #f1f1f1;
+}
+.popup .dialbox .close {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+}
+.popup div.dialbox.narrow {
+	/*margin-left: -215px;*/
+	width: 430px;
+}
+.popup .dialbox .leftContent {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 370px;
+	/*height: 350px;*/
+	padding: 30px 0 20px;
+    background: #f1f1f1;
+}
+.popup .dialbox .rightContent {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 360px;
+	min-height: 350px;
+	padding: 30px 35px;
+}
+.popup .dialbox.login .rightContent {
+    padding: 48px 35px 0;
+}
+#footer.narrow {
+	margin-top: 40px;
+}
+/*배경*/
+.popup .dialbox div.bg {
+	position: absolute;
+	top: 15px;
+	right: 0;
+	bottom: 15px;
+	left: 0;
+	background: url("../img/share/market_mainWidePopup_bg_middle.png") repeat-y;
+	z-index: -1;
+}
+.popup .dialbox div.bg > div {
+	position: absolute;
+	right: 0;
+	left: 0;
+}
+.popup .dialbox div.bg div.top {
+	top: -15px;
+	height: 20px;
+	background: url("../img/share/market_mainWidePopup_bg_topBottom.png") no-repeat 0 0;
+}
+.popup .dialbox div.bg div.bottom {
+	bottom: -15px;
+	height: 20px;
+	background: url("../img/share/market_mainWidePopup_bg_topBottom.png") no-repeat 0 100%;
+}
+
+.popup div.dialbox.narrow div.bg {
+	background: url("../img/share/market_mainPopup_bg_middle.png") repeat-y;
+}
+.popup div.dialbox.narrow div.bg div.top {
+	top: -15px;
+	height: 20px;
+	background: url("../img/share/market_mainPopup_bg_topBottom.png") no-repeat 0 0;
+}
+.popup div.dialbox.narrow div.bg div.bottom {
+	bottom: -15px;
+	height: 20px;
+	background: url("../img/share/market_mainPopup_bg_topBottom.png") no-repeat 0 100%;
+}
+
+.popup div.error .bg {
+	right: 15px;
+	left: 15px;
+	background: url("../img/share/market_9-2_errorBg_opZero.png") repeat-x 0 100%;
+	z-index: -1;
+	opacity: 0.9;
+	filter: alpha(opacity=90);
+}
+.popup div.error .bg .left {
+	background: url("../img/share/market_9-2_errorBg_opZero.png") no-repeat 0 0;
+}
+.popup div.error .bg .right {
+	background: url("../img/share/market_9-2_errorBg_opZero.png") no-repeat 100% 0;
+}
+
+.popup div.dialbox.narrow.upgrade > div.bg {
+	top: 15px;
+	bottom: 15px;
+	background: #fff;
+}
+.popup div.dialbox.narrow.upgrade > div.bg .top {
+	top: -15px;
+	height: 20px;
+	background: url("../img/share/market_upgradePop_bg.png") no-repeat 0 0;
+}
+.popup div.dialbox.narrow.upgrade > div.bg .middleBlue {
+	top: 0;
+	height: 85px;
+	background: #00abdc;
+
+}
+.popup div.dialbox.narrow.upgrade > div.bg .bottom {
+	bottom: -15px;
+	height: 20px;
+	background: url("../img/share/market_upgradePop_bg.png") no-repeat 0 100%;
+}
+
+/*     버튼     */
+.popup button .bg {
+	right: 15px;
+	left: 15px;
+}
+
+/*     9-1(공통요소)     */
+.popup .dialbox .leftContent {
+	text-align: center;
+}
+.popup .dialbox .leftContent h2 {
+	font-size: 20px;
+	font-weight: normal;
+	color: #262626;
+	margin: 0;
+	line-height: 1.1;
+}
+.popup .dialbox .leftContent .logo {
+	margin: 29px 0;
+}
+.popup .dialbox .leftContent .logo img {
+	width: 126px;
+}
+.popup .dialbox .leftContent p {
+	margin: 0 0 15px 0;
+	font-size: 14px;
+	color: #262626;
+	line-height: 20px;
+}
+
+.popup .dialbox .rightContent p.title {
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 20px;
+	color: #262626;
+	margin: 0 0 15px 0;
+	line-height: 1.1;
+}
+.popup .dialbox .rightContent input.typeText {
+	width: 340px;
+	height: 20px;
+	padding: 12px 10px;
+	margin-bottom: 10px;
+	font-family: Nanumgothic, Nanumgothicweb, sans-serif;
+	font-size: 16px;
+	color: #777;
+	border: 1px solid #999;
+}
+.popup .dialbox .rightContent div.permit {
+	margin-top: 10px;
+	text-align: center;
+}
+.popup .dialbox .rightContent a.button {
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 16px;
+	color: #fff;
+	text-align: center;
+    margin-bottom: 5px;
+}
+.popup .dialbox .rightContent div.permit a.button {
+	position: relative;
+	display: inline-block;
+}
+.popup .dialbox .rightContent div.permit a.login {
+	width: 200px;
+}
+.popup .dialbox .rightContent a.button:hover {
+	text-decoration: none;
+}
+.popup .dialbox .rightContent .permit div {
+	margin: 10px 0 32px;
+	color:#262626;
+}
+.popup .dialbox .rightContent .permit div span {
+	margin: 0 0 0 15px;
+}
+.popup .dialbox .rightContent .permit div span a {
+	font-family: Nanumgothic, Nanumgothicweb, sans-serif;
+	font-size: 12px;
+	color: #999;
+	margin-right: 5px;
+}
+.popup .dialbox .rightContent input.checkbox {
+	margin: -2px 5px 0 5px;
+}
+.popup .dialbox .rightContent .buttons {
+	position: relative;
+	width: 360px;
+	/*height: 90px;*/
+    /*text-align: center;*/
+}
+.popup .dialbox .rightContent .buttons a.joinUs {
+	position: absolute;
+    left: 50%;
+	/*bottom: -10px;*/
+    margin-left: -110px;
+	/*top: 0;*/
+    /*left: 0;*/
+    color: #888;
+    /*color: #fff;*/
+    /*position: relative;*/
+    /*display: inline-block;*/
+    width: 220px;
+}
+/* remove me */
+.popup .dialbox.searchInfo .rightContent .buttons a.joinUs {
+    margin-left: -115px;
+    width: 230px;
+}
+.popup .dialbox .rightContent .buttons .facebookLogin .bg,
+.popup .dialbox .rightContent .buttons .twitterLogin .bg,
+.popup .dialbox .rightContent .buttons a.joinUs .bg {
+    left: 15px;
+    right: 15px;
+}
+.popup .dialbox .rightContent .buttons .facebookLogin {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 230px;
+}
+.popup .dialbox .rightContent .buttons .facebookLogin img {
+	margin-right: 10px;
+	vertical-align: middle;
+}
+.popup .dialbox .rightContent .buttons .twitterLogin {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 230px;
+}
+.popup .dialbox .rightContent .buttons .twitterLogin img {
+	margin-right: 5px;
+	vertical-align: middle;
+}
+
+/*     9-2     */
+.popup .dialbox.signIn {
+	height: 580px;
+	margin: 0 auto 0;
+}
+.popup .dialbox.signIn .leftContent .banner {
+	text-align: center;
+    width: 370px;
+    margin: 5px 0 0;
+}
+.popup .dialbox.signIn .leftContent .banner img {
+    display: block;
+    margin: 0 auto;
+}
+.popup .dialbox.signIn .leftContent .banner1 img {
+    margin-bottom: 2px;
+}
+.popup .dialbox.signIn .rightContent {
+    padding: 20px 35px;
+}
+.popup .dialbox.signIn .rightContent .account,
+.popup .dialbox.signIn .rightContent .nickname {
+	margin-bottom: 0;
+}
+.popup .dialbox.signIn .rightContent .commentContainer {
+	height: 30px;
+}
+.popup .dialbox.signIn .rightContent .ableAccount {
+	display: inline-block;
+	font-size: 12px;
+	line-height: 30px;
+	color: #00a651;
+	padding-left: 20px;
+	background: url("../img/share/market_able.png") no-repeat 0 50%;
+}
+.popup .dialbox.signIn .rightContent .unable {
+	display: none;
+	font-size: 12px;
+	line-height: 30px;
+	color: #f22c48;
+	padding-left: 20px;
+	background: url("../img/share/market_unable.png") no-repeat 0 50%;
+}
+.popup .dialbox.signIn .rightContent .guidePassword {
+	font-size: 12px;
+	color: #999;
+	line-height: 30px;
+	padding-left: 20px;
+}
+.popup .dialbox.signIn .rightContent .ableNickname {
+	font-size: 12px;
+	line-height: 30px;
+	display: none;
+	color: #00a651;
+	padding-left: 20px;
+	background: url("../img/share/market_able.png") no-repeat 0 50%;
+}
+.popup .dialbox.signIn .rightContent .unableNickname {
+	display: inline-block;
+	font-size: 12px;
+	line-height: 30px;
+	color: #f22c48;
+	padding-left: 20px;
+	background: url("../img/share/market_unable.png") no-repeat 0 50%;
+}
+.popup .dialbox.signIn .rightContent .mobile {
+    margin-top: -7px;
+    font-size: 16px;
+    color: #4d4d4d;
+    text-align: right;
+}
+.popup .dialbox.signIn .rightContent .mobile input {
+    text-align: center;
+    width: 33px;
+    margin-top: 7px;
+}
+.popup .dialbox .rightContent .birthday {
+	margin-top: -7px;
+	font-size: 16px;
+	color: #4d4d4d;
+	text-align: right;
+    margin-bottom: 10px;
+}
+.popup .dialbox .rightContent .birthday select {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.popup .dialbox .rightContent .birthday input {
+	text-align: center;
+	width: 33px;
+	margin-top: 7px;
+}
+.popup .dialbox .rightContent .birthday span {
+	margin: 0 1px;
+}
+.popup .dialbox .rightContent .birthday .year {
+	width: 78px;
+	margin-left: 7px;
+}
+.popup .dialbox.signIn .rightContent .agreements {
+	display: inline-block;
+	font-size: 12px;
+	color: #262626;
+	margin: 0 0 10px;
+}
+.popup .dialbox.signIn .rightContent .joinUs {
+	left: 50%;
+	width: 230px;
+	margin-left: -115px;
+}
+.popup .dialbox.signIn .rightContent .buttons {
+    height: auto;
+}
+.popup .dialbox.signIn .error {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 80px;
+	text-align: center;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	line-height: 1;
+	z-index: 1;
+}
+.popup .dialbox.signIn .error p.errorMessage {
+	font-size: 20px;
+	color: #f9d97c;
+	margin: 20px 0 10px;
+}
+.popup .dialbox.signIn .error p.comment {
+	font-size: 14px;
+	color: #fff;
+	margin: 0;
+}
+
+/*     9-3     */
+.popup .dialbox.searchInfo .rightContent p.title {
+	margin-bottom: 5px;
+}
+.popup .dialbox .rightContent span.comment {
+	color: #999;
+}
+.popup .dialbox.searchInfo .rightContent input.account {
+	margin-top: 10px;
+}
+.popup .dialbox.searchInfo .rightContent button.btnOk {
+	width: 230px;
+}
+.popup .dialbox.searchInfo .rightContent div.result {
+	margin-top: 10px;
+	text-align: center;
+	font-size: 14px;
+	color: #f22c48;
+}
+.popup .dialbox.searchInfo .rightContent div.result > span{
+	display: none;
+}
+.popup .dialbox.searchInfo .rightContent .buttons {
+	/*position: absolute;*/
+	/*left: 35px;*/
+    /*position: relative;*/
+    /*top: 20px;*/
+	/*bottom: 30px;*/
+}
+
+/*     11-1     */
+.popup .dialbox.checkButtons .rightContent .buttons {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -120px 0 0 -115px;
+}
+.popup .dialbox.checkButtons .rightContent .buttons > a.button {
+	position: relative;
+	display: block;
+	width: 230px;
+	margin-bottom: 15px;
+}
+.popup .dialbox.checkButtons .rightContent .buttons > a.button .bg {
+	left: 15px;
+	right: 15px;
+}
+
+.popup .checkOrder .rightContent > div {
+	position: absolute;
+	left: 30px;
+}
+.popup .checkOrder .rightContent .inputText {
+	top: 130px;
+}
+.popup .checkOrder .rightContent .inputText .phoneNum {
+	font-size: 16px;
+	color: #4d4d4d;
+	margin-top: -7px;
+	text-align: right;
+}
+.popup .checkOrder .rightContent .inputText .phoneNum input:first-child {
+	margin-left: 4px;
+}
+.popup .checkOrder .rightContent .inputText .phoneNum input {
+	margin-top: 7px;
+	width: 60px;
+	text-align: center;
+}
+.popup .checkOrder .rightContent .inputText .phoneNum span {
+	font-size: 20px;
+}
+.popup .checkOrder .rightContent .permit {
+	top: 260px;
+	left: 50%;
+	margin-left: -115px;
+}
+.popup .checkOrder .rightContent .permit a.button {
+	width: 230px;
+}
+.popup .checkOrder .rightContent .permit a.button .bg {
+	left: 15px;
+	right: 15px;
+}
+.popup .checkOrder .rightContent .result {
+	left: 0;
+	bottom: 30px;
+	width: 100%;
+	text-align: center;
+}
+
+/*			upgrade			*/
+.dialbox.upgrade .rightContent p.title {
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 18px;
+	line-height: 26px;
+	color: #fff;
+	text-align: center;
+	height: 55px;
+	margin-bottom: 35px;
+}
+.dialbox.upgrade .rightContent div.comment {
+	text-align: center;
+	font-size: 16px;
+	color: #000;
+	line-height: 26px;
+	margin-bottom: 20px;
+}
+.dialbox.upgrade .rightContent div.comment img {
+	margin-bottom: 20px;
+}
+
+.dialbox.upgrade .rightContent button.permit {
+	width: 360px;
+	height: 80px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 19px;
+	color: #fff;
+	line-height: 80px;
+}

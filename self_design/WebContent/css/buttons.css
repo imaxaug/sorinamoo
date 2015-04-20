@@ -1,0 +1,288 @@
+﻿button {
+	position: relative;
+	z-index: 1;
+	line-height: 1;
+}
+button img {
+	vertical-align: middle;
+}
+
+/*버튼크기별 기본설정*/
+.h25 {
+	height: 25px;
+	line-height: 25px;
+	font-size: 13px;
+	color: #262626;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	text-align: center;
+}
+
+.h34 {
+	height: 34px;
+	line-height: 34px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 16px;
+	color: #4c4c4c;
+	text-align: center;
+}
+.h34.black {
+	color: #fff;
+}
+
+.h40 {
+	height: 40px;
+	line-height: 40px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 16px;
+	color: #fff;
+}
+.h40.grey {
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 19px;
+	color: #262626;
+}
+.h45 {
+	height: 45px;
+	line-height: 45px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 19px;
+	color: #fff;
+}
+.h45.white {
+	color: #262626;
+}
+
+.h50 {
+	height: 50px;
+	line-height: 50px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 14px;
+	color: #fff;
+}
+.h50.white {
+	color: #999;
+}
+.h60 {
+	height: 60px;
+	line-height: 60px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 16px;
+	color: #fff;
+}
+.h70 {
+	height: 70px;
+	line-height: 70px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 16px;
+	color: #fff;
+}
+.h74 {
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 20px;
+	color: #fff;
+	height: 74px;
+	line-height: 74px;
+}
+.h90 {
+	height: 90px;
+	line-height: 90px;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+	font-size: 16px;
+	color: #999;
+}
+
+
+/*배경설정*/
+.h25.white .bg {
+	background: url("../img/btn/btn_bg_white_25_set.png") repeat-x 0 100%;
+}
+.h25.white .bg span.left {
+	background: url("../img/btn/btn_bg_white_25_set.png") no-repeat 0 0;
+}
+.h25.white .bg span.right {
+	background: url("../img/btn/btn_bg_white_25_set.png") no-repeat 100% 0;
+}
+
+.h25.black .bg {
+	left: 15px;
+	right: 15px;
+	background: url("../img/btn/btn_bg_Black_25_set.png") repeat-x 0 100%;
+}
+.h25.black .bg .left {
+	background: url("../img/btn/btn_bg_Black_25_set.png") no-repeat 0 0;
+}
+.h25.black .bg .right {
+	background: url("../img/btn/btn_bg_Black_25_set.png") no-repeat 100% 0;
+}
+
+.h34.grey .bg {
+	left: 15px;
+	right: 15px;
+	background: url("../img/btn/btn_bg_grey_34_set.png") repeat-x 0 100%;
+}
+.h34.grey .bg span.left {
+	background: url("../img/btn/btn_bg_grey_34_set.png") no-repeat 0 0;
+}
+.h34.grey .bg span.right {
+	background: url("../img/btn/btn_bg_grey_34_set.png") no-repeat 100% 0;
+}
+
+.h34.black .bg {
+	left: 15px;
+	right: 15px;
+	background: url("../img/btn/btn_bg_Black_34_set.png") repeat-x 0 100%;
+}
+.h34.black .bg span.left {
+	background: url("../img/btn/btn_bg_Black_34_set.png") no-repeat 0 0;
+}
+.h34.black .bg span.right {
+	background: url("../img/btn/btn_bg_Black_34_set.png") no-repeat 100% 0;
+}
+
+.h40.black .bg {
+	background: url("../img/btn/btn_bg_Black_40_set.png") repeat-x 0 100%;
+}
+.h40.black .bg span.left {
+	background: url("../img/btn/btn_bg_Black_40_set.png") no-repeat 0 0;
+}
+.h40.black .bg span.right {
+	background: url("../img/btn/btn_bg_Black_40_set.png") no-repeat 100% 0;
+}
+
+.h40.grey .bg {
+	background: url("../img/btn/btn_bg_grey_40_set.png") repeat-x 0 100%;
+}
+.h40.grey .bg span.left {
+	background: url("../img/btn/btn_bg_grey_40_set.png") no-repeat 0 0;
+}
+.h40.grey .bg span.right {
+	background: url("../img/btn/btn_bg_grey_40_set.png") no-repeat 100% 0;
+}
+
+.h40.blue .bg {
+	background: url("../img/btn/btn_bg_Blue_40_set.png") repeat-x 0 100%;
+}
+.h40.blue .bg span.left {
+	background: url("../img/btn/btn_bg_Blue_40_set.png") no-repeat 0 0;
+}
+.h40.blue .bg span.right {
+	background: url("../img/btn/btn_bg_Blue_40_set.png") no-repeat 100% 0;
+}
+
+.h40.lightblue .bg {
+	background: url("../img/btn/btn_bg_lightBlue_set.png") repeat-x 0 100%;
+}
+.h40.lightblue .bg span.left {
+	background: url("../img/btn/btn_bg_lightBlue_set.png") no-repeat 0 0;
+}
+.h40.lightblue .bg span.right {
+	background: url("../img/btn/btn_bg_lightBlue_set.png") no-repeat 100% 0;
+}
+
+.h45.black .bg {
+	background: url("../img/btn/btn_bg_Black_45_set.png") repeat-x 0 100%;
+}
+.h45.black .bg span.left {
+	background: url("../img/btn/btn_bg_Black_45_set.png") no-repeat 0 0;
+}
+.h45.black .bg span.right {
+	background: url("../img/btn/btn_bg_Black_45_set.png") no-repeat 100% 0;
+}
+
+.h45.white .bg {
+	background: url("../img/btn/btn_bg_white_45_set.png") repeat-x 0 100%;
+}
+.h45.white .bg span.left {
+	background: url("../img/btn/btn_bg_white_45_set.png") no-repeat 0 0;
+}
+.h45.white .bg span.right {
+	background: url("../img/btn/btn_bg_white_45_set.png") no-repeat 100% 0;
+}
+
+.h50.black .bg {
+	left: 15px;
+	right: 15px;
+	background: url("../img/btn/btn_bg_Black_50_set.png") repeat-x 0 100%;
+}
+.h50.black .bg span.left {
+	background: url("../img/btn/btn_bg_Black_50_set.png") no-repeat 0 0;
+}
+.h50.black .bg span.right {
+	background: url("../img/btn/btn_bg_Black_50_set.png") no-repeat 100% 0;
+}
+
+.h50.grey .bg {
+	left: 15px;
+	right: 15px;
+	background: url("../img/btn/btn_bg_darkGrey_50_set.png") repeat-x 0 100%;
+}
+.h50.grey .bg span.left {
+	background: url("../img/btn/btn_bg_darkGrey_50_set.png") no-repeat 0 0;
+}
+.h50.grey .bg span.right {
+	background: url("../img/btn/btn_bg_darkGrey_50_set.png") no-repeat 100% 0;
+}
+
+.h50.white .bg {
+	left: 15px;
+	right: 15px;
+	background: url("../img/btn/btn_bg_white_50_set.png") repeat-x 0 100%;
+}
+.h50.white .bg span.left {
+	background: url("../img/btn/btn_bg_white_50_set.png") no-repeat 0 0;
+}
+.h50.white .bg span.right {
+	background: url("../img/btn/btn_bg_white_50_set.png") no-repeat 100% 0;
+}
+
+.h60.black .bg {
+	background: url("../img/btn/btn_bg_Black_60_set.png") repeat-x 0 100%;
+}
+.h60.black .bg span.left {
+	background: url("../img/btn/btn_bg_Black_60_set.png") no-repeat 0 0;
+}
+.h60.black .bg span.right {
+	background: url("../img/btn/btn_bg_Black_60_set.png") no-repeat 100% 0;
+}
+
+.h70.black .bg {
+	background: url("../img/btn/btn_bg_Black_70_set.png") repeat-x 0 100%;
+}
+.h70.black .bg span.left {
+	background: url("../img/btn/btn_bg_Black_70_set.png") no-repeat 0 0;
+}
+.h70.black .bg span.right {
+	background: url("../img/btn/btn_bg_Black_70_set.png") no-repeat 100% 0;
+}
+
+.h74.blue .bg {
+	left: 15px;
+	right: 15px;
+	background: url("../img/btn/btn_bg_Blue_74_set.png") repeat-x 0 100%;
+}
+.h74.blue .bg .left {
+	background: url("../img/btn/btn_bg_Blue_74_set.png") no-repeat 0 0;
+}
+.h74.blue .bg .right {
+	background: url("../img/btn/btn_bg_Blue_74_set.png") no-repeat 100% 0;
+}
+
+.h90.f1f1f1 .bg {
+	background: url("../img/btn/btn_bg_f1f1f1_90_set.png") repeat-x 0 100%;
+}
+.h90.f1f1f1 .bg span.left {
+	background: url("../img/btn/btn_bg_f1f1f1_90_set.png") no-repeat 0 0;
+}
+.h90.f1f1f1 .bg span.right {
+	background: url("../img/btn/btn_bg_f1f1f1_90_set.png") no-repeat 100% 0;
+}
+
+.h80.lightblue .bg {
+	background: url("../img/btn/btn_bg_lightBlue_80_set.png") repeat-x 0 100%;
+}
+.h80.lightblue .bg span.left {
+	background: url("../img/btn/btn_bg_lightBlue_80_set.png") no-repeat 0 0;
+}
+.h80.lightblue .bg span.right {
+	background: url("../img/btn/btn_bg_lightBlue_80_set.png") no-repeat 100% 0;
+}

@@ -1,0 +1,22 @@
+#set ( $count = 1 )
+
+#if ( !$list.isEmpty($options) && $defaultValue)
+#if ( $before ) $before #end<input type="checkbox" name="$name" value=""#if ( $clazz ) class="$clazz"#end#if ( $!{value} == '' ) checked="checked"#end#if ( $!{disabled} == 'Y' ) disabled#end/>#if ( $mid ) $mid #end$defaultValue #if ( $after ) $after #end
+#if( $!{line} == $count )
+<br/>
+#end
+#end
+
+#foreach ( $data in $options ) 
+#if ( ${except.get(${data.key})} != 'except')
+#if ( $before ) $before #end<input type="checkbox" name="$name" value="$data.key"#if ( $clazz ) class="$clazz"#end#if ( $!{value.get(${data.key})} ) checked="checked"#end#if ( $!{disabled} == 'Y' ) disabled#end/>#if ( $mid ) $mid #end 
+<label>$data.value</label>#if ( $after ) $after #end
+#if( $!{line} == $count )
+#set ( $count = 1 )
+<br/>
+#else 
+#set ( $count = $count+1 )
+#end
+
+#end
+#end

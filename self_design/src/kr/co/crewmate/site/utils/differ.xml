@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <comment>MimeType</comment>
+    <entry key="key" field="key_Vale">키</entry>
+    <entry key="value" field="value">값</entry>
+    <entry key="v1" field="v1">v1</entry>
+    <entry key="v2" field="v2">v2</entry>
+    <entry key="b" field="b">b</entry>
+    <entry key="prdtEngName" field="prdt_eng_name">상품영문명</entry>
+    <entry key="prdtKorName" field="prdt_kor_name">상품한글명</entry>
+    <entry key="prdtSellPrice" field="prdt_sell_price">상품판매가격</entry>
+    <entry key="prdtStatCode" field="prdt_stat_code">상품상태코드</entry>
+    <entry key="prdtPrmtCode" field="prdt_prmt_code">상품승인코드</entry>
+    <entry key="erpColorName" field="erp_color_name">상품색상코드</entry>
+    
+    <!-- 회원 -->
+    <entry key="userNameKor" field="user_name_kor">회원이름-한글</entry>
+    <entry key="areaCode" field="area_code">지역코드</entry>
+    <entry key="birthDt" field="birth_dt">생년월일</entry>
+    <entry key="sexGbn" field="sex_gbn">성별</entry>
+    <entry key="userGradeId" field="user_grade_id">회원등급</entry>
+    <entry key="userLevelCode" field="user_level_code">회원레벨코드</entry>
+    <entry key="mailAddr" field="mail_addr">메일주소</entry>
+    <entry key="mailRecvYn" field="mail_recv_yn">메일수신</entry>
+    <entry key="homeTelNum" field="home_tel_num">집전화번호</entry>
+    <entry key="hpTelNum" field="hp_tel_num">핸드폰번호</entry>
+    <entry key="smsRecvYn" field="sms_recv_yn">SMS수신여부</entry>
+    <entry key="marryYn" field="marry_yn">결혼여부</entry>
+    <entry key="marryAnvsyDt" field="marry_anvsy_dt">결혼기념일</entry>
+    <entry key="offLineJoinYn" field="off_line_join_yn">오프라인가입여부</entry>
+    <entry key="vipNum" field="vip_num">VIP번호</entry>
+    <entry key="engFirstName" field="eng_first_name">영문이름-이름</entry>
+    <entry key="engLastName" field="eng_last_name">영문이름-성</entry>
+    <entry key="postNum" field="post_num">우편번호</entry>
+    <entry key="addr" field="addr">주소</entry>
+    <entry key="dtlAddr" field="dtl_addr">상세주소</entry>
+    <entry key="ssgStaffEmplNum" field="ssg_staff_empl_num">임직원번호</entry>
+    
+    <!-- 회원여권정보 -->
+    <entry key="psprtNum" field="psprt_num">여권일련번호</entry>
+    <entry key="psprtExprDt" field="psprt_expr_dt">여권만기일자</entry>
+    <entry key="psprtNatnCode" field="psprt_natn_code">여권국적코드</entry>
+    
+    <!-- 할인율관리 -->
+    <entry key="dscntCode" field="dscnt_code">할인코드</entry>
+	<entry key="dscntAmt" field="dscnt_amt">할인금액</entry>
+	<entry key="dscntRate" field="dscnt_rate">할인율</entry>
+	<entry key="dscntStartDtm" field="dscnt_start_dtm">할인시작일시</entry>
+	<entry key="dscntEndDtm" field="dscnt_end_dtm">할인종료일시</entry>
+	<entry key="useYn" field="use_yn">사용여부</entry>
+	<entry key="allPrdtYn" field="all_prdt_yn">전체사용여부</entry>
+	<entry key="dscntClassCode" field="dscnt_class_code">할인유형</entry>
+	<entry key="dscntTgtCode" field="dscnt_tgt_code">할인타입</entry>
+	
+    <!-- 주문 -->
+    <entry key="orderStatCode" field="order_stat_code">주문상태코드</entry>
+    <entry key="rcvrName" field="rcvr_name">수취인이름</entry>
+    <entry key="rcvrHdphnNum1" field="rcvr_hdphn_num1">수취인핸드폰번호1</entry>
+    <entry key="rcvrHdphnNum2" field="rcvr_hdphn_num2">수취인핸드폰번호2</entry>
+    <entry key="rcvrHdphnNum3" field="rcvr_hdphn_num3">수취인핸드폰번호3</entry>
+    <entry key="rcvrPostNum" field="rcvr_post_num">수취인우편번호</entry>
+    <entry key="rcvrAddr" field="rcvr_addr">수취인주소</entry>
+    <entry key="rcvrDtlAddr" field="rcvr_dtl_addr">수취인상세주소</entry>
+    <entry key="dlvyMesg" field="dlvy_mesg">배송메시지</entry>
+    
+    <!-- 클레임(주문) -->
+    <entry key="clmStatCode" field="clm_stat_code">클래임상태코드</entry>
+    <entry key="rfndAcntNum" field="rfnd_acnt_num">환불계좌번호</entry>
+    <entry key="acntHldrName" field="acnt_hldt_name">예금주이름</entry>
+    <entry key="rfndBankCode" field="rfnd_bank_code">환불은행코드</entry>
+    <entry key="sendBackPostNum" field="send_back_post_num">반송우편번호</entry>
+    <entry key="sendBackAddr" field="send_back_addr">반송주소</entry>
+    <entry key="sendBackAddrDtl" field="send_back_addr_dtl">반송상세</entry>
+    
+    <!-- 주문(여권,출국정보) 변경 -->
+    <entry key="userId" field="user_id">아이디</entry>
+    <entry key="birthDt" field="birth_dt">생년월일</entry>
+    <entry key="hpTelNum" field="hp_tel_num">연락처</entry>
+    <entry key="natnCode" field="natn_code">국적</entry>
+    <entry key="buyerNameEng" field="buyer_name_eng">성함(영문)</entry>
+    <entry key="psprtNum" field="psprt_num">여권번호</entry>
+    <entry key="exitDt" field="exit_dt">출국일</entry>
+    <entry key="exitTime" field="exit_time">출국시간</entry>
+    <entry key="exitCode" field="exit_code">출국지</entry>
+    <entry key="fltCode" field="flt_code">편명</entry>
+    <entry key="bctCode" field="bct_code">인도장</entry>    
+    
+    <!-- 회원등급관련(세건) -->
+    <entry key="savedRate" field="saved_rate">적립율</entry>
+    <entry key="adminId" field="admin_id">관리자아이디</entry>
+    <entry key="gradeName" field="grade_name">등급이름</entry>
+    <entry key="gradeSmryWord" field="grade_smry_word">등급어 요약어</entry>
+    <entry key="upBuyAmtDal" field="up_buy_amt_dal">승급구매금액</entry>
+    <entry key="upBuyTermMm" field="up_buy_term_mm">승급구매기간</entry>
+    <entry key="baseDccntRate" field="base_dccnt_rate">기본할인율</entry>
+    <entry key="topGradeYn" field="top_grade_yn">최고등급여부</entry>
+    <entry key="topGradeUseYn" field="top_grade_use_yn">최고등급사용여부</entry>
+    <entry key="imageUrl" field="imageUrl">이미지URL</entry>
+    <entry key="gradeKeepAmt" field="grade_Keep_Amt">등급유지금액</entry>
+    <entry key="gradeKeepTermMm" field="grade_keep_term_mm">등급유지기간</entry>
+    
+    <!-- 회원그룹관련(세건) -->
+    <entry key="userGroupName" field="user_group_name">회원그룹이름</entry>
+    <entry key="groupDscntClassCode" field="group_dscnt_class_code">그룹할인유형코드</entry>
+    <entry key="applyUserGradeId" field="apply_user_grade_id">적용회원등급아이디</entry>
+    
+    <!-- 상품 마스터 -->
+    <entry field="brand_id"            key="brandId">브랜드아이디</entry>
+    <entry field="prdt_name"           key="prdtName">상품이름</entry>
+    <entry field="sell_count"          key="sellCount">판매수량</entry>
+    <entry field="rest_count"          key="restCount">남은수량(재고수량)</entry>
+    <entry field="admin_id"            key="adminId">관리자아이디</entry>
+    <entry field="item_code"           key="itemCode">아이템코드</entry>
+    <entry field="ref_num"             key="refNum">REF번호</entry>
+    <entry field="prdt_sell_price_dal" key="prdtSellPriceDal">상품판매가격</entry>
+    <entry field="prdt_srch_word"      key="prdtSrchWord">상품검색단어</entry>
+    <entry field="disp_yn"             key="dispYn">전시여부</entry>
+    <entry field="spcl_prdt_yn"        key="spclPrdtYn">상품구분</entry>
+    <entry field="prmt_dtm"            key="prmtDtm">승인일시</entry>
+    <entry field="prdt_sell_end_dt"    key="prdtSellEndDt">상품판매종료일자</entry>
+    <entry field="prdt_stat_code"      key="prdtStatCode">상품상태코드</entry>
+    <entry field="prdt_prmt_code"      key="prdtPrmtCode">상품승인코드</entry>
+    <entry field="mis_ctgr_id"         key="misCtgrId">기간계카테고리아이디</entry>
+    <entry field="ftc_class_id"        key="ftcClassId">공정위분류아이디</entry>
+    <entry field="liq_yn"              key="liqYn">액체여부</entry>
+    <entry field="fc_yn"               key="fcYn">외산여부</entry>
+    <entry field="prmt_deny_rsn"       key="prmtDenyRsn">승인거부사유</entry>
+    <entry field="prdt_sell_start_dt"  key="prdtSellStartDt">상품판매시작일자</entry>
+    <entry field="size_value"          key="sizeValue">사이즈값</entry>
+    <entry field="wght_value"          key="wghtValue">무게값</entry>
+    <entry field="vol_value"           key="volValue">용량값</entry>
+    <entry field="admin_memo"          key="adminMemo">관리자메모</entry>
+    <entry field="re_stkd_yn"          key="reStkdYn">재입고여부</entry>
+    <entry field="prdt_sex_code"       key="prdtSexCode">성별</entry>
+    <entry field="home_flt_trsfr_limit_yn" key="homeFltTrsfrLimitYn">국내항공운송제한</entry>
+</root>

@@ -1,0 +1,365 @@
+﻿@charset "utf-8";
+
+/*
+ * layer
+ */
+
+.layer {
+	display: table;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+}
+#layerAddressManage.layer {
+    z-index: 990;
+}
+.layer .layerBg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+    background: url('../img/share/black50.png');
+}
+.layer .table {
+	display: table-cell;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	vertical-align: middle;
+}
+.layer .table .dialog {
+	display: inline-block;
+	text-align: left;
+}
+
+/* layer layerAbsolute */
+.layer.layerAbsolute {
+	position: static;
+}
+.layer.layerAbsolute .dialog {
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	z-index: 901;
+}
+.layer.layerAbsolute .layerBg {
+	z-index: 900;
+}
+
+/* layerPager */
+.layer .layerPager {
+	margin: 20px 0 0;
+	text-align: center;
+	letter-spacing: 4px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+}
+.layerPager a {
+	color: #262626;
+}
+
+/* layerButton */
+.layer .layerButton {
+	margin-top: 30px;
+	text-align: center;
+}
+
+/* .profilePic */
+.profilePic {
+	width: 297px;
+	height: 272px;
+	text-align: center;
+}
+.profilePic .profileImage {
+    position: relative;
+    width: 125px;
+    height: 125px;
+    overflow: hidden;
+	margin: 45px 85px 25px;
+	border: 1px solid #262626;
+}
+.profilePic .profileImage .innerContainer {
+    position: absolute;
+    left: 50%;
+    width: 1000px;
+    height: 100%;
+    margin-left: -500px;
+    text-align: center;
+}
+.profilePic .profileImage .innerContainer img {
+    height: 100%;
+}
+.profilePic div.left {
+	position: absolute;
+	top: 100px;
+	left: 32px;
+}
+.profilePic div.right {
+	position: absolute;
+	right: 32px;
+	top: 100px;
+}
+.profilePic .arrow {
+	display: block;
+	width: 15px;
+	height: 20px;
+	background: url("../img/share/profile_arrow.png") no-repeat;
+}
+.profilePic .right .arrow {
+	background-position: -15px 0;
+}
+.profilePic .btnArea {
+	width: 100%;
+    padding: 10px 0 0;
+	text-align: center;
+}
+.profilePic .btn {
+	width: 130px;
+	font-family: Nanumgothic, 'Nanumgothicweb', sans-serif;
+	font-size: 13px;
+	color: white;
+	border: none;
+}
+.profilePic .btn .bg {
+	left: 15px;
+	right: 15px;
+}
+.profilePic .edit {
+    margin-top: 20px;
+}
+.profilePic .uploadProfile {
+    margin-bottom: 10px;
+}
+.profilePic .btnArea input.file {
+    position: absolute;
+    top:10px;
+    right:10px;
+    display: block;
+    border: none;
+    background: none;
+    width: 300px;
+    height: 100px;
+    cursor:pointer;
+    opacity:0;
+    filter:alpha(opacity=0);
+}
+.profilePic .btnArea label.fakefile {
+    position: relative;
+    display: block;
+    width: 130px;
+    z-index: 1;
+    margin: 0 auto 10px;
+}
+
+
+
+/* 6-3_1 zipcode */
+.layerZipcode {
+    width: 460px;
+    min-height: 330px;
+    padding: 0 30px;
+}
+
+.layerZipcode h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 19px;
+    line-height: 66px;
+}
+.layerZipcode p {
+    margin: 0;
+    padding: 0;
+}
+.layerZipcode ul.tabs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.layerZipcode .tabs li {
+    width: 230px;
+    font-size: 15px;
+    line-height: 45px;
+    float: left;
+    text-align: center;
+    color: #262626;
+}
+.layerZipcode .tabs li.on {
+    color: #fff;
+}
+.layerZipcode .tabs:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+.layerZipcode .tabs li.on {
+    background: url("../img/share/dialog_on_sel_btn_bg.png");
+    color: #fff;
+}
+.layerZipcode .tabs li {
+    background: url("../img/share/dialog_off_sel_btn_bg.png") repeat-x;
+    color: #444;
+}
+
+/* layerCoupon */
+.layerCoupon {
+	padding: 22px;
+	width: 500px;
+	/*min-height: 271px;*/
+}
+.layerCoupon .title {
+	margin: 0 0 12px;
+	padding: 0;
+	color: #000;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+}
+
+/* layerTable1 */
+.layerTable1 {
+    position: relative;
+    max-height: 300px;
+    overflow: auto;
+}
+.layerTable1 table {
+	width: 100%;
+	table-layout: fixed;
+	text-align: center;
+}
+.layerTable1 table thead th {
+	padding: 6px 0 5px;
+	color: #262626;
+	font-weight: normal;
+	border-top: 1px solid #bbbdbf;
+	background-color: #f7f7f7;
+}
+.layerTable1 table tbody td {
+	padding: 14px 0;
+	color: #010101;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	border-bottom: 1px solid #bbbdbf;
+}
+.layerTable1 table tbody td .btnZipcode {
+    width: 100px;
+    margin-left: 5px;
+    background: none;
+    border: none;
+}
+.layerTable1 table tbody td.percent {
+	color: #f22c48;
+}
+.layerTable1 table tbody td.address {
+	text-align: left;
+	padding-left: 13px;
+	padding-right: 15px;
+	font-size: 13px;
+	color: #231f20;
+}
+.layerTable1 table tbody td.address a {
+	color: #231f20;
+}
+.layerTable1 table tbody td .typeText {
+	padding: 0 5px 0;
+	height: 24px;
+	line-height: 24px;
+	border: 1px solid #999;
+	background-color: #fbfbfb;
+}
+.layerTable1 table tbody.noLine th {
+	padding-top: 18px;
+	padding-left: 9px;
+	text-align: left;
+	vertical-align: top;
+	font-size: 13px;
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-weight: normal;
+	color: #4d4d4d;
+}
+.layerTable1 table tbody.noLine td {
+	padding: 13px 0 0;
+	text-align: left;
+	border-bottom: 0 none;
+}
+.layerTable1 table tbody.noLine td .btnAddress {
+	margin-left: 5px;
+	text-decoration: underline;
+}
+
+
+/* layerAddressManage */
+.layerAddressManage {
+	padding: 22px;
+	width: 451px;
+	min-height: 271px;
+}
+.layerAddressManage .title {
+	margin: 0 0 12px;
+	padding: 0;
+	color: #000;
+	font-family: Nanumgothicbold, Nanumgothicwebbold, sans-serif;
+}
+.layerAddressManage .layerTable1 table tr td ul {
+	padding: 0;
+	height: 15px;
+	margin: 10px 0 0;
+}
+.layerAddressManage .layerTable1 table tr td ul li {
+	list-style: none;
+	display: inline-block;
+	font-size: 11px;
+	color: #999;
+}
+.layerAddressManage .layerTable1 table tr td ul li button {
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 11px;
+	color: #999;
+    line-height: 1.5;
+    background: none;
+    border: none;
+}
+.layerAddressManage .layerTable1 table tr td ul li.edit:after {
+	content: "|"
+}
+
+/*            promotionLayer               */
+#promoLayer {
+	position: absolute;
+	z-index: 999;
+}
+#promoLayer > div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: 3px solid #000;
+	box-shadow: 0 3px 10px #333;
+	-moz-box-shadow: 0 3px 10px #333;
+	-webkit-box-shadow: 0 3px 10px #333;
+}
+#promoLayer .promoLayerWrapper .text {
+	font-family: nanumgothic, nanumgothicweb, sans-serif;
+	font-size: 14px;
+	min-width: 290px;
+	padding: 15px;
+	text-align: left;
+	background: #f8f8f8;
+}
+#promoLayer .controller {
+	font-family: appleGothic, '돋움', Dotum, sans-serif;
+	font-size: 13px;
+	text-align: center;
+	color: #fff;
+	height: 30px;
+	line-height: 35px;
+	margin-top: -5px;
+	background: #000;
+}
+#promoLayer .controller button {
+	font-family: nanumgothic, nanumgothicweb, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #aaa;
+	border: none;
+	background: none;
+}

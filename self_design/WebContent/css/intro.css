@@ -1,0 +1,281 @@
+﻿/*-------------------------
+      마켓프레스 소개페이지
+--------------------------*/
+#body .introduce {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    overflow: hidden ;
+    min-width: 990px;
+    /*background: url('../img/intro/bg.png') no-repeat 600px 0;*/
+}
+#body .introduce .intro_background {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1230px;
+    height: 750px;
+    margin-left: -300px;
+    background: url('../img/intro/bg.png') no-repeat 100px 0;
+    z-index: -1;
+}
+#body .introduce .section {
+    min-height: 750px;
+    color: #20242f;
+}
+#body .introduce .section .copy {
+    display: inline-block;
+    width: 470px;
+    height: 50px;
+    margin: 40px 0 10px;
+    text-indent: -100000px;
+    background: url('../img/intro/text.png') no-repeat 0 0;
+    color: #20242f;
+}
+#body .introduce .section .subCopy {
+    font-size: 15px;
+    margin: 0;
+    color: #20242f;
+}
+#body .introduce .section p {
+    width: 450px;
+    margin: 50px 0 0;
+    font-size: 13px;
+    color: #404551;
+    line-height: 24px;
+}
+#body .introduce .section p .mail-link {
+    color: #000;
+    text-decoration: underline;
+}
+#body .introduce .section p.writer {
+    margin: 30px 0 0;
+    text-align: right;
+    width: 410px;
+}
+
+/*-------------------------
+      마켓프레스 제휴 요청
+--------------------------*/
+#body .alliance {
+    position: relative;
+    background: url('../img/share/bg_pattern.png');
+    z-index: -2;
+}
+#body .alliance .alliance_background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-width: 990px;
+    height: 740px;
+    background: url('../img/share/alliance_bg.png') no-repeat 50% 50%;
+    z-index: -1;
+}
+#body .alliance .section {
+    min-width: 990px;
+    min-height: 740px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #404551;
+}
+#body .alliance .section .comment {
+    min-width: 990px;
+    margin: 0;
+    padding-top: 130px;
+    font-size: 15px;
+    text-align: center;
+    line-height: 2;
+    z-index: 10;
+}
+#body .alliance .section .table {
+    position: relative;
+    margin-top: 40px;
+    text-align: center;
+    z-index: 10;
+}
+#body .alliance .section .table table {
+    display: inline-block;
+    width: 240px;
+}
+#body .alliance .section .table table td {
+    padding: 3px 0;
+}
+#body .alliance .section .table table .col2 {
+    text-align: right;
+}
+#body .alliance .section .logo {
+    position: absolute;
+    right: 320px;
+    bottom: 5px;
+}
+
+/*-------------------------
+     마켓프레스 인쇄종류안내
+--------------------------*/
+#kindOfPrint .title {
+    font-size: 25px;
+    margin: -20px 0 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #c6c6c6;
+}
+#kindOfPrint .kinds > div {
+    position: relative;
+    width: 990px;
+}
+#kindOfPrint .kinds > div .comment {
+    margin: 0;
+    color: #171717;
+    font-size: 13px;
+    line-height: 24px;
+}
+#kindOfPrint .kinds .digital_printing {
+    height: 780px;
+    background: url('../img/guide/kindOfPrinting/digital_printing.png') no-repeat 50% 100%;
+}
+#kindOfPrint .kinds .digital_printing .comment {
+    position: absolute;
+    top: 10px;
+}
+#kindOfPrint .kinds .flex {
+    margin-top: 50px;
+    height: 720px;
+    background: url('../img/guide/kindOfPrinting/flex.png') no-repeat 50% 100%;
+}
+#kindOfPrint .kinds .flex .comment {
+    position: absolute;
+    top: 25px;
+    right: 0;
+    margin: 0;
+    text-align: right;
+}
+#kindOfPrint .kinds .silk_screen {
+    margin-top: 80px;
+    height: 910px;
+    background: url('../img/guide/kindOfPrinting/silk_screen.png') no-repeat 50% 100%;
+}
+#kindOfPrint .kinds .silk_screen .comment {
+    position: absolute;
+    bottom: 35px;
+    right: 30px;
+    margin: 0;
+    text-align: right;
+    color: #fff;
+}
+#kindOfPrint .kinds .embroidery {
+    margin-top: 100px;
+    height: 1010px;
+    background: url('../img/guide/kindOfPrinting/embroidery.png') no-repeat 50% 100%;
+}
+#kindOfPrint .kinds .embroidery .comment {
+    position: absolute;
+    top: 490px;
+    left: 40px;
+    margin: 0;
+}
+#kindOfPrint .kinds .specialty_flex {
+    margin-top: 100px;
+    height: 495px;
+    background: url('../img/guide/kindOfPrinting/specialty_flex.png') no-repeat 50% 100%;
+}
+#kindOfPrint .kinds .specialty_flex .comment {
+    position: absolute;
+    top: 500px;
+    left: 490px;
+    margin: 0;
+}
+#kindOfPrint .kinds .heat_transfer {
+    margin-top: 150px;
+    height: 510px;
+    background: url('../img/guide/kindOfPrinting/heat_transfer.png') no-repeat 50% 100%;
+}
+#kindOfPrint .kinds .heat_transfer .comment {
+    position: absolute;
+    top: 230px;
+    left: 10px;
+    margin: 0;
+}
+
+/*-------------------------
+  마켓프레스 프린팅 서비스 가격
+--------------------------*/
+#priceOfPrinting {
+    position: relative;
+}
+#priceOfPrinting > .title {
+    font-size: 25px;
+    margin: 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+#priceOfPrinting > .comment {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 22px;
+    color: #171717;
+    margin: 10px 0 0;
+}
+#priceOfPrinting > .discountTable {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    table-layout: fixed;
+    text-align: center;
+    width: 300px;
+}
+#priceOfPrinting > .discountTable .leftTitle {
+    background: #bbb;
+    color: #fff;
+}
+#priceOfPrinting > .discountTable .rightTitle {
+    background: #3a3a3a;
+    color: #fff;
+}
+#priceOfPrinting > .discountTable td {
+    padding: 3px 0;
+    border: 1px dotted #ccc;
+    font-size: 10px;
+}
+#priceOfPrinting .kinds > div {
+    margin-top: 70px;
+}
+#priceOfPrinting .kinds .title .kr {
+    margin: 1px 0 5px;
+    line-height: 1.1;
+    font-family: NanumMyeongjo, serif;
+    font-size: 30px;
+    border-top: 1px solid #c6c6c6;
+}
+#priceOfPrinting .kinds table td {
+    vertical-align: top;
+}
+#priceOfPrinting .kinds table .col1,
+#priceOfPrinting .kinds table .col2 {
+    padding-right: 15px;
+}
+#priceOfPrinting .kinds table .col1 img,
+#priceOfPrinting .kinds table .col2 img,
+#priceOfPrinting .kinds table .col3 img {
+    border: 5px solid #c6c6c6;
+}
+#priceOfPrinting .kinds table .col3 .kind:first-child {
+    margin: 0 0 15px;
+}
+#priceOfPrinting .kinds table .col3 .kind {
+    display: inline-block;
+    font-size: 20px;
+    width: 185px;
+    padding: 11px 0 10px 20px;
+    line-height: 1.2;
+    margin: 20px 0 10px;
+    background: #f0f0f0;
+}
+#priceOfPrinting .kinds table .col3 .desc {
+    font-size: 15px;
+    margin: 0 0 0 20px;
+}
+#priceOfPrinting .kinds div .comment {
+    font-size: 13px;
+    line-height: 24px;
+    color: #171717;
+}

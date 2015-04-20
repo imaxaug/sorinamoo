@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="UserSQL">
+    <typeAlias alias="user" type="kr.co.crewmate.site.model.user.User"/>
+    <typeAlias alias="userCriteria" type="kr.co.crewmate.site.model.user.UserCriteria"/>
+    <typeAlias alias="userLoginForm" type="kr.co.crewmate.site.model.user.UserLoginForm"/>
+    <typeAlias alias="userLoginHistory" type="kr.co.crewmate.site.model.user.UserLoginHistory"/>
+
+    <select id="getUserList" resultClass="user" parameterClass="userCriteria">
+        SELECT USER_ID userId
+             , password password
+             , create_date createDate
+             , last_update lastUpdate
+             , hp_num hpNum
+             , birth_date birthDate
+             , recv_email_yn recvEmailYn
+             , recv_sms_yn recvSmsYn
+             , recv_date recvDate
+             , access_terms_yn accessTermsYn
+             , personal_terms_yn personalTermsYn
+             , alias_id aliasId
+          FROM USER
+    </select>
+
+    <select id="getUserInfo" resultClass="user" parameterClass="String">
+        SELECT USER_ID userId
+             , password password
+             , create_date createDate
+			 , last_update lastUpdate
+			 , hp_num hpNum
+			 , birth_date birthDate
+			 , recv_email_yn recvEmailYn
+			 , recv_sms_yn recvSmsYn
+			 , recv_date recvDate
+			 , access_terms_yn accessTermsYn
+			 , personal_terms_yn personalTermsYn
+			 , alias_id aliasId
+          FROM USER
+          where user_id = #userId#
+    </select>
+
+    <update id="logout" parameterClass="string">
+        UPDATE t_user_login_history
+           SET log_out_dtm = sysdate
+         WHERE user_id = #userId#
+           AND login_hist_seq in (SELECT MAX(login_hist_seq) FROM t_user_login_history WHERE user_id = #userId#)
+    </update>
+
+    <select id="getCompPswdYn" parameterClass="userLoginForm" resultClass="String">
+        SELECT
+            CASE WHEN HEX(AES_ENCRYPT(#password#, 'selfDesign_password_key')) = (SELECT PSWD FROM USER WHERE USER_ID = #userId#) THEN 'Y'
+                 ELSE 'N'
+                 END
+        FROM DUAL
+    </select>
+
+    <insert id="saveUserLoginHistory" parameterClass="userLoginHistory">
+        INSERT INTO login_history (
+            user_id,
+            cntr_ip_addr,
+            login_date,
+            log_out_date
+        ) VALUES (
+            #userId#,
+            #cntrIpAddr#,
+            now(),
+            null
+        )
+    </insert>
+
+    <insert id="saveUserForm" parameterClass="user">
+        INSERT INTO user (
+            user_id,
+			password,
+			hp_num,
+			birth_date,
+			recv_email_yn,
+			recv_sms_yn,
+			access_terms_yn,
+			personal_terms_yn,
+			alias_id,
+			nick_name
+        ) VALUES (
+            #userId#,
+			HEX(AES_ENCRYPT(#password#, 'selfDesign_password_key')),
+			#hpNum#,
+			#birthDate#,
+			#recvEmailYn#,
+			#recvSmsYn#,
+			#accessTermsYn#,
+			#personalTermsYn#,
+			concat(cast( cast( rand()*100000000 as unsigned) as char) ),
+			#nickName#
+        )
+    </insert>
+
+</sqlMap>

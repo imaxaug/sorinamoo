@@ -1,0 +1,54 @@
+#if ($cpnImageCode == "01")
+    <div class="coupon coupon-type01">
+        <span class="title">$cpnName</span>
+        <p>
+            #if($fixRateYn)
+            <span class="rate">$rate%</span>
+            #else
+            <span class="rate">$$amount</span>
+            #end
+            <img src="$imageServer/images/shop/common/rate_type01.gif" alt="$cpnName" />
+        </p>
+        <p class="comment">$cpnName</p>
+    </div>
+#elseif ($cpnImageCode == "02")
+    <div class="coupon coupon-type02">
+        <span class="title">$cpnName</span>
+        <p>
+            #if($fixRateYn)
+            <span class="rate">$rate%</span>
+            #else
+            <span class="rate">$$amount</span>
+            #end
+            <img src="$imageServer/images/shop/common/rate_type02.gif" alt="$cpnName" />
+        </p>
+        <p class="comment">$cpnName</p>
+    </div>
+#elseif ($cpnImageCode == "03")
+    <div class="coupon coupon-type03">
+        <span class="title">$cpnName</span>
+        <p>
+            #if($fixRateYn)
+            <span class="rate">$rate%</span>
+            #else
+            <span class="rate">$$amount</span>
+            #end
+            <img src="$imageServer/images/shop/common/rate_type03.gif" alt="$cpnName" />
+        </p>
+        <p class="comment">$cpnName</p>
+    </div>
+
+#elseif ($cpnImageCode == "04")
+    <div class="coupon coupon-type04">
+        <span class="title">$cpnName</span>
+        <p>
+            #if($fixRateYn)
+            <span class="rate">$rate%</span>
+            #else
+            <span class="rate">$$amount</span>
+            #end
+            <img src="$imageServer/images/shop/common/rate_type04.gif" alt="$cpnName" />
+        </p>
+        <p class="comment">$cpnName</p>
+    </div>
+#end
