@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import = "java.util.Enumeration" %>
+<%@ page isELIgnored="true" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib uri="http://www.ssgdfs.com/taglib/ui" prefix="ui" %>
@@ -20,7 +21,11 @@
     <script type="text/javascript" src="/js/jquery/jquery-ui-1.9.2.custom.min.js"></script>
     <script type="text/javascript" src="/js/jquery/jquery.iframe-transport.js"></script>
     <script type="text/javascript" src="/js/jquery/jquery.fileupload.js"></script>
+    <!--
     <script type="text/javascript" src="/js/jquery/jquery.tmpl.min.js"></script>
+     -->
+    <script type="text/javascript" src="/js/jquery/jquery-tmpl/jquery.tmpl.js"></script>
+
     <script type="text/javascript" src="/js/jquery/jquery.transit.min.js"></script>
     <script type="text/javascript" src="/js/jquery/jquery.mousewheel.min.js"></script>
     <script type="text/javascript" src="/js/lib.js"></script>
@@ -866,6 +871,43 @@
     <div id="mp-login-user-id">${loginUser.user.aliasId}</div>
 </div>
 
+<%-- jsp EL 과 jquery.tmpl ${} 혼용에 대하여 (http://windowx.tistory.com/515)
+JSP 의 EL 을 사용하면 보통 '${}' keyword를 이용하여 context value를 레퍼런스 할 수 있다.
+최근에 jQuery tmpl을 자주 사용하는데 같은 키워드 ${} 를 이용하게 되어서 문제가 되었습니다.
+jQuery tmpl를 {{html }}으로 수정하면 해결할 수 있으나, 근본적인 해결책은 <%@ page isELIgnored="true" %>를 해주어야 한다.
+
+<script id="tFace" type="text/x-jquery-tmpl">
+<div class="face"
+    data-file-type="{{html file_type}}"
+    data-type="{{html type}}"
+    data-sort="{{html sort}}">
+    <div class="img" title="{{html name_ko}}"><img src="{{html filepath}}" alt="{{html name_ko}}" title="{{html name_ko}}" /></div>
+    <!-- span class="name">${name_ko}</span -->
+</div>
+</script>
+
+<script id="tProduct" type="text/x-jquery-tmpl">
+<div class="product" data-id="${productId}" data-basket-id="${id}">
+    <div class="img"><a href="/make_product?product={{html productId}}"><img src="{{html filepath}}" /></a></div>
+    <div class="name">{{html name_ko}}</div>
+    <div class="info">
+        <span class="size">{{html size}}</span> |
+        <span class="quantity">{{html quantity}}</span>개
+    </div>
+    <div class="options">
+        <div class="edit-quantity">
+            <input type="text" class="quantity" name="quantity" value="${quantity}">
+            <button type="button" data-basket-id="{{html id}}">
+            수량 변경
+            </button>
+        </div>
+    </div>
+    <div class="remove"><img src="/img/icons/glyphicons_197_remove.png" title="삭제" /></div>
+    <div class="option"><img src="/img/icons/glyphicons_136_cogwheel.png" title="편집" /></div>
+</div>
+</script>
+--%>
+
 <script id="tFace" type="text/x-jquery-tmpl">
 <div class="face"
     data-file-type="${file_type}"
@@ -876,18 +918,11 @@
 </div>
 </script>
 
-<%-- 우측 장바구니 --%>
 <script id="tProduct" type="text/x-jquery-tmpl">
 <div class="product" data-id="${productId}" data-basket-id="${id}">
     <div class="img"><a href="/make_product?product=${productId}"><img src="${filepath}" /></a></div>
     <div class="name">${name_ko}</div>
     <div class="info">
-{{if size!=''}}
-    x${size}x
-{{/if}}
-{{if id!=''}}
-    XXXXXXXXXXXXXXXXX
-{{/if}}
         <span class="size">${size}</span> |
         <span class="quantity">${quantity}</span>개
     </div>
@@ -903,6 +938,8 @@
     <div class="option"><img src="/img/icons/glyphicons_136_cogwheel.png" title="편집" /></div>
 </div>
 </script>
+
+
 
 <div class="mp-context-menu">
     <ul>
