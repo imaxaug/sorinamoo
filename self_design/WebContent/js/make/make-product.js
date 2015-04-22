@@ -239,31 +239,29 @@ $.widget('mp.designsController', {
 		if (!this.element.is('#freeDesignLayer')) return;
 
 		//디자인 > 무료 디자인
-		$.get('/make_product/category/designs', _.bind(function(categories) {
-//			_.each(categories, function(category) {
+		$.get('/product/category', _.bind(function(categories) {
 			_.each(categories.data, function(category) {
 				$('<li class="mp-category" ' +
-					'data-id="' + category.id + '"' +
-					'data-group="' + category.group + '"' +
-					'data-code="' + category.code + '"' +
-					'>' + category[name_locale] + '' + '</li>')
+					'data-id="' + category.codeClassId + '"' +
+					'data-group="' + category.codeClass + '"' +
+					'data-code="' + category.codeKey + '"' +
+					'>' + category.codeValue + '' + '</li>')
 					.appendTo(this.element.find('.mp-categories'));
 			}, this);
 			this.element.find('.mp-categories .mp-category:eq(9)').click();
 		}, this));
 
 		var group = 'DESIGN_PRICE_' + $('body').attr('data-locale').toUpperCase();
-		$.post('/make_product/get_common_data', {
+		$.post('/product/getCommonData', {
 			group: group
 		}, _.bind(function(categories) {
-//			_.each(categories, function(category) {
 			_.each(categories.data, function(category) {
 				$('<li class="mp-category" ' +
-					'data-id="' + category.id + '"' +
-					'data-group="price"' +
-					'data-code="' + category.code + '"' +
-					'>' + category[name_locale] + '</li>')
-					.appendTo(this.element.find('.mp-premium-categories'));
+						'data-id="' + category.codeClassId + '"' +
+						'data-group="price"' +
+						'data-code="' + category.codeKey + '"' +
+						'>' + category.codeValue + '</li>')
+						.appendTo(this.element.find('.mp-premium-categories'));
 			}, this);
 		}, this));
 	},

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="CommonCodeSQL">
+    <typeAlias alias="commonCode" type="kr.co.crewmate.site.model.CommonCode"/>
+
+    <select id="getCommonCode" resultClass="commonCode" parameterClass="commonCode">
+		SELECT CODE_CLASS_ID codeClassId
+		     , CODE_CLASS    codeClass
+		     , CODE_KEY      codeKey
+		     , CODE_VALUE    codeValue
+		  FROM COMMON_CODE
+		 WHERE CODE_USE_YN = 'Y'
+		   AND CODE_CLASS = #codeClass#
+		 ORDER BY CODE_ORDER
+    </select>
+
+</sqlMap>

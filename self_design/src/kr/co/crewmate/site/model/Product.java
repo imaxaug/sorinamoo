@@ -14,8 +14,8 @@ import java.util.Date;
  * @date 2013. 5. 22.
  */
 public class Product extends ToString {
-    private String goodsCode;
-    private String goodsName;
+    private String productId;
+    private String productName;
     private int hitCount;
     private int likeCount;
     private String useYN;
@@ -32,18 +32,6 @@ public class Product extends ToString {
     private String extraPrice;
     private String type;
 
-	public String getGoodsCode() {
-		return goodsCode;
-	}
-	public void setGoodsCode(String goodsCode) {
-		this.goodsCode = goodsCode;
-	}
-	public String getGoodsName() {
-		return goodsName;
-	}
-	public void setGoodsName(String goodsName) {
-		this.goodsName = goodsName;
-	}
 	public int getHitCount() {
 		return hitCount;
 	}
@@ -133,6 +121,18 @@ public class Product extends ToString {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	public String getProductId() {
+		return productId;
+	}
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
 }

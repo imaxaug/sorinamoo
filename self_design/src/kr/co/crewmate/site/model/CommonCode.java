@@ -14,6 +14,7 @@ import java.util.Date;
  * @date 2013. 5. 22.
  */
 public class CommonCode extends ToString {
+    private String codeClassId;
     private String codeClass;
     private String codeKey;
     private String codeValue;
@@ -70,6 +71,12 @@ public class CommonCode extends ToString {
 	}
 	public void setLastUpdate(Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
+	}
+	public String getCodeClassId() {
+		return codeClassId;
+	}
+	public void setCodeClassId(String codeClassId) {
+		this.codeClassId = codeClassId;
 	}
 
 }
