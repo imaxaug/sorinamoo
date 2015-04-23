@@ -687,28 +687,28 @@ $.widget('mp.productsController', {
 			});
 		});
 
-		//상품선택 > 전체 카테고리
-		$.get('/make_product/category/catalogs', _.bind(function(categories) {
+		//상품선택 > 전체 카달로그
+		$.get('/product/catalogs', _.bind(function(categories) {
 //			_.each(categories, function(category) {
 			_.each(categories.data, function(category) {
 				$('<li class="mp-category" ' +
-					'data-id="' + category.id + '"' +
-					'data-group="' + category.group + '"' +
-					'data-code="' + category.code + '"' +
-					'>' + category[name_locale] + '' + '</li>')
-						.appendTo(this.element.find('.tab.category .category'));
+							'data-id="' + category.codeClassId + '"' +
+							'data-group="' + category.codeClass + '"' +
+							'data-code="' + category.codeKey + '"' +
+							'>' + category.codeValue + '' + '</li>')
+				.appendTo(this.element.find('.tab.category .category'));
 			}, this);
 		}, this));
 
 		//상품선택 > 주제별 카테고리
-		$.get('/make_product/category/topics', _.bind(function(categories) {
+		$.get('/product/topics', _.bind(function(categories) {
 //			_.each(categories, function(category) {
 			_.each(categories.data, function(category) {
 				$('<li class="mp-category" ' +
-					'data-id="' + category.id + '"' +
-					'data-group="' + category.group + '"' +
-					'data-code="' + category.code + '"' +
-					'>' + category[name_locale] + '' + '</li>')
+							'data-id="' + category.codeClassId + '"' +
+							'data-group="' + category.codeClass + '"' +
+							'data-code="' + category.codeKey + '"' +
+							'>' + category.codeValue + '' + '</li>')
 					.appendTo(this.element.find('.tab.products .products'));
 			}, this);
 		}, this));
@@ -722,10 +722,11 @@ $.widget('mp.productsController', {
 //		text = text == '전체' ? text : $category.parent().attr('data-group-name') + ' | ' + text;
 		this.element.find('.mp-category-heading').text(text);
 
-		$.get('/make_product/base_products',
+		$.get('/product/productList',
 				_.object([$category.attr('data-group').toLowerCase()], [$category.attr('data-code')]),
 				_.bind(function(products) {
-			this._draw(products, function() {});
+//			this._draw(products, function() {});
+			this._draw(products.data, function() {});
 		}, this));
 
 		$('#tab2').hide();
@@ -736,7 +737,7 @@ $.widget('mp.productsController', {
 		next = next || function() {};
 		var self = this;
 
-		$.get('/make_product/base_products', function(products) {
+		$.get('/product/productList', function(products) {
 //			self._draw(products, next);
 			self._draw(products.data, next);//model.addAttribute("data", products); 변경으로 data 추가
 		});
@@ -747,7 +748,8 @@ $.widget('mp.productsController', {
 
 		var html = '';
 		_.each(products, function(product) {
-			html += '<li class="mp-product" data-id="' + product.id + '"><img src="' + product.filepath + '" alt="상품이미지"/><span class="pdtName">' + product[name_locale] + '</span></li>';
+//			html += '<li class="mp-product" data-id="' + product.id + '"><img src="' + product.filepath + '" alt="상품이미지"/><span class="pdtName">' + product[name_locale] + '</span></li>';
+			html += '<li class="mp-product" data-id="' + product.productId + '"><img src="' + product.filePath + '" alt="상품이미지"/><span class="pdtName">' + product.productName + '</span></li>';
 		});
 		this.element.find('.mp-products').html('').append(html);
 

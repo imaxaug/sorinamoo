@@ -1,0 +1,19 @@
+package kr.co.crewmate.site.service;
+
+import java.util.List;
+
+import kr.co.crewmate.site.model.Product;
+
+/**
+ *
+ * 클래스명 : <code>UserService</code>
+ *
+ * @author 남세건
+ * @date 2013. 5. 23.
+ *
+ */
+public interface ProductService {
+
+    List<Product> getProductList(Product param);
+
+}

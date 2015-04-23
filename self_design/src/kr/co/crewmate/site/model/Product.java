@@ -31,6 +31,9 @@ public class Product extends ToString {
     private String price;
     private String extraPrice;
     private String type;
+    private String filePath;
+    private String catalog;
+    private String category;
 
 	public int getHitCount() {
 		return hitCount;
@@ -133,6 +136,24 @@ public class Product extends ToString {
 	}
 	public void setProductName(String productName) {
 		this.productName = productName;
+	}
+	public String getFilePath() {
+		return filePath;
+	}
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+	public String getCatalog() {
+		return catalog;
+	}
+	public void setCatalog(String catalog) {
+		this.catalog = catalog;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 }

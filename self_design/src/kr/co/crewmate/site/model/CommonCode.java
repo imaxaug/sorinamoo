@@ -24,6 +24,14 @@ public class CommonCode extends ToString {
     private Date createDate;
     private Date lastUpdate;
 
+    public CommonCode(String codeClass) {
+    	setCodeClass(codeClass);
+    }
+
+    public CommonCode() {
+
+    }
+
 	public String getCodeClass() {
 		return codeClass;
 	}
