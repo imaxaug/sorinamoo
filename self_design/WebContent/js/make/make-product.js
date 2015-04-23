@@ -175,7 +175,7 @@ function showAlert(msg) {
 $.widget('mp.designsController', {
 
 	options: {
-		api: '/make_product/free_designs',
+		api: '/product/designs',
 		loaded: false,
 		$currentCategory: null,
 		loading: false
@@ -352,18 +352,18 @@ $.widget('mp.designsController', {
 		_.each(items, function(item) {
 			html +=
 				'<li class="mp-design" ' +
-					'data-id="' + item.id + '" ' +
+					'data-id="' + item.designId + '" ' +
 					'data-description="' + item.description + '"' +
-					'data-price="' + item[price_locale] + '"' +
-					'data-price-en="' + item.price_en + '"' +
-					'data-price-ko="' + item.price_ko + '"' +
-					'data-title="' + item.title + '"' +
+					'data-price="' + item.price + '"' +
+					'data-price-en="' + item.price + '"' +
+					'data-price-ko="' + item.price + '"' +
+					'data-title="' + item.designName + '"' +
 					'data-width="' + item.width + '"' +
 					'data-height="' + item.height + '">' +
-					'<img data-src="' + item.filepath.replace('_thumbnail.png', '.png') + '"' +
-						'src="' + item.filepath + '" alt="' + item.title  + '"/>' +
+					'<img data-src="' + item.filePath.replace('_thumbnail.png', '.png') + '"' +
+						'src="' + item.filePath + '" alt="' + item.designName  + '"/>' +
 					(this.element.is('#freeDesignLayer') ? '' : '<img src="/img/icons/glyphicons_197_remove.png" class="remove" title="삭제">') +
-					(item[price_locale] > 0 ? '<span>' + commify(item[price_locale]) + '</span>' : '') +
+					(item.price > 0 ? '<span>' + commify(item.price) + '</span>' : '') +
 				'</li>';
 		}, this);
 		this.element.find('.mp-designs').append(html);
@@ -1930,10 +1930,10 @@ $(function() {
 		query: QueryStringToJSON()
 	});
 	$('#freeDesignLayer').designsController({
-		api: '/make_product/free_designs'
+		api: '/product/designs'
 	});
 	$('#loadImageWrapper').designsController({
-		api: '/make_product/free_designs'
+		api: '/product/designs'
 	});
 	$('#addTextWrapper').textController();
 	$('.mp-cart').cart();

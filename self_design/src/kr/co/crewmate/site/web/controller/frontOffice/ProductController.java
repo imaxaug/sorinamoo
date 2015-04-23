@@ -1,65 +1,38 @@
 package kr.co.crewmate.site.web.controller.frontOffice;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
-import java.util.Set;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpression;
-import javax.xml.xpath.XPathExpressionException;
-import javax.xml.xpath.XPathFactory;
 
-import kr.co.crewmate.site.Constants;
-import kr.co.crewmate.site.exceptions.UserNotFoundException;
 import kr.co.crewmate.site.model.CommonCode;
-import kr.co.crewmate.site.model.ListResult;
-import kr.co.crewmate.site.model.Parameter;
-import kr.co.crewmate.site.model.ParameterImpl;
 import kr.co.crewmate.site.model.Design;
+import kr.co.crewmate.site.model.DesignCriteria;
 import kr.co.crewmate.site.model.Text;
 import kr.co.crewmate.site.model.product.ProductCriteria;
-import kr.co.crewmate.site.model.user.User;
 import kr.co.crewmate.site.model.user.UserCriteria;
 import kr.co.crewmate.site.service.CommonCodeService;
-import kr.co.crewmate.site.service.UserService;
-import kr.co.crewmate.site.utils.Utils;
+import kr.co.crewmate.site.service.DesignService;
 import kr.co.crewmate.site.web.controller.FrontOfficeController;
-import kr.co.crewmate.site.web.taglib.PageHolder;
-import kr.co.crewmate.utils.ChangeTextImageAction;
 import kr.co.crewmate.utils.DateUtil;
 import kr.co.crewmate.utils.TextToImage;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONValue;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.json.MappingJacksonJsonView;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.xml.sax.SAXException;
+
+import bsh.StringUtil;
 
 /**
  *
@@ -81,7 +54,10 @@ public class ProductController extends FrontOfficeController {
     @Inject
     private CommonCodeService commonCodeService;
 
-    private static String DESIGN_PRICE_KO = "PRICE";//디자인 상품의 금액별 리스트
+    @Inject
+    private DesignService designService;
+
+    private static String DESIGN_PRICE = "PRICE";//디자인 상품의 금액별 리스트
 
     private static String DESIGN = "DESIGN";//디자인 상품의 카테고리
 
@@ -132,9 +108,38 @@ public class ProductController extends FrontOfficeController {
     @RequestMapping("/product/getCommonData")
     public View getCommonData(ModelMap model) {
     	CommonCode codeClass = new CommonCode();
-    	codeClass.setCodeClass(DESIGN_PRICE_KO);
+    	codeClass.setCodeClass(DESIGN_PRICE);
 
     	List<CommonCode> list = this.commonCodeService.getCommonCode(codeClass);
+
+    	model.addAttribute("data", list);
+    	return new MappingJacksonJsonView();
+    }
+
+    /**
+     * type - TY001 : 유료
+     *        TY002 : 무료
+     *        TY003 : 사용자 추가 이미지
+     * @param model
+     * @param param
+     * @return
+     */
+    @RequestMapping("/product/designs")
+    public View designs(ModelMap model, DesignCriteria param) {
+
+    	if(StringUtils.equals(param.getType(), "TY001")) {
+    		param.setPremiumYn("Y");
+    	} else if(StringUtils.equals(param.getType(), "TY002")) {
+    		param.setPremiumYn("N");
+    	} else {
+
+    	}
+
+    	if(!StringUtils.isEmpty(param.getDesign())) {
+    		param.setCategory(param.getDesign());
+    	}
+
+    	List<Design> list = this.designService.getDesignList(param);
 
     	model.addAttribute("data", list);
     	return new MappingJacksonJsonView();
@@ -162,16 +167,7 @@ public class ProductController extends FrontOfficeController {
     	return new MappingJacksonJsonView();
     }
 
-    @RequestMapping("/make_product/free_designs")
-    public View freeDesigns(ModelMap model, Design param) {
-    	String str = "[{\"id\":13506,\"title\":\"복싱선수\",\"description\":\"복싱선수\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/3169483538_6_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13505,\"title\":\"복싱\",\"description\":\"복싱\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/3169483538_5_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13504,\"title\":\"복싱장갑\",\"description\":\"복싱장갑\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/3169483538_4_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13503,\"title\":\"복싱장갑\",\"description\":\"복싱장갑\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/3169483538_3_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13502,\"title\":\"복싱\",\"description\":\"복싱\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/3169483538_2_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13501,\"title\":\"복싱\",\"description\":\"복싱\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/169483538_2_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13500,\"title\":\"역도\",\"description\":\"역도\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/169483538_1_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13499,\"title\":\"역도\",\"description\":\"역도\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/156307142_5_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13498,\"title\":\"역도\",\"description\":\"역도\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/156307142_4_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13497,\"title\":\"역도\",\"description\":\"역도\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/156307142_3_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13496,\"title\":\"역도\",\"description\":\"역도\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/156307142_2_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13495,\"title\":\"역도\",\"description\":\"역도\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/156307142_1_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13494,\"title\":\"Athletic Fitness\",\"description\":\"Athletic Fitness\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/139699570_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13493,\"title\":\"Athletics\",\"description\":\"Athletics\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/133396745_10_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13492,\"title\":\"Fitness\",\"description\":\"엠블럼\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/133396745_9_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13491,\"title\":\"Cross Sports\",\"description\":\"Cross Sports\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/133396745_8_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13490,\"title\":\"Fitness\",\"description\":\"Fitness\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/133396745_7_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13489,\"title\":\"Cross Training\",\"description\":\"Cross Training\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/133396745_6_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13488,\"title\":\"skull Athletics\",\"description\":\"skull Athletics\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/133396745_5_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13487,\"title\":\"Fitness GYM\",\"description\":\"Fitness GYM\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/133396745_4_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13486,\"title\":\"크로스핏\",\"description\":\"elite fitness\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/133396745_3_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13485,\"title\":\"아령\",\"description\":\"아령\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/133396745_2_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13484,\"title\":\"championship\",\"description\":\"championship\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/133396745_1_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13483,\"title\":\"Athletic\",\"description\":\"Athletic\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/129835034_5_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13482,\"title\":\"team\",\"description\":\"team\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/129835034_4_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13481,\"title\":\"럭비공\",\"description\":\"럭비공\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/129835034_3_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13480,\"title\":\"미식축구 헬멧\",\"description\":\"미식축구 헬멧\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/129835034_2_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13479,\"title\":\"게임기\",\"description\":\"게임기\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/129835034_1_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13478,\"title\":\"게임기\",\"description\":\"게임기\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/128813110_7_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13477,\"title\":\"방향키\",\"description\":\"게임기 방향키\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/128813110_6_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13476,\"title\":\"게임기\",\"description\":\"게임기\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/128813110_5_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13475,\"title\":\"게임기\",\"description\":\"게임기\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/128813110_4_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13474,\"title\":\"복싱\",\"description\":\"복싱\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/128813110_3_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13473,\"title\":\"테니스공\",\"description\":\"테니스공\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/128813110_2_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13472,\"title\":\"농구공\",\"description\":\"농구공\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/128813110_1_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13471,\"title\":\"배구공\",\"description\":\"배구공\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/115285141_5_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13470,\"title\":\"축구공\",\"description\":\"축구공\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/115285141_4_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13469,\"title\":\"럭비공\",\"description\":\"럭비공\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/115285141_3_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13468,\"title\":\"빈티지 TV\",\"description\":\"TV\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/115285141_2_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13467,\"title\":\"빈티지 TV\",\"description\":\"TV\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/115285141_1_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13466,\"title\":\"빈티지 TV\",\"description\":\"TV\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/89156335_11_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13465,\"title\":\"빈티지 카메라\",\"description\":\"빈티지 카메라\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/89156335_10_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13464,\"title\":\"빈티지 카메라\",\"description\":\"빈티지 카메라\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/89156335_9_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13463,\"title\":\"빈티지 카메라\",\"description\":\"빈티지 카메라\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/89156335_8_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13462,\"title\":\"빈티지 카메라\",\"description\":\"빈티지 카메라\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/89156335_7_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13461,\"title\":\"빈티지 카메라\",\"description\":\"빈티지 카메라\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/89156335_6_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13460,\"title\":\"빈티지 카메라\",\"description\":\"빈티지 카메라\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/89156335_5_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13459,\"title\":\"빈티지 카메라\",\"description\":\"빈티지 카메라\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/89156335_4_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13458,\"title\":\"빈티지 카메라\",\"description\":\"빈티지 카메라\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/89156335_3_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13457,\"title\":\"빈티지 카메라\",\"description\":\"빈티지 카메라\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/89156335_2_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13456,\"title\":\"빈티지 카메라\",\"description\":\"빈티지 카메라\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/89156335_1_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13455,\"title\":\"빈티지 카메라\",\"description\":\"빈티지 카메라\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/82229770_6_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13454,\"title\":\"빈티지 카메라\",\"description\":\"빈티지 카메라\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/82229770_5_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13453,\"title\":\"빈티지 카메라\",\"description\":\"빈티지 카메라\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/82229770_4_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13452,\"title\":\"골드 카메라\",\"description\":\"카메라\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/82229770_3_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13451,\"title\":\"라디오\",\"description\":\"라디오\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/82229770_2_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13450,\"title\":\"농구\",\"description\":\"농구\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/82229770_1_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13449,\"title\":\"축구\",\"description\":\"축구\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/81806782_8_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13448,\"title\":\"배드민턴\",\"description\":\"배드민턴\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/81806782_7_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13447,\"title\":\"미식축구\",\"description\":\"미식축구\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/81806782_6_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13446,\"title\":\"테니스\",\"description\":\"테니스\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/81806782_5_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13445,\"title\":\"야구\",\"description\":\"야구\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/81806782_4_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13444,\"title\":\"축구공\",\"description\":\"축구공\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/81806782_3_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"},{\"id\":13443,\"title\":\"축구공\",\"description\":\"축구공\",\"width\":null,\"height\":null,\"price_ko\":0,\"price_en\":null,\"price_jp\":null,\"price_cn\":null,\"filepath\":\"https://www.marpple.com/up/design/81806782_2_thumbnail.png\",\"seller_name\":\"어쿠스틱코드_한지웅\"}]";
 
-    	Object jsonarray = JSONValue.parse(str);
-    	JSONArray products = (JSONArray)jsonarray;
-
-    	model.addAttribute("data", products);
-    	return new MappingJacksonJsonView();
-    }
 
     @RequestMapping("/make_product/base_product/{productId}")
     public View baseProduct(ModelMap model, @PathVariable("productId") String productId) {

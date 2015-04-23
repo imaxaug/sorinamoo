@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="MailSQL">
+    
+    <typeAlias alias="queue" type="kr.co.crewmate.site.model.system.MailQueue" />
+    <typeAlias alias="mailCriteria" type="kr.co.crewmate.site.model.system.MailCriteria" />
+    
+    <insert id="saveMailQueue" parameterClass="queue">
+        <selectKey keyProperty="sequence" resultClass="int">
+           SELECT mail_queue_seq.nextval sequence FROM dual
+        </selectKey>
+        
+        INSERT INTO t_mail_queue (
+            mail_queue_seq,
+            mail_title,
+            sndr_mail_addr,
+            mail_cont,
+            rgst_dtm,
+            send_gbn,
+            send_dtm,
+            sndr_name,
+            rcvr_mail_addr,
+            rcvr_name
+        ) values (
+            #sequence#,
+            #title#,
+            #senderMailAddress#,
+            #content#,
+            SYSDATE,
+            #sendGbn#,
+            #sendDatetime#,
+            #senderName#,
+            xx1.enc_varchar2_ins(#receiverMailAddress#, 10, 'MAIL'),
+            #receiverName#
+        )
+    </insert>
+    
+    <select id="getMailQueueByNoSend" resultClass="queue">
+        SELECT mail_queue_seq sequence,   
+               mail_title title, 
+               sndr_mail_addr senderMailAddress,
+               mail_cont content,
+               rgst_dtm registDatetime,
+               send_gbn sendGbn,
+               send_dtm sendDatetime,
+               sndr_name senderName,
+               xx1.dec_varchar2_sel(rcvr_mail_addr, 10, 'MAIL') receiverMailAddress,
+               rcvr_name receiverName,
+               send_fail_rsn sendFailureReason
+          FROM t_mail_queue
+         WHERE send_gbn = 'N'
+    </select>
+    
+    <update id="updateSendMailAfterSend" parameterClass="queue">
+        UPDATE t_mail_queue 
+           SET send_gbn = #sendGbn#,
+               send_dtm = SYSDATE, 
+               send_fail_rsn = #sendFailureReason#
+         WHERE mail_queue_seq = #sequence#
+    </update>
+    
+    <select id="getMailQueueList" parameterClass="mailCriteria" resultClass="queue">
+        SELECT mail_queue_seq sequence,
+               mail_title title, 
+               sndr_mail_addr senderMailAddress,
+               mail_cont content,
+               rgst_dtm registDatetime,
+               NVL(send_gbn, 'S') sendGbn,
+               send_dtm sendDatetime,
+               sndr_name senderName,
+               xx1.dec_varchar2_sel(rcvr_mail_addr, 10, 'MAIL') receiverMailAddress,
+               rcvr_name receiverName,
+               send_fail_rsn sendFailureReason
+          FROM t_mail_queue
+        <dynamic prepend="WHERE">
+            <isNotEmpty property="receiverName" prepend="AND">
+                rcvr_name LIKE '%' || #receiverName# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="receiverMailAddress" prepend="AND">
+            	rcvr_mail_addr = xx1.enc_varchar2_ins(#receiverMailAddress#, 10, 'MAIL')
+            </isNotEmpty>
+            <isNotEmpty property="title" prepend="AND">
+                mail_title LIKE '%' || #title# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="sendGbn" prepend="AND">
+                <isEqual property="sendGbn" compareValue="S">
+                    send_gbn is null
+                </isEqual>
+                <isEqual property="sendGbn" compareValue="F">
+                    send_gbn = 'F'
+                </isEqual>
+                <isEqual property="sendGbn" compareValue="N">
+                    send_gbn = 'N'
+                </isEqual>
+            </isNotEmpty>
+            
+            <isNotEmpty  property="sendStartDt" prepend="AND">
+            <![CDATA[
+                send_dtm >= TO_DATE(#sendStartDt# || '000000','yyyymmddhh24miss')
+            ]]>
+            </isNotEmpty>
+            <isNotEmpty  property="sendEndDt" prepend="AND">
+            <![CDATA[
+                send_dtm <= TO_DATE(#sendEndDt# || '235959','yyyymmddhh24miss')
+            ]]>
+            </isNotEmpty>
+        </dynamic>
+         ORDER BY mail_queue_seq DESC 
+    </select>
+    
+    <select id="getMailQueueListCount" parameterClass="mailCriteria" resultClass="int">
+        SELECT count(*)
+          FROM t_mail_queue
+        <dynamic prepend="WHERE">
+            <isNotEmpty property="receiverName" prepend="AND">
+                rcvr_name LIKE '%' || #receiverName# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="receiverMailAddress" prepend="AND">
+            	rcvr_mail_addr = xx1.enc_varchar2_ins(#receiverMailAddress#, 10, 'MAIL')
+            </isNotEmpty>
+            <isNotEmpty property="title" prepend="AND">
+                mail_title LIKE '%' || #title# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="sendGbn" prepend="AND">
+                <isEqual property="sendGbn" compareValue="S">
+                    send_gbn is null
+                </isEqual>
+                <isEqual property="sendGbn" compareValue="F"> 
+                    send_gbn = 'F'
+                </isEqual>
+                <isEqual property="sendGbn" compareValue="N">
+                    send_gbn = 'N'
+                </isEqual>
+            </isNotEmpty>
+            
+            <isNotEmpty  property="sendStartDt" prepend="AND">
+            <![CDATA[
+                send_dtm >= TO_DATE(#sendStartDt# || '000000','yyyymmddhh24miss')
+            ]]>
+            </isNotEmpty>
+            <isNotEmpty  property="sendEndDt" prepend="AND">
+            <![CDATA[
+                send_dtm <= TO_DATE(#sendEndDt# || '235959','yyyymmddhh24miss')
+            ]]>
+            </isNotEmpty>
+        </dynamic>
+    </select>
+    
+    <select id="getMailQueueBySequence" parameterClass="int" resultClass="queue">
+        SELECT mail_queue_seq sequence,
+               mail_title title, 
+               sndr_mail_addr senderMailAddress,
+               mail_cont content,
+               rgst_dtm registDatetime,
+               send_gbn sendGbn,
+               send_dtm sendDatetime,
+               sndr_name senderName,
+               xx1.dec_varchar2_sel(rcvr_mail_addr, 10, 'MAIL') receiverMailAddress,
+               rcvr_name receiverName,
+               send_fail_rsn sendFailureReason
+          FROM t_mail_queue
+         WHERE mail_queue_seq = #sequence# 
+    </select>
+    
+    <insert id="sendEmsMailqueue" parameterClass="queue">
+        insert into ems_mailqueue@EMSNAMMOON (
+            SEQ,
+            MAIL_CODE,
+            TO_EMAIL,
+            TO_NAME,
+            FROM_EMAIL,
+            FROM_NAME,
+            SUBJECT,
+            TARGET_FLAG,
+            TARGET_DATE,
+            REG_DATE,
+            MAP1,
+            MAP2,
+            MAP3,
+            MAP4,
+            MAP5,
+            MAP_CONTENT
+        ) values (
+            #sequence#,
+            'XX',
+            #receiverMailAddress#,
+            #receiverName#,
+            #senderMailAddress#,
+            #senderName#,
+            #title#,
+            'N',
+            null,
+            SYSDATE,
+            null,
+            null,
+            null,
+            null,
+            null,
+            #content#
+        )
+    </insert>
+</sqlMap>

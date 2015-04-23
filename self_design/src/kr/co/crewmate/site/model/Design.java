@@ -14,30 +14,34 @@ import java.util.Date;
  * @date 2013. 5. 22.
  */
 public class Design extends ToString {
-    private String design_id;
-    private String design_name;
-    private String file_path;
+    private String designId;
+    private String designName;
+    private String filePath;
     private String price;
-    private String premium_yn;
-    private String desc;
-    private String seller_id;
-	public String getDesign_id() {
-		return design_id;
+    private String premiumYn;
+    private String description;
+    private String sellerId;
+    private String category;
+    private int width;
+    private int height;
+
+	public String getDesignId() {
+		return designId;
 	}
-	public void setDesign_id(String design_id) {
-		this.design_id = design_id;
+	public void setDesignId(String designId) {
+		this.designId = designId;
 	}
-	public String getDesign_name() {
-		return design_name;
+	public String getDesignName() {
+		return designName;
 	}
-	public void setDesign_name(String design_name) {
-		this.design_name = design_name;
+	public void setDesignName(String designName) {
+		this.designName = designName;
 	}
-	public String getFile_path() {
-		return file_path;
+	public String getFilePath() {
+		return filePath;
 	}
-	public void setFile_path(String file_path) {
-		this.file_path = file_path;
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
 	}
 	public String getPrice() {
 		return price;
@@ -45,24 +49,40 @@ public class Design extends ToString {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	public String getPremium_yn() {
-		return premium_yn;
+	public String getPremiumYn() {
+		return premiumYn;
 	}
-	public void setPremium_yn(String premium_yn) {
-		this.premium_yn = premium_yn;
+	public void setPremiumYn(String premiumYn) {
+		this.premiumYn = premiumYn;
 	}
-	public String getDesc() {
-		return desc;
+	public String getDescription() {
+		return description;
 	}
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	public String getSeller_id() {
-		return seller_id;
+	public String getSellerId() {
+		return sellerId;
 	}
-	public void setSeller_id(String seller_id) {
-		this.seller_id = seller_id;
+	public void setSellerId(String sellerId) {
+		this.sellerId = sellerId;
 	}
-
-
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public int getWidth() {
+		return width;
+	}
+	public void setWidth(int width) {
+		this.width = width;
+	}
+	public int getHeight() {
+		return height;
+	}
+	public void setHeight(int height) {
+		this.height = height;
+	}
 }
