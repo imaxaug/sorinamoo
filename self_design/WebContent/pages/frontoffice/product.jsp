@@ -802,12 +802,11 @@
     <div class="section">
     <div class="size-info">
         <h3 class="productName">상세 정보</h3>
-        <!--<h3 class="productName">특양면 맨투맨</h3>-->
         <div class="description" style="padding: 0 0 15px; width: 400px;">
-            100% 국내제작상품. 100% 면. <br>기본스타일의 양면원단 크루넥 맨투맨입니다. <br>두툼한 원단과 늘어나지 않는 시보리밴드로 착용감이 좋은 단체티셔츠 상품입니다.<br>
+            ${product.description}
         </div>
         <div class="size-table" style="position: relative; left: -14px;">
-            <img src="https://www.marketpress.co.kr/up/base_product/21/CM_Size.jpg" alt=""/>
+            <img src="${product.sizeFilePath}" alt=""/>
         </div>
     </div>
 

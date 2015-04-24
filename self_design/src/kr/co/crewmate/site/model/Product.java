@@ -26,7 +26,7 @@ public class Product extends ToString {
     private String hot;
     private String best;
     private String descTitle;
-    private String descCont;
+    private String description;
     private String color;
     private String size;
     private String price;
@@ -35,6 +35,8 @@ public class Product extends ToString {
     private String filePath;
     private String catalog;
     private String category;
+    private String sizeFilePath;
+    private String sizeFileName;
     private List<Canvas> canvas;
     private List<List<Color>> colorAry;
 
@@ -91,12 +93,6 @@ public class Product extends ToString {
 	}
 	public void setDescTitle(String descTitle) {
 		this.descTitle = descTitle;
-	}
-	public String getDescCont() {
-		return descCont;
-	}
-	public void setDescCont(String descCont) {
-		this.descCont = descCont;
 	}
 	public String getColor() {
 		return color;
@@ -169,6 +165,24 @@ public class Product extends ToString {
 	}
 	public void setColorAry(List<List<Color>> colorAry) {
 		this.colorAry = colorAry;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getSizeFilePath() {
+		return sizeFilePath;
+	}
+	public void setSizeFilePath(String sizeFilePath) {
+		this.sizeFilePath = sizeFilePath;
+	}
+	public String getSizeFileName() {
+		return sizeFileName;
+	}
+	public void setSizeFileName(String sizeFileName) {
+		this.sizeFileName = sizeFileName;
 	}
 
 }

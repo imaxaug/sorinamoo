@@ -11,7 +11,6 @@ import kr.co.crewmate.site.model.CommonCode;
 import kr.co.crewmate.site.model.Design;
 import kr.co.crewmate.site.model.DesignCriteria;
 import kr.co.crewmate.site.model.Product;
-import kr.co.crewmate.site.model.ProductParam;
 import kr.co.crewmate.site.model.Text;
 import kr.co.crewmate.site.model.product.ProductCriteria;
 import kr.co.crewmate.site.model.user.UserCriteria;
@@ -69,10 +68,22 @@ public class ProductController extends FrontOfficeController {
 
     private static String TOPIC = "TOPIC";//상품의 카테고리
 
+    private static String BASE_PRODUCT = "21";//기본 상품 번호
+
 
     @RequestMapping("/make_product")
     public ModelAndView makeProduct(ModelMap model, ProductCriteria criteria) {
-//    	return new ModelAndView("frontoffice/main/viewMain");
+
+    	if(!StringUtils.isEmpty(criteria.getBaseProduct())) {
+    		criteria.setProductId(criteria.getBaseProduct());
+    	} else {
+//    		criteria.setProductId(BASE_PRODUCT);
+    		return new ModelAndView(String.format("redirect:/make_product?base_product=%s", BASE_PRODUCT));
+    	}
+
+    	Product product = this.productService.getProductDetail(criteria);
+
+    	model.addAttribute("product", product);
     	return new ModelAndView("frontoffice/product");
     }
 
@@ -88,7 +99,7 @@ public class ProductController extends FrontOfficeController {
      * @return
      */
     @RequestMapping("/product/productList")
-    public View baseProducts(ModelMap model, ProductParam param) {
+    public View baseProducts(ModelMap model, ProductCriteria param) {
 
     	if(!StringUtils.isEmpty(param.getTopic())) {
     		param.setCategory(param.getTopic());
@@ -197,7 +208,7 @@ public class ProductController extends FrontOfficeController {
 
     @RequestMapping("/make_product/base_product/{productId}")
     public View baseProduct(ModelMap model, @PathVariable("productId") String productId) {
-    	ProductParam param = new ProductParam();
+    	ProductCriteria param = new ProductCriteria();
     	param.setProductId(productId);
 
     	Product product = this.productService.getProductDetail(param);

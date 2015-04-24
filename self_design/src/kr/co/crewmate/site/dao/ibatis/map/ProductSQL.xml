@@ -22,9 +22,9 @@
     <select id="getProductDetail" resultClass="product" parameterClass="product">
         SELECT PRODUCT_ID productId
              , PRODUCT_NAME productName
-             , CONCAT('http://www.marpple.com', FILE_PATH) filePath
-             , HOT hot
-             , BEST best
+             , CONCAT('http://www.marpple.com', SIZE_FILE_PATH) sizeFilePath
+             , SIZE_FILE_NAME sizeFileName
+             , DESCRIPTION description
           FROM PRODUCT
          WHERE USE_YN = 'Y'
            AND PRODUCT_ID = #productId#
