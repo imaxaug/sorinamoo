@@ -682,7 +682,8 @@ $.widget('mp.productsController', {
 			}
 			$.get('/make_product/base_product/' + baseProductId, function(product) {
 //				self.option('selectedProduct', product);
-				self.option('selectedProduct', product.data[0]);//TODO 메인 상품 display, 화면이 시작
+//				self.option('selectedProduct', product.data[0]);//TODO 메인 상품 display, 화면이 시작
+				self.option('selectedProduct', product.data);//TODO 메인 상품 display, 화면이 시작
 				$('.mp-editor').editor('baseProduct', self.option('selectedProduct'));
 			});
 		});
@@ -766,15 +767,8 @@ $.widget('mp.productsController', {
 			$('#tab2').hide();
 			$('#tab1').fadeIn();
 		} else if ($button.is('.done')) {
-//			$('#selectMenuLayer').hide();
-//			$('#tab1').show();
-//			$('#tab2').hide();
-
-//			$('.mp-product-detail-colors').find('.color:eq(0)').click();
-
 			$('.mp-editor').editor('option', 'selectedColorCode', this.option('selectedColorCode'));
 			$('.mp-editor').editor('baseProduct', this.option('selectedProduct'));
-//			$('.mp-editor').editor('selectColor', { colorCode: this.option('selectedColorCode') });
 
             $.get('/make/get_details', {
                 base_product: this.option('selectedProduct').id

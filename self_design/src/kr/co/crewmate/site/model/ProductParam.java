@@ -14,5 +14,12 @@ import java.util.Date;
  * @date 2013. 5. 22.
  */
 public class ProductParam extends Product {
+	private String topic;
 
+	public String getTopic() {
+		return topic;
+	}
+	public void setTopic(String topic) {
+		this.topic = topic;
+	}
 }

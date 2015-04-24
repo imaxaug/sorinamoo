@@ -25,4 +25,9 @@ public class SqlMapProductDao extends SqlMapClientDaoSupport implements ProductD
 		return super.getSqlMapClientTemplate().queryForList("ProductSQL.getProductList", param);
 	}
 
+	@Override
+	public Product getProductDetail(Product param) {
+		return (Product)super.getSqlMapClientTemplate().queryForObject("ProductSQL.getProductDetail", param);
+	}
+
 }

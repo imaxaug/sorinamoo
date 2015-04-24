@@ -9,8 +9,25 @@
 		     , CONCAT('http://www.marpple.com', FILE_PATH) filePath
 		     , HOT hot
 		     , BEST best
-		  FROM Product
+		  FROM PRODUCT
 		 WHERE USE_YN = 'Y'
+		 <isNotEmpty property="catalog">
+		 AND CATALOG = #catalog#
+		 </isNotEmpty>
+		 <isNotEmpty property="category">
+		 AND CATEGORY = #category#
+		 </isNotEmpty>
+    </select>
+
+    <select id="getProductDetail" resultClass="product" parameterClass="product">
+        SELECT PRODUCT_ID productId
+             , PRODUCT_NAME productName
+             , CONCAT('http://www.marpple.com', FILE_PATH) filePath
+             , HOT hot
+             , BEST best
+          FROM PRODUCT
+         WHERE USE_YN = 'Y'
+           AND PRODUCT_ID = #productId#
     </select>
 
 </sqlMap>

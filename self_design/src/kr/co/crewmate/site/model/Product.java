@@ -1,6 +1,7 @@
 package kr.co.crewmate.site.model;
 
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -34,6 +35,8 @@ public class Product extends ToString {
     private String filePath;
     private String catalog;
     private String category;
+    private List<Canvas> canvas;
+    private List<List<Color>> colorAry;
 
 	public int getHitCount() {
 		return hitCount;
@@ -154,6 +157,18 @@ public class Product extends ToString {
 	}
 	public void setCategory(String category) {
 		this.category = category;
+	}
+	public List<Canvas> getCanvas() {
+		return canvas;
+	}
+	public void setCanvas(List<Canvas> canvas) {
+		this.canvas = canvas;
+	}
+	public List<List<Color>> getColorAry() {
+		return colorAry;
+	}
+	public void setColorAry(List<List<Color>> colorAry) {
+		this.colorAry = colorAry;
 	}
 
 }

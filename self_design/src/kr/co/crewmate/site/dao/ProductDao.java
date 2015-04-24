@@ -22,4 +22,6 @@ import kr.co.crewmate.site.model.user.UserLoginHistory;
 public interface ProductDao {
 
 	List<Product> getProductList(Product param);
+
+	Product getProductDetail(Product param);
 }

@@ -2,6 +2,7 @@ package kr.co.crewmate.site.service;
 
 import java.util.List;
 
+import kr.co.crewmate.site.model.ColorSize;
 import kr.co.crewmate.site.model.Product;
 
 /**
@@ -15,5 +16,9 @@ import kr.co.crewmate.site.model.Product;
 public interface ProductService {
 
     List<Product> getProductList(Product param);
+
+    Product getProductDetail(Product param);
+
+    List<ColorSize> getColorSizeList(Product param);
 
 }
