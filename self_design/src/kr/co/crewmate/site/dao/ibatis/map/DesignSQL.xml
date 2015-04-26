@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="DesignSQL">
+    <typeAlias alias="design" type="kr.co.crewmate.site.model.Design"/>
+
+    <select id="getDesignList" resultClass="design" parameterClass="design">
+		SELECT DESIGN_ID designId
+		     , DESIGN_NAME    designName
+		     , CONCAT('http://www.marpple.com', FILE_PATH) filePath
+		     , description description
+		     , price price
+		     , ifnull(width, 0) width
+		     , ifnull(height, 0) height
+		  FROM DESIGN
+		 WHERE USE_YN = 'Y'
+		   <isNotEmpty property="price">
+		   AND PRICE = #price#
+		   </isNotEmpty>
+		   AND PREMIUM_YN = #premiumYn#
+		   <isNotEmpty property="category">
+		   AND CATEGORY = #category#
+		   </isNotEmpty>
+		 ORDER BY DESIGN_ID
+    </select>
+
+</sqlMap>

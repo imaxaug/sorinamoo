@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="ProductSQL">
+    <typeAlias alias="product" type="kr.co.crewmate.site.model.Product"/>
+    <typeAlias alias="productCriteria" type="kr.co.crewmate.site.model.product.ProductCriteria"/>
+    <typeAlias alias="colorSize" type="kr.co.crewmate.site.model.ColorSize"/>
+
+    <select id="getProductList" resultClass="product" parameterClass="product">
+		SELECT PRODUCT_ID productId
+		     , PRODUCT_NAME productName
+		     , CONCAT('http://www.marpple.com', FILE_PATH) filePath
+		     , HOT hot
+		     , BEST best
+		  FROM PRODUCT
+		 WHERE USE_YN = 'Y'
+		 <isNotEmpty property="catalog">
+		 AND CATALOG = #catalog#
+		 </isNotEmpty>
+		 <isNotEmpty property="category">
+		 AND CATEGORY = #category#
+		 </isNotEmpty>
+    </select>
+
+    <select id="getProductDetail" resultClass="product" parameterClass="product">
+        SELECT PRODUCT_ID productId
+             , PRODUCT_NAME productName
+             , CONCAT('http://www.marpple.com', SIZE_FILE_PATH) sizeFilePath
+             , SIZE_FILE_NAME sizeFileName
+             , DESCRIPTION description
+          FROM PRODUCT
+         WHERE USE_YN = 'Y'
+           AND PRODUCT_ID = #productId#
+    </select>
+
+    <select id="getColorSizeList" resultClass="colorSize" parameterClass="product">
+        SELECT A.COLOR color
+             , A.SIZE size
+             , A.PRICE price
+             , A.EXTRA_PRICE extraPrice
+             , B.CODE_VALUE colorName
+          FROM COLOR_SIZE A, COMMON_CODE B
+         WHERE A.USE_YN = 'Y'
+           AND A.COLOR = #color#
+           AND A.COLOR = B.CODE_KEY
+           AND B.CODE_CLASS = 'COLOR'
+    </select>
+
+    <select id="getProductColor" resultClass="product" parameterClass="productCriteria">
+        SELECT COLOR color
+          FROM PRODUCT_COLOR
+         WHERE PRODUCT_ID = #productId#
+    </select>
+</sqlMap>

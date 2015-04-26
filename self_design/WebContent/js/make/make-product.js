@@ -175,7 +175,7 @@ function showAlert(msg) {
 $.widget('mp.designsController', {
 
 	options: {
-		api: '/make_product/free_designs',
+		api: '/product/designs',
 		loaded: false,
 		$currentCategory: null,
 		loading: false
@@ -239,31 +239,29 @@ $.widget('mp.designsController', {
 		if (!this.element.is('#freeDesignLayer')) return;
 
 		//디자인 > 무료 디자인
-		$.get('/make_product/category/designs', _.bind(function(categories) {
-//			_.each(categories, function(category) {
+		$.get('/product/category', _.bind(function(categories) {
 			_.each(categories.data, function(category) {
 				$('<li class="mp-category" ' +
-					'data-id="' + category.id + '"' +
-					'data-group="' + category.group + '"' +
-					'data-code="' + category.code + '"' +
-					'>' + category[name_locale] + '' + '</li>')
+					'data-id="' + category.codeClassId + '"' +
+					'data-group="' + category.codeClass + '"' +
+					'data-code="' + category.codeKey + '"' +
+					'>' + category.codeValue + '' + '</li>')
 					.appendTo(this.element.find('.mp-categories'));
 			}, this);
 			this.element.find('.mp-categories .mp-category:eq(9)').click();
 		}, this));
 
 		var group = 'DESIGN_PRICE_' + $('body').attr('data-locale').toUpperCase();
-		$.post('/make_product/get_common_data', {
+		$.post('/product/getCommonData', {
 			group: group
 		}, _.bind(function(categories) {
-//			_.each(categories, function(category) {
 			_.each(categories.data, function(category) {
 				$('<li class="mp-category" ' +
-					'data-id="' + category.id + '"' +
-					'data-group="price"' +
-					'data-code="' + category.code + '"' +
-					'>' + category[name_locale] + '</li>')
-					.appendTo(this.element.find('.mp-premium-categories'));
+						'data-id="' + category.codeClassId + '"' +
+						'data-group="price"' +
+						'data-code="' + category.codeKey + '"' +
+						'>' + category.codeValue + '</li>')
+						.appendTo(this.element.find('.mp-premium-categories'));
 			}, this);
 		}, this));
 	},
@@ -354,18 +352,18 @@ $.widget('mp.designsController', {
 		_.each(items, function(item) {
 			html +=
 				'<li class="mp-design" ' +
-					'data-id="' + item.id + '" ' +
+					'data-id="' + item.designId + '" ' +
 					'data-description="' + item.description + '"' +
-					'data-price="' + item[price_locale] + '"' +
-					'data-price-en="' + item.price_en + '"' +
-					'data-price-ko="' + item.price_ko + '"' +
-					'data-title="' + item.title + '"' +
+					'data-price="' + item.price + '"' +
+					'data-price-en="' + item.price + '"' +
+					'data-price-ko="' + item.price + '"' +
+					'data-title="' + item.designName + '"' +
 					'data-width="' + item.width + '"' +
 					'data-height="' + item.height + '">' +
-					'<img data-src="' + item.filepath.replace('_thumbnail.png', '.png') + '"' +
-						'src="' + item.filepath + '" alt="' + item.title  + '"/>' +
+					'<img data-src="' + item.filePath.replace('_thumbnail.png', '.png') + '"' +
+						'src="' + item.filePath + '" alt="' + item.designName  + '"/>' +
 					(this.element.is('#freeDesignLayer') ? '' : '<img src="/img/icons/glyphicons_197_remove.png" class="remove" title="삭제">') +
-					(item[price_locale] > 0 ? '<span>' + commify(item[price_locale]) + '</span>' : '') +
+					(item.price > 0 ? '<span>' + commify(item.price) + '</span>' : '') +
 				'</li>';
 		}, this);
 		this.element.find('.mp-designs').append(html);
@@ -658,8 +656,8 @@ $.widget('mp.productsController', {
 		var self = this;
 		this._load(function() {
 			// 첫번째 프로덕트로 콜날려 불러오기
-			if (self.option('query') && self.option('query').base_product) {
-				var baseProductId = self.option('query').base_product;
+			if (self.option('query') && self.option('query').baseProduct) {
+				var baseProductId = self.option('query').baseProduct;
 			} else if (self.option('query') && self.option('query').product) {
 				var productId = self.option('query').product;
 				$.get('/make_product/product/' + productId, function(data) {
@@ -682,35 +680,31 @@ $.widget('mp.productsController', {
 			} else {
 				var baseProductId = $('.mp-product:eq(0)').attr('data-id');
 			}
+
 			$.get('/make_product/base_product/' + baseProductId, function(product) {
-//				self.option('selectedProduct', product);
-				self.option('selectedProduct', product.data[0]);//TODO 메인 상품 display, 화면이 시작
+				self.option('selectedProduct', product.data);
 				$('.mp-editor').editor('baseProduct', self.option('selectedProduct'));
 			});
 		});
 
-		//상품선택 > 전체 카테고리
-		$.get('/make_product/category/catalogs', _.bind(function(categories) {
-//			_.each(categories, function(category) {
+		$.get('/product/catalogs', _.bind(function(categories) {
 			_.each(categories.data, function(category) {
 				$('<li class="mp-category" ' +
-					'data-id="' + category.id + '"' +
-					'data-group="' + category.group + '"' +
-					'data-code="' + category.code + '"' +
-					'>' + category[name_locale] + '' + '</li>')
-						.appendTo(this.element.find('.tab.category .category'));
+							'data-id="' + category.codeClassId + '"' +
+							'data-group="' + category.codeClass + '"' +
+							'data-code="' + category.codeKey + '"' +
+							'>' + category.codeValue + '' + '</li>')
+				.appendTo(this.element.find('.tab.category .category'));
 			}, this);
 		}, this));
 
-		//상품선택 > 주제별 카테고리
-		$.get('/make_product/category/topics', _.bind(function(categories) {
-//			_.each(categories, function(category) {
+		$.get('/product/topics', _.bind(function(categories) {
 			_.each(categories.data, function(category) {
 				$('<li class="mp-category" ' +
-					'data-id="' + category.id + '"' +
-					'data-group="' + category.group + '"' +
-					'data-code="' + category.code + '"' +
-					'>' + category[name_locale] + '' + '</li>')
+							'data-id="' + category.codeClassId + '"' +
+							'data-group="' + category.codeClass + '"' +
+							'data-code="' + category.codeKey + '"' +
+							'>' + category.codeValue + '' + '</li>')
 					.appendTo(this.element.find('.tab.products .products'));
 			}, this);
 		}, this));
@@ -721,13 +715,12 @@ $.widget('mp.productsController', {
 
 		var $category = $(e.currentTarget);
 		var text = $category.text();
-//		text = text == '전체' ? text : $category.parent().attr('data-group-name') + ' | ' + text;
 		this.element.find('.mp-category-heading').text(text);
 
-		$.get('/make_product/base_products',
+		$.get('/product/productList',
 				_.object([$category.attr('data-group').toLowerCase()], [$category.attr('data-code')]),
 				_.bind(function(products) {
-			this._draw(products, function() {});
+			this._draw(products.data, function() {});
 		}, this));
 
 		$('#tab2').hide();
@@ -738,7 +731,7 @@ $.widget('mp.productsController', {
 		next = next || function() {};
 		var self = this;
 
-		$.get('/make_product/base_products', function(products) {
+		$.get('/product/productList', function(products) {
 //			self._draw(products, next);
 			self._draw(products.data, next);//model.addAttribute("data", products); 변경으로 data 추가
 		});
@@ -749,7 +742,8 @@ $.widget('mp.productsController', {
 
 		var html = '';
 		_.each(products, function(product) {
-			html += '<li class="mp-product" data-id="' + product.id + '"><img src="' + product.filepath + '" alt="상품이미지"/><span class="pdtName">' + product[name_locale] + '</span></li>';
+//			html += '<li class="mp-product" data-id="' + product.id + '"><img src="' + product.filepath + '" alt="상품이미지"/><span class="pdtName">' + product[name_locale] + '</span></li>';
+			html += '<li class="mp-product" data-id="' + product.productId + '"><img src="' + product.filePath + '" alt="상품이미지"/><span class="pdtName">' + product.productName + '</span></li>';
 		});
 		this.element.find('.mp-products').html('').append(html);
 
@@ -766,15 +760,8 @@ $.widget('mp.productsController', {
 			$('#tab2').hide();
 			$('#tab1').fadeIn();
 		} else if ($button.is('.done')) {
-//			$('#selectMenuLayer').hide();
-//			$('#tab1').show();
-//			$('#tab2').hide();
-
-//			$('.mp-product-detail-colors').find('.color:eq(0)').click();
-
 			$('.mp-editor').editor('option', 'selectedColorCode', this.option('selectedColorCode'));
 			$('.mp-editor').editor('baseProduct', this.option('selectedProduct'));
-//			$('.mp-editor').editor('selectColor', { colorCode: this.option('selectedColorCode') });
 
             $.get('/make/get_details', {
                 base_product: this.option('selectedProduct').id
@@ -865,14 +852,6 @@ $.widget('mp.editor', {
 	},
 
 	_create: function() {
-//		this.element.find('.mp-editor-canvas').page({
-//			change: function(event, ui) {
-//				goods.history.add(ui.infos);
-//			}
-//		});
-//		this.element.find('.mp-editor-canvas').hide().page('removeItems');
-//		this.element.find('.mp-editor-canvas.front').addClass('current').show();
-
 		this._on($('.mp-editor-colors'), {
 			'click .color': 'selectColor'
 		});
@@ -880,10 +859,6 @@ $.widget('mp.editor', {
 		this._on($('.mp-editor-sizes'), {
 			change: '_changeSize'
 		});
-
-//		this._on($('.mp-editor-quantity'), {
-//			change: '_changeQuantity'
-//		});
 
 		this.element.find('.mp-editor-quantity')
 			.spinner({
@@ -939,18 +914,13 @@ $.widget('mp.editor', {
 		$('.mp-editor-name').text(baseProduct[name_locale]);
 		var _colors = [];
 
-		_.each(this.option('baseProduct').colors, function(color) {
+		_.each(this.option('baseProduct').colorAry, function(color) {
 			var _color = {};
-
 			_color.code = color[0].color;
-			_color.name = color[0].color_name;
-
+			_color.name = color[0].colorName;
 			_colors.push(_color);
 		});
 
-		//console.log(_colors);
-
-		//var colorCodes = _.keys(this.option('baseProduct').colors);
 		$('.mp-editor-colors').find('.color').remove();
 		_.each(_colors, function(color) {
 			$('.mp-editor-colors').prepend(
@@ -978,15 +948,18 @@ $.widget('mp.editor', {
 				if (!$canvas.length) {
 					$canvas = this._createCanvas(canvas);
 				}
-				if (canvas.only_vector && !$canvas.find('.mp-only-vector').length)
+
+				if (canvas.only_vector && !$canvas.find('.mp-only-vector').length) {
 					$canvas.append('<div class="mp-only-vector"><img src="/img/make/abletoprint.jpg" /></div>');
-				else if (!canvas.only_vector && $canvas.find('.mp-only-vector').length)
+				} else if (!canvas.only_vector && $canvas.find('.mp-only-vector').length) {
 					$canvas.find('.mp-only-vector').remove();
+				}
 
 				$canvas.attr('data-sort', canvas.sort);
 				var size = _.find(this.option('baseProduct').sizeInfo[canvas.file_type], function(size) {
 					return size.code == $('.mp-editor-sizes').val();
 				});
+
 				$canvas.attr('data-real-size-width', size.width);
 				$canvas.attr('data-real-size-height', size.height);
 				$canvas.find('.cm').text(size.width + 'cm x ' + size.height + 'cm');
@@ -1932,10 +1905,10 @@ $(function() {
 		query: QueryStringToJSON()
 	});
 	$('#freeDesignLayer').designsController({
-		api: '/make_product/free_designs'
+		api: '/product/designs'
 	});
 	$('#loadImageWrapper').designsController({
-		api: '/make_product/free_designs'
+		api: '/product/designs'
 	});
 	$('#addTextWrapper').textController();
 	$('.mp-cart').cart();

@@ -20,7 +20,14 @@ import kr.co.crewmate.site.model.Product;
 public class ProductCriteria extends Product {
 
     private String baseProduct;
+	private String topic;
 
+	public String getTopic() {
+		return topic;
+	}
+	public void setTopic(String topic) {
+		this.topic = topic;
+	}
 	public String getBaseProduct() {
 		return baseProduct;
 	}

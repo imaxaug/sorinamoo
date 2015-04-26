@@ -1,0 +1,1326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="SystemSQL">
+
+<!--
+    <typeAlias alias="newPostNum" type="kr.co.crewmate.site.model.common.NewPostNum"/>
+    <typeAlias alias="postNum" type="kr.co.crewmate.site.model.common.PostNum"/>
+    <typeAlias alias="postNumCriteria" type="kr.co.crewmate.site.model.common.PostNumCriteria"/>
+    <typeAlias alias="code" type="kr.co.crewmate.site.model.common.Code"/>
+    <typeAlias alias="codeCriteria" type="kr.co.crewmate.site.model.common.CodeCriteria"/>
+    <typeAlias alias="batchCriteria" type="kr.co.crewmate.site.model.batch.BatchCriteria"/>
+    <typeAlias alias="batchMaster" type="kr.co.crewmate.site.model.batch.BatchMaster"/>
+    <typeAlias alias="sequence" type="kr.co.crewmate.site.model.common.Sequence"/>
+    <typeAlias alias="batchHistory" type="kr.co.crewmate.site.model.batch.BatchHistory"/>
+    <typeAlias alias="postBoxPostNum" type="kr.co.crewmate.site.model.common.PostBoxPostNum"/>
+    <typeAlias alias="mailQueue" type="kr.co.crewmate.site.model.system.MailQueue"/>
+    <typeAlias alias="mailCriteria" type="kr.co.crewmate.site.model.system.MailCriteria"/>
+    <typeAlias alias="work" type="kr.co.crewmate.site.model.common.Work"/>
+    <typeAlias alias="workHistory" type="kr.co.crewmate.site.model.common.WorkHistory"/>
+    <typeAlias alias="table" type="kr.co.crewmate.site.model.system.Table"/>
+    <typeAlias alias="totalHistory" type="kr.co.crewmate.site.model.system.History"/>
+    <typeAlias alias="totalHistoryCriteria" type="kr.co.crewmate.site.model.system.HistoryCriteria"/>
+    <typeAlias alias="exchangeRate" type="kr.co.crewmate.site.model.common.ExchangeRate"/>
+    <typeAlias alias="exchangeRateCriteria" type="kr.co.crewmate.site.model.common.ExchangeRateCriteria"/>
+    <typeAlias alias="systemVariable" type="kr.co.crewmate.site.model.SystemVariable"/>
+    <typeAlias alias="shinsegaeMember" type="kr.co.crewmate.site.model.system.ShinsegaeMember"/>
+    <typeAlias alias="adminWorkHistory" type="kr.co.crewmate.site.model.system.AdminWorkHistory"/>
+    <typeAlias alias="adminChangeLog" type="kr.co.crewmate.site.model.system.AdminChangeLog"/>
+    <typeAlias alias="adminPowerParam" type="kr.co.crewmate.site.model.admin.AdminPowerParam"/>
+    <typeAlias alias="menu" type="kr.co.crewmate.site.model.admin.Menu"/>
+    <typeAlias alias="adminLogin" type="kr.co.crewmate.site.model.admin.AdminLogin"/>
+    <typeAlias alias="userSaved" type="kr.co.crewmate.site.model.user.UserSaved"/>
+    <typeAlias alias="OrderFailureProcessor" type="kr.co.crewmate.site.model.batch.OrderFailureProcessor"/>
+
+    <cacheModel type="LRU" id="exchangeCache" readOnly="true">
+        <flushInterval hours="1"/>
+        <property name="size" value="50"/>
+    </cacheModel>
+
+    <select id="getDate" resultClass="date">
+        SELECT sysdate FROM dual
+    </select>
+
+    <insert id="savePostNum" parameterClass="newPostNum">
+        INSERT INTO t_new_post_num (
+          law_dong_code,
+          si,
+          gu,
+          dong,
+          ri,
+          mount_gbn,
+          land_main_num,
+          land_sub_num,
+          doro_code,
+          doro_name,
+          jiha_gbn,
+          bldg_main_num,
+          bldg_sub_num,
+          bldg_name,
+          bldg_mngr_name,
+          dong_seq,
+          post_num,
+          post_seq,
+          multi_dlvy_name,
+          gu_eng,
+          ri_eng,
+          doro_eng_name,
+          law_dong_name,
+          si_eng
+        ) VALUES (
+          #lawDongCode#,
+          #si#,
+          #gu#,
+          #dong#,
+          #ri#,
+          #mountGbn#,
+          #landMainNum#,
+          #landSubNum#,
+          #doroCode#,
+          #doroName#,
+          #jihaGbn#,
+          #bldgMainNum#,
+          #bldgSubNum#,
+          #bldgName#,
+          #bldgMngrName#,
+          #dongSeq#,
+          #postNum#,
+          #postSeq#,
+          #multiDlvyName#,
+          #guEng#,
+          #riEng#,
+          #doroEngName#,
+          #lawDongName#,
+          #siEng#
+        )
+    </insert>
+
+    <select id="getCodeList" parameterClass="codeCriteria" resultClass="code">
+        SELECT  A.code_class codeClass
+              , A.code_name codeName
+              , A.code_value codeValue
+              , A.code_value_cn codeValueCn
+              , A.code_order codeOrder
+              , A.code_desc codeDescription
+              , A.rgst_dtm registDateTime
+              , A.code_use_yn codeUseYn
+          FROM  t_code A
+        <dynamic prepend="WHERE">
+            <isNotEmpty property="codeClass" prepend="AND">
+                A.code_class LIKE '%' || UPPER(#codeClass#) || '%'
+            </isNotEmpty>
+            <isNotEmpty property="codeName" prepend="AND">
+                A.code_name LIKE '%' || #codeName# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="codeValue" prepend="AND">
+                A.code_value LIKE '%' || #codeValue# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="codeValueCn" prepend="AND">
+                A.code_value_cn LIKE '%' || #codeValueCn# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="codeUseYn" prepend="AND">
+                A.code_use_yn = #codeUseYn#
+            </isNotEmpty>
+            <isNotEmpty property="codeSelect" prepend="AND">
+                A.code_class = #codeSelect#
+            </isNotEmpty>
+            <isNotEmpty  property="rgstStartDtm" prepend="AND">
+            <![CDATA[
+                A.rgst_dtm >= TO_DATE(#rgstStartDtm#,'YYYY.MM.DD')
+            ]]>
+            </isNotEmpty>
+            <isNotEmpty  property="rgstEndDtm" prepend="AND">
+            <![CDATA[
+               A.rgst_dtm <= TO_DATE(#rgstEndDtm#,'YYYY.MM.DD')
+            ]]>
+            </isNotEmpty>
+        </dynamic>
+         ORDER BY A.code_class ASC, A.code_order ASC
+    </select>
+
+    <select id="getCodeListCount" parameterClass="codeCriteria" resultClass="int">
+        SELECT  COUNT(*)
+          FROM  t_code A
+         <dynamic prepend="WHERE">
+            <isNotEmpty property="codeClass" prepend="AND">
+                A.code_class LIKE '%' || UPPER(#codeClass#) || '%'
+            </isNotEmpty>
+            <isNotEmpty property="codeName" prepend="AND">
+                A.code_name LIKE '%' || #codeName# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="codeValue" prepend="AND">
+                A.code_value LIKE '%' || #codeValue# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="codeValueCn" prepend="AND">
+                A.code_value_cn LIKE '%' || #codeValueCn# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="codeUseYn" prepend="AND">
+                A.code_use_yn = #codeUseYn#
+            </isNotEmpty>
+            <isNotEmpty property="codeSelect" prepend="AND">
+                A.code_class = #codeSelect#
+            </isNotEmpty>
+            <isNotEmpty  property="rgstStartDtm" prepend="AND">
+            <![CDATA[
+                A.rgst_dtm >= TO_DATE(#rgstStartDtm#,'YYYY.MM.DD')
+            ]]>
+            </isNotEmpty>
+            <isNotEmpty  property="rgstEndDtm" prepend="AND">
+            <![CDATA[
+               A.rgst_dtm <= TO_DATE(#rgstEndDtm#,'YYYY.MM.DD')
+            ]]>
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <select id="getCodeListByCodeClass" parameterClass="string" resultClass="code">
+        SELECT  A.code_class codeClass
+              , A.code_name codeName
+              , A.code_value codeValue
+              , A.code_value_cn codeValueCn
+              , A.code_order codeOrder
+              , A.code_desc codeDescription
+              , A.rgst_dtm registDateTime
+              , A.code_use_yn codeUseYn
+          FROM  t_code A
+         WHERE  A.code_class = #codeClass#
+         ORDER BY code_order
+    </select>
+
+    <update id="updateCode" parameterClass="code">
+        UPDATE  t_code
+           SET  code_value = #codeValue#
+              , code_value_cn = #codeValueCn#
+              , code_order = #codeOrder#
+              , code_desc = #codeDescription#
+              , rgst_dtm = sysdate
+              , code_use_yn = #codeUseYn#
+         WHERE  code_class = #codeClass#
+           AND  code_name = #codeName#
+    </update>
+
+    <insert id="createCode" parameterClass="code">
+        INSERT INTO t_code
+        (
+            code_class
+          , code_name
+          , code_value
+          , code_value_cn
+          , code_order
+          , code_desc
+          , rgst_dtm
+          , code_use_yn
+        )
+        VALUES
+        (
+            #codeClass#
+          , #codeName#
+          , #codeValue#
+          , #codeValueCn#
+          , #codeOrder#
+          , #codeDescription#
+          , sysdate
+          , #codeUseYn#
+        )
+    </insert>
+
+    <select id="getBatchList" parameterClass="batchCriteria" resultClass="batchMaster">
+        SELECT A.batch_id       id
+             , A.batch_name     name
+             , A.batch_mnl_url  managerUrl
+             , A.batch_use_yn   useYn
+          FROM t_batch_master A
+        <dynamic prepend="WHERE">
+            <isNotEmpty property="batchId" prepend="AND">
+                A.batch_id LIKE '%' || #batchId# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="batchName" prepend="AND">
+                A.batch_name LIKE '%' || #batchName# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="batchMnrUrl" prepend="AND">
+                A.batch_mnl_url LIKE '%' || #batchMnlUrl# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="batchUseYn" prepend="AND">
+                A.batch_use_yn = #batchUseYn#
+            </isNotEmpty>
+        </dynamic>
+         ORDER BY A.batch_id
+    </select>
+
+    <select id="getBatchListCount" parameterClass="batchCriteria" resultClass="int">
+        SELECT  COUNT(*)
+          FROM  t_batch_master A
+         <dynamic prepend="WHERE">
+            <isNotEmpty property="batchId" prepend="AND">
+                A.batch_id LIKE '%' || #batchId# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="batchName" prepend="AND">
+                A.batch_name LIKE '%' || #batchName# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="batchMnrUrl" prepend="AND">
+                A.batch_mnl_url LIKE '%' || #batchMnlUrl# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="batchUseYn" prepend="AND">
+                A.batch_use_yn = #batchUseYn#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <select id="getBatchMaterId" parameterClass="string" resultClass="batchMaster">
+        SELECT A.batch_id       id
+             , A.batch_name     name
+             , A.batch_mnl_url  managerUrl
+             , A.batch_use_yn   useYn
+          FROM t_batch_master A
+         WHERE A.batch_id = #batchId#
+    </select>
+
+    <update id="updateBatch" parameterClass="batch">
+        UPDATE t_batch_master
+           SET batch_name    = #name#
+             , batch_mnl_url = #managerUrl#
+             , batch_use_yn  = #useYn#
+         WHERE batch_id      = #id#
+    </update>
+
+    <select id="getBatchDetail" parameterClass="batchCriteria" resultClass="batchHistory">
+        SELECT A.batch_id            id
+             , B.batch_hist_seq      historySequence
+             , B.batch_start_dtm     startDatetime
+             , B.batch_end_dtm       endDatetime
+             , B.batch_stat_gbn      statusGbn
+             , B.batch_exe_fail_rsn  executeFailureReason
+          FROM t_batch_master A,
+               t_batch_history B
+         WHERE A.batch_id = B.batch_id
+          AND  A.batch_id = #batchId#
+         ORDER BY A.BATCH_ID, B.batch_hist_seq DESC
+    </select>
+
+    <select id="getBatchDetailCount" parameterClass="batchCriteria" resultClass="int">
+        SELECT COUNT(*)
+          FROM t_batch_master A,
+               t_batch_history B
+         WHERE A.batch_id = B.batch_id
+           AND A.batch_id = #batchId#
+    </select>
+
+    <select id="getSequenceByIdKey" resultClass="sequence" parameterClass="sequence">
+        SELECT A.crt_num_id as sequenceId,
+               A.num_len as length,
+               A.crt_num_name as sequenceName,
+               B.crt_num_key as sequenceKey,
+               B.num as next
+          FROM t_create_number_master A,
+               t_create_number_detail B
+         WHERE A.crt_num_id = B.crt_num_id
+           AND A.crt_num_id = #sequenceId#
+           AND B.crt_num_key = #sequenceKey#
+    </select>
+
+    <select id="getSequenceById" resultClass="sequence" parameterClass="string">
+        SELECT crt_num_id as sequenceId,
+               num_len as length,
+               crt_num_name as sequenceName
+          FROM t_create_number_master
+         WHERE crt_num_id = #value#
+    </select>
+
+    <insert id="insertSequenceDetail" parameterClass="sequence">
+        INSERT INTO t_create_number_detail (crt_num_id, crt_num_key, num) values (#sequenceId#, #sequenceKey#, #next#)
+    </insert>
+
+    <update id="increaseSequence" parameterClass="sequence">
+        UPDATE t_create_number_detail
+           SET num = num + 1
+         WHERE crt_num_id = #sequenceId#
+           AND crt_num_key = #sequenceKey#
+    </update>
+
+    <select id="getCodeListForCodeHandler" resultClass="code">
+        SELECT  code_class codeClass
+              , code_name codeName
+              , code_value codeValue
+              , code_value_cn codeValueCn
+              , code_order codeOrder
+              , code_desc codeDescription
+              , rgst_dtm registDateTime
+              , code_use_yn codeUseYn
+          FROM  t_code
+         WHERE  code_use_yn = 'Y'
+         ORDER BY code_class ASC, code_order ASC
+    </select>
+
+    <select id="getPostNumListByDong" parameterClass="postNumCriteria" resultClass="postNum">
+        SELECT  post_num_seq postNumSeq
+              , substr(post_num, 0,3) || '-' || substr(post_num, 4,3) postNum
+              , si
+              , gu
+              , dong
+              , ri
+              , doseo
+              , bungi
+              , bldg_name bldgName
+              , addr addr
+          FROM  t_post_num
+         WHERE (dong LIKE #searchText# || '%' OR  ri LIKE #searchText# || '%')
+         <dynamic>
+            <isNotEmpty prepend="AND" property="areaId">
+                si LIKE #areaId# || '%'
+            </isNotEmpty>
+            <isNotEmpty prepend="AND" property="gu">
+                gu LIKE #gu# || '%'
+            </isNotEmpty>
+         </dynamic>
+    </select>
+
+    <select id="getPostNumListCountByDong" parameterClass="postNumCriteria" resultClass="int">
+        SELECT  COUNT(*)
+          FROM  t_post_num
+         WHERE (dong LIKE #searchText# || '%' OR ri LIKE #searchText# || '%')
+         <dynamic>
+            <isNotEmpty prepend="AND" property="areaId">
+                si LIKE #areaId# || '%'
+            </isNotEmpty>
+            <isNotEmpty prepend="AND" property="gu">
+                gu LIKE #gu# || '%'
+            </isNotEmpty>
+         </dynamic>
+    </select>
+
+    <select id="getPostNumListType1" parameterClass="postNumCriteria" resultClass="newPostNum">
+       SELECT SUBSTR (post_num, 0, 3) || '-' || SUBSTR (post_num, 4, 3) postNum
+            , si
+            , gu
+            , doro_name                                                 doroName
+            , bldg_main_num                                             bldgMainNum
+            , law_dong_name                                             lawDongName
+            , multi_dlvy_name                                           multiDlvyName
+         FROM t_new_post_num
+         <dynamic prepend="WHERE">
+            <isNotEmpty property="searchText" prepend="AND">
+                doro_name LIKE #searchText# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="searchBldg" prepend="AND">
+                bldg_main_num LIKE #searchBldg# || '%'
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <select id="getPostNumListCountType1" parameterClass="postNumCriteria" resultClass="int">
+       SELECT COUNT(*)
+         FROM t_new_post_num
+         <dynamic prepend="WHERE">
+            <isNotEmpty property="searchText" prepend="AND">
+                doro_name LIKE #searchText# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="searchBldg" prepend="AND">
+                bldg_main_num LIKE #searchBldg# || '%'
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <select id="getPostNumListType2" parameterClass="postNumCriteria" resultClass="newPostNum">
+       SELECT SUBSTR (post_num, 0, 3) || '-' || SUBSTR (post_num, 4, 3) postNum
+            , si
+            , gu
+            , doro_name                                                 doroName
+            , bldg_main_num                                             bldgMainNum
+            , law_dong_name                                             lawDongName
+            , multi_dlvy_name                                           multiDlvyName
+         FROM t_new_post_num
+         <dynamic prepend="WHERE">
+            <isNotEmpty property="searchText" prepend="AND">
+                law_dong_name LIKE #searchText# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="searchMainNum" prepend="AND">
+                land_main_num LIKE #searchMainNum# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="searchSubNum" prepend="AND">
+                land_sub_num  LIKE #searchSubNum# || '%'
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <select id="getPostNumListCountType2" parameterClass="postNumCriteria" resultClass="int">
+       SELECT COUNT(*)
+         FROM t_new_post_num
+         <dynamic prepend="WHERE">
+            <isNotEmpty property="searchText" prepend="AND">
+                law_dong_name LIKE #searchText# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="searchMainNum" prepend="AND">
+                land_main_num LIKE #searchMainNum# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="searchSubNum" prepend="AND">
+                land_sub_num  LIKE #searchSubNum# || '%'
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <select id="getPostNumListType4" parameterClass="postNumCriteria" resultClass="newPostNum">
+       SELECT SUBSTR (post_num, 0, 3) || '-' || SUBSTR (post_num, 4, 3) postNum
+            , si
+            , gu
+            , doro_name                                                 doroName
+            , bldg_main_num                                             bldgMainNum
+            , law_dong_name                                             lawDongName
+            , multi_dlvy_name                                           multiDlvyName
+         FROM t_new_post_num
+         <dynamic prepend="WHERE">
+            <isNotEmpty property="searchText" prepend="AND">
+                bldg_name like #searchText# || '%'
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <select id="getPostNumListCountType4" parameterClass="postNumCriteria" resultClass="int">
+       SELECT COUNT(*)
+         FROM t_new_post_num
+         <dynamic prepend="WHERE">
+            <isNotEmpty property="searchText" prepend="AND">
+                bldg_name like #searchText# || '%'
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <select id="getPostNumListType5" parameterClass="postNumCriteria" resultClass="postBoxPostNum">
+       SELECT SUBSTR (post_num, 0, 3) || '-' || SUBSTR (post_num, 4, 3) postNum
+            , si
+            , gu
+            , doro_name                                                 doroName
+            , start_main_num                                            startMainNum
+            , start_sub_num                                             startSubNum
+         FROM t_post_box_post_num
+         <dynamic prepend="WHERE">
+            <isNotEmpty property="searchText" prepend="AND">
+                doro_name like #searchText# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="searchMainNum" prepend="AND">
+                start_main_num like #searchMainNum# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="searchSubNum" prepend="AND">
+                start_sub_num like #searchSubNum# || '%'
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <select id="getPostNumListCountType5" parameterClass="postNumCriteria" resultClass="int">
+       SELECT COUNT(*)
+         FROM t_post_box_post_num
+         <dynamic prepend="WHERE">
+            <isNotEmpty property="searchText" prepend="AND">
+                doro_name like #searchText# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="searchMainNum" prepend="AND">
+                start_main_num like #searchMainNum# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="searchSubNum" prepend="AND">
+                start_sub_num like #searchSubNum# || '%'
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <insert id="saveWork" parameterClass="work">
+        <selectKey keyProperty="workSequence" resultClass="int">
+           SELECT work_seq.nextval sequence FROM dual
+        </selectKey>
+
+        INSERT INTO t_work (
+            work_seq,
+            work_gbn,
+            rgst_dtm,
+            prdt_code,
+            admin_id,
+            order_num,
+            dscnt_seq,
+            user_id,
+            user_grade_id,
+            user_group_id,
+            bnr_seq,
+            free_gift_id
+        ) VALUES (
+            #workSequence#,
+            #workGubun#,
+            #registDatetime#,
+            #productCode#,
+            #adminId#,
+            #orderNum#,
+            #discountSequence#,
+            #userId#,
+            #userGradeId#,
+            #userGroupId#,
+            #bnrSeq#,
+            #freeGiftId#
+        )
+    </insert>
+
+    <insert id="saveWorkHistory" parameterClass="workHistory">
+        <selectKey keyProperty="workHistorySequence" resultClass="int">
+            SELECT work_hist_seq.nextval sequence FROM dual
+        </selectKey>
+
+        INSERT INTO t_work_history (
+            work_hist_seq,
+            chng_gbn_code,
+            chng_field,
+            chng_field_name,
+            chng_old_field_value,
+            chng_new_field_value,
+            work_seq
+        ) VALUES (
+            #workHistorySequence#,
+            #changeGubunCode#,
+            #field#,
+            #fieldName#,
+
+		<isEqual property="encYn" compareValue="Y">
+			<isEqual property="field" compareValue="psprt_num">
+	            xx1.enc_varchar2_ins(#oldFieldValue#, 10, 'SSNF'),
+	            xx1.enc_varchar2_ins(#newFieldValue#, 10, 'SSNF'),
+			</isEqual>
+			<isEqual property="field" compareValue="mail_addr">
+	            xx1.enc_varchar2_ins(#oldFieldValue#, 10, 'MAIL'),
+	            xx1.enc_varchar2_ins(#newFieldValue#, 10, 'MAIL'),
+			</isEqual>
+			<isEqual property="field" compareValue="hp_tel_num">
+	            xx1.enc_varchar2_ins(#oldFieldValue#, 10, 'PHONE'),
+	            xx1.enc_varchar2_ins(#newFieldValue#, 10, 'PHONE'),
+			</isEqual>
+		</isEqual>
+		<isNotEqual property="encYn" compareValue="Y">
+   	        #oldFieldValue#,
+       	    #newFieldValue#,
+		</isNotEqual>
+            #workSequence#
+        )
+    </insert>
+
+    <select id="getTableList" resultClass="table">
+        WITH V_TEMP AS ( SELECT
+                         a.TABLE_NAME basic
+                        , b.COLUMN_NAME colName
+                        , a.CONSTRAINT_TYPE conType
+                    FROM
+                        USER_CONSTRAINTS a , USER_CONS_COLUMNS b
+                    WHERE
+                        a.R_CONSTRAINT_NAME = b.CONSTRAINT_NAME
+                    group by a.TABLE_NAME , b.COLUMN_NAME , a.CONSTRAINT_TYPE
+        )
+            SELECT
+                    cols.TABLE_NAME tableName
+                    , cols.COLUMN_NAME columnName
+                    , cmt.COMMENTS koreanName
+                    , cols.DATA_TYPE dataType
+                    , cols.DATA_LENGTH dataLength
+                    , DECODE(cols.NULLABLE , 'Y' , 'NULL' , 'NOT NULL')  nullable
+                    , DECODE(cons.CONSTRAINT_TYPE , 'P' , 'O' , null) pkOX
+                    , DECODE(sub.contype , 'R' , 'O' , null) fkOX
+                    , DECODE(inds.indexName , null , null , 'O') indexOX
+            FROM USER_TAB_COLUMNS cols join USER_COL_COMMENTS cmt
+            on cols.TABLE_NAME = cmt.TABLE_NAME and cols.COLUMN_NAME = cmt.COLUMN_NAME
+            LEFT OUTER JOIN
+                    ( SELECT
+                            TABLE_NAME
+                            , COLUMN_NAME
+                            , MAX(INDEX_NAME) indexName
+                        FROM
+                            USER_IND_COLUMNS
+                        GROUP BY
+                            TABLE_NAME , COLUMN_NAME ) inds
+                ON cols.TABLE_NAME = inds.TABLE_NAME
+                    AND cols.COLUMN_NAME = inds.COLUMN_NAME
+            LEFT OUTER JOIN USER_CONSTRAINTS cons
+                ON inds.indexName = cons.INDEX_NAME
+            LEFT OUTER JOIN V_TEMP sub
+                ON cols.TABLE_NAME = sub.basic AND cols.COLUMN_NAME = sub.colName
+            WHERE cols.TABLE_NAME LIKE 'T\_' || '%' ESCAPE '\'
+            ORDER BY cols.TABLE_NAME , cols.COLUMN_ID
+    </select>
+
+    <sql id="getWorkHistorySql">
+        <isNotEmpty property="workGbn">
+       AND  T.work_gbn = #workGbn#
+        </isNotEmpty>
+        <isNotEmpty property="dscntSeq">
+       AND  T.dscnt_seq = #dscntSeq#
+        </isNotEmpty>
+        <isNotEmpty property="userGradeId">
+       AND  T.user_grade_id = #userGradeId#
+        </isNotEmpty>
+        <isNotEmpty property="chngGbnCode">
+       AND  WH.chng_gbn_code = #chngGbnCode#
+        </isNotEmpty>
+        <isNotEmpty property="prdtCode">
+       AND  T.prdt_code= #prdtCode#
+        </isNotEmpty>
+        <isNotEmpty property="orderNum">
+       AND  T.order_num= #orderNum#
+        </isNotEmpty>
+        <isNotEmpty property="freeGiftId">
+       AND  T.free_gift_id= #freeGiftId#
+        </isNotEmpty>
+        <isNotEmpty property="userId">
+       AND  T.user_id= #userId#
+        </isNotEmpty>
+    </sql>
+
+    <sql id="getPimsWorkHistorySql">
+        <isNotEmpty property="workGbn">
+       AND  T.work_gbn = #workGbn#
+        </isNotEmpty>
+        <isNotEmpty property="dscntSeq">
+       AND  T.dscnt_seq = #dscntSeq#
+        </isNotEmpty>
+        <isNotEmpty property="userGradeId">
+       AND  T.user_grade_id = #userGradeId#
+        </isNotEmpty>
+        <isNotEmpty property="chngGbnCode">
+       AND  WH.chng_gbn_code = #chngGbnCode#
+        </isNotEmpty>
+        <isNotEmpty property="prdtCode">
+       AND  T.prdt_code= #prdtCode#
+        </isNotEmpty>
+        <isNotEmpty property="orderNum">
+       AND  T.order_num= #orderNum#
+        </isNotEmpty>
+        <isNotEmpty property="freeGiftId">
+       AND  T.free_gift_id= #freeGiftId#
+        </isNotEmpty>
+        <isNotEmpty property="userId">
+       AND  T.user_id= #userId#
+        </isNotEmpty>
+        <isNotEmpty property="powerId">
+       AND  T.power_id = #powerId#
+        </isNotEmpty>
+    </sql>
+
+    <select id="getWorkHistory" parameterClass="totalHistoryCriteria" resultClass="totalHistory">
+        SELECT  WH.chng_field_name      fieldName,
+               <![CDATA[
+               CASE WHEN chng_field = 'mail_addr' THEN xx1.dec_varchar2_sel(WH.chng_old_field_value, 10, 'MAIL')
+               		WHEN chng_field = 'hp_tel_num' THEN xx1.dec_varchar2_sel(WH.chng_old_field_value, 10, 'PHONE')
+               		WHEN chng_field = 'psprt_num' THEN xx1.dec_varchar2_sel(WH.chng_old_field_value, 10, 'SSNF')
+               		ELSE WH.chng_old_field_value
+               	END oldFieldValue,
+               ]]>
+               <![CDATA[
+               CASE WHEN chng_field = 'mail_addr' THEN xx1.dec_varchar2_sel(WH.chng_new_field_value, 10, 'MAIL')
+               		WHEN chng_field = 'hp_tel_num' THEN xx1.dec_varchar2_sel(WH.chng_new_field_value, 10, 'PHONE')
+               		WHEN chng_field = 'psprt_num' THEN xx1.dec_varchar2_sel(WH.chng_new_field_value, 10, 'SSNF')
+               		ELSE WH.chng_new_field_value
+               	END newFieldValue,
+               ]]>
+               T.rgst_dtm              rgstDtm,
+               T.admin_id              adminId,
+               (select admin_name from t_admin where admin_id = T.admin_id) adminName
+          FROM  t_work T
+          JOIN  t_work_history WH ON T.work_seq = WH.work_seq
+         WHERE  1=1
+            <include refid="getWorkHistorySql"/>
+         ORDER BY T.work_seq DESC
+    </select>
+
+    <select id="getWorkHistoryCount" parameterClass="totalHistoryCriteria" resultClass="int">
+        SELECT  COUNT(*)
+          FROM  t_work T
+          JOIN  t_work_history WH ON T.work_seq = WH.work_seq
+         WHERE  1=1
+            <include refid="getWorkHistorySql"/>
+    </select>
+
+    <insert id="saveExchangeRate" parameterClass="exchangeRate">
+        INSERT INTO T_EXCHANGE_RATE (
+            exc_rate_dt,
+            dal_exc_rate,
+            yen_exc_rate,
+            yuan_exc_rate,
+            rgst_dtm,
+            admin_id
+        ) VALUES (
+            #exchangeRateDate#,
+            #dal#,
+            #yen#,
+            #yuan#,
+            sysdate,
+            #adminId#
+        )
+    </insert>
+
+    <select id="getExchangeRateByDateForCache" parameterClass="string" resultClass="exchangeRate" cacheModel="exchangeCache">
+        SELECT exc_rate_dt exchangeRateDate,
+               dal_exc_rate dal,
+               yen_exc_rate yen,
+               yuan_exc_rate yuan,
+               rgst_dtm rgstDtm,
+               admin_id adminId
+          FROM t_exchange_rate
+         WHERE exc_rate_dt = #yyyymmdd#
+    </select>
+
+
+    <select id="getExchangeRateList" parameterClass="exchangeRateCriteria" resultClass="exchangeRate">
+        SELECT
+                rowNum ,
+                TO_CHAR (TO_DATE (exc_rate_dt, 'YYYYMMDD'), 'YYYY-MM-DD')  exchangeRateDate,
+                dal_exc_rate dal,
+                yen_exc_rate yen,
+                yuan_exc_rate yuan,
+		        DECODE ( yen_exc_rate, 0 , 0 , ROUND((dal_exc_rate*100)/yen_exc_rate,2)) AS yen100Won ,
+		        DECODE ( yuan_exc_rate, 0 , 0 , ROUND(dal_exc_rate/yuan_exc_rate,2))  AS yuanWon,
+                rgst_dtm rgstDtm,
+                admin_id adminId
+          FROM  T_EXCHANGE_RATE
+         WHERE  1=1
+	            <isNotEmpty property="exchangeRateDate" prepend="AND">
+	                exc_rate_dt = #exchangeRateDate#
+	            </isNotEmpty>
+	            <isNotEmpty  property="rgstStartDtm" prepend="AND">
+	                <![CDATA[
+	                    exc_rate_dt >= #rgstStartDtm#
+	                ]]>
+	            </isNotEmpty>
+	            <isNotEmpty  property="rgstEndDtm" prepend="AND">
+	                <![CDATA[
+	                    exc_rate_dt <= #rgstEndDtm#
+	                ]]>
+	            </isNotEmpty>
+            ORDER BY exc_rate_dt
+	            <isEqual property="orderBy" compareValue="Y">
+	                DESC
+	            </isEqual>
+    </select>
+
+
+    <insert id="insertCharsetTest" parameterClass="string">
+        INSERT INTO t_test_table (
+            seq,
+            data_str
+        ) values (
+            1,
+            #value#
+        )
+    </insert>
+
+    <select id="getCharsetTest" resultClass="string">
+        SELECT data_str
+          FROM t_test_table
+         WHERE rownum = 1
+    </select>
+
+    <select id="getSystemVariable" resultClass="systemVariable" parameterClass="String">
+        SELECT var_key varKey,
+               cnr_batch_yn cnrBatchYn ,
+               card_chrg_dscnt_cont cardChrgDscntCont,
+               card_chrg_dscnt_cont_cn cardChrgDscntContCn,
+               pop_rcmnd_word popRcmndWord,
+               pop_rcmnd_word_cn popRcmndWordCn,
+               last_mod_admin_id lastModAdminId,
+               last_mod_dtm lastModDtm,
+               UP_BUY_TERM_MM upBuyTermMm,
+               GRADE_KEEP_TERM_MM gradeKeepTermMm
+          FROM t_system_variable
+         WHERE var_key = 'X'
+    </select>
+
+    <update id="updateSystemVariableByPopRcmndWord" parameterClass="systemVariable">
+        UPDATE  t_system_variable
+           SET  pop_rcmnd_word = #popRcmndWord#,
+				pop_rcmnd_word_cn = #popRcmndWordCn#,
+                last_mod_admin_id = #lastModAdminId#,
+                last_mod_dtm = SYSDATE
+         WHERE var_key = 'X'
+    </update>
+
+    <update id="updateSystemVariableByCartChrgDscntCont" parameterClass="systemVariable">
+        UPDATE  t_system_variable
+           SET  card_chrg_dscnt_cont = #cardChrgDscntCont#,
+                card_chrg_dscnt_cont_cn = #cardChrgDscntContCn#,
+                last_mod_admin_id = #lastModAdminId#,
+                last_mod_dtm = SYSDATE
+         WHERE var_key = 'X'
+    </update>
+
+    <update id="updateCnrBatchYn" parameterClass="systemVariable">
+        UPDATE  t_system_variable
+           SET  cnr_batch_yn        = #cnrBatchYn#
+                , last_mod_admin_id = #lastModAdminId#
+                , last_mod_dtm      = SYSDATE
+         WHERE var_key = 'X'
+    </update>
+
+    <delete id="deleteFlightSchedule">
+        DELETE FROM T_FLIGHT_SCHEDULE
+    </delete>
+
+    <insert id="saveFlightSchedule">
+        INSERT INTO t_flight_schedule (
+               flt_scdl_seq,
+               valid_e_date,
+               s_day,
+               e_day,
+               week_id,
+               air_code,
+               chul_pen,
+               air_city,
+               air_nation,
+               chul_time,
+               gate_yn,
+               miju_yn,
+               area_20_indoarea,
+               ctrl_gu,
+               rgst_dtm,
+               rgst_admin_id,
+               last_mod_dtm,
+               last_mod_admin_id
+        )
+        WITH v_temp as (
+            SELECT max(valid_e_date) valid_e_date,
+                   s_day,
+                   max(e_day) e_day,
+                   max(week_id) week_id,
+                   air_code,
+                   trim(chul_pen) chul_pen,
+                   air_city,
+                   max(air_nation) air_nation,
+                   chul_time,
+                   max(gate_yn) gate_yn,
+                   max(miju_yn) miju_yn,
+                   max(area_20_indoarea) area_20_indoarea,
+                   max(ctrl_gu) ctrl_gu,
+                   max(regdate) date1,
+                   'system' id1,
+                   max(regdate) date2,
+                   'system' id2
+              FROM indocode_mt@tonammoon
+             WHERE s_day <![CDATA[<>]]>  '일'
+             group by s_day, air_code, chul_pen, chul_time, air_city
+        )
+        SELECT flt_scdl_seq.nextval,
+               valid_e_date,
+               s_day,
+               e_day,
+               week_id,
+               air_code,
+               chul_pen,
+               air_city,
+               air_nation,
+               chul_time,
+               gate_yn,
+               miju_yn,
+               area_20_indoarea,
+               ctrl_gu,
+               date1,
+               id1,
+               date2,
+               id2
+          FROM v_temp
+    </insert>
+
+    <delete id="deleteShinsegaeMember">
+        DELETE FROM SHINSEGAE_MEMBER
+    </delete>
+
+    <insert id="insertShinsegaeMember" parameterClass="shinsegaeMember">
+        INSERT INTO SHINSEGAE_MEMBER(
+            EMP_NO,
+            REG_NO,
+            SEX,
+            EMP_NM,
+            WORK_YN,
+            CHG_DATE,
+            CI
+        ) VALUES (
+            #empNo#,
+            #regNo#,
+            #sex#,
+            #empNm#,
+            #workYn#,
+            #chgDate#,
+            #ci#
+        )
+    </insert>
+
+    <insert id="addOrderNum" parameterClass="string">
+        insert into T_TEMP_PRICE_ORDER values (#xx#)
+    </insert>
+
+    <insert id="insertShinsegaeMemberDblink">
+         INSERT INTO SHINSEGAE_MEMBER
+            (EMP_NO, REG_NO, SEX, EMP_NM, WORK_YN, CHG_DATE)
+         select EMP_NO, REG_NO, SEX, EMP_NM, WORK_YN, CHG_DATE
+          from V_EMP_INFO_DTFREE@TOSSGINSA
+    </insert>
+-->
+
+    <!--  where rownum <![CDATA[<=10]]>
+    <select id="getOldPrdtDesc" resultClass="string">
+        select prdt_desc from t_prdt_desc_temp
+    </select>
+
+    <insert id="addTempImage" parameterClass="string">
+        insert into t_prdt_desc_old_image values (#xx#)
+    </insert>
+
+
+    <select id="getWeekDay" resultClass="int">
+        SELECT TO_CHAR(SYSDATE, 'D') FROM DUAL
+    </select>
+
+
+    <select id="getTime" resultClass="string">
+        SELECT TO_CHAR(SYSDATE, 'HH24MISS') FROM DUAL
+    </select>
+
+
+    <select id="getSaveTime" resultClass="int">
+		 SELECT COUNT(*) FROM DUAL
+		 WHERE TO_CHAR(SYSDATE, 'HH24MISS') BETWEEN '110000' AND '235959'
+    </select>
+
+
+    <insert id="insertLookHistory" parameterClass="adminWorkHistory">
+        <selectKey keyProperty="adminWorkHistorySequence" resultClass="int">
+            SELECT admin_work_hist_seq.nextval sequence FROM dual
+        </selectKey>
+        INSERT INTO t_admin_work_history (
+          admin_work_hist_seq,
+          work_seq,
+          admin_id,
+          user_id,
+          rgst_dtm,
+          menu_url,
+          ip_addr,
+          action_flag,
+          excel_flag,
+          customer_agrees
+        ) VALUES (
+          #adminWorkHistorySequence#,
+          #workSeq#,
+          #adminId#,
+          #userId#,
+          SYSDATE,
+          #menuUrl#,
+          #ipAddr#,
+          #actionFlag#,
+          #excelFlag#,
+          #customerAgrees#
+        )
+    </insert>
+
+
+    <insert id="insertadminChangeLog" parameterClass="adminChangeLog">
+        <selectKey keyProperty="adminChngLogSequence" resultClass="int">
+            SELECT admin_change_log_seq.nextval sequence FROM dual
+        </selectKey>
+        INSERT INTO T_ADMIN_CHANGE_LOG (
+          admin_chng_log_seq,
+          admin_rsn,
+          change_log,
+          admin_id,
+          user_id,
+          rgst_dtm
+        ) VALUES (
+          #adminChngLogSequence#,
+          #adminRsn#,
+          #changeLog#,
+          #adminId#,
+          #userId#,
+          SYSDATE
+        )
+    </insert>
+
+    <select id="getDay" resultClass="string">
+        SELECT TO_CHAR(SYSDATE, 'DD') FROM DUAL
+    </select>
+
+    <select id="getToday" resultClass="string">
+        SELECT TO_CHAR(SYSDATE, 'YYYYMMDD') FROM DUAL
+    </select>
+
+    <select id="getTodayEN" resultClass="string">
+        select TO_CHAR(SYSDATE, 'Month DD, YYYY', 'NLS_DATE_LANGUAGE=ENGLISH') from dual
+    </select>
+
+    <select id="isOrderUseYn" parameterClass="String" resultClass="boolean">
+		SELECT USE_YN FROM (
+		  SELECT MAX(BATCH_ORDER_ID) BATCH_ORDER_ID,
+		         USE_YN
+		    FROM T_BATCH_ORDER
+		  WHERE BATCH_NAME = #batchName#
+		  GROUP BY USE_YN
+		)
+		WHERE ROWNUM = '1'
+		ORDER BY BATCH_ORDER_ID DESC
+    </select>
+
+    <select id="getOrderCount" parameterClass="int" resultClass="int">
+		SELECT count(*) orderCnt
+            FROM T_ORDER A
+           WHERE A.TOTAL_CNCL_YN = 'N'
+             AND A.ORDER_DTM >= sysdate - (1/24/60*#minute#)
+             AND EXISTS (SELECT X.order_num FROM t_payment X WHERE X.order_num = A.order_num AND X.pymnt_means_code in ('01','02','06','07') AND X.pymnt_stat_code = '02')
+    </select>
+
+    <select id="getOrderCountKR" parameterClass="int" resultClass="int">
+		SELECT count(*) orderCnt
+            FROM T_ORDER A
+           WHERE A.TOTAL_CNCL_YN = 'N'
+             AND A.ORDER_DTM >= sysdate - (1/24/60*#minute#)
+             and A.SITE_NATN_CODE = 'KR'
+             AND EXISTS (SELECT X.order_num FROM t_payment X WHERE X.order_num = A.order_num AND X.pymnt_means_code in ('01','02','06','07') AND X.pymnt_stat_code = '02')
+    </select>
+
+    <select id="getOrderCountCN" parameterClass="int" resultClass="int">
+		SELECT count(*) orderCnt
+            FROM T_ORDER A
+           WHERE A.TOTAL_CNCL_YN = 'N'
+             AND A.ORDER_DTM >= sysdate - (1/24/60*#minute#)
+             and A.SITE_NATN_CODE = 'CN'
+             AND EXISTS (SELECT X.order_num FROM t_payment X WHERE X.order_num = A.order_num AND X.pymnt_means_code in ('01','02','06','07') AND X.pymnt_stat_code = '02')
+    </select>
+
+    <select id="getOrderFailureCount" parameterClass="int" resultClass="int">
+		SELECT count(*) orderCnt
+          FROM T_ORDER_FAILURE_HISTORY A
+         WHERE A.ORDER_DTM >= sysdate - (1/24/60*#minute#)
+           AND PG_CODE IS NULL
+    </select>
+
+    <select id="getOrderFailureTotalCount" parameterClass="int" resultClass="OrderFailureProcessor">
+		SELECT count(*) totalOrderCnt
+		     , count(case when site_natn_code = 'KR' and link_site_gbn_code = '01' then 1 end) as korWebCnt
+		     , count(case when site_natn_code = 'KR' and link_site_gbn_code = '02' then 1 end) as korMobileCnt
+		     , count(case when site_natn_code = 'CN' and link_site_gbn_code = '01' then 1 end) as chnWebCnt
+		     , count(case when site_natn_code = 'CN' and link_site_gbn_code = '02' then 1 end) as chnMobileCnt
+		     , nvl(min (
+		              (
+		              select sum(cnt)
+		              from (
+		              select min(decode(user_id, null, 1, 1)) as cnt
+		                        from T_ORDER_FAILURE_HISTORY x
+		                      WHERE x.ORDER_DTM >= sysdate - (1/24/60*#minute#)
+		                        and x.pg_code is null
+		              group by x.user_id
+		              )
+		              )
+		              ), 0) as userCnt
+		  FROM T_ORDER_FAILURE_HISTORY
+		 WHERE ORDER_DTM >= sysdate - (1/24/60*#minute#)
+		   and pg_code is null
+    </select>
+
+
+    <insert id="saveAdminWork" parameterClass="work">
+        <selectKey keyProperty="workSequence" resultClass="int">
+           SELECT admin_pims_work_seq.nextval sequence FROM dual
+        </selectKey>
+
+        INSERT INTO t_admin_pims (
+            work_seq,
+            work_gbn,
+            rgst_dtm,
+            admin_id,
+            dscnt_seq,
+            user_id,
+            user_grade_id,
+            user_group_id,
+            power_id
+        ) VALUES (
+            #workSequence#,
+            #workGubun#,
+            #registDatetime#,
+            #adminId#,
+            #discountSequence#,
+            #userId#,
+            #userGradeId#,
+            #userGroupId#,
+            #powerId#
+        )
+    </insert>
+
+    <insert id="saveAdminWorkHistory" parameterClass="workHistory">
+        <selectKey keyProperty="workHistorySequence" resultClass="int">
+            SELECT admin_pims_work_hist_seq.nextval sequence FROM dual
+        </selectKey>
+
+        INSERT INTO t_admin_pims_history (
+            work_hist_seq,
+            chng_gbn_code,
+            chng_field,
+            chng_field_name,
+            chng_old_field_value,
+            chng_new_field_value,
+            work_seq
+        ) VALUES (
+            #workHistorySequence#,
+            #changeGubunCode#,
+            #field#,
+            #fieldName#,
+		<isEqual property="encYn" compareValue="Y">
+			<isEqual property="field" compareValue="psprt_num">
+	            xx1.enc_varchar2_ins(#oldFieldValue#, 10, 'SSNF'),
+	            xx1.enc_varchar2_ins(#newFieldValue#, 10, 'SSNF'),
+			</isEqual>
+			<isEqual property="field" compareValue="mail_addr">
+	            xx1.enc_varchar2_ins(#oldFieldValue#, 10, 'MAIL'),
+	            xx1.enc_varchar2_ins(#newFieldValue#, 10, 'MAIL'),
+			</isEqual>
+			<isEqual property="field" compareValue="hp_tel_num">
+	            xx1.enc_varchar2_ins(#oldFieldValue#, 10, 'PHONE'),
+	            xx1.enc_varchar2_ins(#newFieldValue#, 10, 'PHONE'),
+			</isEqual>
+		</isEqual>
+		<isNotEqual property="encYn" compareValue="Y">
+   	        #oldFieldValue#,
+       	    #newFieldValue#,
+		</isNotEqual>
+            #workSequence#
+        )
+    </insert>
+
+    <select id="getAdminWorkHistory" parameterClass="totalHistoryCriteria" resultClass="totalHistory">
+        SELECT  WH.chng_field_name      fieldName,
+               <![CDATA[
+               CASE WHEN chng_field = 'mail_addr' THEN xx1.dec_varchar2_sel(WH.chng_old_field_value, 10, 'MAIL')
+               		WHEN chng_field = 'hp_tel_num' THEN xx1.dec_varchar2_sel(WH.chng_old_field_value, 10, 'PHONE')
+               		WHEN chng_field = 'psprt_num' THEN xx1.dec_varchar2_sel(WH.chng_old_field_value, 10, 'SSNF')
+               		when chng_field = 'power_id' then wh.chng_old_field_value || '(' || (select power_name from t_admin_power where power_id = wh.chng_old_field_value) || ')'
+               		WHEN chng_field = 'lock_yn' and WH.chng_old_field_value = 'Y' THEN '로그인 제한'
+    				WHEN chng_field = 'lock_yn' and WH.chng_old_field_value = 'N' THEN '로그인 제한 해제'
+               		ELSE WH.chng_old_field_value
+               	END oldFieldValue,
+               ]]>
+               <![CDATA[
+               CASE WHEN chng_field = 'mail_addr' THEN xx1.dec_varchar2_sel(WH.chng_new_field_value, 10, 'MAIL')
+               		WHEN chng_field = 'hp_tel_num' THEN xx1.dec_varchar2_sel(WH.chng_new_field_value, 10, 'PHONE')
+               		WHEN chng_field = 'psprt_num' THEN xx1.dec_varchar2_sel(WH.chng_new_field_value, 10, 'SSNF')
+               		when chng_field = 'power_id' then wh.chng_new_field_value || '(' || (select power_name from t_admin_power where power_id = wh.chng_new_field_value) || ')'
+               		WHEN chng_field = 'lock_yn' and WH.chng_new_field_value = 'Y' THEN '로그인 제한'
+    				WHEN chng_field = 'lock_yn' and WH.chng_new_field_value = 'N' THEN '로그인 제한 해제'
+               		ELSE WH.chng_new_field_value
+               	END newFieldValue,
+               ]]>
+               T.rgst_dtm              rgstDtm,
+               T.admin_id              adminId,
+               (select admin_name from t_admin where admin_id = T.admin_id) adminName
+          FROM  t_admin_pims T
+          JOIN  t_admin_pims_history WH ON T.work_seq = WH.work_seq
+         WHERE  1=1
+            <include refid="getPimsWorkHistorySql"/>
+         ORDER BY T.work_seq DESC
+    </select>
+
+    <select id="getAdminWorkHistoryCount" parameterClass="totalHistoryCriteria" resultClass="int">
+        SELECT  COUNT(*)
+          FROM  t_admin_pims T
+          JOIN  t_admin_pims_history WH ON T.work_seq = WH.work_seq
+         WHERE  1=1
+            <include refid="getPimsWorkHistorySql"/>
+    </select>
+
+    <insert id="saveAdminMenuWorkHistory" parameterClass="workHistory">
+
+        <selectKey keyProperty="workHistorySequence" resultClass="int">
+            SELECT admin_pims_work_hist_seq.nextval sequence FROM dual
+        </selectKey>
+
+        INSERT INTO t_admin_pims_history (
+            work_hist_seq,
+            chng_gbn_code,
+            chng_field,
+            chng_field_name,
+            chng_old_field_value,
+            chng_new_field_value,
+            work_seq
+        ) VALUES (
+            #workHistorySequence#,
+            #changeGubunCode#,
+            #field#,
+            #fieldName#,
+			#oldFieldValue#,
+			#newFieldValue#,
+            #workSequence#
+        )
+    </insert>
+
+
+    <select id="getAdminGroupMenuById" parameterClass="adminPowerParam" resultClass="menu">
+        SELECT SUBSTR(A.MENU_ID, 0, 4) prntMenuId,
+        	   A.MENU_ID menuId,
+        	   B.MENU_NAME menuName
+          FROM T_POWER_MENU A, T_MENU B
+         WHERE A.MENU_ID = B.MENU_ID
+         AND A.POWER_ID = #powerId#
+		<isNotEmpty property="labelMenuId">
+         AND A.MENU_ID NOT IN <iterate open="(" close=")" conjunction="," property="labelMenuId">
+                                #labelMenuId[]#
+         	                </iterate>
+		</isNotEmpty>
+		ORDER BY A.MENU_ID ASC
+
+    </select>
+
+-->
+
+
+<!--     <insert id="saveAdminGroupWork" parameterClass="work">
+        <selectKey keyProperty="workGroupSequence" resultClass="int">
+           SELECT admin_pims_work_seq.nextval sequence FROM dual
+        </selectKey>
+
+        INSERT INTO T_ADMIN_GROUP_WORK (
+            work_seq,
+            work_gbn,
+            rgst_dtm,
+            admin_id,
+            power_id
+        ) VALUES (
+            #workGroupSequence#,
+            #workGubun#,
+            sysdate,
+            #powerId#
+        )
+    </insert> -->
+
+    <!--
+    <select id="getUserLoginHistory" parameterClass="totalHistoryCriteria" resultClass="adminLogin">
+		SELECT LOGIN_DTM as loginDtm
+		     , CNTR_IP_ADDR as accerssIp
+		     , LOGIN_HIST_LOG as loginLog
+		FROM t_admin_login_history
+		WHERE ADMIN_ID = #userId#
+		ORDER BY LOGIN_HIST_SEQ DESC
+    </select>
+
+    <select id="getUserLoginHistoryCount" parameterClass="totalHistoryCriteria" resultClass="int">
+		SELECT count(ADMIN_ID)
+		FROM t_admin_login_history
+		WHERE ADMIN_ID = #userId#
+		ORDER BY LOGIN_HIST_SEQ DESC
+    </select>
+
+
+    <select id="getUserSaved"  resultClass="userSaved">
+		SELECT SAVED_NAME savedRsn
+			 , MAX(CHK_AMT) savedAmt FROM (
+			SELECT A.USER_ID, A.SAVED_ID, B.SAVED_NAME, SUM(A.SAVED_AMT) AS CHK_AMT
+			  FROM T_USER_SAVED A, T_SAVED B
+			WHERE 1=1
+			  AND a.SAVED_USE_CODE = 'S'
+			  AND A.PYMNT_ORDER_NUM IS NULL
+			  AND TO_CHAR(A.RGST_DTM, 'YYYYMMDD') = TO_CHAR(SYSDATE - 1, 'YYYYMMDD')
+			  AND a.SAVED_ID not in ( '100002','100003','100004', '200033')
+			  AND A.SAVED_ID = B.SAVED_ID
+			GROUP BY A.USER_ID, A.SAVED_ID, B.SAVED_NAME
+		)
+		GROUP BY SAVED_NAME
+		HAVING MAX(CHK_AMT) > 50000
+    </select>
+
+    <select id="getCommmonValue" resultClass="string" parameterClass="string">
+    	SELECT CODE_VALUE FROM T_COMMON_CODE WHERE CODE_KEY = #codeKey#
+    </select>
+
+    -->
+</sqlMap>

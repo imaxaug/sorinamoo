@@ -1,6 +1,7 @@
 package kr.co.crewmate.site.model;
 
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -14,8 +15,8 @@ import java.util.Date;
  * @date 2013. 5. 22.
  */
 public class Product extends ToString {
-    private String goodsCode;
-    private String goodsName;
+    private String productId;
+    private String productName;
     private int hitCount;
     private int likeCount;
     private String useYN;
@@ -25,25 +26,20 @@ public class Product extends ToString {
     private String hot;
     private String best;
     private String descTitle;
-    private String descCont;
+    private String description;
     private String color;
     private String size;
     private String price;
     private String extraPrice;
     private String type;
+    private String filePath;
+    private String catalog;
+    private String category;
+    private String sizeFilePath;
+    private String sizeFileName;
+    private List<Canvas> canvas;
+    private List<List<ColorSize>> colorAry;
 
-	public String getGoodsCode() {
-		return goodsCode;
-	}
-	public void setGoodsCode(String goodsCode) {
-		this.goodsCode = goodsCode;
-	}
-	public String getGoodsName() {
-		return goodsName;
-	}
-	public void setGoodsName(String goodsName) {
-		this.goodsName = goodsName;
-	}
 	public int getHitCount() {
 		return hitCount;
 	}
@@ -98,12 +94,6 @@ public class Product extends ToString {
 	public void setDescTitle(String descTitle) {
 		this.descTitle = descTitle;
 	}
-	public String getDescCont() {
-		return descCont;
-	}
-	public void setDescCont(String descCont) {
-		this.descCont = descCont;
-	}
 	public String getColor() {
 		return color;
 	}
@@ -133,6 +123,66 @@ public class Product extends ToString {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	public String getProductId() {
+		return productId;
+	}
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+	public String getFilePath() {
+		return filePath;
+	}
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+	public String getCatalog() {
+		return catalog;
+	}
+	public void setCatalog(String catalog) {
+		this.catalog = catalog;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public List<Canvas> getCanvas() {
+		return canvas;
+	}
+	public void setCanvas(List<Canvas> canvas) {
+		this.canvas = canvas;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getSizeFilePath() {
+		return sizeFilePath;
+	}
+	public void setSizeFilePath(String sizeFilePath) {
+		this.sizeFilePath = sizeFilePath;
+	}
+	public String getSizeFileName() {
+		return sizeFileName;
+	}
+	public List<List<ColorSize>> getColorAry() {
+		return colorAry;
+	}
+	public void setColorAry(List<List<ColorSize>> colorAry) {
+		this.colorAry = colorAry;
+	}
+	public void setSizeFileName(String sizeFileName) {
+		this.sizeFileName = sizeFileName;
 	}
 
 }
