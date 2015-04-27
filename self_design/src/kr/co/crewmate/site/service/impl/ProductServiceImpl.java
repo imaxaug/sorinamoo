@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import kr.co.crewmate.site.dao.ProductDao;
 import kr.co.crewmate.site.model.ColorSize;
 import kr.co.crewmate.site.model.Product;
+import kr.co.crewmate.site.model.TypeSize;
 import kr.co.crewmate.site.model.product.ProductCriteria;
 import kr.co.crewmate.site.service.ProductService;
 
@@ -49,5 +50,20 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> getProductColor(ProductCriteria param) {
 		return this.productDao.getProductColor(param);
+	}
+
+	@Override
+	public List<Product> getProductType(ProductCriteria param) {
+		return this.productDao.getProductType(param);
+	}
+
+	@Override
+	public List<TypeSize> getTypeSizeList(Product param) {
+		return this.productDao.getTypeSizeList(param);
+	}
+
+	@Override
+	public List<Product> getProductSize(ProductCriteria param) {
+		return this.productDao.getProductSize(param);
 	}
 }

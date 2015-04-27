@@ -1,6 +1,7 @@
 package kr.co.crewmate.site.model;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -38,7 +39,10 @@ public class Product extends ToString {
     private String sizeFilePath;
     private String sizeFileName;
     private List<Canvas> canvas;
-    private List<List<ColorSize>> colorAry;
+    private HashMap<String, List<ColorSize>> colorAry;
+    private HashMap<String, List<TypeSize>> typeAry;
+    private List<CommonCode> oriSize;
+    private List<Product> sizes;
 
 	public int getHitCount() {
 		return hitCount;
@@ -175,14 +179,32 @@ public class Product extends ToString {
 	public String getSizeFileName() {
 		return sizeFileName;
 	}
-	public List<List<ColorSize>> getColorAry() {
-		return colorAry;
-	}
-	public void setColorAry(List<List<ColorSize>> colorAry) {
-		this.colorAry = colorAry;
-	}
 	public void setSizeFileName(String sizeFileName) {
 		this.sizeFileName = sizeFileName;
+	}
+	public HashMap<String, List<ColorSize>> getColorAry() {
+		return colorAry;
+	}
+	public void setColorAry(HashMap<String, List<ColorSize>> colorAry) {
+		this.colorAry = colorAry;
+	}
+	public HashMap<String, List<TypeSize>> getTypeAry() {
+		return typeAry;
+	}
+	public void setTypeAry(HashMap<String, List<TypeSize>> typeAry) {
+		this.typeAry = typeAry;
+	}
+	public List<CommonCode> getOriSize() {
+		return oriSize;
+	}
+	public void setOriSize(List<CommonCode> oriSize) {
+		this.oriSize = oriSize;
+	}
+	public List<Product> getSizes() {
+		return sizes;
+	}
+	public void setSizes(List<Product> sizes) {
+		this.sizes = sizes;
 	}
 
 }

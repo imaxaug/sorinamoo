@@ -5,6 +5,7 @@ import java.util.List;
 import kr.co.crewmate.site.dao.ProductDao;
 import kr.co.crewmate.site.model.ColorSize;
 import kr.co.crewmate.site.model.Product;
+import kr.co.crewmate.site.model.TypeSize;
 import kr.co.crewmate.site.model.product.ProductCriteria;
 
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
@@ -39,5 +40,20 @@ public class SqlMapProductDao extends SqlMapClientDaoSupport implements ProductD
 	@Override
 	public List<Product> getProductColor(ProductCriteria param) {
 		return super.getSqlMapClientTemplate().queryForList("ProductSQL.getProductColor", param);
+	}
+
+	@Override
+	public List<Product> getProductType(ProductCriteria param) {
+		return super.getSqlMapClientTemplate().queryForList("ProductSQL.getProductType", param);
+	}
+
+	@Override
+	public List<TypeSize> getTypeSizeList(Product param) {
+		return super.getSqlMapClientTemplate().queryForList("ProductSQL.getTypeSizeList", param);
+	}
+
+	@Override
+	public List<Product> getProductSize(ProductCriteria param) {
+		return super.getSqlMapClientTemplate().queryForList("ProductSQL.getProductSize", param);
 	}
 }

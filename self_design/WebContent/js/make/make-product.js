@@ -443,7 +443,6 @@ $.widget('mp.designsController', {
 			}
 
 			if (confirm(l('삭제하시겠습니까?'))) {
-
 				$.get('/make_product/design/' + $design.attr('data-id') + '/remove', function(data) {
 					if (data.result == -1) {
 						showAlert(data.message);
@@ -732,8 +731,7 @@ $.widget('mp.productsController', {
 		var self = this;
 
 		$.get('/product/productList', function(products) {
-//			self._draw(products, next);
-			self._draw(products.data, next);//model.addAttribute("data", products); 변경으로 data 추가
+			self._draw(products.data, next);
 		});
 	},
 
@@ -931,7 +929,7 @@ $.widget('mp.editor', {
 		});
 
 		this.selectColor({
-			colorCode: this.options.selectedColorCode ? this.options.selectedColorCode : _.last(_.keys(this.option('baseProduct').colors))
+			colorCode: this.options.selectedColorCode ? this.options.selectedColorCode : _.last(_.keys(this.option('baseProduct').colorAry))
 		}, true);
 		this.options.selectedColorCode = null;
 
@@ -955,9 +953,10 @@ $.widget('mp.editor', {
 					$canvas.find('.mp-only-vector').remove();
 				}
 
+				//file_type의 뜻을 알면 product_id, type으로만 맞는 size만 가지고 오면 됨.
 				$canvas.attr('data-sort', canvas.sort);
 				var size = _.find(this.option('baseProduct').sizeInfo[canvas.file_type], function(size) {
-					return size.code == $('.mp-editor-sizes').val();
+					return size.productSize == $('.mp-editor-sizes').val();
 				});
 
 				$canvas.attr('data-real-size-width', size.width);
@@ -1192,7 +1191,7 @@ $.widget('mp.editor', {
 		var self = this;
 		var baseProduct = this.option('baseProduct');
 		var colorCode = arg.colorCode || $(arg.currentTarget).attr('data-color-code');
-		var colorInfos = baseProduct.colors[colorCode];
+		var colorInfos = baseProduct.colorAry[colorCode];
 //		$('.mp-editor-sizes').html('<option value="none">사이즈 선택</option>');
 
 		$('.mp-editor-sizes').html('');
@@ -1241,7 +1240,7 @@ $.widget('mp.editor', {
 	},
 
 	sizeName: function(sizeCode) {
-		return _.find(this.option('baseProduct').ori_sizes, function(size) { return size.code == sizeCode })[name_locale];
+		return _.find(this.option('baseProduct').oriSize, function(size) { return size.codeKey == sizeCode }).codeValue;
 	},
 
 	image: function(type) {
@@ -1326,7 +1325,7 @@ $.widget('mp.editor', {
 		if (!currentColorCode) return;
 
 		var colorInfo =
-			_.find(this.option('baseProduct').colors[currentColorCode], function(info) {
+			_.find(this.option('baseProduct').colorAry[currentColorCode], function(info) {
 				return info.size == $('.mp-editor-sizes').val()
 			});
 

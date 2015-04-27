@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.co.crewmate.site.model.ColorSize;
 import kr.co.crewmate.site.model.Product;
+import kr.co.crewmate.site.model.TypeSize;
 import kr.co.crewmate.site.model.product.ProductCriteria;
 
 /**
@@ -22,6 +23,12 @@ public interface ProductService {
 
     List<ColorSize> getColorSizeList(Product param);
 
+    List<TypeSize> getTypeSizeList(Product param);
+
     List<Product> getProductColor(ProductCriteria param);
+
+    List<Product> getProductType(ProductCriteria param);
+
+    List<Product> getProductSize(ProductCriteria param);
 
 }

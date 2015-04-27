@@ -12,7 +12,7 @@
     <title>---------------------------</title>
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=EDGE"/>
-    <link rel="image_src" href="https://www.marketpress.co.kr/img/fb.png" />
+    <link rel="image_src" href="" />
     <link rel="stylesheet" href="/css/all.css"/>
 
     <script type="text/javascript" src="/js/jquery/jquery-1.9.1.min.js"></script>
