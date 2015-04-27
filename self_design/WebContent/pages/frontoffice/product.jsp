@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import = "java.util.Enumeration" %>
-<%@ page isELIgnored="true" %>
+<%@ page isELIgnored="false" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib uri="http://www.ssgdfs.com/taglib/ui" prefix="ui" %>
@@ -14,23 +14,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=EDGE"/>
     <link rel="image_src" href="https://www.marketpress.co.kr/img/fb.png" />
     <link rel="stylesheet" href="/css/all.css"/>
-    <!--
-    <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
-     -->
+
     <script type="text/javascript" src="/js/jquery/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="/js/jquery/jquery-ui-1.9.2.custom.min.js"></script>
     <script type="text/javascript" src="/js/jquery/jquery.iframe-transport.js"></script>
     <script type="text/javascript" src="/js/jquery/jquery.fileupload.js"></script>
-    <!--
-    <script type="text/javascript" src="/js/jquery/jquery.tmpl.min.js"></script>
-     -->
     <script type="text/javascript" src="/js/jquery/jquery-tmpl/jquery.tmpl.js"></script>
 
     <script type="text/javascript" src="/js/jquery/jquery.transit.min.js"></script>
     <script type="text/javascript" src="/js/jquery/jquery.mousewheel.min.js"></script>
     <script type="text/javascript" src="/js/lib.js"></script>
     <script type="text/javascript" src="/js/validation.js"></script>
-    <script type="text/javascript" src="http://malsup.github.com/jquery.form.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery.form.js"></script>
 
     <script type="text/javascript" src="/js/pkgd/imagesloaded.pkgd.min.js"></script>
     <script type="text/javascript" src="/js/pkgd/masonry.pkgd.min.js"></script>
@@ -874,7 +869,7 @@
 JSP 의 EL 을 사용하면 보통 '${}' keyword를 이용하여 context value를 레퍼런스 할 수 있다.
 최근에 jQuery tmpl을 자주 사용하는데 같은 키워드 ${} 를 이용하게 되어서 문제가 되었습니다.
 jQuery tmpl를 {{html }}으로 수정하면 해결할 수 있으나, 근본적인 해결책은 <%@ page isELIgnored="true" %>를 해주어야 한다.
-
+--%>
 <script id="tFace" type="text/x-jquery-tmpl">
 <div class="face"
     data-file-type="{{html file_type}}"
@@ -905,8 +900,8 @@ jQuery tmpl를 {{html }}으로 수정하면 해결할 수 있으나, 근본적�
     <div class="option"><img src="/img/icons/glyphicons_136_cogwheel.png" title="편집" /></div>
 </div>
 </script>
---%>
 
+<%--
 <script id="tFace" type="text/x-jquery-tmpl">
 <div class="face"
     data-file-type="${file_type}"
@@ -937,8 +932,7 @@ jQuery tmpl를 {{html }}으로 수정하면 해결할 수 있으나, 근본적�
     <div class="option"><img src="/img/icons/glyphicons_136_cogwheel.png" title="편집" /></div>
 </div>
 </script>
-
-
+--%>
 
 <div class="mp-context-menu">
     <ul>

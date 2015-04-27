@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import kr.co.crewmate.site.dao.CommonCodeDao;
 import kr.co.crewmate.site.dao.UserDao;
+import kr.co.crewmate.site.model.Color;
 import kr.co.crewmate.site.model.CommonCode;
 import kr.co.crewmate.site.model.ListResult;
 import kr.co.crewmate.site.model.LoginUser;
@@ -42,5 +43,10 @@ public class CommonCodeServiceImpl implements CommonCodeService {
 	@Override
 	public List<CommonCode> getCommonCode(CommonCode codeClass) {
 		return this.commonCodeDao.getCommonCode(codeClass);
+	}
+
+	@Override
+	public List<Color> getColorCode(String codeKey) {
+		return this.commonCodeDao.getColorCode(codeKey);
 	}
 }

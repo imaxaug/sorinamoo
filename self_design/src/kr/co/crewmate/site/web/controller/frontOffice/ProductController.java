@@ -1,12 +1,15 @@
 package kr.co.crewmate.site.web.controller.frontOffice;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.crewmate.site.model.Color;
+import kr.co.crewmate.site.model.ColorSize;
 import kr.co.crewmate.site.model.CommonCode;
 import kr.co.crewmate.site.model.Design;
 import kr.co.crewmate.site.model.DesignCriteria;
@@ -77,14 +80,32 @@ public class ProductController extends FrontOfficeController {
     	if(!StringUtils.isEmpty(criteria.getBaseProduct())) {
     		criteria.setProductId(criteria.getBaseProduct());
     	} else {
-//    		criteria.setProductId(BASE_PRODUCT);
-    		return new ModelAndView(String.format("redirect:/make_product?base_product=%s", BASE_PRODUCT));
+    		return new ModelAndView(String.format("redirect:/make_product?baseProduct=%s", BASE_PRODUCT));
     	}
 
-    	Product product = this.productService.getProductDetail(criteria);
+    	Product product = this.getDetailProduct(criteria);
 
     	model.addAttribute("product", product);
     	return new ModelAndView("frontoffice/product");
+    }
+
+
+    public Product getDetailProduct(ProductCriteria criteria) {
+
+    	Product product = this.productService.getProductDetail(criteria);
+    	List<Product> color = this.productService.getProductColor(criteria);
+    	List<List<ColorSize>> colorAry = new ArrayList();
+
+    	for(Product c : color) {
+    		List<ColorSize> colorList = this.productService.getColorSizeList(c);
+     		colorAry.add(colorList);
+    	}
+
+    	if(product != null) {
+    		product.setColorAry(colorAry);
+    	}
+
+    	return product;
     }
 
     @RequestMapping("/product")
@@ -208,10 +229,10 @@ public class ProductController extends FrontOfficeController {
 
     @RequestMapping("/make_product/base_product/{productId}")
     public View baseProduct(ModelMap model, @PathVariable("productId") String productId) {
-    	ProductCriteria param = new ProductCriteria();
-    	param.setProductId(productId);
+    	ProductCriteria criteria = new ProductCriteria();
+    	criteria.setProductId(productId);
 
-    	Product product = this.productService.getProductDetail(param);
+    	Product product = this.getDetailProduct(criteria);
 
     	model.addAttribute("data", product);
     	return new MappingJacksonJsonView();

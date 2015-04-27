@@ -19,7 +19,14 @@ public class ColorSize extends ToString {
     private String price;
     private String extraPrice;
     private String useYn;
+    private String colorName;
 
+	public String getColorName() {
+		return colorName;
+	}
+	public void setColorName(String colorName) {
+		this.colorName = colorName;
+	}
 	public String getColor() {
 		return color;
 	}

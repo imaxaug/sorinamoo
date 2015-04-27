@@ -2,14 +2,9 @@ package kr.co.crewmate.site.dao;
 
 import java.util.List;
 
-import kr.co.crewmate.site.model.CommonCode;
-import kr.co.crewmate.site.model.Design;
-import kr.co.crewmate.site.model.ListResult;
+import kr.co.crewmate.site.model.ColorSize;
 import kr.co.crewmate.site.model.Product;
-import kr.co.crewmate.site.model.user.User;
-import kr.co.crewmate.site.model.user.UserCriteria;
-import kr.co.crewmate.site.model.user.UserLoginForm;
-import kr.co.crewmate.site.model.user.UserLoginHistory;
+import kr.co.crewmate.site.model.product.ProductCriteria;
 
 /**
  *
@@ -24,4 +19,8 @@ public interface ProductDao {
 	List<Product> getProductList(Product param);
 
 	Product getProductDetail(Product param);
+
+	List<ColorSize> getColorSizeList(Product param);
+
+	List<Product> getProductColor(ProductCriteria param);
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.co.crewmate.site.dao.CommonCodeDao;
 import kr.co.crewmate.site.dao.UserDao;
+import kr.co.crewmate.site.model.Color;
 import kr.co.crewmate.site.model.CommonCode;
 import kr.co.crewmate.site.model.ListResult;
 import kr.co.crewmate.site.model.user.User;
@@ -28,6 +29,11 @@ public class SqlMapCommonCodeDao extends SqlMapClientDaoSupport implements Commo
 	@Override
 	public List<CommonCode> getCommonCode(CommonCode codeClass) {
 		return super.getSqlMapClientTemplate().queryForList("CommonCodeSQL.getCommonCode", codeClass);
+	}
+
+	@Override
+	public List<Color> getColorCode(String codeKey) {
+		return super.getSqlMapClientTemplate().queryForList("CommonCodeSQL.getColorCode", codeKey);
 	}
 
 }

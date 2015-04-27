@@ -38,7 +38,7 @@ public class Product extends ToString {
     private String sizeFilePath;
     private String sizeFileName;
     private List<Canvas> canvas;
-    private List<List<Color>> colorAry;
+    private List<List<ColorSize>> colorAry;
 
 	public int getHitCount() {
 		return hitCount;
@@ -160,12 +160,6 @@ public class Product extends ToString {
 	public void setCanvas(List<Canvas> canvas) {
 		this.canvas = canvas;
 	}
-	public List<List<Color>> getColorAry() {
-		return colorAry;
-	}
-	public void setColorAry(List<List<Color>> colorAry) {
-		this.colorAry = colorAry;
-	}
 	public String getDescription() {
 		return description;
 	}
@@ -180,6 +174,12 @@ public class Product extends ToString {
 	}
 	public String getSizeFileName() {
 		return sizeFileName;
+	}
+	public List<List<ColorSize>> getColorAry() {
+		return colorAry;
+	}
+	public void setColorAry(List<List<ColorSize>> colorAry) {
+		this.colorAry = colorAry;
 	}
 	public void setSizeFileName(String sizeFileName) {
 		this.sizeFileName = sizeFileName;
