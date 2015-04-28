@@ -4,6 +4,8 @@
     <typeAlias alias="product" type="kr.co.crewmate.site.model.Product"/>
     <typeAlias alias="productCriteria" type="kr.co.crewmate.site.model.product.ProductCriteria"/>
     <typeAlias alias="colorSize" type="kr.co.crewmate.site.model.ColorSize"/>
+    <typeAlias alias="typeSize" type="kr.co.crewmate.site.model.TypeSize"/>
+    <typeAlias alias="canvas" type="kr.co.crewmate.site.model.Canvas"/>
 
     <select id="getProductList" resultClass="product" parameterClass="product">
 		SELECT PRODUCT_ID productId
@@ -32,6 +34,7 @@
            AND PRODUCT_ID = #productId#
     </select>
 
+    <!--
     <select id="getColorSizeList" resultClass="colorSize" parameterClass="product">
         SELECT A.COLOR color
              , A.SIZE size
@@ -43,11 +46,114 @@
            AND A.COLOR = #color#
            AND A.COLOR = B.CODE_KEY
            AND B.CODE_CLASS = 'COLOR'
+         ORDER BY A.SIZE
+    </select>
+    -->
+
+    <!--
+    <select id="getTypeSizeList" resultClass="typeSize" parameterClass="product">
+        SELECT A.PRODUCT_TYPE productType
+             , A.PRODUCT_SIZE productSize
+             , LOC_TOP locTop
+             , LOC_LEFT locLeft
+             , LOC_WIDTH locWidth
+             , LOC_HEIGHT locHeight
+             , PRODUCT_ID productId
+             , B.CODE_VALUE sizeName
+          FROM TYPE_SIZE A, COMMON_CODE B
+         WHERE A.USE_YN = 'Y'
+           AND A.product_type = #type#
+           AND A.product_size = B.CODE_KEY
+           AND B.CODE_CLASS = 'SIZE'
+    </select>
+     -->
+
+    <select id="getTypeSizeList" resultClass="typeSize" parameterClass="product">
+        SELECT A.FILE_TYPE
+             , B.SIZE
+             , A.LOC_TOP
+             , A.LOC_LEFT
+             , A.LOC_WIDTH
+             , A.LOC_HEIGHT
+             , C.CODE_VALUE SIZENAME
+             , A.PRODUCT_ID
+         FROM PRODUCT_TYPE A, PRODUCT_SIZE B, COMMON_CODE C
+        WHERE A.PRODUCT_ID = B.PRODUCT_ID
+          AND A.PRODUCT_ID = #productId#
+          <isNotEmpty property="color" prepend="AND">
+          A.FILE_TYPE = #type#
+          </isNotEmpty>
+          AND C.CODE_CLASS = 'SIZE'
+          AND B.SIZE = C.CODE_KEY
+        ORDER BY A.FILE_TYPE, B.SIZE
     </select>
 
-    <select id="getProductColor" resultClass="product" parameterClass="productCriteria">
+    <select id="getProductColor" resultClass="product" parameterClass="product">
         SELECT COLOR color
           FROM PRODUCT_COLOR
          WHERE PRODUCT_ID = #productId#
+         ORDER BY COLOR
     </select>
+
+    <select id="getProductType" resultClass="product" parameterClass="product">
+        SELECT TYPE type
+          FROM PRODUCT_TYPE
+         WHERE PRODUCT_ID = #productId#
+    </select>
+
+    <select id="getProductSize" resultClass="String" parameterClass="product">
+        SELECT SIZE size
+          FROM PRODUCT_SIZE
+         WHERE PRODUCT_ID = #productId#
+         ORDER BY SIZE
+    </select>
+
+    <select id="getCanvasList" resultClass="canvas" parameterClass="product">
+        SELECT TYPE type
+             , FILE_TYPE fileType
+             , LOC_TOP locTop
+             , LOC_LEFT locLeft
+             , LOC_WIDTH locWidth
+             , LOC_HEIGHT locHeight
+             , PRICE price
+             , CASE ONLY_VECTOR
+                    WHEN 'N' THEN 'false'
+                    WHEN 'Y' THEN 'true'
+               END onlyVector
+             , CONCAT('http://www.marpple.com', FILE_PATH) filePath
+             , FILE_NAME fileName
+             , SORT sort
+          FROM PRODUCT_TYPE
+         WHERE PRODUCT_ID = #productId#
+         ORDER BY SORT
+    </select>
+
+    <select id="getFileList" resultClass="product" parameterClass="product">
+		SELECT FILE_TYPE type
+		     , COLOR color
+		     , CONCAT('http://www.marpple.com', FILE_PATH) filePath
+		     , FILE_NAME fileName
+		     , SORT sort
+		  FROM PRODUCT_TYPE A, PRODUCT_COLOR B
+		 WHERE A.PRODUCT_ID = B.PRODUCT_ID
+		   AND A.PRODUCT_ID = #productId#
+    </select>
+
+    <select id="getPriceList" resultClass="colorSize" parameterClass="product">
+		SELECT COLOR color
+		     , SIZE size
+		     , PRICE price
+		     , B.EXTRA_PRICE extraPrice
+		     , CODE_VALUE colorName
+ 		  FROM PRODUCT_SIZE A, PRODUCT_COLOR B, COMMON_CODE C
+		 WHERE A.PRODUCT_ID = B.PRODUCT_ID
+		   AND A.PRODUCT_ID = #productId#
+		   <isNotEmpty property="color" prepend="AND">
+		   B.COLOR = #color#
+		   </isNotEmpty>
+		   AND B.COLOR = C.CODE_KEY
+		   AND C.CODE_CLASS = 'COLOR'
+		 ORDER BY COLOR, SIZE
+    </select>
+
 </sqlMap>
