@@ -29,11 +29,11 @@ public interface ProductService {
 
     List<Product> getProductType(Product param);
 
-    List<Product> getProductSize(Product param);
+    List<String> getProductSize(Product param);
 
     List<Canvas> getCanvasList(Product param);
 
     List<Product> getFileList(Product param);
 
-    List<Product> getPriceList(Product param);
+    List<ColorSize> getPriceList(Product param);
 }

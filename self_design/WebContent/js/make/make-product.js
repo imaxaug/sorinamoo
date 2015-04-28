@@ -336,19 +336,6 @@ $.widget('mp.designsController', {
 
 	_draw: function(items, isFirst) {
 		var html = '';
-//		var listView = new infinity.ListView(this.element.find('.mp-designs'));
-//		_.each(items, function(item) {
-//			html =
-//				'<li class="mp-design" ' +
-//					'data-id="' + item.id + '" ' +
-//					'data-description="' + item.description + '"' +
-//					'data-title="' + item.title + '">' +
-//					'<img data-src="' + item.filepath.replace('_thumbnail.png', '.png') + '"' +
-//					' src="' + item.filepath + '" alt="' + item.title  + '"/>' +
-//				'</li>';
-//			this._listView.append(html);
-//		}, this);
-
 		_.each(items, function(item) {
 			html +=
 				'<li class="mp-design" ' +
@@ -360,7 +347,7 @@ $.widget('mp.designsController', {
 					'data-title="' + item.designName + '"' +
 					'data-width="' + item.width + '"' +
 					'data-height="' + item.height + '">' +
-					'<img data-src="' + item.filePath.replace('_thumbnail.png', '.png') + '"' +
+					'<img data-src="' + item.filePath.replace("_thumbnail.png", ".png") + '"' +
 						'src="' + item.filePath + '" alt="' + item.designName  + '"/>' +
 					(this.element.is('#freeDesignLayer') ? '' : '<img src="/img/icons/glyphicons_197_remove.png" class="remove" title="삭제">') +
 					(item.price > 0 ? '<span>' + commify(item.price) + '</span>' : '') +
@@ -376,9 +363,6 @@ $.widget('mp.designsController', {
 		}
 
 		this.option('loading', false);
-
-//		if (this.element.find('.designerBox').length)
-//			this.element.find('.mp-designs .mp-design:eq(0)').click();
 	},
 
 	_scroll: function(e) {
@@ -1239,7 +1223,7 @@ $.widget('mp.editor', {
 	},
 
 	sizeName: function(sizeCode) {
-		return _.find(this.option('baseProduct').oriSize, function(size) { return size.codeKey == sizeCode }).codeValue;
+		return _.find(this.option('baseProduct').oriSizes, function(size) { return size.codeKey == sizeCode }).codeValue;
 	},
 
 	image: function(type) {

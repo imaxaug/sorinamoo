@@ -40,10 +40,10 @@ public class Product extends ToString {
     private String sizeFilePath;
     private String sizeFileName;
     private List<Canvas> canvas;
-    private LinkedHashMap<String, List<Product>> colorAry;
+    private LinkedHashMap<String, List<ColorSize>> colorAry;
     private LinkedHashMap<String, List<TypeSize>> typeAry;
     private List<CommonCode> oriSizes;
-    private List<Product> sizes;
+    private List<String> sizes;
     private List<Product> files;
     private List<Product> prices;
 
@@ -191,12 +191,6 @@ public class Product extends ToString {
 	public void setTypeAry(LinkedHashMap<String, List<TypeSize>> typeAry) {
 		this.typeAry = typeAry;
 	}
-	public List<Product> getSizes() {
-		return sizes;
-	}
-	public void setSizes(List<Product> sizes) {
-		this.sizes = sizes;
-	}
 	public List<CommonCode> getOriSizes() {
 		return oriSizes;
 	}
@@ -215,11 +209,17 @@ public class Product extends ToString {
 	public void setPrices(List<Product> prices) {
 		this.prices = prices;
 	}
-	public HashMap<String, List<Product>> getColorAry() {
+	public HashMap<String, List<ColorSize>> getColorAry() {
 		return colorAry;
 	}
-	public void setColorAry(LinkedHashMap<String, List<Product>> colorAry) {
+	public void setColorAry(LinkedHashMap<String, List<ColorSize>> colorAry) {
 		this.colorAry = colorAry;
+	}
+	public List<String> getSizes() {
+		return sizes;
+	}
+	public void setSizes(List<String> sizes) {
+		this.sizes = sizes;
 	}
 
 }

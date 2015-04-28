@@ -63,7 +63,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> getProductSize(Product param) {
+	public List<String> getProductSize(Product param) {
 		return this.productDao.getProductSize(param);
 	}
 
@@ -78,7 +78,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> getPriceList(Product param) {
+	public List<ColorSize> getPriceList(Product param) {
 		return this.productDao.getPriceList(param);
 	}
 }

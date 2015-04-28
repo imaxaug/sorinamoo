@@ -53,7 +53,7 @@ public class SqlMapProductDao extends SqlMapClientDaoSupport implements ProductD
 	}
 
 	@Override
-	public List<Product> getProductSize(Product param) {
+	public List<String> getProductSize(Product param) {
 		return super.getSqlMapClientTemplate().queryForList("ProductSQL.getProductSize", param);
 	}
 
@@ -68,7 +68,7 @@ public class SqlMapProductDao extends SqlMapClientDaoSupport implements ProductD
 	}
 
 	@Override
-	public List<Product> getPriceList(Product param) {
+	public List<ColorSize> getPriceList(Product param) {
 		return super.getSqlMapClientTemplate().queryForList("ProductSQL.getPriceList", param);
 	}
 }

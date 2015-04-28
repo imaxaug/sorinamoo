@@ -79,7 +79,7 @@
          WHERE PRODUCT_ID = #productId#
     </select>
 
-    <select id="getProductSize" resultClass="product" parameterClass="product">
+    <select id="getProductSize" resultClass="String" parameterClass="product">
         SELECT SIZE size
           FROM PRODUCT_SIZE
          WHERE PRODUCT_ID = #productId#
@@ -117,7 +117,7 @@
 		   AND A.PRODUCT_ID = #productId#
     </select>
 
-    <select id="getPriceList" resultClass="product" parameterClass="product">
+    <select id="getPriceList" resultClass="colorSize" parameterClass="product">
 		SELECT COLOR color
 		     , SIZE size
 		     , PRICE price
