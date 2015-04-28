@@ -5,10 +5,10 @@ import java.util.List;
 import javax.inject.Inject;
 
 import kr.co.crewmate.site.dao.ProductDao;
+import kr.co.crewmate.site.model.Canvas;
 import kr.co.crewmate.site.model.ColorSize;
 import kr.co.crewmate.site.model.Product;
 import kr.co.crewmate.site.model.TypeSize;
-import kr.co.crewmate.site.model.product.ProductCriteria;
 import kr.co.crewmate.site.service.ProductService;
 
 import org.springframework.stereotype.Service;
@@ -48,12 +48,12 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> getProductColor(ProductCriteria param) {
+	public List<Product> getProductColor(Product param) {
 		return this.productDao.getProductColor(param);
 	}
 
 	@Override
-	public List<Product> getProductType(ProductCriteria param) {
+	public List<Product> getProductType(Product param) {
 		return this.productDao.getProductType(param);
 	}
 
@@ -63,7 +63,22 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> getProductSize(ProductCriteria param) {
+	public List<Product> getProductSize(Product param) {
 		return this.productDao.getProductSize(param);
+	}
+
+	@Override
+	public List<Canvas> getCanvasList(Product param) {
+		return this.productDao.getCanvasList(param);
+	}
+
+	@Override
+	public List<Product> getFileList(Product param) {
+		return this.productDao.getFileList(param);
+	}
+
+	@Override
+	public List<Product> getPriceList(Product param) {
+		return this.productDao.getPriceList(param);
 	}
 }

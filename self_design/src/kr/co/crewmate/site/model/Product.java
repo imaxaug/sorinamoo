@@ -2,6 +2,7 @@ package kr.co.crewmate.site.model;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 
@@ -39,10 +40,12 @@ public class Product extends ToString {
     private String sizeFilePath;
     private String sizeFileName;
     private List<Canvas> canvas;
-    private HashMap<String, List<ColorSize>> colorAry;
-    private HashMap<String, List<TypeSize>> typeAry;
-    private List<CommonCode> oriSize;
+    private LinkedHashMap<String, List<Product>> colorAry;
+    private LinkedHashMap<String, List<TypeSize>> typeAry;
+    private List<CommonCode> oriSizes;
     private List<Product> sizes;
+    private List<Product> files;
+    private List<Product> prices;
 
 	public int getHitCount() {
 		return hitCount;
@@ -182,29 +185,41 @@ public class Product extends ToString {
 	public void setSizeFileName(String sizeFileName) {
 		this.sizeFileName = sizeFileName;
 	}
-	public HashMap<String, List<ColorSize>> getColorAry() {
-		return colorAry;
-	}
-	public void setColorAry(HashMap<String, List<ColorSize>> colorAry) {
-		this.colorAry = colorAry;
-	}
 	public HashMap<String, List<TypeSize>> getTypeAry() {
 		return typeAry;
 	}
-	public void setTypeAry(HashMap<String, List<TypeSize>> typeAry) {
+	public void setTypeAry(LinkedHashMap<String, List<TypeSize>> typeAry) {
 		this.typeAry = typeAry;
-	}
-	public List<CommonCode> getOriSize() {
-		return oriSize;
-	}
-	public void setOriSize(List<CommonCode> oriSize) {
-		this.oriSize = oriSize;
 	}
 	public List<Product> getSizes() {
 		return sizes;
 	}
 	public void setSizes(List<Product> sizes) {
 		this.sizes = sizes;
+	}
+	public List<CommonCode> getOriSizes() {
+		return oriSizes;
+	}
+	public void setOriSizes(List<CommonCode> oriSizes) {
+		this.oriSizes = oriSizes;
+	}
+	public List<Product> getFiles() {
+		return files;
+	}
+	public void setFiles(List<Product> files) {
+		this.files = files;
+	}
+	public List<Product> getPrices() {
+		return prices;
+	}
+	public void setPrices(List<Product> prices) {
+		this.prices = prices;
+	}
+	public HashMap<String, List<Product>> getColorAry() {
+		return colorAry;
+	}
+	public void setColorAry(LinkedHashMap<String, List<Product>> colorAry) {
+		this.colorAry = colorAry;
 	}
 
 }

@@ -2,10 +2,10 @@ package kr.co.crewmate.site.dao;
 
 import java.util.List;
 
+import kr.co.crewmate.site.model.Canvas;
 import kr.co.crewmate.site.model.ColorSize;
 import kr.co.crewmate.site.model.Product;
 import kr.co.crewmate.site.model.TypeSize;
-import kr.co.crewmate.site.model.product.ProductCriteria;
 
 /**
  *
@@ -25,9 +25,15 @@ public interface ProductDao {
 
 	List<TypeSize> getTypeSizeList(Product param);
 
-	List<Product> getProductColor(ProductCriteria param);
+	List<Product> getProductColor(Product param);
 
-	List<Product> getProductType(ProductCriteria param);
+	List<Product> getProductType(Product param);
 
-	List<Product> getProductSize(ProductCriteria param);
+	List<Product> getProductSize(Product param);
+
+	List<Canvas> getCanvasList(Product param);
+
+	List<Product> getFileList(Product param);
+
+	List<Product> getPriceList(Product param);
 }

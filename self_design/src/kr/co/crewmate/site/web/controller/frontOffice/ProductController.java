@@ -1,15 +1,15 @@
 package kr.co.crewmate.site.web.controller.frontOffice;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.crewmate.site.model.ColorSize;
+import kr.co.crewmate.site.model.Canvas;
 import kr.co.crewmate.site.model.CommonCode;
 import kr.co.crewmate.site.model.Design;
 import kr.co.crewmate.site.model.DesignCriteria;
@@ -98,19 +98,22 @@ public class ProductController extends FrontOfficeController {
     	Product product = this.productService.getProductDetail(criteria);
     	List<Product> color = this.productService.getProductColor(criteria);
     	List<Product> type = this.productService.getProductType(criteria);
-    	List<Product> sizes = this.productService.getProductType(criteria);
+    	List<Product> sizes = this.productService.getProductSize(criteria);
+    	List<Canvas> canvas = this.productService.getCanvasList(criteria);
+    	List<Product> files = this.productService.getFileList(criteria);
+    	List<Product> prices = this.productService.getFileList(criteria);
 
-    	HashMap<String, List<ColorSize>> colorAry = new HashMap<String, List<ColorSize>>();
-    	HashMap<String, List<TypeSize>> typeAry = new HashMap<String, List<TypeSize>>();
+    	LinkedHashMap<String, List<Product>> colorAry = new LinkedHashMap<String, List<Product>>();
+    	LinkedHashMap<String, List<TypeSize>> typeAry = new LinkedHashMap<String, List<TypeSize>>();
 
     	CommonCode codeClass = new CommonCode();
     	codeClass.setCodeClass(SIZE);
     	List<CommonCode> list = this.commonCodeService.getCommonCode(codeClass);
-    	
-    	
 
     	for(Product c : color) {
-    		List<ColorSize> colorList = this.productService.getColorSizeList(c);
+    		c.setProductId(criteria.getProductId());
+
+    		List<Product> colorList = this.productService.getPriceList(c);
      		colorAry.put(c.getColor(), colorList);
     	}
 
@@ -122,7 +125,11 @@ public class ProductController extends FrontOfficeController {
     	if(product != null) {
     		product.setColorAry(colorAry);
     		product.setTypeAry(typeAry);
-    		product.setOriSize(list);
+    		product.setOriSizes(list);
+    		product.setSizes(sizes);
+    		product.setCanvas(canvas);
+    		product.setFiles(files);
+    		product.setPrices(prices);
     	}
 
     	return product;

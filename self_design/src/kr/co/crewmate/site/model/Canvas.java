@@ -26,6 +26,12 @@ public class Canvas extends ToString {
     private String fileType;
     private String fileName;
     private String sort;
+
+    private String locTop;
+    private String locLeft;
+    private String locWidth;
+    private String locHeight;
+
 	public String getType() {
 		return type;
 	}
@@ -97,6 +103,30 @@ public class Canvas extends ToString {
 	}
 	public void setSort(String sort) {
 		this.sort = sort;
+	}
+	public String getLocTop() {
+		return locTop;
+	}
+	public void setLocTop(String locTop) {
+		this.locTop = locTop;
+	}
+	public String getLocLeft() {
+		return locLeft;
+	}
+	public void setLocLeft(String locLeft) {
+		this.locLeft = locLeft;
+	}
+	public String getLocWidth() {
+		return locWidth;
+	}
+	public void setLocWidth(String locWidth) {
+		this.locWidth = locWidth;
+	}
+	public String getLocHeight() {
+		return locHeight;
+	}
+	public void setLocHeight(String locHeight) {
+		this.locHeight = locHeight;
 	}
 
 }

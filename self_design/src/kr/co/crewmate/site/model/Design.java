@@ -24,6 +24,8 @@ public class Design extends ToString {
     private String category;
     private int width;
     private int height;
+    private int locWidth;
+    private int locHeight;
 
 	public String getDesignId() {
 		return designId;
@@ -84,5 +86,17 @@ public class Design extends ToString {
 	}
 	public void setHeight(int height) {
 		this.height = height;
+	}
+	public int getLocWidth() {
+		return locWidth;
+	}
+	public void setLocWidth(int locWidth) {
+		this.locWidth = locWidth;
+	}
+	public int getLocHeight() {
+		return locHeight;
+	}
+	public void setLocHeight(int locHeight) {
+		this.locHeight = locHeight;
 	}
 }

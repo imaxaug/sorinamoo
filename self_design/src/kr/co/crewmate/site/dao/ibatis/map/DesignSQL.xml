@@ -9,8 +9,8 @@
 		     , CONCAT('http://www.marpple.com', FILE_PATH) filePath
 		     , description description
 		     , price price
-		     , ifnull(width, 0) width
-		     , ifnull(height, 0) height
+		     , ifnull(loc_width, 0) locWidth
+		     , ifnull(loc_height, 0) locHeight
 		  FROM DESIGN
 		 WHERE USE_YN = 'Y'
 		   <isNotEmpty property="price">

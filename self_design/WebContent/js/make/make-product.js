@@ -933,35 +933,35 @@ $.widget('mp.editor', {
 		}, true);
 		this.options.selectedColorCode = null;
 
-		var currentCanvasInfo = baseProduct.canvasInfo[0];
+		var currentCanvasInfo = baseProduct.canvas[0];
 		this._drawImage({
-			src: this.image(currentCanvasInfo.file_type),
-			fileType: currentCanvasInfo.file_type,
+			src: this.image(currentCanvasInfo.fileType),
+			fileType: currentCanvasInfo.fileType,
 			type: currentCanvasInfo.type,
 			mainCanvasInfo: this._mainCanvasInfo(currentCanvasInfo.sort)
 		}, $.proxy(function() {
 			var $faces = $('.mp-editor-faces').html('');
-			_.each(baseProduct.canvasInfo, function(canvas, i) {
-				var $canvas = this.element.find('.mp-editor-canvas[data-file-type="' + canvas.file_type + '"]');
+			_.each(baseProduct.canvas, function(canvas, i) {
+				var $canvas = this.element.find('.mp-editor-canvas[data-file-type="' + canvas.fileType + '"]');
 				if (!$canvas.length) {
 					$canvas = this._createCanvas(canvas);
 				}
 
-				if (canvas.only_vector && !$canvas.find('.mp-only-vector').length) {
+				if (canvas.onlyVector && !$canvas.find('.mp-only-vector').length) {
 					$canvas.append('<div class="mp-only-vector"><img src="/img/make/abletoprint.jpg" /></div>');
-				} else if (!canvas.only_vector && $canvas.find('.mp-only-vector').length) {
+				} else if (!canvas.onlyVector && $canvas.find('.mp-only-vector').length) {
 					$canvas.find('.mp-only-vector').remove();
 				}
 
 				//file_type의 뜻을 알면 product_id, type으로만 맞는 size만 가지고 오면 됨.
 				$canvas.attr('data-sort', canvas.sort);
-				var size = _.find(this.option('baseProduct').sizeInfo[canvas.file_type], function(size) {
+				var size = _.find(this.option('baseProduct').typeAry[canvas.fileType], function(size) {
 					return size.productSize == $('.mp-editor-sizes').val();
 				});
 
-				$canvas.attr('data-real-size-width', size.width);
-				$canvas.attr('data-real-size-height', size.height);
-				$canvas.find('.cm').text(size.width + 'cm x ' + size.height + 'cm');
+				$canvas.attr('data-real-size-width', size.locWidth);
+				$canvas.attr('data-real-size-height', size.locHeight);
+				$canvas.find('.cm').text(size.locWidth + 'cm x ' + size.locHeight + 'cm');
 				var rect = _.pick(canvas, 'top', 'left', 'width', 'height');
 				var $image = $('.mp-editor-image');
 				if (canvas.type == 'SUB') {
@@ -1152,12 +1152,11 @@ $.widget('mp.editor', {
 				next();
 			}).appendTo($image).attr('src', info.src);
 
-//			console.log($background, info.src);
 		});
 	},
 
 	drawDesigns: function(designs) {
-		// TODO 시연용 셋타임아웃
+		// 시연용 셋타임아웃
 //		setTimeout(_.bind(function() {
 			_.each(designs, function(design) {
 				var info = {
@@ -1234,7 +1233,7 @@ $.widget('mp.editor', {
 
 	_mainCanvasInfo: function(sort) {
 		sort = sort + '';
-		return _.find(this.option('baseProduct').canvasInfo, function(canvas) {
+		return _.find(this.option('baseProduct').canvas, function(canvas) {
 			return canvas.sort == sort.substr(0, 1) + '00';
 		})
 	},
@@ -1246,7 +1245,6 @@ $.widget('mp.editor', {
 	image: function(type) {
 		var baseProduct = this.option('baseProduct');
 		var currentColorCode = this._currentColorCode();
-//		console.log('hi~', currentColorCode);
 
 		var info = _.find(baseProduct.fileInfo, function(info) {
 			return info.color == currentColorCode && info.type == type;
@@ -1311,7 +1309,7 @@ $.widget('mp.editor', {
 			this.refreshPrice();
 			return false;
 		}
-		// 200 제한
+
 		if (ui.value >= 200) {
 			$('.mp-editor-quantity').spinner('value', 200);
 			this.refreshPrice();
