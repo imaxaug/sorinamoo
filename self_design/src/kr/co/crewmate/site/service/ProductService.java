@@ -2,9 +2,10 @@ package kr.co.crewmate.site.service;
 
 import java.util.List;
 
+import kr.co.crewmate.site.model.Canvas;
 import kr.co.crewmate.site.model.ColorSize;
 import kr.co.crewmate.site.model.Product;
-import kr.co.crewmate.site.model.product.ProductCriteria;
+import kr.co.crewmate.site.model.TypeSize;
 
 /**
  *
@@ -22,6 +23,17 @@ public interface ProductService {
 
     List<ColorSize> getColorSizeList(Product param);
 
-    List<Product> getProductColor(ProductCriteria param);
+    List<TypeSize> getTypeSizeList(Product param);
 
+    List<Product> getProductColor(Product param);
+
+    List<Product> getProductType(Product param);
+
+    List<String> getProductSize(Product param);
+
+    List<Canvas> getCanvasList(Product param);
+
+    List<Product> getFileList(Product param);
+
+    List<ColorSize> getPriceList(Product param);
 }

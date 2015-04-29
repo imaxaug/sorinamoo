@@ -336,19 +336,6 @@ $.widget('mp.designsController', {
 
 	_draw: function(items, isFirst) {
 		var html = '';
-//		var listView = new infinity.ListView(this.element.find('.mp-designs'));
-//		_.each(items, function(item) {
-//			html =
-//				'<li class="mp-design" ' +
-//					'data-id="' + item.id + '" ' +
-//					'data-description="' + item.description + '"' +
-//					'data-title="' + item.title + '">' +
-//					'<img data-src="' + item.filepath.replace('_thumbnail.png', '.png') + '"' +
-//					' src="' + item.filepath + '" alt="' + item.title  + '"/>' +
-//				'</li>';
-//			this._listView.append(html);
-//		}, this);
-
 		_.each(items, function(item) {
 			html +=
 				'<li class="mp-design" ' +
@@ -360,7 +347,7 @@ $.widget('mp.designsController', {
 					'data-title="' + item.designName + '"' +
 					'data-width="' + item.width + '"' +
 					'data-height="' + item.height + '">' +
-					'<img data-src="' + item.filePath.replace('_thumbnail.png', '.png') + '"' +
+					'<img data-src="' + item.filePath.replace("_thumbnail.png", ".png") + '"' +
 						'src="' + item.filePath + '" alt="' + item.designName  + '"/>' +
 					(this.element.is('#freeDesignLayer') ? '' : '<img src="/img/icons/glyphicons_197_remove.png" class="remove" title="삭제">') +
 					(item.price > 0 ? '<span>' + commify(item.price) + '</span>' : '') +
@@ -376,9 +363,6 @@ $.widget('mp.designsController', {
 		}
 
 		this.option('loading', false);
-
-//		if (this.element.find('.designerBox').length)
-//			this.element.find('.mp-designs .mp-design:eq(0)').click();
 	},
 
 	_scroll: function(e) {
@@ -443,7 +427,6 @@ $.widget('mp.designsController', {
 			}
 
 			if (confirm(l('삭제하시겠습니까?'))) {
-
 				$.get('/make_product/design/' + $design.attr('data-id') + '/remove', function(data) {
 					if (data.result == -1) {
 						showAlert(data.message);
@@ -732,8 +715,7 @@ $.widget('mp.productsController', {
 		var self = this;
 
 		$.get('/product/productList', function(products) {
-//			self._draw(products, next);
-			self._draw(products.data, next);//model.addAttribute("data", products); 변경으로 data 추가
+			self._draw(products.data, next);
 		});
 	},
 
@@ -931,38 +913,39 @@ $.widget('mp.editor', {
 		});
 
 		this.selectColor({
-			colorCode: this.options.selectedColorCode ? this.options.selectedColorCode : _.last(_.keys(this.option('baseProduct').colors))
+			colorCode: this.options.selectedColorCode ? this.options.selectedColorCode : _.last(_.keys(this.option('baseProduct').colorAry))
 		}, true);
 		this.options.selectedColorCode = null;
 
-		var currentCanvasInfo = baseProduct.canvasInfo[0];
+		var currentCanvasInfo = baseProduct.canvas[0];
 		this._drawImage({
-			src: this.image(currentCanvasInfo.file_type),
-			fileType: currentCanvasInfo.file_type,
+			src: this.image(currentCanvasInfo.fileType),
+			fileType: currentCanvasInfo.fileType,
 			type: currentCanvasInfo.type,
 			mainCanvasInfo: this._mainCanvasInfo(currentCanvasInfo.sort)
 		}, $.proxy(function() {
 			var $faces = $('.mp-editor-faces').html('');
-			_.each(baseProduct.canvasInfo, function(canvas, i) {
-				var $canvas = this.element.find('.mp-editor-canvas[data-file-type="' + canvas.file_type + '"]');
+			_.each(baseProduct.canvas, function(canvas, i) {
+				var $canvas = this.element.find('.mp-editor-canvas[data-file-type="' + canvas.fileType + '"]');
 				if (!$canvas.length) {
 					$canvas = this._createCanvas(canvas);
 				}
 
-				if (canvas.only_vector && !$canvas.find('.mp-only-vector').length) {
+				if (canvas.onlyVector && !$canvas.find('.mp-only-vector').length) {
 					$canvas.append('<div class="mp-only-vector"><img src="/img/make/abletoprint.jpg" /></div>');
-				} else if (!canvas.only_vector && $canvas.find('.mp-only-vector').length) {
+				} else if (!canvas.onlyVector && $canvas.find('.mp-only-vector').length) {
 					$canvas.find('.mp-only-vector').remove();
 				}
 
+				//file_type의 뜻을 알면 product_id, type으로만 맞는 size만 가지고 오면 됨.
 				$canvas.attr('data-sort', canvas.sort);
-				var size = _.find(this.option('baseProduct').sizeInfo[canvas.file_type], function(size) {
-					return size.code == $('.mp-editor-sizes').val();
+				var size = _.find(this.option('baseProduct').typeAry[canvas.fileType], function(size) {
+					return size.productSize == $('.mp-editor-sizes').val();
 				});
 
-				$canvas.attr('data-real-size-width', size.width);
-				$canvas.attr('data-real-size-height', size.height);
-				$canvas.find('.cm').text(size.width + 'cm x ' + size.height + 'cm');
+				$canvas.attr('data-real-size-width', size.locWidth);
+				$canvas.attr('data-real-size-height', size.locHeight);
+				$canvas.find('.cm').text(size.locWidth + 'cm x ' + size.locHeight + 'cm');
 				var rect = _.pick(canvas, 'top', 'left', 'width', 'height');
 				var $image = $('.mp-editor-image');
 				if (canvas.type == 'SUB') {
@@ -1153,12 +1136,11 @@ $.widget('mp.editor', {
 				next();
 			}).appendTo($image).attr('src', info.src);
 
-//			console.log($background, info.src);
 		});
 	},
 
 	drawDesigns: function(designs) {
-		// TODO 시연용 셋타임아웃
+		// 시연용 셋타임아웃
 //		setTimeout(_.bind(function() {
 			_.each(designs, function(design) {
 				var info = {
@@ -1192,7 +1174,7 @@ $.widget('mp.editor', {
 		var self = this;
 		var baseProduct = this.option('baseProduct');
 		var colorCode = arg.colorCode || $(arg.currentTarget).attr('data-color-code');
-		var colorInfos = baseProduct.colors[colorCode];
+		var colorInfos = baseProduct.colorAry[colorCode];
 //		$('.mp-editor-sizes').html('<option value="none">사이즈 선택</option>');
 
 		$('.mp-editor-sizes').html('');
@@ -1235,19 +1217,18 @@ $.widget('mp.editor', {
 
 	_mainCanvasInfo: function(sort) {
 		sort = sort + '';
-		return _.find(this.option('baseProduct').canvasInfo, function(canvas) {
+		return _.find(this.option('baseProduct').canvas, function(canvas) {
 			return canvas.sort == sort.substr(0, 1) + '00';
 		})
 	},
 
 	sizeName: function(sizeCode) {
-		return _.find(this.option('baseProduct').ori_sizes, function(size) { return size.code == sizeCode })[name_locale];
+		return _.find(this.option('baseProduct').oriSize, function(size) { return size.codeKey == sizeCode }).codeValue;
 	},
 
 	image: function(type) {
 		var baseProduct = this.option('baseProduct');
 		var currentColorCode = this._currentColorCode();
-//		console.log('hi~', currentColorCode);
 
 		var info = _.find(baseProduct.fileInfo, function(info) {
 			return info.color == currentColorCode && info.type == type;
@@ -1312,7 +1293,7 @@ $.widget('mp.editor', {
 			this.refreshPrice();
 			return false;
 		}
-		// 200 제한
+
 		if (ui.value >= 200) {
 			$('.mp-editor-quantity').spinner('value', 200);
 			this.refreshPrice();
@@ -1326,7 +1307,7 @@ $.widget('mp.editor', {
 		if (!currentColorCode) return;
 
 		var colorInfo =
-			_.find(this.option('baseProduct').colors[currentColorCode], function(info) {
+			_.find(this.option('baseProduct').colorAry[currentColorCode], function(info) {
 				return info.size == $('.mp-editor-sizes').val()
 			});
 
