@@ -38,6 +38,8 @@
     <entry key="system.admin">system</entry>
     <entry key="order.pos.no">S001</entry>
 	<entry key="no.brandImage">/images/noBrandImage.jpg</entry>
+	<entry key="server.pre.image.path">http://www.marpple.com</entry>
+	<entry key="local.pre.image.path">http://www.marpple.com</entry>
 
     <!-- lgUplus 인증정보 -->
     <entry key="lg.cstPlatform">test</entry>

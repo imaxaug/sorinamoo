@@ -1223,7 +1223,7 @@ $.widget('mp.editor', {
 	},
 
 	sizeName: function(sizeCode) {
-		return _.find(this.option('baseProduct').oriSize, function(size) { return size.codeKey == sizeCode }).codeValue;
+		return _.find(this.option('baseProduct').oriSizes, function(size) { return size.codeKey == sizeCode }).codeValue;
 	},
 
 	image: function(type) {
@@ -1311,10 +1311,10 @@ $.widget('mp.editor', {
 				return info.size == $('.mp-editor-sizes').val()
 			});
 
-		var priceText = l('기본 가격 %s원', commify(colorInfo[solid_price_locale]));
-		var price = colorInfo[solid_price_locale];
-		var price_ko = colorInfo.solid_price_ko;
-		var price_en = colorInfo.solid_price_en;
+		var priceText = l('기본 가격 %s원', commify(colorInfo.price));
+		var price = colorInfo.price;
+		var price_ko = colorInfo.price;
+		var price_en = colorInfo.price;
 
 		_.each($('.mp-editor-canvas').get(), function(canvas, i) {
 			if ($(canvas).find('.goods-item').length && this.option('baseProduct').canvasInfo[i]) {
