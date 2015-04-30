@@ -77,13 +77,13 @@ public class ProductController extends FrontOfficeController {
     private static String BASE_PRODUCT = "21";//기본 상품 번호
 
 
-    @RequestMapping("/make_product")
+    @RequestMapping("/product")
     public ModelAndView makeProduct(ModelMap model, ProductCriteria criteria) {
 
     	if(!StringUtils.isEmpty(criteria.getBaseProduct())) {
     		criteria.setProductId(criteria.getBaseProduct());
     	} else {
-    		return new ModelAndView(String.format("redirect:/make_product?baseProduct=%s", BASE_PRODUCT));
+    		return new ModelAndView(String.format("redirect:/product?baseProduct=%s", BASE_PRODUCT));
     	}
 
     	Product product = this.getDetailProduct(criteria);
@@ -137,10 +137,10 @@ public class ProductController extends FrontOfficeController {
     	return product;
     }
 
-    @RequestMapping("/product")
-    public ModelAndView product(ModelMap model, UserCriteria criteria) {
-    	return new ModelAndView("frontoffice/product");
-    }
+//    @RequestMapping("/product")
+//    public ModelAndView product(ModelMap model, UserCriteria criteria) {
+//    	return new ModelAndView("frontoffice/product");
+//    }
 
     /**
      * 상품 위젯 > 전체 상품 리스트(이미지 포함)

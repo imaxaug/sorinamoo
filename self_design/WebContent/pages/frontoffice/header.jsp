@@ -15,7 +15,7 @@
             <li><a href="/shop/login">로그인</a></li>
             </c:if>
 
-            <li><a href="/product?baseProduct=21">상품 만등기</a></li>
+            <li><a href="/product">상품 만등기</a></li>
             <li><a href="/cart">장바구니</a></li>
             <li><a href="/my_page/order">주문/배송조회</a></li>
             <li class="/designer"><a href="/seller">디자이너 스토어</a></li>
