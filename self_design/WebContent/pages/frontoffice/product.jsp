@@ -872,17 +872,16 @@ jQuery tmpl를 {{html }}으로 수정하면 해결할 수 있으나, 근본적�
 --%>
 <script id="tFace" type="text/x-jquery-tmpl">
 <div class="face"
-    data-file-type="{{html file_type}}"
+    data-file-type="{{html fileType}}"
     data-type="{{html type}}"
     data-sort="{{html sort}}">
-    <div class="img" title="{{html name_ko}}"><img src="{{html filepath}}" alt="{{html name_ko}}" title="{{html name_ko}}" /></div>
-    <!-- span class="name">${name_ko}</span -->
+    <div class="img" title="{{html name_ko}}"><img src="{{html filePath}}" alt="{{html name_ko}}" title="{{html name_ko}}" /></div>
 </div>
 </script>
 
 <script id="tProduct" type="text/x-jquery-tmpl">
 <div class="product" data-id="${productId}" data-basket-id="${id}">
-    <div class="img"><a href="/make_product?product={{html productId}}"><img src="{{html filepath}}" /></a></div>
+    <div class="img"><a href="/product?product={{html productId}}"><img src="{{html filepath}}" /></a></div>
     <div class="name">{{html name_ko}}</div>
     <div class="info">
         <span class="size">{{html size}}</span> |

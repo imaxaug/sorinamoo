@@ -101,7 +101,7 @@ public class ProductController extends FrontOfficeController {
     	List<String> sizes = this.productService.getProductSize(criteria);
     	List<Canvas> canvas = this.productService.getCanvasList(criteria);
     	List<Product> files = this.productService.getFileList(criteria);
-    	List<Product> prices = this.productService.getFileList(criteria);
+    	List<ColorSize> prices = this.productService.getPriceList(criteria);
 
     	LinkedHashMap<String, List<ColorSize>> colorAry = new LinkedHashMap<String, List<ColorSize>>();
     	LinkedHashMap<String, List<TypeSize>> typeAry = new LinkedHashMap<String, List<TypeSize>>();
@@ -118,13 +118,15 @@ public class ProductController extends FrontOfficeController {
     	}
 
     	for(Product t : type) {
+    		t.setProductId(criteria.getProductId());
+
     		List<TypeSize> typeList = this.productService.getTypeSizeList(t);
-    		typeAry.put(t.getType(), typeList);
+    		typeAry.put(t.getFileType(), typeList);
     	}
 
     	if(product != null) {
     		product.setColorAry(colorAry);
-    		product.setTypeAry(typeAry);
+    		product.setSizeAry(typeAry);
     		product.setOriSizes(list);
     		product.setSizes(sizes);
     		product.setCanvas(canvas);

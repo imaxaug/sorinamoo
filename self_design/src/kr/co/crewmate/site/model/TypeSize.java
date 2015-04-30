@@ -15,26 +15,31 @@ import java.util.List;
  * @date 2013. 5. 22.
  */
 public class TypeSize extends ToString {
-    private String productType;
-    private String productSize;
+    private String productId;
+    private String fileType;
+    private String size;
     private int locTop;
     private int locLeft;
     private int locWidth;
     private int locHeight;
-    private String productId;
     private String sizeName;
-
-	public String getProductType() {
-		return productType;
+	public String getProductId() {
+		return productId;
 	}
-	public void setProductType(String productType) {
-		this.productType = productType;
+	public void setProductId(String productId) {
+		this.productId = productId;
 	}
-	public String getProductSize() {
-		return productSize;
+	public String getFileType() {
+		return fileType;
 	}
-	public void setProductSize(String productSize) {
-		this.productSize = productSize;
+	public void setFileType(String fileType) {
+		this.fileType = fileType;
+	}
+	public String getSize() {
+		return size;
+	}
+	public void setSize(String size) {
+		this.size = size;
 	}
 	public int getLocTop() {
 		return locTop;
@@ -60,11 +65,10 @@ public class TypeSize extends ToString {
 	public void setLocHeight(int locHeight) {
 		this.locHeight = locHeight;
 	}
-	public String getProductId() {
-		return productId;
+	public String getSizeName() {
+		return sizeName;
 	}
-	public void setProductId(String productId) {
-		this.productId = productId;
+	public void setSizeName(String sizeName) {
+		this.sizeName = sizeName;
 	}
-
 }

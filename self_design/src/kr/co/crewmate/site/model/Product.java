@@ -35,17 +35,18 @@ public class Product extends ToString {
     private String extraPrice;
     private String type;
     private String filePath;
+    private String fileType;
     private String catalog;
     private String category;
     private String sizeFilePath;
     private String sizeFileName;
     private List<Canvas> canvas;
     private LinkedHashMap<String, List<ColorSize>> colorAry;
-    private LinkedHashMap<String, List<TypeSize>> typeAry;
+    private LinkedHashMap<String, List<TypeSize>> sizeAry;
     private List<CommonCode> oriSizes;
     private List<String> sizes;
     private List<Product> files;
-    private List<Product> prices;
+    private List<ColorSize> prices;
 
 	public int getHitCount() {
 		return hitCount;
@@ -185,29 +186,11 @@ public class Product extends ToString {
 	public void setSizeFileName(String sizeFileName) {
 		this.sizeFileName = sizeFileName;
 	}
-	public HashMap<String, List<TypeSize>> getTypeAry() {
-		return typeAry;
-	}
-	public void setTypeAry(LinkedHashMap<String, List<TypeSize>> typeAry) {
-		this.typeAry = typeAry;
-	}
 	public List<CommonCode> getOriSizes() {
 		return oriSizes;
 	}
 	public void setOriSizes(List<CommonCode> oriSizes) {
 		this.oriSizes = oriSizes;
-	}
-	public List<Product> getFiles() {
-		return files;
-	}
-	public void setFiles(List<Product> files) {
-		this.files = files;
-	}
-	public List<Product> getPrices() {
-		return prices;
-	}
-	public void setPrices(List<Product> prices) {
-		this.prices = prices;
 	}
 	public HashMap<String, List<ColorSize>> getColorAry() {
 		return colorAry;
@@ -220,6 +203,30 @@ public class Product extends ToString {
 	}
 	public void setSizes(List<String> sizes) {
 		this.sizes = sizes;
+	}
+	public String getFileType() {
+		return fileType;
+	}
+	public void setFileType(String fileType) {
+		this.fileType = fileType;
+	}
+	public LinkedHashMap<String, List<TypeSize>> getSizeAry() {
+		return sizeAry;
+	}
+	public void setSizeAry(LinkedHashMap<String, List<TypeSize>> sizeAry) {
+		this.sizeAry = sizeAry;
+	}
+	public List<Product> getFiles() {
+		return files;
+	}
+	public void setFiles(List<Product> files) {
+		this.files = files;
+	}
+	public List<ColorSize> getPrices() {
+		return prices;
+	}
+	public void setPrices(List<ColorSize> prices) {
+		this.prices = prices;
 	}
 
 }

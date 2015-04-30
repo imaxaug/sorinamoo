@@ -893,7 +893,7 @@ $.widget('mp.editor', {
 
 	baseProduct: function(baseProduct, next) {
 		this.options.baseProduct = baseProduct;
-		$('.mp-editor-name').text(baseProduct[name_locale]);
+		$('.mp-editor-name').text(baseProduct.productName);
 		var _colors = [];
 
 		_.each(this.option('baseProduct').colorAry, function(color) {
@@ -937,10 +937,9 @@ $.widget('mp.editor', {
 					$canvas.find('.mp-only-vector').remove();
 				}
 
-				//file_type의 뜻을 알면 product_id, type으로만 맞는 size만 가지고 오면 됨.
 				$canvas.attr('data-sort', canvas.sort);
-				var size = _.find(this.option('baseProduct').typeAry[canvas.fileType], function(size) {
-					return size.productSize == $('.mp-editor-sizes').val();
+				var size = _.find(this.option('baseProduct').sizeAry[canvas.fileType], function(size) {
+					return size.size == $('.mp-editor-sizes').val();
 				});
 
 				$canvas.attr('data-real-size-width', size.locWidth);
@@ -1003,8 +1002,8 @@ $.widget('mp.editor', {
 		$faceImg.css({ visibility: 'hidden' });
 		$faceImg.load($.proxy(function() {
 			var mainCanvasFileType = $faces.find('.face[data-type="MAIN"]:last').attr('data-file-type');
-			var mainCanvas = _.find(this.option('baseProduct').canvasInfo, function(canvas) {
-				return canvas.file_type == mainCanvasFileType;
+			var mainCanvas = _.find(this.option('baseProduct').canvas, function(canvas) {
+				return canvas.fileType == mainCanvasFileType;
 			});
 			var center = {
 				top: $faceImg.height(),
@@ -1020,8 +1019,8 @@ $.widget('mp.editor', {
 				width: '200%'
 			};
 			var center2 = {
-				top: (mainCanvas.top + canvas.top) * 2 + (canvas.height),
-				left: (mainCanvas.left + canvas.left) * 2 + (canvas.width)
+				top: (mainCanvas.locTop + canvas.locTop) * 2 + (canvas.locHeight),
+				left: (mainCanvas.locLeft + canvas.locLeft) * 2 + (canvas.locWidth)
 			};
 
 			var result2 = {
@@ -1060,11 +1059,11 @@ $.widget('mp.editor', {
 				info.style.height = parseInt(info.style.height, 10) / 2;
 				if (!info.style.width || !info.style.height) return; // 아직 auto인 경우에 들어온 경우 처리, 리팩토링 필요, item.change관련 땜빵임.
 
-				var subCanvas = _.find(self.option('baseProduct').canvasInfo, function(canvas) {
-					return $canvas.attr('data-file-type') == canvas.file_type;
+				var subCanvas = _.find(self.option('baseProduct').canvas, function(canvas) {
+					return $canvas.attr('data-file-type') == canvas.fileType;
 				});
-				info.style.top = parseInt(info.style.top, 10) / 2 + subCanvas.top;
-				info.style.left = parseInt(info.style.left, 10) / 2 +  subCanvas.left;
+				info.style.top = parseInt(info.style.top, 10) / 2 + subCanvas.locTop;
+				info.style.left = parseInt(info.style.left, 10) / 2 +  subCanvas.locLeft;
 				info.editable = false;
 				$mainCanvas.page('addItem', info); // TODO 여기 info price 등 검증하기
 			});
@@ -1175,7 +1174,6 @@ $.widget('mp.editor', {
 		var baseProduct = this.option('baseProduct');
 		var colorCode = arg.colorCode || $(arg.currentTarget).attr('data-color-code');
 		var colorInfos = baseProduct.colorAry[colorCode];
-//		$('.mp-editor-sizes').html('<option value="none">사이즈 선택</option>');
 
 		$('.mp-editor-sizes').html('');
 		_.each(colorInfos, function(colorInfo) {
@@ -1219,21 +1217,21 @@ $.widget('mp.editor', {
 		sort = sort + '';
 		return _.find(this.option('baseProduct').canvas, function(canvas) {
 			return canvas.sort == sort.substr(0, 1) + '00';
-		})
+		});
 	},
 
 	sizeName: function(sizeCode) {
-		return _.find(this.option('baseProduct').oriSizes, function(size) { return size.codeKey == sizeCode }).codeValue;
+		return _.find(this.option('baseProduct').oriSizes, function(size) { return size.codeKey == sizeCode; }).codeValue;
 	},
 
 	image: function(type) {
 		var baseProduct = this.option('baseProduct');
 		var currentColorCode = this._currentColorCode();
 
-		var info = _.find(baseProduct.fileInfo, function(info) {
+		var info = _.find(baseProduct.files, function(info) {
 			return info.color == currentColorCode && info.type == type;
 		}) || { filepath: '' };
-		return info.filepath;
+		return info.filePath;
 	},
 
 	_currentColorCode: function() {
@@ -1308,7 +1306,7 @@ $.widget('mp.editor', {
 
 		var colorInfo =
 			_.find(this.option('baseProduct').colorAry[currentColorCode], function(info) {
-				return info.size == $('.mp-editor-sizes').val()
+				return info.size == $('.mp-editor-sizes').val();
 			});
 
 		var priceText = l('기본 가격 %s원', commify(colorInfo.price));
@@ -1317,14 +1315,14 @@ $.widget('mp.editor', {
 		var price_en = colorInfo.price;
 
 		_.each($('.mp-editor-canvas').get(), function(canvas, i) {
-			if ($(canvas).find('.goods-item').length && this.option('baseProduct').canvasInfo[i]) {
-				var _price = this.option('baseProduct').canvasInfo[i][price_locale];
-				var _price_ko = this.option('baseProduct').canvasInfo[i].price_ko;
-				var _price_en = this.option('baseProduct').canvasInfo[i].price_en;
+			if ($(canvas).find('.goods-item').length && this.option('baseProduct').canvas[i]) {
+				var _price = this.option('baseProduct').canvas[i].price;
+				var _price_ko = this.option('baseProduct').canvas[i].price;
+				var _price_en = this.option('baseProduct').canvas[i].price;
 				price += _price;
 				price_ko += _price_ko;
 				price_en += _price_en;
-				priceText += '<br>' + l('%s 인쇄 %s원', this.option('baseProduct').canvasInfo[i][name_locale], commify(_price));
+				priceText += '<br>' + l('%s 인쇄 %s원', this.option('baseProduct').canvas[i].name, commify(_price));
 			}
 		}, this);
 
