@@ -37,10 +37,10 @@
     <select id="getTypeSizeList" resultClass="typeSize" parameterClass="product">
         SELECT A.FILE_TYPE fileType
              , B.SIZE size
-             , A.LOC_TOP locTop
-             , A.LOC_LEFT locLeft
-             , A.LOC_WIDTH locWidth
-             , A.LOC_HEIGHT locHeight
+             , A.LOC_TOP top
+             , A.LOC_LEFT 'left'
+             , A.LOC_WIDTH width
+             , A.LOC_HEIGHT height
              , C.CODE_VALUE sizeName
              , A.PRODUCT_ID productId
          FROM PRODUCT_TYPE A, PRODUCT_SIZE B, COMMON_CODE C
@@ -75,23 +75,26 @@
     </select>
 
     <select id="getCanvasList" resultClass="canvas" parameterClass="product">
-        SELECT TYPE type
-             , FILE_TYPE fileType
-             , LOC_TOP locTop
-             , LOC_LEFT locLeft
-             , LOC_WIDTH locWidth
-             , LOC_HEIGHT locHeight
-             , PRICE price
-             , CASE ONLY_VECTOR
+        SELECT A.TYPE type
+             , A.FILE_TYPE fileType
+             , A.LOC_TOP top
+             , A.LOC_LEFT 'left'
+             , A.LOC_WIDTH width
+             , A.LOC_HEIGHT height
+             , A.PRICE price
+             , CASE A.ONLY_VECTOR
                     WHEN 'N' THEN 'false'
                     WHEN 'Y' THEN 'true'
                END onlyVector
-             , CONCAT('http://www.marpple.com', FILE_PATH) filePath
-             , FILE_NAME fileName
-             , SORT sort
-          FROM PRODUCT_TYPE
-         WHERE PRODUCT_ID = #productId#
-         ORDER BY SORT
+             , CONCAT('http://www.marpple.com', A.FILE_PATH) filePath
+             , A.FILE_NAME fileName
+             , A.SORT sort
+             , B.CODE_VALUE name
+          FROM PRODUCT_CANVAS A, COMMON_CODE B
+         WHERE A.PRODUCT_ID = #productId#
+           AND A.FILE_TYPE = B.CODE_KEY
+           AND B.CODE_CLASS = 'TYPE'
+         ORDER BY A.SORT
     </select>
 
     <select id="getFileList" resultClass="product" parameterClass="product">

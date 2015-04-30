@@ -15,10 +15,6 @@ import java.util.Date;
  */
 public class Canvas extends ToString {
     private String type;
-    private String top;
-    private String left;
-    private String width;
-    private String height;
     private String name;
     private String price;
     private String onlyVector;
@@ -26,35 +22,16 @@ public class Canvas extends ToString {
     private String fileType;
     private String fileName;
     private String sort;
+    private int top;
+    private int left;
+    private int width;
+    private int height;
+
 	public String getType() {
 		return type;
 	}
 	public void setType(String type) {
 		this.type = type;
-	}
-	public String getTop() {
-		return top;
-	}
-	public void setTop(String top) {
-		this.top = top;
-	}
-	public String getLeft() {
-		return left;
-	}
-	public void setLeft(String left) {
-		this.left = left;
-	}
-	public String getWidth() {
-		return width;
-	}
-	public void setWidth(String width) {
-		this.width = width;
-	}
-	public String getHeight() {
-		return height;
-	}
-	public void setHeight(String height) {
-		this.height = height;
 	}
 	public String getName() {
 		return name;
@@ -97,6 +74,30 @@ public class Canvas extends ToString {
 	}
 	public void setSort(String sort) {
 		this.sort = sort;
+	}
+	public int getTop() {
+		return top;
+	}
+	public void setTop(int top) {
+		this.top = top;
+	}
+	public int getLeft() {
+		return left;
+	}
+	public void setLeft(int left) {
+		this.left = left;
+	}
+	public int getWidth() {
+		return width;
+	}
+	public void setWidth(int width) {
+		this.width = width;
+	}
+	public int getHeight() {
+		return height;
+	}
+	public void setHeight(int height) {
+		this.height = height;
 	}
 
 }

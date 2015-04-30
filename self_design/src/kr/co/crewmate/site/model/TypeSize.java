@@ -18,10 +18,10 @@ public class TypeSize extends ToString {
     private String productId;
     private String fileType;
     private String size;
-    private int locTop;
-    private int locLeft;
-    private int locWidth;
-    private int locHeight;
+    private int top;
+    private int left;
+    private int width;
+    private int height;
     private String sizeName;
 	public String getProductId() {
 		return productId;
@@ -41,34 +41,34 @@ public class TypeSize extends ToString {
 	public void setSize(String size) {
 		this.size = size;
 	}
-	public int getLocTop() {
-		return locTop;
-	}
-	public void setLocTop(int locTop) {
-		this.locTop = locTop;
-	}
-	public int getLocLeft() {
-		return locLeft;
-	}
-	public void setLocLeft(int locLeft) {
-		this.locLeft = locLeft;
-	}
-	public int getLocWidth() {
-		return locWidth;
-	}
-	public void setLocWidth(int locWidth) {
-		this.locWidth = locWidth;
-	}
-	public int getLocHeight() {
-		return locHeight;
-	}
-	public void setLocHeight(int locHeight) {
-		this.locHeight = locHeight;
-	}
 	public String getSizeName() {
 		return sizeName;
 	}
 	public void setSizeName(String sizeName) {
 		this.sizeName = sizeName;
+	}
+	public int getTop() {
+		return top;
+	}
+	public void setTop(int top) {
+		this.top = top;
+	}
+	public int getLeft() {
+		return left;
+	}
+	public void setLeft(int left) {
+		this.left = left;
+	}
+	public int getWidth() {
+		return width;
+	}
+	public void setWidth(int width) {
+		this.width = width;
+	}
+	public int getHeight() {
+		return height;
+	}
+	public void setHeight(int height) {
+		this.height = height;
 	}
 }

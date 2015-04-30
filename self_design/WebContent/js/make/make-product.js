@@ -769,7 +769,6 @@ $.widget('mp.productsController', {
 				_colors.push(_color);
 			});
 
-			//var colorCodes = _.keys(product.colors);
 			$('.mp-product-detail-colors').find('.color').remove();
 			_.each(_colors, function(color) {
 				$('.mp-product-detail-colors').prepend(
@@ -780,7 +779,7 @@ $.widget('mp.productsController', {
 			});
 
 			$('#tab2')
-				.find('.pdtImage img').attr('src', product.canvasInfo[0].filepath).end()
+				.find('.pdtImage img').attr('src', product.canvas[0].filePath).end()
 				.find('.pdtName').text(product[name_locale]).end()
 				.find('.description').html(product[description_locale]).end()
 				.find('.price').text(commify(product.priceInfo[0][solid_price_locale]) + '원 ~').end()
@@ -931,9 +930,9 @@ $.widget('mp.editor', {
 					$canvas = this._createCanvas(canvas);
 				}
 
-				if (canvas.onlyVector && !$canvas.find('.mp-only-vector').length) {
+				if (canvas.onlyVector === 'true' && !$canvas.find('.mp-only-vector').length) {
 					$canvas.append('<div class="mp-only-vector"><img src="/img/make/abletoprint.jpg" /></div>');
-				} else if (!canvas.onlyVector && $canvas.find('.mp-only-vector').length) {
+				} else if (String(canvas.onlyVector) != 'true' && $canvas.find('.mp-only-vector').length) {
 					$canvas.find('.mp-only-vector').remove();
 				}
 
@@ -942,9 +941,9 @@ $.widget('mp.editor', {
 					return size.size == $('.mp-editor-sizes').val();
 				});
 
-				$canvas.attr('data-real-size-width', size.locWidth);
-				$canvas.attr('data-real-size-height', size.locHeight);
-				$canvas.find('.cm').text(size.locWidth + 'cm x ' + size.locHeight + 'cm');
+				$canvas.attr('data-real-size-width', size.width);
+				$canvas.attr('data-real-size-height', size.height);
+				$canvas.find('.cm').text(size.width + 'cm x ' + size.height + 'cm');
 				var rect = _.pick(canvas, 'top', 'left', 'width', 'height');
 				var $image = $('.mp-editor-image');
 				if (canvas.type == 'SUB') {
@@ -1019,8 +1018,8 @@ $.widget('mp.editor', {
 				width: '200%'
 			};
 			var center2 = {
-				top: (mainCanvas.locTop + canvas.locTop) * 2 + (canvas.locHeight),
-				left: (mainCanvas.locLeft + canvas.locLeft) * 2 + (canvas.locWidth)
+				top: (mainCanvas.top + canvas.top) * 2 + (canvas.height),
+				left: (mainCanvas.left + canvas.left) * 2 + (canvas.width)
 			};
 
 			var result2 = {
@@ -1062,21 +1061,24 @@ $.widget('mp.editor', {
 				var subCanvas = _.find(self.option('baseProduct').canvas, function(canvas) {
 					return $canvas.attr('data-file-type') == canvas.fileType;
 				});
-				info.style.top = parseInt(info.style.top, 10) / 2 + subCanvas.locTop;
-				info.style.left = parseInt(info.style.left, 10) / 2 +  subCanvas.locLeft;
+				info.style.top = parseInt(info.style.top, 10) / 2 + subCanvas.top;
+				info.style.left = parseInt(info.style.left, 10) / 2 +  subCanvas.left;
 				info.editable = false;
 				$mainCanvas.page('addItem', info); // TODO 여기 info price 등 검증하기
 			});
 		};
 
 		var $canvas = $('<div class="mp-editor-canvas"><div class="cm"></div></div>')
-			.attr('data-file-type', canvas.file_type)
+			.attr('data-file-type', canvas.fileType)
 			.attr('data-type', canvas.type)
 			.page({
 				change: change
 			});
-		if (canvas.only_vector)
+
+		if (canvas.onlyVector === "true") {
 			$canvas.append('<div class="mp-only-vector"><img src="/img/make/abletoprint.jpg" /></div>');
+		}
+
 		return $canvas;
 	},
 
@@ -1263,7 +1265,7 @@ $.widget('mp.editor', {
 	_changeSize: function(noRefresh) {
 		_.each($('.mp-editor-canvas').get(), function(el) {
 			var $canvas = $(el);
-			var size = _.find(this.option('baseProduct').sizeInfo[$canvas.attr('data-file-type')], function(size) {
+			var size = _.find(this.option('baseProduct').sizeAry[$canvas.attr('data-file-type')], function(size) {
 				return size.code == $('.mp-editor-sizes').val();
 			});
 			if (size) {
@@ -1310,15 +1312,15 @@ $.widget('mp.editor', {
 			});
 
 		var priceText = l('기본 가격 %s원', commify(colorInfo.price));
-		var price = colorInfo.price;
-		var price_ko = colorInfo.price;
-		var price_en = colorInfo.price;
+		var price = parseInt(colorInfo.price);
+		var price_ko = parseInt(colorInfo.price);
+		var price_en = parseInt(colorInfo.price);
 
 		_.each($('.mp-editor-canvas').get(), function(canvas, i) {
 			if ($(canvas).find('.goods-item').length && this.option('baseProduct').canvas[i]) {
-				var _price = this.option('baseProduct').canvas[i].price;
-				var _price_ko = this.option('baseProduct').canvas[i].price;
-				var _price_en = this.option('baseProduct').canvas[i].price;
+				var _price = parseInt(this.option('baseProduct').canvas[i].price);
+				var _price_ko = parseInt(this.option('baseProduct').canvas[i].price);
+				var _price_en = parseInt(this.option('baseProduct').canvas[i].price);
 				price += _price;
 				price_ko += _price_ko;
 				price_en += _price_en;
@@ -1340,9 +1342,9 @@ $.widget('mp.editor', {
 		var storePrice_en = 0;
 		$('.mp-editor-canvas .goods-item').each(function() {
 			var $item = $(this);
-			storePrice += $item.item('info').price;
-			storePrice_ko += $item.item('info').price_ko;
-			storePrice_en += $item.item('info').price_en;
+			storePrice += parseInt($item.item('info').price);
+			storePrice_ko += parseInt($item.item('info').price_ko);
+			storePrice_en += parseInt($item.item('info').price_en);
 		});
 		if (storePrice > 0) {
 			price += storePrice;
