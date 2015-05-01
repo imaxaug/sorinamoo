@@ -1330,10 +1330,10 @@ $.widget('mp.editor', {
 
 		// 컬러별 옵션 가격
 		if ($('.mp-editor-canvas .goods-item').length && colorInfo[extra1_locale]) {
-			price += colorInfo[extra1_locale];
-			price_ko += colorInfo.extra1_ko;
-			price_en += colorInfo.extra1_en;
-			priceText += '<br>' + l('컬러티셔츠 인쇄 %s원', commify(colorInfo[extra1_locale])) + '<img src="../img/make/question.png" title="' + l('인쇄할 티셔츠가 컬러인 경우에 추가되는 가격입니다. (블랙 포함)') + '">';
+			price += parseInt(colorInfo.extraPrice);
+			price_ko += parseInt(colorInfo.extraPrice);
+			price_en += parseInt(colorInfo.extraPrice);
+			priceText += '<br>' + l('컬러티셔츠 인쇄 %s원', commify(colorInfo.extraPrice)) + '<img src="../img/make/question.png" title="' + l('인쇄할 티셔츠가 컬러인 경우에 추가되는 가격입니다. (블랙 포함)') + '">';
 		}
 
 		// 디자이너 스토어 가격
